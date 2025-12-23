@@ -1,0 +1,668 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                       String             @id @default(uuid())
+  name                     String
+  nameNp                   String?
+  email                    String?
+  password                 String
+  phone                    String             @unique
+  role                     ROLE               @default(USER)
+  gender                   GENDER             @default(MALE)
+  isBlocked                Boolean            @default(false)
+  isDeactivated            Boolean            @default(false)
+  createdAt                DateTime           @default(now())
+  updatedAt                DateTime           @updatedAt
+  deletedAt                DateTime?
+  createdById              String?
+  isDummyAccount           Boolean            @default(false)
+  requireLoginVerification Boolean            @default(false)
+  application              Application[]      @relation("createdByUser")
+  assessments              Assessment[]
+  auditLog                 AuditLog[]
+  bulkOperationLog         BulkOperationLog[]
+  applicationsByAdmin      Application[]      @relation("createdByAdmin")
+}
+
+model Media {
+  id                String           @id @default(uuid())
+  name              String?
+  url               String?
+  mimeType          String?
+  mediaType         String?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  deletedAt         DateTime?
+  applicationId     String?
+  proposerId        String?
+  resourceId        String?
+  committeeMemberId String?
+  memberId          String?
+  application       Application?     @relation(fields: [applicationId], references: [id])
+  committeeMember   CommitteeMember? @relation(fields: [committeeMemberId], references: [id])
+  member            Member?          @relation(fields: [memberId], references: [id])
+  proposer          Proposer?        @relation(fields: [proposerId], references: [id])
+  resource          Resource?        @relation(fields: [resourceId], references: [id])
+}
+
+model ApplicationCycle {
+  id            String          @id @default(uuid())
+  name          String?
+  startDate     DateTime?
+  endDate       DateTime?
+  isDisabled    Boolean         @default(false)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  deletedAt     DateTime?
+  application   Application[]
+  codeCounters  CodeCounter[]
+  loanRecipient LoanRecipient[]
+}
+
+model Application {
+  id                        String                @id @default(uuid())
+  applicationCode           String?
+  firmCompanyIndustryName   String
+  firmCompanyIndustryNameNp String
+  initialRegistrationOffice String?
+  registrationDate          String?
+  registrationNumber        String?
+  panNumber                 String?
+  licenseProviderOffice     String?
+  licenseIssuanceDate       String?
+  licenseValidityPeriod     String?
+  officeAddressId           Int                   @unique
+  officeTelephone           String?
+  officeEmail               String?
+  officeWebsite             String?
+  representativeName        String?
+  representativeDesignation String?
+  representativeTelephone   String?
+  representativeMobile      String
+  representativeEmail       String?
+  mediaCaption              Json?
+  status                    APPLICATION_STATUS    @default(INCOMPLETE)
+  rejectionReason           String?
+  createdAt                 DateTime              @default(now())
+  updatedAt                 DateTime              @updatedAt
+  deletedAt                 DateTime?
+  applicationCycleId        String?
+  tempProposer              Json?
+  isAffiliatedWithEPC       Boolean?              @default(false)
+  submissionDate            String?
+  cleanedFirmNepaliName     String?
+  applicationCycle          ApplicationCycle?     @relation(fields: [applicationCycleId], references: [id], onDelete: Restrict)
+  officeAddress             Address               @relation(fields: [officeAddressId], references: [id])
+  user                      User?                 @relation("createdByUser", fields: [userId], references: [id], onDelete: Cascade)
+  userId                    String?
+  assessments               Assessment[]
+  entrepreneurProfile       EntrepreneurProfile[]
+  financialAnalysis         FinancialAnalysis?
+  media                     Media[]
+  productUsage              ProductUsage?
+  projectAnalysis           ProjectAnalysis?
+  projectIntroduction       ProjectIntroduction?
+  proposer                  Proposer?
+  riskImpactAnalysis        RiskImpactAnalysis?
+  statusHistory             StatusHistory[]
+  swotAnalysis              SwotAnalysis?
+  workPlan                  WorkPlan[]
+  createdByAdmin            User?                 @relation("createdByAdmin", fields: [createdByAdminId], references: [id])
+  createdByAdminId          String?
+  //
+  bulkOperationLog          BulkOperationLog?     @relation(fields: [bulkOperationLogId], references: [id])
+  bulkOperationLogId        String?
+
+  @@unique([userId, applicationCycleId], map: "unique_user_cycle_idx")
+  @@unique([applicationCode, applicationCycleId], map: "unique_code_cycle_idx")
+}
+
+model Assessment {
+  id              String          @id @default(uuid())
+  applicationId   String
+  assessmentType  ASSESSMENT_TYPE @default(AI_SCREENING)
+  scoreSheet      Json?
+  score           Float?
+  originalScore   Float?
+  remarks         String?
+  rejectionReason String?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  assessorId      String?
+  isDraft         Boolean?
+  application     Application     @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  assessor        User?           @relation(fields: [assessorId], references: [id])
+
+  @@unique([applicationId, assessmentType], map: "unique_application_assessmentType_idx")
+  @@unique([assessorId, assessmentType, isDraft], map: "unique_assessor_assessmentType_draft_idx")
+}
+
+model ScoreThreshold {
+  id             String          @id @default(uuid())
+  assessmentType ASSESSMENT_TYPE @unique
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  passingScore   Float?
+}
+
+model CodeCounter {
+  id                 String           @id @default(uuid())
+  prefix             String
+  applicationCycleId String
+  lastValue          Int              @default(0)
+  applicationCycle   ApplicationCycle @relation(fields: [applicationCycleId], references: [id], onDelete: Cascade)
+
+  @@unique([prefix, applicationCycleId])
+}
+
+model StatusHistory {
+  id            String      @id @default(uuid())
+  userId        String?
+  oldStatus     String?
+  newStatus     String?
+  remark        String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  applicationId String
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model EntrepreneurProfile {
+  id                       String       @id @default(uuid())
+  name                     String
+  citizenshipNumber        String
+  issuedDate               String?
+  issuedDistrict           String?
+  temporaryAddressId       Int          @unique
+  permanentAddressId       Int          @unique
+  mobileNumber             String
+  gender                   GENDER       @default(OTHER)
+  isMainEntrepreneur       Boolean      @default(false)
+  createdAt                DateTime     @default(now())
+  updatedAt                DateTime     @updatedAt
+  deletedAt                DateTime?
+  applicationId            String?
+  educationalQualification String?
+  experience               String?
+  training                 String?
+  application              Application? @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  permanentAddress         Address      @relation("permanentAddress", fields: [permanentAddressId], references: [id])
+  temporaryAddress         Address      @relation("temporaryAddress", fields: [temporaryAddressId], references: [id])
+}
+
+model ProductUsage {
+  id                                     String       @id @default(uuid())
+  productOrServiceName                   String
+  productOrServiceNature                 String?
+  targetCustomerAndMarket                String?
+  hasTrademarkPatentDesignGeographical   Boolean      @default(false)
+  mainFeaturesOfProductOrService         String?
+  specialUtilityOfProductOrService       String?
+  qualityCertificationOfProductOrService Boolean      @default(false)
+  technologyAdoptedInProduction          String?
+  isTechnologySelfProduced               Boolean      @default(false)
+  technologyAdoptionPurpose              String?
+  sourceOfRawMaterials                   String?
+  createdAt                              DateTime     @default(now())
+  updatedAt                              DateTime     @updatedAt
+  deletedAt                              DateTime?
+  applicationId                          String?      @unique
+  application                            Application? @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model ProjectIntroduction {
+  id                        String            @id @default(uuid())
+  projectIntroduction       String?
+  projectObjective          String?
+  startupSectorId           String?
+  totalEstimatedCost        Float?
+  expenditureSoFar          Float?
+  createdAt                 DateTime          @default(now())
+  updatedAt                 DateTime          @updatedAt
+  deletedAt                 DateTime?
+  applicationId             String?           @unique
+  isProjectInPrioritySector Boolean?          @default(false)
+  startupSubSectorId        String?
+  application               Application?      @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  startupSector             StartupSector?    @relation(fields: [startupSectorId], references: [id])
+  startupSubSector          StartupSubSector? @relation(fields: [startupSubSectorId], references: [id])
+}
+
+model ProjectAnalysis {
+  id                               String       @id @default(uuid())
+  isEstablishedMoreThan10Years     Boolean?
+  isAnnualTurnoverExceeded15Crores Boolean?
+  isInnovativeTechnologyUsed       Boolean?
+  selfInvestmentAmount             Float?
+  requestedLoanAmount              Float?
+  lastFiscalYearSalesAmount        Float?
+  isBlacklistedInCreditBureau      Boolean?
+  isOtherGovGrantReceived          Boolean?
+  innovativeWork                   String?
+  innovativeWorkDescription        String?
+  nextYearEstimatedJobCreation     Int?
+  productMarket                    String?
+  rawMaterialSource                String?
+  entrepreneurialExperience        String?
+  createdAt                        DateTime     @default(now())
+  updatedAt                        DateTime     @updatedAt
+  deletedAt                        DateTime?
+  applicationId                    String?      @unique
+  isRegisteredAsStartup            Boolean?
+  isTechEnabled                    Boolean?
+  application                      Application? @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model RiskImpactAnalysis {
+  id                 String       @id @default(uuid())
+  isRiskAnalysisDone Boolean      @default(false)
+  riskFactor         String?
+  riskMitigationPlan String?
+  isQualityImproved  Boolean      @default(false)
+  isCostReduced      Boolean      @default(false)
+  isTimeReduced      Boolean      @default(false)
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+  deletedAt          DateTime?
+  applicationId      String?      @unique
+  application        Application? @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model SwotAnalysis {
+  id                           String       @id @default(uuid())
+  strength                     String?
+  weakness                     String?
+  opportunity                  String?
+  threat                       String?
+  productionStartDate          String?
+  expectedProductionStartDate  String?
+  expectedProfitableFiscalYear String?
+  isElectricityAvailable       Boolean?     @default(false)
+  isRoadAvailable              Boolean?     @default(false)
+  isCommunicationAvailable     Boolean?     @default(false)
+  isDrinkingWaterAvailable     Boolean?     @default(false)
+  isBuildingAvailable          Boolean?     @default(false)
+  otherFacilities              String?
+  createdAt                    DateTime     @default(now())
+  updatedAt                    DateTime     @updatedAt
+  deletedAt                    DateTime?
+  applicationId                String?      @unique
+  involvedCommunityDetails     String?
+  isWasteMaterialReused        Boolean?     @default(false)
+  landAvailability             String?
+  partnershipDetailsInProject  String?
+  application                  Application? @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model FinancialAnalysis {
+  id                                                 String       @id @default(uuid())
+  totalEstimatedCostOfProject                        Float?
+  totalCostIncurredInProjectSoFar                    Float?
+  sourceOfInvestment                                 String?
+  operatingExpenseProjection                         Float?
+  fiscalYear                                         String?
+  annualIncomeAndProfitLossDetails                   String?
+  enterpriseAndWorkforceInsurance                    String?
+  riskMitigationMeasures                             String?
+  reinvestmentRatioFromProfit                        Float?
+  selfInvestmentRatioInTotalLoanInvestment           Float?
+  principalAndInterestPaymentDetailsOnLoanInvestment String?
+  applicationId                                      String?      @unique
+  createdAt                                          DateTime     @default(now())
+  updatedAt                                          DateTime     @updatedAt
+  deletedAt                                          DateTime?
+  application                                        Application? @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model WorkPlan {
+  id              String       @id @default(uuid())
+  activity        String?
+  time            String?
+  budget          Float?
+  expectedOutcome String?
+  risk            String?
+  remarks         String?
+  applicationId   String?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  deletedAt       DateTime?
+  application     Application? @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model Proposer {
+  id            String       @id @default(uuid())
+  name          String
+  proposedDate  String?
+  phone         String?
+  email         String?
+  applicationId String?      @unique
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  media         Media[]
+  application   Application? @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model StartupSector {
+  id               String                @id @default(uuid())
+  name             String
+  nameNp           String
+  createdAt        DateTime              @default(now())
+  updatedAt        DateTime              @updatedAt
+  deletedAt        DateTime?
+  code             String?
+  members          Member[]
+  project          ProjectIntroduction[]
+  startupSubSector StartupSubSector[]
+}
+
+model StartupSubSector {
+  id              String                @id @default(uuid())
+  name            String
+  nameNp          String
+  createdAt       DateTime              @default(now())
+  updatedAt       DateTime              @updatedAt
+  deletedAt       DateTime?
+  startupSectorId String?
+  code            String?
+  project         ProjectIntroduction[]
+  startupSector   StartupSector?        @relation(fields: [startupSectorId], references: [id])
+  members         Member[]              @relation("MemberToStartupSubSector")
+}
+
+model DocumentSetup {
+  id                 String   @id @default(uuid())
+  name               String
+  nameNp             String?
+  mediaType          String
+  isActive           Boolean? @default(true)
+  isRequired         Boolean? @default(true)
+  acceptedExtensions String[]
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  visibilityOrder    Int?     @default(1)
+}
+
+model LoanRecipient {
+  id                    String            @id @default(uuid())
+  applicationCode       String
+  projectName           String
+  projectAddress        String?
+  entrepreneurName      String?
+  loanRecommendedAmount Float?
+  loanReceivedAmount    Float?
+  panNumber             String?
+  registrationNumber    String?
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
+  applicationCycleId    String?
+  bulkOperationLogId    String?
+  applicationCycle      ApplicationCycle? @relation(fields: [applicationCycleId], references: [id], onDelete: Restrict)
+  bulkOperationLog      BulkOperationLog? @relation(fields: [bulkOperationLogId], references: [id])
+}
+
+model Committee {
+  id               String            @id @default(uuid())
+  name             String
+  nameNp           String?
+  formationDate    String?
+  type             COMMITTEE_TYPE    @default(EVALUATION)
+  remarks          String?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  committeeMembers CommitteeMember[]
+}
+
+model Member {
+  id                String             @id @default(uuid())
+  name              String
+  nameNp            String?
+  phone             String?
+  email             String?
+  dateOfBirth       String?
+  gender            GENDER             @default(MALE)
+  citizenshipNumber String?
+  issuedDistrict    String?
+  issuedDate        String?
+  experience        String?
+  qualification     String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  addressId         Int?
+  startupSectorId   String?
+  committeeMembers  CommitteeMember[]
+  media             Media[]
+  address           Address?           @relation(fields: [addressId], references: [id])
+  startupSector     StartupSector?     @relation(fields: [startupSectorId], references: [id])
+  startupSubSector  StartupSubSector[] @relation("MemberToStartupSubSector")
+}
+
+model CommitteeMember {
+  id          String    @id @default(uuid())
+  committeeId String
+  memberId    String
+  joiningDate String?
+  designation String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  committee   Committee @relation(fields: [committeeId], references: [id], onDelete: Cascade)
+  member      Member    @relation(fields: [memberId], references: [id])
+  media       Media[]
+
+  @@unique([committeeId, memberId], map: "unique_committee_member_idx")
+}
+
+model Address {
+  id                           Int                  @id @default(autoincrement())
+  provinceId                   Int?
+  districtId                   Int?
+  municipalityId               Int?
+  wardId                       Int?
+  locality                     String?
+  application                  Application?
+  entrepreneurProfilePermanent EntrepreneurProfile? @relation("permanentAddress")
+  entrepreneurProfileTemporary EntrepreneurProfile? @relation("temporaryAddress")
+  members                      Member[]
+  district                     District?            @relation(fields: [districtId], references: [id])
+  municipality                 Municipality?        @relation(fields: [municipalityId], references: [id])
+  province                     Province?            @relation(fields: [provinceId], references: [id])
+  ward                         Ward?                @relation(fields: [wardId], references: [id])
+
+  @@map("address")
+}
+
+model Province {
+  id                  Int        @id
+  provinceTitle       String     @map("province_title")
+  provinceTitleNepali String     @map("province_title_nepali")
+  code                Int
+  cbs_code            Int?
+  createdAt           DateTime?  @default(now()) @map("created_at")
+  updatedAt           DateTime?  @updatedAt @map("updated_at")
+  address             Address[]
+  district            District[]
+
+  @@map("province")
+}
+
+model District {
+  id                  Int            @id
+  provinceId          Int            @map("province_id")
+  districtTitle       String         @map("district_title")
+  districtTitleNepali String         @map("district_title_nepali")
+  code                Int
+  cbs_code            Int?
+  createdAt           DateTime?      @default(now()) @map("created_at")
+  updatedAt           DateTime?      @updatedAt @map("updated_at")
+  address             Address[]
+  province            Province       @relation(fields: [provinceId], references: [id], onDelete: Cascade)
+  municipality        Municipality[]
+
+  @@map("district")
+}
+
+model Municipality {
+  id                      Int       @id
+  districtId              Int       @map("district_id")
+  municipalityTitle       String    @map("municipality_title")
+  municipalityTitleNepali String    @map("municipality_title_nepali")
+  code                    Int
+  cbs_code                Int?
+  hlcit_code              String?
+  type                    String?
+  createdAt               DateTime? @default(now()) @map("created_at")
+  updatedAt               DateTime? @updatedAt @map("updated_at")
+  address                 Address[]
+  district                District  @relation(fields: [districtId], references: [id], onDelete: Cascade)
+  ward                    Ward[]
+
+  @@map("municipality")
+}
+
+model Ward {
+  id               Int          @id
+  municipalityId   Int          @map("municipality_id")
+  wardNumber       Int          @map("ward_number")
+  wardNumberNepali String?      @map("ward_number_nepali")
+  hlcit_code       String?
+  createdAt        DateTime?    @default(now()) @map("created_at")
+  updatedAt        DateTime?    @updatedAt @map("updated_at")
+  address          Address[]
+  municipality     Municipality @relation(fields: [municipalityId], references: [id], onDelete: Cascade)
+
+  @@map("ward")
+}
+
+model SMS {
+  id          String     @id @default(uuid())
+  messageText String
+  messageType String
+  phone       String
+  smsStatus   SMS_STATUS @default(PENDING)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model OTP {
+  id         String   @id @default(uuid())
+  otp        String
+  phone      String
+  name       String?
+  password   String?
+  otpType    OTP_TYPE @default(REGISTER)
+  expiryTime DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  gender     String?
+}
+
+model Resource {
+  id        String    @id @default(uuid())
+  fileName  String
+  key       String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  media     Media[]
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  model     String
+  recordId  String?
+  action    String?
+  userId    String?
+  changes   Json?
+  duration  Int?
+  createdAt DateTime @default(now())
+  remarks   String?
+  user      User?    @relation(fields: [userId], references: [id])
+}
+
+model BulkOperationLog {
+  id                     String                  @id @default(uuid())
+  operationType          BULK_OPERATION_TYPE     @default(LOAN_RECIPIENT_UPLOAD)
+  totalCount             Int?
+  duration               Int?                    @default(0)
+  isReversed             Boolean                 @default(false)
+  reversedAt             DateTime?
+  createdAt              DateTime                @default(now())
+  triggeredById          String?
+  triggeredBy            User?                   @relation(fields: [triggeredById], references: [id])
+  loanRecipients         LoanRecipient[]
+  applications           Application[]
+  bulkOperationRowErrors BulkOperationRowError[]
+}
+
+model BulkOperationRowError {
+  id               String           @id @default(uuid())
+  bulkOperationId  String
+  bulkOperation    BulkOperationLog @relation(fields: [bulkOperationId], references: [id], onDelete: Cascade)
+  rowNumber        Int // Excel row number (e.g., 5, 12, 1034)
+  uniqueIdentifier String? // e.g. citizenId, email, loanNo
+  errorMessage     String // human-readable message
+  rawRowData       Json? // optional: original row snapshot
+  createdAt        DateTime         @default(now())
+
+  @@index([bulkOperationId])
+}
+
+enum BULK_OPERATION_TYPE {
+  LOAN_RECIPIENT_UPLOAD
+  APPLICATION_UPLOAD
+}
+
+enum ROLE {
+  SUDO_ADMIN
+  SUPER_ADMIN
+  ADMIN
+  USER
+  DATA_ENTRY
+  COMMITTEE_ADMIN
+}
+
+enum GENDER {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum APPLICATION_STATUS {
+  INCOMPLETE
+  REGISTERED
+  AI_ASSESSED
+  EVALUATED
+  INTERVIEW_SCHEDULED
+  INTERVIEW_COMPLETED
+  APPROVED
+  REJECTED
+}
+
+enum ASSESSMENT_TYPE {
+  AI_SCREENING
+  EVALUATION
+  INTERVIEW
+}
+
+enum COMMITTEE_TYPE {
+  EVALUATION
+  MONITORING
+}
+
+enum SMS_STATUS {
+  PENDING
+  SENT
+  FAILED
+}
+
+enum OTP_TYPE {
+  REGISTER
+  PASSWORD_RESET
+  LOGIN_VERIFY
+}

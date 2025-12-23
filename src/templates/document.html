@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documents</title>
+    <style>
+      .textContent {
+        font-size: 1rem;
+        text-align: justify;
+        line-height: 1.95;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .a4-size-div {
+        width: 210mm; /* A4 width */
+        /* max-height: 297mm; A4 height */
+        max-height: 280mm; /* A4 height */
+        overflow: hidden; /* Optional: hide content that exceeds the height */
+      }
+
+      .text-center {
+        text-align: center;
+      }
+      .header-text {
+        font-size: 1.5rem;
+        margin-left: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="textContent">
+      <div>{{imageList}}</div>
+    </div>
+  </body>
+</html>
