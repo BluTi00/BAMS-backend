@@ -1,7 +1,15 @@
+import { BadRequestError } from '../errors'
+
 export const sendSMS = async (phoneNumber: string, message: string) => {
-  const token = 'v2_Ng2YgKiuOEi6SKhZPfeNOeKLQjL.oqsa'
+  const token = process.env.SMS_TOKEN
   const from = 'TheAlert'
   // const from = 'Demo'
+
+  if (!token) {
+    throw new BadRequestError(
+      'SMS token is not configured. Please set SMS_TOKEN in environment variables.'
+    )
+  }
 
   const values = {
     token,

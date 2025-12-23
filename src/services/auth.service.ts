@@ -193,7 +193,7 @@ class AuthService {
     })
 
     await smsService.create({
-      messageText: smsMessage.accountVerification(otp),
+      messageText: smsMessage.passwordReset(otp),
       phone,
       messageType: SMSMessageType.PASSWORD_RESET,
     })
