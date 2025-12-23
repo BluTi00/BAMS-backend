@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import { ROLE } from '../../generated/client/client'
 
 interface IAdmin {

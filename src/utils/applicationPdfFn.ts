@@ -68,7 +68,7 @@ export const generateApplicationPdf = async (
   const officeWard = address?.ward ? address.ward.wardNumberNepali || '' : ''
   const officeLocality = address?.locality || ''
 
-  const companyProfileData = [
+  const applicationFormData = [
     {
       title: '(क) आवेदकको विवरण',
       isBulletPoint: true,
@@ -147,8 +147,8 @@ export const generateApplicationPdf = async (
         },
 
         {
-          label: 'परम्परागत पेसा निरन्तरताको अवस्था:',
-          value: '',
+          label: 'परम्परागत पेसा निरन्तरताको अवस्था',
+          value: ' ',
         },
 
         {
@@ -197,19 +197,20 @@ export const generateApplicationPdf = async (
 
     {
       title: '(ख) परम्परागत पेसा स्तरोन्नतिको लागि:',
-      isBulletPoint: true,
       sectionData: [
         {
-          label: '१. विद्यमान सञ्‍चालनमा रहेको पेसा:',
+          label: '१. विद्यमान सञ्‍चालनमा रहेको पेसा',
           value: application?.existingOperatingProfession,
         },
         {
           label: '२. स्तरोन्नति गर्न चाहेको',
-          value: application?.professionToBeUpgraded?.map(
-            (item: any, index) => /*html*/ `
+          value: application?.professionToBeUpgraded
+            ?.map(
+              (item: any, index) => /*html*/ `
            <p style="margin-left: 1rem">${convertText(index + 1, 'ne')}. ${item}</p>
           `
-          ),
+            )
+            .join(''),
         },
         {
           label: '३. अनुमानित लागत रु.',
@@ -220,7 +221,7 @@ export const generateApplicationPdf = async (
   ]
 
   const applicationHtml = getSectionHtml({
-    data: companyProfileData,
+    data: applicationFormData,
   })
 
   // ------ DOCUMENT SECTION ---------
@@ -234,30 +235,61 @@ export const generateApplicationPdf = async (
           {
             label:
               '१. आवेदकको नेपाली नागरिकताको प्रमाणपत्रको प्रतिलिपि (अगाडि)',
-            value: documentList.includes(MediaType.CITIZENSHIP_FRONT),
+            radioOptions: [
+              {
+                label: '',
+                value: documentList.includes(MediaType.CITIZENSHIP_FRONT),
+              },
+            ],
           },
           {
             label:
               '२. आवेदकको नेपाली नागरिकताको प्रमाणपत्रको प्रतिलिपि (पछाडि)',
-            value: documentList.includes(MediaType.CITIZENSHIP_BACK),
+            radioOptions: [
+              {
+                label: '',
+                value: documentList.includes(MediaType.CITIZENSHIP_BACK),
+              },
+            ],
           },
+
           {
             label:
               '३. राष्ट्रिय दलित आयोग वा सम्बन्धित जिल्ला प्रशासन कार्यालयबाट दलित प्रमाणित कागजातको प्रतिलिपि',
-            value: documentList.includes(MediaType.DALIT_CERTIFICATE),
+            radioOptions: [
+              {
+                label: '',
+                value: documentList.includes(MediaType.DALIT_CERTIFICATE),
+              },
+            ],
           },
           {
             label:
               '४. उद्यमशीलता विकास वा सीपमुलक तालिमको प्रमाणपत्रको प्रतिलिपि (यदि भएमा)',
-            value: documentList.includes(MediaType.TRAINING_CERTIFICATE),
+            radioOptions: [
+              {
+                label: '',
+                value: documentList.includes(MediaType.TRAINING_CERTIFICATE),
+              },
+            ],
           },
           {
             label: '५. शैक्षिक योग्यताको प्रमाण-पत्रको प्रतिलिपि (यदि भएमा)',
-            value: documentList.includes(MediaType.EDUCATIONAL_CERTIFICATE),
+            radioOptions: [
+              {
+                label: '',
+                value: documentList.includes(MediaType.EDUCATIONAL_CERTIFICATE),
+              },
+            ],
           },
           {
             label: '६. सम्बन्धित वडा कार्यालयको सिफारिस पत्र',
-            value: documentList.includes(MediaType.RECOMMENDATION_LETTER),
+            radioOptions: [
+              {
+                label: '',
+                value: documentList.includes(MediaType.RECOMMENDATION_LETTER),
+              },
+            ],
           },
         ],
       },
@@ -272,7 +304,6 @@ export const generateApplicationPdf = async (
   const filledTemplate = template
     .replace('{{applicationRegistrationNumber}}', applicationRegistrationNumber)
     .replace('{{applicationRegistrationDate}}', applicationRegistrationDate)
-
     .replace('{{applicationHtml}}', applicationHtml)
     .replace('{{documentListHtml}}', documentListHtml)
 
@@ -456,7 +487,7 @@ const getSectionHtml = ({ data }: { data: any }) => {
     })
 
     finalHtmlArray.push(/* html */ `
-    <div>${title}</div>
+    <div class="bold">${title}</div>
     <div class="${title || isIndent ? 'tab' : ''}">${html}</div>
   `)
   }

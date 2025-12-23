@@ -56,17 +56,17 @@ const createApplication = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { createdApplicationId, message } = await applicationService.create(
+  const message = await applicationService.create(
     req.body,
     req?.user as any,
     req?.applicationCycleId as string
   )
-  res.status(StatusCodes.OK).json({ msg: message, data: createdApplicationId })
+  res.status(StatusCodes.OK).json({ msg: message })
 }
 
 const getApplication = async (req: Request, res: Response): Promise<void> => {
   const application = await applicationService.getOne({
-    userId: req.user?.userId,
+    userId: req.query?.userId as string,
     applicationCycleId: req.query?.applicationCycleId as string,
   })
   res.status(StatusCodes.OK).json({ data: application })

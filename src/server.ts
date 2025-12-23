@@ -14,12 +14,17 @@ import notFoundMiddleware from './middleware/not-found'
 import errorHandlerMiddleware from './middleware/error-handler'
 import registerRoutes from './routes'
 import DotenvConfig from './config/env.config'
+import { Environment } from './constants/enum'
 
 const app = express()
 
 app.set('trust proxy', 1)
 // Set security
-app.use(helmet())
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+  })
+)
 
 // Define a rate limit for API requests
 const limiter = rateLimit({
@@ -49,7 +54,11 @@ app.use(
   cors({
     // origin: 'http://localhost:5173', // ✅ your frontend origin
     exposedHeaders: ['Content-Disposition'],
-    origin: [DotenvConfig.CLIENT_URL], // Define specific domains allowed to interact with the API
+    origin: [
+      DotenvConfig.NODE_ENV === Environment.PRODUCTION
+        ? DotenvConfig.BASE_URL
+        : DotenvConfig?.LOCAL_URL,
+    ], // Define specific domains allowed to interact with the API
     credentials: true, // ✅ allow cookies to be sent
   })
 )

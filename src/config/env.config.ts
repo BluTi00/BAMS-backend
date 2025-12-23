@@ -29,7 +29,7 @@ class DotenvConfig {
   static BASE_URL = process.env.BASE_URL!
   static FOLDER = process.env.FOLDER!
   static TEMP_FOLDER = process.env.TEMP_FOLDER!
-  static CLIENT_URL = process.env.CLIENT_URL!
+  static LOCAL_URL = 'http://localhost:5173'
 
   //* Email Information
   static MAIL_HOST = process.env.MAIL_HOST

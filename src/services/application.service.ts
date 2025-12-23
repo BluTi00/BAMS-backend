@@ -67,7 +67,7 @@ class ApplicationService {
 
     const prefix = 'A'
 
-    const result = await db.$transaction(async (tx) => {
+    const newApplication = await db.$transaction(async (tx) => {
       let applicationCode: string = ''
 
       if (user.role === ROLE.USER) {
@@ -152,10 +152,28 @@ class ApplicationService {
       return newApp
     })
 
-    return {
-      createdApplicationId: result.id,
-      message: messages.created('Application'),
+    // create media
+    if (data?.media !== null && data?.media?.length > 0) {
+      await Promise.all(
+        data?.media.map(async (mediaData) => {
+          const media = await mediaService.uploadFile(mediaData)
+          await db.media.update({
+            where: {
+              id: media.id,
+            },
+            data: {
+              application: {
+                connect: {
+                  id: newApplication.id,
+                },
+              },
+            },
+          })
+        })
+      )
     }
+
+    return messages.created('Application')
   }
 
   async getAll({
@@ -356,18 +374,9 @@ class ApplicationService {
         userId,
         applicationCycleId,
       },
-      include: {
-        address: includeAddress,
-        applicationCycle: true,
-        media: includeMedia,
-      },
     })
 
-    if (!application) {
-      throw new BadRequestError('Application not found.')
-    }
-
-    return application
+    return application || null
   }
 
   // update company profile
@@ -462,6 +471,36 @@ class ApplicationService {
         },
       },
     })
+
+    // create media
+    if (data?.media !== null && data?.media?.length > 0) {
+      await Promise.all(
+        data?.media.map(async (mediaData) => {
+          const media = await mediaService.uploadFile(mediaData)
+          await db.media.update({
+            where: {
+              id: media.id,
+            },
+            data: {
+              application: {
+                connect: {
+                  id: id,
+                },
+              },
+            },
+          })
+        })
+      )
+    }
+
+    // delete media
+    if (data?.deletedMedia !== null && data?.deletedMedia?.length > 0) {
+      await Promise.all(
+        data?.deletedMedia.map(async (mediaId) => {
+          await mediaService.delete(mediaId)
+        })
+      )
+    }
 
     return messages.updated('Company Profile')
   }

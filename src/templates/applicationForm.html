@@ -142,151 +142,24 @@
         </p>
 
         <p style="font-size: 1rem; font-weight: 600">
-          स्टार्टअप उद्यम कर्जा सञ्चालन कार्यविधि, २०८२
+          भगत सर्वजित शिल्प उद्यम विकास कार्यक्रम सञ्चालन कार्यविधि, २०८२
         </p>
 
         <p style="font-weight: 500; margin-bottom: 0.5rem; font-size: 0.95rem">
-          को अनुसूची -४ अनुसार
+          को अनुसूची -३ अनुसार
         </p>
 
         <p style="font-weight: 600; margin-bottom: 0.5rem; font-size: 1.3rem">
-          उद्यमीले पेश गर्ने परियोजना प्रस्ताव
+          आवेदकले पेश गर्ने प्रस्ताव
         </p>
       </div>
       <!-- header end -->
 
       <!-- section 1 -->
-      <div>
-        <p class="bold">क. परियोजना र प्रस्तावकको परिचय:</p>
-
-        <!-- company profile -->
-        <div class="tab">{{applicationHtml}}</div>
-
-        <!-- entreprenuer list -->
-        <div class="tab" style="margin-top: 1rem; margin-bottom: 1rem">
-          <p>२. प्रस्तावक उद्यमीहरूको विवरण</p>
-          <table class="table">
-            <thead>
-              <th>क्र.स</th>
-              <th style="min-width: 7rem">नाम</th>
-              <th>नागरिकता नं, जारी मिति र जिल्ला</th>
-              <th>स्थायी ठेगाना (प्रदेश, जिल्ला, पालिका, वडा नं., टोल)</th>
-              <th>हालको ठेगाना (प्रदेश, जिल्ला, पालिका, वडा नं., टोल)</th>
-              <th>उद्यमीको शैक्षिक योग्यता/तालिम/अनुभव</th>
-              <th>मोबाइल नं.</th>
-            </thead>
-            <tbody>
-              {{entrepreneurList}}
-            </tbody>
-          </table>
-        </div>
-
-        <!-- product usage -->
-        <div class="tab">{{productAndUsageHtml}}</div>
-      </div>
+      <div class="tab">{{applicationHtml}}</div>
       <!-- section 1 end -->
 
-      <!-- section 2 -->
-      <div>
-        <!-- production introduction -->
-        <p class="bold">ख. प्रस्तावित परियोजना सम्बन्धी विवरणः</p>
-
-        <div class="tab">
-          <div>{{projectIntroductionHtml}}</div>
-
-          ४. परियोजना विश्लेषण:
-          <div class="tab">{{projectAnalysisHtml}}</div>
-          <div class="tab">{{riskImpactAnalysisHtml}}</div>
-          <div class="tab">{{swotAnalysisHtml}}</div>
-        </div>
-
-        <!-- financial analysis -->
-        <p class="bold">ग. प्रस्तावको वित्तीय विश्लेषण</p>
-        <div class="tab">{{financialAnalysisHtml}}</div>
-
-        <!-- work plan -->
-        <div style="margin-top: 1rem">
-          <p class="bold">घ. परियोजना कार्यन्वयन कार्ययोजना</p>
-          <div class="tab">
-            <table class="table">
-              <thead>
-                <th>क्र.स</th>
-                <th style="min-width: 7rem">क्रियाकलाप</th>
-                <th>समय</th>
-                <th>बजेट</th>
-                <th>अपेक्षित उपल्बधी</th>
-                <th>जोखिम</th>
-                <th>कैफियत</th>
-              </thead>
-              <tbody>
-                {{workPlanList}}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- section 2 end -->
-
-        <!-- section 3 -->
-        <!-- always page break -->
-        <div style="page-break-before: always; margin-top: 4rem">
-          <p style="margin-bottom: 1rem">
-            माथि प्रविष्ट सबै विवरण र संलग्न कागजातहरु ठीक दुरुस्त छन् साथै
-            कर्जा प्रवाह सम्बन्धी तोकिएको सम्पूर्ण शर्तहरु स्वीकार्य छन्। मैले
-            यस प्रस्तावसहित जम्मा
-            <span
-              style="
-                font-weight: 600;
-                min-width: 2rem;
-                display: inline-block;
-                text-align: center;
-              "
-            >
-              {{submittedDocumentCount}}
-            </span>
-            थान कागजपत्र बुझाएको छु। उल्लिखित विवरण तथा कागजातहरुमा कुनै फरक
-            परेमा कानुन बमोजिम सहुँला बुझाउँला भनी प्रस्ताव पेस गर्नेको
-          </p>
-
-          <p>
-            नाम :
-            <strong> {{proposerName}} </strong>
-          </p>
-          <div>
-            हस्ताक्षर :
-
-            <div class="img-container">{{proposerSignatureHtml}}</div>
-          </div>
-          <p>
-            मिति :
-            <strong> {{proposedDate}} </strong>
-          </p>
-          <p>
-            मोबाइल नं. :
-            <strong> {{phoneNumber}} </strong>
-          </p>
-          <p>
-            इमेल :
-            <strong> {{email}} </strong>
-          </p>
-          <div>
-            परियोजनाको छाप :
-            <div class="img-container">{{projectStampHtml}}</div>
-          </div>
-        </div>
-
-        <!-- section 3 end -->
-
-        <!-- section 4 -->
-
-        <div style="margin-left: 1rem; margin-top: 2rem; line-height: 1.5">
-          <p class="bold">
-            • परियोजना प्रस्तावको साथ संलग्न गर्नुपर्ने कागजातहरु:
-          </p>
-          <div class="tab" style="margin-top: 1rem">{{documentListHtml}}</div>
-        </div>
-        <!-- section 4 end -->
-      </div>
+      <div class="tab" style="margin-top: 0.5rem">{{documentListHtml}}</div>
     </div>
   </body>
 </html>

@@ -45,7 +45,12 @@ while ((match = modelRegex.exec(schema)) !== null) {
     const [name, type, ...rest] = line.split(/\s+/)
     if (!name || !type) return ''
 
-    let isOptional = type.endsWith('?') || line.includes('?')
+    let isOptional =
+      type.endsWith('?') ||
+      line.includes('?') ||
+      line.includes('@unique') ||
+      line.includes('@default')
+
     const isList = type.endsWith('[]') || line.includes('[]')
     let cleanType = type.replace('?', '').replace('[]', '')
 
