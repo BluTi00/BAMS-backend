@@ -1,4 +1,4 @@
-import { ROLE } from '../generated/client/client'
+import { ROLE } from '../../generated/client/client'
 
 interface IAdmin {
   name: string
@@ -23,7 +23,7 @@ export const adminSeedData: IAdmin[] = [
     nameNp: 'सुपर एड्मिन',
     email: '',
     password: process.env.SUPER_USER_PASSWORD || 'admin@321',
-    phone: '9867250595',
+    phone: '9826490038',
     role: ROLE.SUPER_ADMIN,
   },
 ]

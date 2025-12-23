@@ -188,17 +188,6 @@ class BulkOperationLogService {
     withSkipAudit(async () => {
       if (
         bulkOperationLog.operationType ===
-        BULK_OPERATION_TYPE.LOAN_RECIPIENT_UPLOAD
-      ) {
-        await db.loanRecipient.deleteMany({
-          where: {
-            bulkOperationLogId: id,
-          },
-        })
-      }
-
-      if (
-        bulkOperationLog.operationType ===
         BULK_OPERATION_TYPE.APPLICATION_UPLOAD
       ) {
         await db.application.deleteMany({

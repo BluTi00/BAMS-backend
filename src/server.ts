@@ -13,7 +13,6 @@ import cookieParser from 'cookie-parser'
 import notFoundMiddleware from './middleware/not-found'
 import errorHandlerMiddleware from './middleware/error-handler'
 import registerRoutes from './routes'
-import { setupBullBoard } from './admin/bullBoard'
 import DotenvConfig from './config/env.config'
 
 const app = express()
@@ -68,8 +67,6 @@ const serverName = process.env.SERVER_NAME || ''
 
 // Use the centralized routes setup
 registerRoutes(app, apiRoute)
-// setup bull board admin UI
-setupBullBoard(app)
 
 // Error middlewares
 app.use(notFoundMiddleware)

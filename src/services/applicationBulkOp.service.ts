@@ -54,21 +54,12 @@ class ApplicationBulkOpService {
                 connect: { id: applicationCycleId },
               },
               applicationCode: singleRow.applicationCode,
-              firmCompanyIndustryName: singleRow.projectName,
-              firmCompanyIndustryNameNp: singleRow.projectName,
-              representativeName: singleRow.representativeName,
-              representativeMobile: singleRow.representativeMobile,
+              applicantName: singleRow.applicantName,
               //
-              officeAddress: {
+              address: {
                 create: {
                   provinceId: singleRow?.provinceId,
                   districtId: singleRow?.districtId,
-                },
-              },
-              projectIntroduction: {
-                create: {
-                  startupSectorId: singleRow.startupSectorId,
-                  startupSubSectorId: singleRow.startupSubSectorId,
                 },
               },
               bulkOperationLog: {
@@ -156,95 +147,6 @@ class ApplicationBulkOpService {
       // ===========================================
 
       // ----- FETCH REFERENCE DATA -----
-      // Startup Sector List
-      const startupSubSectorList = await db.startupSubSector.findMany({
-        select: { id: true, name: true, nameNp: true, startupSectorId: true },
-      })
-
-      const subSectorNameCorrections = [
-        {
-          wrong: 'क. कृषि, सिँचाइ तथा पशुपन्छीमा आधारित उद्यम;',
-          correct: 'कृषि, सिँचाइ तथा पशुपन्छीमा आधारित उद्यम',
-        },
-        {
-          wrong: 'ख. उत्पादनमूलक उद्यम;',
-          correct: 'उत्पादनमूलक उद्यम',
-        },
-        {
-          wrong: 'ग. वन (जडीबुटी, वन पैदावार) मा आधारित उद्यम;',
-          correct: 'वन (जडीबुटी, वन पैदावार)मा आधारित उद्यम',
-        },
-        {
-          wrong: 'घ. खानी तथा खनिजको अनुसन्धान तथा विकास;',
-          correct: 'खानी तथा खनिज अनुसन्धान तथा विकास',
-        },
-        {
-          wrong: 'ङ. खाद्य प्रविधि तथा पोषण',
-          correct: 'खाद्य प्रविधि तथा पोषण',
-        },
-        {
-          wrong: 'च. विज्ञान, प्रविधि, सञ्‍चार तथा सूचना प्रविधि',
-          correct: 'विज्ञान, प्रविधि, सञ्‍चार तथा सूचना प्रविधि',
-        },
-        {
-          wrong: 'छ. घरायसी वा दैनिक जीवन सरलीकरण प्रविधि',
-          correct:
-            'घरायसी वा दैनिक जीवनयापनलाई सरल, सहज, सुरक्षित बनाउन सहयोग पुग्‍ने प्रकृतिका कार्यसँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong: 'ज. फोहोरमैला व्यवस्थापनसँग सम्बन्धित उद्यम',
-          correct: 'फोहोरमैला व्यवस्थापनसँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong:
-            'झ. सार्वजनिक सेवा प्रवाह, उत्पादन तथा सेवा प्रक्रियामा सुधारसँग सम्बन्धित उद्यम',
-          correct:
-            'सार्वजानिक सेवा प्रवाह, उत्पादन तथा सेवा प्रक्रियामा सुधारसँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong: 'ञ. सहज र सुरक्षित परिवहन तथा लजिष्टिक',
-          correct: 'सहज र सुरक्षित यातायत तथा पारवहन सेवासँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong: 'ट. पूर्वाधार निर्माण कार्य',
-          correct: 'पूर्वाधार निर्माण कार्यसँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong: 'ठ. विद्युतीय सवारी साधन तथा अटोमोबाइल',
-          correct: 'विद्य्तीय सवारी साद्यन तथा अटोमोबाइलसँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong: 'ड. वस्तु वा सेवाको वितरण प्रणालीसँग सम्बन्धित उद्यम',
-          correct: 'वस्तु वा सेवाको वितरण प्रणालीसँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong: 'ढ. शिक्षा तथा शिक्षण सिकाइसँग सम्बन्धित उद्यम',
-          correct: 'शिक्षा तथा शिक्षण सिकाइसँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong: 'ण. मानव स्वास्थ्य सेवासँग सम्बन्धित उद्यम',
-          correct: 'मानव स्वास्थ्य सेवासँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong:
-            'त. पर्यटन प्रवर्धन तथा मनोरञ्‍जन र अतिथि सत्कारसँग सम्बन्धित उद्यम',
-          correct:
-            'पर्यटन प्रवर्धन तथा मनोरञ्‍जन र अतिथि सत्कारसँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong: 'थ. परम्परागत तथा ग्रामीण प्रविधिसँग सम्बन्धित उद्यम',
-          correct: 'परम्परागत तथा ग्रामीण प्रविधिसँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong: 'द. परम्परागत पेसा तथा उद्यमको पुनर्जागरणसँग सम्बन्धित उद्यम',
-          correct: 'परम्परागत पेसा तथा उद्यमको पुनर्जागरणसँग सम्बन्धित उद्यम',
-        },
-        {
-          wrong: 'ध. स्थानीय स्रोत तथा साधनमा आधारित उद्यम',
-          correct: 'स्थानिय स्रोत तथा साधनमा आधारित उद्यम',
-        },
-      ]
-
       const provinceList = await db.province.findMany({
         select: { id: true, provinceTitleNepali: true },
       })
@@ -263,14 +165,6 @@ class ApplicationBulkOpService {
           continue
         }
 
-        const correctedSubSectorName = subSectorNameCorrections.find(
-          (correction) => correction.wrong === singleDataJson['क्षेत्र']?.trim()
-        )?.correct
-
-        const startupSubSectorId = startupSubSectorList.find(
-          (subSector) => subSector.nameNp === correctedSubSectorName
-        )
-
         const provinceId = provinceList.find(
           (prov) =>
             prov.provinceTitleNepali === singleDataJson['प्रदेश']?.trim()
@@ -284,17 +178,7 @@ class ApplicationBulkOpService {
         const singleRowData = {
           __rowNumber: rowIndex++,
           applicationCode,
-          projectName: singleDataJson['परियोजनाको नाम'],
-          projectAddress: singleDataJson['परियोजनाको ठेगाना'],
-          representativeName: singleDataJson['मुख्य प्रस्तावकको नाम'],
-          representativeMobile: singleDataJson['सम्पर्क'],
-          provinceId: provinceId ? provinceId : null,
-          districtId: districtId ? districtId : null,
-          panNumber: singleDataJson['पान नं'],
-          startupSubSectorId: startupSubSectorId ? startupSubSectorId.id : null,
-          startupSectorId: startupSubSectorId
-            ? startupSubSectorId.startupSectorId
-            : null,
+          applicationName: singleDataJson['आवेदकको नाम']?.trim() || null,
         }
         rowData.push(singleRowData)
       }

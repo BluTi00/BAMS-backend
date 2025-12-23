@@ -42,7 +42,7 @@ class ApplicationHistoryService {
       skip: (page - 1) * perPage,
       take: perPage,
       include: {
-        officeAddress: includeAddress,
+        address: includeAddress,
         applicationCycle: {
           select: {
             name: true,

@@ -247,9 +247,6 @@ export type MediaWhereInput = {
   committeeMemberId?: Prisma.StringNullableFilter<"Media"> | string | null
   memberId?: Prisma.StringNullableFilter<"Media"> | string | null
   application?: Prisma.XOR<Prisma.ApplicationNullableScalarRelationFilter, Prisma.ApplicationWhereInput> | null
-  committeeMember?: Prisma.XOR<Prisma.CommitteeMemberNullableScalarRelationFilter, Prisma.CommitteeMemberWhereInput> | null
-  member?: Prisma.XOR<Prisma.MemberNullableScalarRelationFilter, Prisma.MemberWhereInput> | null
-  proposer?: Prisma.XOR<Prisma.ProposerNullableScalarRelationFilter, Prisma.ProposerWhereInput> | null
   resource?: Prisma.XOR<Prisma.ResourceNullableScalarRelationFilter, Prisma.ResourceWhereInput> | null
 }
 
@@ -268,9 +265,6 @@ export type MediaOrderByWithRelationInput = {
   committeeMemberId?: Prisma.SortOrderInput | Prisma.SortOrder
   memberId?: Prisma.SortOrderInput | Prisma.SortOrder
   application?: Prisma.ApplicationOrderByWithRelationInput
-  committeeMember?: Prisma.CommitteeMemberOrderByWithRelationInput
-  member?: Prisma.MemberOrderByWithRelationInput
-  proposer?: Prisma.ProposerOrderByWithRelationInput
   resource?: Prisma.ResourceOrderByWithRelationInput
 }
 
@@ -292,9 +286,6 @@ export type MediaWhereUniqueInput = Prisma.AtLeast<{
   committeeMemberId?: Prisma.StringNullableFilter<"Media"> | string | null
   memberId?: Prisma.StringNullableFilter<"Media"> | string | null
   application?: Prisma.XOR<Prisma.ApplicationNullableScalarRelationFilter, Prisma.ApplicationWhereInput> | null
-  committeeMember?: Prisma.XOR<Prisma.CommitteeMemberNullableScalarRelationFilter, Prisma.CommitteeMemberWhereInput> | null
-  member?: Prisma.XOR<Prisma.MemberNullableScalarRelationFilter, Prisma.MemberWhereInput> | null
-  proposer?: Prisma.XOR<Prisma.ProposerNullableScalarRelationFilter, Prisma.ProposerWhereInput> | null
   resource?: Prisma.XOR<Prisma.ResourceNullableScalarRelationFilter, Prisma.ResourceWhereInput> | null
 }, "id">
 
@@ -345,10 +336,10 @@ export type MediaCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  proposerId?: string | null
+  committeeMemberId?: string | null
+  memberId?: string | null
   application?: Prisma.ApplicationCreateNestedOneWithoutMediaInput
-  committeeMember?: Prisma.CommitteeMemberCreateNestedOneWithoutMediaInput
-  member?: Prisma.MemberCreateNestedOneWithoutMediaInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutMediaInput
   resource?: Prisma.ResourceCreateNestedOneWithoutMediaInput
 }
 
@@ -377,10 +368,10 @@ export type MediaUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proposerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  committeeMemberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   application?: Prisma.ApplicationUpdateOneWithoutMediaNestedInput
-  committeeMember?: Prisma.CommitteeMemberUpdateOneWithoutMediaNestedInput
-  member?: Prisma.MemberUpdateOneWithoutMediaNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutMediaNestedInput
   resource?: Prisma.ResourceUpdateOneWithoutMediaNestedInput
 }
 
@@ -425,6 +416,9 @@ export type MediaUpdateManyMutationInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proposerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  committeeMemberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type MediaUncheckedUpdateManyInput = {
@@ -543,132 +537,6 @@ export type MediaUncheckedUpdateManyWithoutApplicationNestedInput = {
   deleteMany?: Prisma.MediaScalarWhereInput | Prisma.MediaScalarWhereInput[]
 }
 
-export type MediaCreateNestedManyWithoutProposerInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutProposerInput, Prisma.MediaUncheckedCreateWithoutProposerInput> | Prisma.MediaCreateWithoutProposerInput[] | Prisma.MediaUncheckedCreateWithoutProposerInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutProposerInput | Prisma.MediaCreateOrConnectWithoutProposerInput[]
-  createMany?: Prisma.MediaCreateManyProposerInputEnvelope
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-}
-
-export type MediaUncheckedCreateNestedManyWithoutProposerInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutProposerInput, Prisma.MediaUncheckedCreateWithoutProposerInput> | Prisma.MediaCreateWithoutProposerInput[] | Prisma.MediaUncheckedCreateWithoutProposerInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutProposerInput | Prisma.MediaCreateOrConnectWithoutProposerInput[]
-  createMany?: Prisma.MediaCreateManyProposerInputEnvelope
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-}
-
-export type MediaUpdateManyWithoutProposerNestedInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutProposerInput, Prisma.MediaUncheckedCreateWithoutProposerInput> | Prisma.MediaCreateWithoutProposerInput[] | Prisma.MediaUncheckedCreateWithoutProposerInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutProposerInput | Prisma.MediaCreateOrConnectWithoutProposerInput[]
-  upsert?: Prisma.MediaUpsertWithWhereUniqueWithoutProposerInput | Prisma.MediaUpsertWithWhereUniqueWithoutProposerInput[]
-  createMany?: Prisma.MediaCreateManyProposerInputEnvelope
-  set?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  disconnect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  delete?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  update?: Prisma.MediaUpdateWithWhereUniqueWithoutProposerInput | Prisma.MediaUpdateWithWhereUniqueWithoutProposerInput[]
-  updateMany?: Prisma.MediaUpdateManyWithWhereWithoutProposerInput | Prisma.MediaUpdateManyWithWhereWithoutProposerInput[]
-  deleteMany?: Prisma.MediaScalarWhereInput | Prisma.MediaScalarWhereInput[]
-}
-
-export type MediaUncheckedUpdateManyWithoutProposerNestedInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutProposerInput, Prisma.MediaUncheckedCreateWithoutProposerInput> | Prisma.MediaCreateWithoutProposerInput[] | Prisma.MediaUncheckedCreateWithoutProposerInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutProposerInput | Prisma.MediaCreateOrConnectWithoutProposerInput[]
-  upsert?: Prisma.MediaUpsertWithWhereUniqueWithoutProposerInput | Prisma.MediaUpsertWithWhereUniqueWithoutProposerInput[]
-  createMany?: Prisma.MediaCreateManyProposerInputEnvelope
-  set?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  disconnect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  delete?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  update?: Prisma.MediaUpdateWithWhereUniqueWithoutProposerInput | Prisma.MediaUpdateWithWhereUniqueWithoutProposerInput[]
-  updateMany?: Prisma.MediaUpdateManyWithWhereWithoutProposerInput | Prisma.MediaUpdateManyWithWhereWithoutProposerInput[]
-  deleteMany?: Prisma.MediaScalarWhereInput | Prisma.MediaScalarWhereInput[]
-}
-
-export type MediaCreateNestedManyWithoutMemberInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutMemberInput, Prisma.MediaUncheckedCreateWithoutMemberInput> | Prisma.MediaCreateWithoutMemberInput[] | Prisma.MediaUncheckedCreateWithoutMemberInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutMemberInput | Prisma.MediaCreateOrConnectWithoutMemberInput[]
-  createMany?: Prisma.MediaCreateManyMemberInputEnvelope
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-}
-
-export type MediaUncheckedCreateNestedManyWithoutMemberInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutMemberInput, Prisma.MediaUncheckedCreateWithoutMemberInput> | Prisma.MediaCreateWithoutMemberInput[] | Prisma.MediaUncheckedCreateWithoutMemberInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutMemberInput | Prisma.MediaCreateOrConnectWithoutMemberInput[]
-  createMany?: Prisma.MediaCreateManyMemberInputEnvelope
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-}
-
-export type MediaUpdateManyWithoutMemberNestedInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutMemberInput, Prisma.MediaUncheckedCreateWithoutMemberInput> | Prisma.MediaCreateWithoutMemberInput[] | Prisma.MediaUncheckedCreateWithoutMemberInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutMemberInput | Prisma.MediaCreateOrConnectWithoutMemberInput[]
-  upsert?: Prisma.MediaUpsertWithWhereUniqueWithoutMemberInput | Prisma.MediaUpsertWithWhereUniqueWithoutMemberInput[]
-  createMany?: Prisma.MediaCreateManyMemberInputEnvelope
-  set?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  disconnect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  delete?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  update?: Prisma.MediaUpdateWithWhereUniqueWithoutMemberInput | Prisma.MediaUpdateWithWhereUniqueWithoutMemberInput[]
-  updateMany?: Prisma.MediaUpdateManyWithWhereWithoutMemberInput | Prisma.MediaUpdateManyWithWhereWithoutMemberInput[]
-  deleteMany?: Prisma.MediaScalarWhereInput | Prisma.MediaScalarWhereInput[]
-}
-
-export type MediaUncheckedUpdateManyWithoutMemberNestedInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutMemberInput, Prisma.MediaUncheckedCreateWithoutMemberInput> | Prisma.MediaCreateWithoutMemberInput[] | Prisma.MediaUncheckedCreateWithoutMemberInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutMemberInput | Prisma.MediaCreateOrConnectWithoutMemberInput[]
-  upsert?: Prisma.MediaUpsertWithWhereUniqueWithoutMemberInput | Prisma.MediaUpsertWithWhereUniqueWithoutMemberInput[]
-  createMany?: Prisma.MediaCreateManyMemberInputEnvelope
-  set?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  disconnect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  delete?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  update?: Prisma.MediaUpdateWithWhereUniqueWithoutMemberInput | Prisma.MediaUpdateWithWhereUniqueWithoutMemberInput[]
-  updateMany?: Prisma.MediaUpdateManyWithWhereWithoutMemberInput | Prisma.MediaUpdateManyWithWhereWithoutMemberInput[]
-  deleteMany?: Prisma.MediaScalarWhereInput | Prisma.MediaScalarWhereInput[]
-}
-
-export type MediaCreateNestedManyWithoutCommitteeMemberInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutCommitteeMemberInput, Prisma.MediaUncheckedCreateWithoutCommitteeMemberInput> | Prisma.MediaCreateWithoutCommitteeMemberInput[] | Prisma.MediaUncheckedCreateWithoutCommitteeMemberInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutCommitteeMemberInput | Prisma.MediaCreateOrConnectWithoutCommitteeMemberInput[]
-  createMany?: Prisma.MediaCreateManyCommitteeMemberInputEnvelope
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-}
-
-export type MediaUncheckedCreateNestedManyWithoutCommitteeMemberInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutCommitteeMemberInput, Prisma.MediaUncheckedCreateWithoutCommitteeMemberInput> | Prisma.MediaCreateWithoutCommitteeMemberInput[] | Prisma.MediaUncheckedCreateWithoutCommitteeMemberInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutCommitteeMemberInput | Prisma.MediaCreateOrConnectWithoutCommitteeMemberInput[]
-  createMany?: Prisma.MediaCreateManyCommitteeMemberInputEnvelope
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-}
-
-export type MediaUpdateManyWithoutCommitteeMemberNestedInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutCommitteeMemberInput, Prisma.MediaUncheckedCreateWithoutCommitteeMemberInput> | Prisma.MediaCreateWithoutCommitteeMemberInput[] | Prisma.MediaUncheckedCreateWithoutCommitteeMemberInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutCommitteeMemberInput | Prisma.MediaCreateOrConnectWithoutCommitteeMemberInput[]
-  upsert?: Prisma.MediaUpsertWithWhereUniqueWithoutCommitteeMemberInput | Prisma.MediaUpsertWithWhereUniqueWithoutCommitteeMemberInput[]
-  createMany?: Prisma.MediaCreateManyCommitteeMemberInputEnvelope
-  set?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  disconnect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  delete?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  update?: Prisma.MediaUpdateWithWhereUniqueWithoutCommitteeMemberInput | Prisma.MediaUpdateWithWhereUniqueWithoutCommitteeMemberInput[]
-  updateMany?: Prisma.MediaUpdateManyWithWhereWithoutCommitteeMemberInput | Prisma.MediaUpdateManyWithWhereWithoutCommitteeMemberInput[]
-  deleteMany?: Prisma.MediaScalarWhereInput | Prisma.MediaScalarWhereInput[]
-}
-
-export type MediaUncheckedUpdateManyWithoutCommitteeMemberNestedInput = {
-  create?: Prisma.XOR<Prisma.MediaCreateWithoutCommitteeMemberInput, Prisma.MediaUncheckedCreateWithoutCommitteeMemberInput> | Prisma.MediaCreateWithoutCommitteeMemberInput[] | Prisma.MediaUncheckedCreateWithoutCommitteeMemberInput[]
-  connectOrCreate?: Prisma.MediaCreateOrConnectWithoutCommitteeMemberInput | Prisma.MediaCreateOrConnectWithoutCommitteeMemberInput[]
-  upsert?: Prisma.MediaUpsertWithWhereUniqueWithoutCommitteeMemberInput | Prisma.MediaUpsertWithWhereUniqueWithoutCommitteeMemberInput[]
-  createMany?: Prisma.MediaCreateManyCommitteeMemberInputEnvelope
-  set?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  disconnect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  delete?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  connect?: Prisma.MediaWhereUniqueInput | Prisma.MediaWhereUniqueInput[]
-  update?: Prisma.MediaUpdateWithWhereUniqueWithoutCommitteeMemberInput | Prisma.MediaUpdateWithWhereUniqueWithoutCommitteeMemberInput[]
-  updateMany?: Prisma.MediaUpdateManyWithWhereWithoutCommitteeMemberInput | Prisma.MediaUpdateManyWithWhereWithoutCommitteeMemberInput[]
-  deleteMany?: Prisma.MediaScalarWhereInput | Prisma.MediaScalarWhereInput[]
-}
-
 export type MediaCreateNestedManyWithoutResourceInput = {
   create?: Prisma.XOR<Prisma.MediaCreateWithoutResourceInput, Prisma.MediaUncheckedCreateWithoutResourceInput> | Prisma.MediaCreateWithoutResourceInput[] | Prisma.MediaUncheckedCreateWithoutResourceInput[]
   connectOrCreate?: Prisma.MediaCreateOrConnectWithoutResourceInput | Prisma.MediaCreateOrConnectWithoutResourceInput[]
@@ -720,9 +588,9 @@ export type MediaCreateWithoutApplicationInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  committeeMember?: Prisma.CommitteeMemberCreateNestedOneWithoutMediaInput
-  member?: Prisma.MemberCreateNestedOneWithoutMediaInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutMediaInput
+  proposerId?: string | null
+  committeeMemberId?: string | null
+  memberId?: string | null
   resource?: Prisma.ResourceCreateNestedOneWithoutMediaInput
 }
 
@@ -786,174 +654,6 @@ export type MediaScalarWhereInput = {
   memberId?: Prisma.StringNullableFilter<"Media"> | string | null
 }
 
-export type MediaCreateWithoutProposerInput = {
-  id?: string
-  name?: string | null
-  url?: string | null
-  mimeType?: string | null
-  mediaType?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutMediaInput
-  committeeMember?: Prisma.CommitteeMemberCreateNestedOneWithoutMediaInput
-  member?: Prisma.MemberCreateNestedOneWithoutMediaInput
-  resource?: Prisma.ResourceCreateNestedOneWithoutMediaInput
-}
-
-export type MediaUncheckedCreateWithoutProposerInput = {
-  id?: string
-  name?: string | null
-  url?: string | null
-  mimeType?: string | null
-  mediaType?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationId?: string | null
-  resourceId?: string | null
-  committeeMemberId?: string | null
-  memberId?: string | null
-}
-
-export type MediaCreateOrConnectWithoutProposerInput = {
-  where: Prisma.MediaWhereUniqueInput
-  create: Prisma.XOR<Prisma.MediaCreateWithoutProposerInput, Prisma.MediaUncheckedCreateWithoutProposerInput>
-}
-
-export type MediaCreateManyProposerInputEnvelope = {
-  data: Prisma.MediaCreateManyProposerInput | Prisma.MediaCreateManyProposerInput[]
-  skipDuplicates?: boolean
-}
-
-export type MediaUpsertWithWhereUniqueWithoutProposerInput = {
-  where: Prisma.MediaWhereUniqueInput
-  update: Prisma.XOR<Prisma.MediaUpdateWithoutProposerInput, Prisma.MediaUncheckedUpdateWithoutProposerInput>
-  create: Prisma.XOR<Prisma.MediaCreateWithoutProposerInput, Prisma.MediaUncheckedCreateWithoutProposerInput>
-}
-
-export type MediaUpdateWithWhereUniqueWithoutProposerInput = {
-  where: Prisma.MediaWhereUniqueInput
-  data: Prisma.XOR<Prisma.MediaUpdateWithoutProposerInput, Prisma.MediaUncheckedUpdateWithoutProposerInput>
-}
-
-export type MediaUpdateManyWithWhereWithoutProposerInput = {
-  where: Prisma.MediaScalarWhereInput
-  data: Prisma.XOR<Prisma.MediaUpdateManyMutationInput, Prisma.MediaUncheckedUpdateManyWithoutProposerInput>
-}
-
-export type MediaCreateWithoutMemberInput = {
-  id?: string
-  name?: string | null
-  url?: string | null
-  mimeType?: string | null
-  mediaType?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutMediaInput
-  committeeMember?: Prisma.CommitteeMemberCreateNestedOneWithoutMediaInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutMediaInput
-  resource?: Prisma.ResourceCreateNestedOneWithoutMediaInput
-}
-
-export type MediaUncheckedCreateWithoutMemberInput = {
-  id?: string
-  name?: string | null
-  url?: string | null
-  mimeType?: string | null
-  mediaType?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationId?: string | null
-  proposerId?: string | null
-  resourceId?: string | null
-  committeeMemberId?: string | null
-}
-
-export type MediaCreateOrConnectWithoutMemberInput = {
-  where: Prisma.MediaWhereUniqueInput
-  create: Prisma.XOR<Prisma.MediaCreateWithoutMemberInput, Prisma.MediaUncheckedCreateWithoutMemberInput>
-}
-
-export type MediaCreateManyMemberInputEnvelope = {
-  data: Prisma.MediaCreateManyMemberInput | Prisma.MediaCreateManyMemberInput[]
-  skipDuplicates?: boolean
-}
-
-export type MediaUpsertWithWhereUniqueWithoutMemberInput = {
-  where: Prisma.MediaWhereUniqueInput
-  update: Prisma.XOR<Prisma.MediaUpdateWithoutMemberInput, Prisma.MediaUncheckedUpdateWithoutMemberInput>
-  create: Prisma.XOR<Prisma.MediaCreateWithoutMemberInput, Prisma.MediaUncheckedCreateWithoutMemberInput>
-}
-
-export type MediaUpdateWithWhereUniqueWithoutMemberInput = {
-  where: Prisma.MediaWhereUniqueInput
-  data: Prisma.XOR<Prisma.MediaUpdateWithoutMemberInput, Prisma.MediaUncheckedUpdateWithoutMemberInput>
-}
-
-export type MediaUpdateManyWithWhereWithoutMemberInput = {
-  where: Prisma.MediaScalarWhereInput
-  data: Prisma.XOR<Prisma.MediaUpdateManyMutationInput, Prisma.MediaUncheckedUpdateManyWithoutMemberInput>
-}
-
-export type MediaCreateWithoutCommitteeMemberInput = {
-  id?: string
-  name?: string | null
-  url?: string | null
-  mimeType?: string | null
-  mediaType?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutMediaInput
-  member?: Prisma.MemberCreateNestedOneWithoutMediaInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutMediaInput
-  resource?: Prisma.ResourceCreateNestedOneWithoutMediaInput
-}
-
-export type MediaUncheckedCreateWithoutCommitteeMemberInput = {
-  id?: string
-  name?: string | null
-  url?: string | null
-  mimeType?: string | null
-  mediaType?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationId?: string | null
-  proposerId?: string | null
-  resourceId?: string | null
-  memberId?: string | null
-}
-
-export type MediaCreateOrConnectWithoutCommitteeMemberInput = {
-  where: Prisma.MediaWhereUniqueInput
-  create: Prisma.XOR<Prisma.MediaCreateWithoutCommitteeMemberInput, Prisma.MediaUncheckedCreateWithoutCommitteeMemberInput>
-}
-
-export type MediaCreateManyCommitteeMemberInputEnvelope = {
-  data: Prisma.MediaCreateManyCommitteeMemberInput | Prisma.MediaCreateManyCommitteeMemberInput[]
-  skipDuplicates?: boolean
-}
-
-export type MediaUpsertWithWhereUniqueWithoutCommitteeMemberInput = {
-  where: Prisma.MediaWhereUniqueInput
-  update: Prisma.XOR<Prisma.MediaUpdateWithoutCommitteeMemberInput, Prisma.MediaUncheckedUpdateWithoutCommitteeMemberInput>
-  create: Prisma.XOR<Prisma.MediaCreateWithoutCommitteeMemberInput, Prisma.MediaUncheckedCreateWithoutCommitteeMemberInput>
-}
-
-export type MediaUpdateWithWhereUniqueWithoutCommitteeMemberInput = {
-  where: Prisma.MediaWhereUniqueInput
-  data: Prisma.XOR<Prisma.MediaUpdateWithoutCommitteeMemberInput, Prisma.MediaUncheckedUpdateWithoutCommitteeMemberInput>
-}
-
-export type MediaUpdateManyWithWhereWithoutCommitteeMemberInput = {
-  where: Prisma.MediaScalarWhereInput
-  data: Prisma.XOR<Prisma.MediaUpdateManyMutationInput, Prisma.MediaUncheckedUpdateManyWithoutCommitteeMemberInput>
-}
-
 export type MediaCreateWithoutResourceInput = {
   id?: string
   name?: string | null
@@ -963,10 +663,10 @@ export type MediaCreateWithoutResourceInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  proposerId?: string | null
+  committeeMemberId?: string | null
+  memberId?: string | null
   application?: Prisma.ApplicationCreateNestedOneWithoutMediaInput
-  committeeMember?: Prisma.CommitteeMemberCreateNestedOneWithoutMediaInput
-  member?: Prisma.MemberCreateNestedOneWithoutMediaInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutMediaInput
 }
 
 export type MediaUncheckedCreateWithoutResourceInput = {
@@ -1034,9 +734,9 @@ export type MediaUpdateWithoutApplicationInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  committeeMember?: Prisma.CommitteeMemberUpdateOneWithoutMediaNestedInput
-  member?: Prisma.MemberUpdateOneWithoutMediaNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutMediaNestedInput
+  proposerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  committeeMemberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   resource?: Prisma.ResourceUpdateOneWithoutMediaNestedInput
 }
 
@@ -1070,186 +770,6 @@ export type MediaUncheckedUpdateManyWithoutApplicationInput = {
   memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
-export type MediaCreateManyProposerInput = {
-  id?: string
-  name?: string | null
-  url?: string | null
-  mimeType?: string | null
-  mediaType?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationId?: string | null
-  resourceId?: string | null
-  committeeMemberId?: string | null
-  memberId?: string | null
-}
-
-export type MediaUpdateWithoutProposerInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mimeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutMediaNestedInput
-  committeeMember?: Prisma.CommitteeMemberUpdateOneWithoutMediaNestedInput
-  member?: Prisma.MemberUpdateOneWithoutMediaNestedInput
-  resource?: Prisma.ResourceUpdateOneWithoutMediaNestedInput
-}
-
-export type MediaUncheckedUpdateWithoutProposerInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mimeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  committeeMemberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-}
-
-export type MediaUncheckedUpdateManyWithoutProposerInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mimeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  committeeMemberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-}
-
-export type MediaCreateManyMemberInput = {
-  id?: string
-  name?: string | null
-  url?: string | null
-  mimeType?: string | null
-  mediaType?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationId?: string | null
-  proposerId?: string | null
-  resourceId?: string | null
-  committeeMemberId?: string | null
-}
-
-export type MediaUpdateWithoutMemberInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mimeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutMediaNestedInput
-  committeeMember?: Prisma.CommitteeMemberUpdateOneWithoutMediaNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutMediaNestedInput
-  resource?: Prisma.ResourceUpdateOneWithoutMediaNestedInput
-}
-
-export type MediaUncheckedUpdateWithoutMemberInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mimeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  proposerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  committeeMemberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-}
-
-export type MediaUncheckedUpdateManyWithoutMemberInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mimeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  proposerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  committeeMemberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-}
-
-export type MediaCreateManyCommitteeMemberInput = {
-  id?: string
-  name?: string | null
-  url?: string | null
-  mimeType?: string | null
-  mediaType?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationId?: string | null
-  proposerId?: string | null
-  resourceId?: string | null
-  memberId?: string | null
-}
-
-export type MediaUpdateWithoutCommitteeMemberInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mimeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutMediaNestedInput
-  member?: Prisma.MemberUpdateOneWithoutMediaNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutMediaNestedInput
-  resource?: Prisma.ResourceUpdateOneWithoutMediaNestedInput
-}
-
-export type MediaUncheckedUpdateWithoutCommitteeMemberInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mimeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  proposerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-}
-
-export type MediaUncheckedUpdateManyWithoutCommitteeMemberInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mimeType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  proposerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  resourceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-}
-
 export type MediaCreateManyResourceInput = {
   id?: string
   name?: string | null
@@ -1274,10 +794,10 @@ export type MediaUpdateWithoutResourceInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  proposerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  committeeMemberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  memberId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   application?: Prisma.ApplicationUpdateOneWithoutMediaNestedInput
-  committeeMember?: Prisma.CommitteeMemberUpdateOneWithoutMediaNestedInput
-  member?: Prisma.MemberUpdateOneWithoutMediaNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutMediaNestedInput
 }
 
 export type MediaUncheckedUpdateWithoutResourceInput = {
@@ -1327,9 +847,6 @@ export type MediaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   committeeMemberId?: boolean
   memberId?: boolean
   application?: boolean | Prisma.Media$applicationArgs<ExtArgs>
-  committeeMember?: boolean | Prisma.Media$committeeMemberArgs<ExtArgs>
-  member?: boolean | Prisma.Media$memberArgs<ExtArgs>
-  proposer?: boolean | Prisma.Media$proposerArgs<ExtArgs>
   resource?: boolean | Prisma.Media$resourceArgs<ExtArgs>
 }, ExtArgs["result"]["media"]>
 
@@ -1348,9 +865,6 @@ export type MediaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   committeeMemberId?: boolean
   memberId?: boolean
   application?: boolean | Prisma.Media$applicationArgs<ExtArgs>
-  committeeMember?: boolean | Prisma.Media$committeeMemberArgs<ExtArgs>
-  member?: boolean | Prisma.Media$memberArgs<ExtArgs>
-  proposer?: boolean | Prisma.Media$proposerArgs<ExtArgs>
   resource?: boolean | Prisma.Media$resourceArgs<ExtArgs>
 }, ExtArgs["result"]["media"]>
 
@@ -1369,9 +883,6 @@ export type MediaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   committeeMemberId?: boolean
   memberId?: boolean
   application?: boolean | Prisma.Media$applicationArgs<ExtArgs>
-  committeeMember?: boolean | Prisma.Media$committeeMemberArgs<ExtArgs>
-  member?: boolean | Prisma.Media$memberArgs<ExtArgs>
-  proposer?: boolean | Prisma.Media$proposerArgs<ExtArgs>
   resource?: boolean | Prisma.Media$resourceArgs<ExtArgs>
 }, ExtArgs["result"]["media"]>
 
@@ -1394,23 +905,14 @@ export type MediaSelectScalar = {
 export type MediaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "url" | "mimeType" | "mediaType" | "createdAt" | "updatedAt" | "deletedAt" | "applicationId" | "proposerId" | "resourceId" | "committeeMemberId" | "memberId", ExtArgs["result"]["media"]>
 export type MediaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | Prisma.Media$applicationArgs<ExtArgs>
-  committeeMember?: boolean | Prisma.Media$committeeMemberArgs<ExtArgs>
-  member?: boolean | Prisma.Media$memberArgs<ExtArgs>
-  proposer?: boolean | Prisma.Media$proposerArgs<ExtArgs>
   resource?: boolean | Prisma.Media$resourceArgs<ExtArgs>
 }
 export type MediaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | Prisma.Media$applicationArgs<ExtArgs>
-  committeeMember?: boolean | Prisma.Media$committeeMemberArgs<ExtArgs>
-  member?: boolean | Prisma.Media$memberArgs<ExtArgs>
-  proposer?: boolean | Prisma.Media$proposerArgs<ExtArgs>
   resource?: boolean | Prisma.Media$resourceArgs<ExtArgs>
 }
 export type MediaIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | Prisma.Media$applicationArgs<ExtArgs>
-  committeeMember?: boolean | Prisma.Media$committeeMemberArgs<ExtArgs>
-  member?: boolean | Prisma.Media$memberArgs<ExtArgs>
-  proposer?: boolean | Prisma.Media$proposerArgs<ExtArgs>
   resource?: boolean | Prisma.Media$resourceArgs<ExtArgs>
 }
 
@@ -1418,9 +920,6 @@ export type $MediaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   name: "Media"
   objects: {
     application: Prisma.$ApplicationPayload<ExtArgs> | null
-    committeeMember: Prisma.$CommitteeMemberPayload<ExtArgs> | null
-    member: Prisma.$MemberPayload<ExtArgs> | null
-    proposer: Prisma.$ProposerPayload<ExtArgs> | null
     resource: Prisma.$ResourcePayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1832,9 +1331,6 @@ readonly fields: MediaFieldRefs;
 export interface Prisma__MediaClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   application<T extends Prisma.Media$applicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$applicationArgs<ExtArgs>>): Prisma.Prisma__ApplicationClient<runtime.Types.Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  committeeMember<T extends Prisma.Media$committeeMemberArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$committeeMemberArgs<ExtArgs>>): Prisma.Prisma__CommitteeMemberClient<runtime.Types.Result.GetResult<Prisma.$CommitteeMemberPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  member<T extends Prisma.Media$memberArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$memberArgs<ExtArgs>>): Prisma.Prisma__MemberClient<runtime.Types.Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  proposer<T extends Prisma.Media$proposerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$proposerArgs<ExtArgs>>): Prisma.Prisma__ProposerClient<runtime.Types.Result.GetResult<Prisma.$ProposerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   resource<T extends Prisma.Media$resourceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Media$resourceArgs<ExtArgs>>): Prisma.Prisma__ResourceClient<runtime.Types.Result.GetResult<Prisma.$ResourcePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2290,63 +1786,6 @@ export type Media$applicationArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   include?: Prisma.ApplicationInclude<ExtArgs> | null
   where?: Prisma.ApplicationWhereInput
-}
-
-/**
- * Media.committeeMember
- */
-export type Media$committeeMemberArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the CommitteeMember
-   */
-  select?: Prisma.CommitteeMemberSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the CommitteeMember
-   */
-  omit?: Prisma.CommitteeMemberOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.CommitteeMemberInclude<ExtArgs> | null
-  where?: Prisma.CommitteeMemberWhereInput
-}
-
-/**
- * Media.member
- */
-export type Media$memberArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Member
-   */
-  select?: Prisma.MemberSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Member
-   */
-  omit?: Prisma.MemberOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.MemberInclude<ExtArgs> | null
-  where?: Prisma.MemberWhereInput
-}
-
-/**
- * Media.proposer
- */
-export type Media$proposerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Proposer
-   */
-  select?: Prisma.ProposerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Proposer
-   */
-  omit?: Prisma.ProposerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ProposerInclude<ExtArgs> | null
-  where?: Prisma.ProposerWhereInput
 }
 
 /**

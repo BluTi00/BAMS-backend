@@ -7,16 +7,12 @@ import {
 import {
   createApplication,
   deleteApplication,
-  getUserApplicationId,
   getApplications,
   getSingleApplication,
   updateApplicationStatus,
   updateApplication,
-  uploadDocument,
-  registerApplication,
-  getCanEditApplication,
   exportApplications,
-  getApplicationsForAssessment,
+  getApplication,
 } from '../controllers/application.controller'
 import { authenticateUser, authorization } from '../middleware/auth'
 import { ROLE } from '../generated/client/client'
@@ -43,11 +39,7 @@ router
     validateApplicationCycle,
     createApplication
   )
-router.route('/for-assessment').get(getApplicationsForAssessment)
-router.route('/applicationId').get(getUserApplicationId)
-router.route('/upload-document/:id').patch(uploadDocument)
-router.route('/can-edit/:id').get(getCanEditApplication)
-router.route('/register/:id').patch(registerApplication)
+
 router.route('/export').post(exportApplications)
 
 router
@@ -57,6 +49,8 @@ router
     validateDto(UpdateApplicationStatusDto),
     updateApplicationStatus
   ) //  no in use currently
+
+router.route('/one').get(getApplication)
 
 router
   .route('/:id')

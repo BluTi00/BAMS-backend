@@ -1,10 +1,7 @@
 import express from 'express'
 import { authenticateUser, authorization } from '../middleware/auth'
 import { ROLE } from '../generated/client/client'
-import {
-  getFormCheckListByApplication,
-  getFormCheckListByUser,
-} from '../controllers/dashboard.controller'
+import { getFormCheckListByUser } from '../controllers/dashboard.controller'
 const router = express.Router()
 
 router.use(
@@ -20,8 +17,5 @@ router.use(
 )
 
 router.route('/form-checklist/user/:id').get(getFormCheckListByUser)
-router
-  .route('/form-checklist/application/:id')
-  .get(getFormCheckListByApplication)
 
 export default router

@@ -1,14 +1,10 @@
 import DotenvConfig from '../config/env.config'
-import { MediaType } from '../constants/enum'
 import { BadRequestError } from '../errors'
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib'
 import { getUploadFolderPath } from './path.utils'
 import path from 'path'
 import fs from 'fs'
 import axios from 'axios'
-import DocumentSetupService from '../services/documentSetup.service'
-
-const documentSetupService = new DocumentSetupService()
 
 const isValidPDF = (buffer: any) => {
   if (!buffer || buffer.length < 5) return false
@@ -118,19 +114,6 @@ export const getMediaAbsolutePath = (url: string) => {
   return path.join(getUploadFolderPath(), cleaned)
 }
 
-export const checkSignature = (media?: any[]) => {
-  if (!media || media.length === 0) {
-    throw new BadRequestError('Signature not found.')
-  }
-  const signature = media.find((m) => m.mediaType === MediaType.SIGNATURE)
-
-  if (!signature) {
-    throw new BadRequestError('Signature not found.')
-  }
-
-  return signature?.url
-}
-
 export const getBase64Image = async (url: string) => {
   if (!url) {
     return ''
@@ -171,8 +154,14 @@ export const getBase64Image = async (url: string) => {
 }
 
 export const sortMediaFiles = async (mediaFiles: any[]) => {
-  const documentSetupList = await documentSetupService.getList()
-  const sortingOrder = documentSetupList.map((doc: any) => doc.mediaType)
+  const sortingOrder = [
+    'CITIZENSHIP_FRONT',
+    'CITIZENSHIP_BACK',
+    'DALIT_CERTIFICATE',
+    'TRAINING_CERTIFICATE',
+    'EDUCATIONAL_CERTIFICATE',
+    'RECOMMENDATION_LETTER',
+  ]
 
   return mediaFiles.sort((a, b) => {
     return sortingOrder.indexOf(a.mediaType) - sortingOrder.indexOf(b.mediaType)

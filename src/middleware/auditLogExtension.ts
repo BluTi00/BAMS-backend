@@ -11,19 +11,6 @@ const includeModels = new Set([
   'Media',
   'ApplicationCycle',
   'Application',
-  'EntrepreneurProfile',
-  'ProductUsage',
-  'ProjectIntroduction',
-  'ProjectAnalysis',
-  'RiskImpactAnalysis',
-  'SwotAnalysis',
-  'FinancialAnalysis',
-  'WorkPlan',
-  'Proposer',
-  'StartupSector',
-  'StartupSubSector',
-  'DocumentSetup',
-  'LoanRecipient',
 ])
 
 export const auditLogExtension = Prisma.defineExtension({

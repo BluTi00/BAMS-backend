@@ -9,23 +9,11 @@ const getFormCheckListByUser = async (
   res: Response
 ): Promise<void> => {
   const { formCheckList, completedStepCount } =
-    await dashboardService.getCheckListByUserId(req.params.id)
+    await dashboardService.getApplicationByUserId(req.params.id)
   res.status(StatusCodes.OK).json({
     formCheckList,
     completedStepCount,
   })
 }
 
-const getFormCheckListByApplication = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
-  const { formCheckList, completedStepCount } =
-    await dashboardService.getCheckListByApplicationId(req.params.id)
-  res.status(StatusCodes.OK).json({
-    formCheckList,
-    completedStepCount,
-  })
-}
-
-export { getFormCheckListByUser, getFormCheckListByApplication }
+export { getFormCheckListByUser }

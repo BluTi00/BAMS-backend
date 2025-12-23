@@ -271,7 +271,6 @@ export type UserWhereInput = {
   isDummyAccount?: Prisma.BoolFilter<"User"> | boolean
   requireLoginVerification?: Prisma.BoolFilter<"User"> | boolean
   application?: Prisma.ApplicationListRelationFilter
-  assessments?: Prisma.AssessmentListRelationFilter
   auditLog?: Prisma.AuditLogListRelationFilter
   bulkOperationLog?: Prisma.BulkOperationLogListRelationFilter
   applicationsByAdmin?: Prisma.ApplicationListRelationFilter
@@ -295,7 +294,6 @@ export type UserOrderByWithRelationInput = {
   isDummyAccount?: Prisma.SortOrder
   requireLoginVerification?: Prisma.SortOrder
   application?: Prisma.ApplicationOrderByRelationAggregateInput
-  assessments?: Prisma.AssessmentOrderByRelationAggregateInput
   auditLog?: Prisma.AuditLogOrderByRelationAggregateInput
   bulkOperationLog?: Prisma.BulkOperationLogOrderByRelationAggregateInput
   applicationsByAdmin?: Prisma.ApplicationOrderByRelationAggregateInput
@@ -322,7 +320,6 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   isDummyAccount?: Prisma.BoolFilter<"User"> | boolean
   requireLoginVerification?: Prisma.BoolFilter<"User"> | boolean
   application?: Prisma.ApplicationListRelationFilter
-  assessments?: Prisma.AssessmentListRelationFilter
   auditLog?: Prisma.AuditLogListRelationFilter
   bulkOperationLog?: Prisma.BulkOperationLogListRelationFilter
   applicationsByAdmin?: Prisma.ApplicationListRelationFilter
@@ -390,7 +387,6 @@ export type UserCreateInput = {
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
   application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutAssessorInput
   auditLog?: Prisma.AuditLogCreateNestedManyWithoutUserInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedManyWithoutTriggeredByInput
   applicationsByAdmin?: Prisma.ApplicationCreateNestedManyWithoutCreatedByAdminInput
@@ -414,7 +410,6 @@ export type UserUncheckedCreateInput = {
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
   application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutAssessorInput
   auditLog?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
   bulkOperationLog?: Prisma.BulkOperationLogUncheckedCreateNestedManyWithoutTriggeredByInput
   applicationsByAdmin?: Prisma.ApplicationUncheckedCreateNestedManyWithoutCreatedByAdminInput
@@ -438,7 +433,6 @@ export type UserUpdateInput = {
   isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
   requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
   application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutAssessorNestedInput
   auditLog?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateManyWithoutTriggeredByNestedInput
   applicationsByAdmin?: Prisma.ApplicationUpdateManyWithoutCreatedByAdminNestedInput
@@ -462,7 +456,6 @@ export type UserUncheckedUpdateInput = {
   isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
   requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
   application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutAssessorNestedInput
   auditLog?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUncheckedUpdateManyWithoutTriggeredByNestedInput
   applicationsByAdmin?: Prisma.ApplicationUncheckedUpdateManyWithoutCreatedByAdminNestedInput
@@ -647,22 +640,6 @@ export type UserUpdateOneWithoutApplicationsByAdminNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutApplicationsByAdminInput, Prisma.UserUpdateWithoutApplicationsByAdminInput>, Prisma.UserUncheckedUpdateWithoutApplicationsByAdminInput>
 }
 
-export type UserCreateNestedOneWithoutAssessmentsInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutAssessmentsInput, Prisma.UserUncheckedCreateWithoutAssessmentsInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssessmentsInput
-  connect?: Prisma.UserWhereUniqueInput
-}
-
-export type UserUpdateOneWithoutAssessmentsNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutAssessmentsInput, Prisma.UserUncheckedCreateWithoutAssessmentsInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssessmentsInput
-  upsert?: Prisma.UserUpsertWithoutAssessmentsInput
-  disconnect?: Prisma.UserWhereInput | boolean
-  delete?: Prisma.UserWhereInput | boolean
-  connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAssessmentsInput, Prisma.UserUpdateWithoutAssessmentsInput>, Prisma.UserUncheckedUpdateWithoutAssessmentsInput>
-}
-
 export type UserCreateNestedOneWithoutAuditLogInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutAuditLogInput, Prisma.UserUncheckedCreateWithoutAuditLogInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutAuditLogInput
@@ -712,7 +689,6 @@ export type UserCreateWithoutApplicationInput = {
   createdById?: string | null
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutAssessorInput
   auditLog?: Prisma.AuditLogCreateNestedManyWithoutUserInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedManyWithoutTriggeredByInput
   applicationsByAdmin?: Prisma.ApplicationCreateNestedManyWithoutCreatedByAdminInput
@@ -735,7 +711,6 @@ export type UserUncheckedCreateWithoutApplicationInput = {
   createdById?: string | null
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutAssessorInput
   auditLog?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
   bulkOperationLog?: Prisma.BulkOperationLogUncheckedCreateNestedManyWithoutTriggeredByInput
   applicationsByAdmin?: Prisma.ApplicationUncheckedCreateNestedManyWithoutCreatedByAdminInput
@@ -764,7 +739,6 @@ export type UserCreateWithoutApplicationsByAdminInput = {
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
   application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutAssessorInput
   auditLog?: Prisma.AuditLogCreateNestedManyWithoutUserInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedManyWithoutTriggeredByInput
 }
@@ -787,7 +761,6 @@ export type UserUncheckedCreateWithoutApplicationsByAdminInput = {
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
   application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutAssessorInput
   auditLog?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
   bulkOperationLog?: Prisma.BulkOperationLogUncheckedCreateNestedManyWithoutTriggeredByInput
 }
@@ -825,7 +798,6 @@ export type UserUpdateWithoutApplicationInput = {
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
   requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  assessments?: Prisma.AssessmentUpdateManyWithoutAssessorNestedInput
   auditLog?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateManyWithoutTriggeredByNestedInput
   applicationsByAdmin?: Prisma.ApplicationUpdateManyWithoutCreatedByAdminNestedInput
@@ -848,7 +820,6 @@ export type UserUncheckedUpdateWithoutApplicationInput = {
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
   requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutAssessorNestedInput
   auditLog?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUncheckedUpdateManyWithoutTriggeredByNestedInput
   applicationsByAdmin?: Prisma.ApplicationUncheckedUpdateManyWithoutCreatedByAdminNestedInput
@@ -883,7 +854,6 @@ export type UserUpdateWithoutApplicationsByAdminInput = {
   isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
   requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
   application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutAssessorNestedInput
   auditLog?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateManyWithoutTriggeredByNestedInput
 }
@@ -906,117 +876,8 @@ export type UserUncheckedUpdateWithoutApplicationsByAdminInput = {
   isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
   requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
   application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutAssessorNestedInput
   auditLog?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUncheckedUpdateManyWithoutTriggeredByNestedInput
-}
-
-export type UserCreateWithoutAssessmentsInput = {
-  id?: string
-  name: string
-  nameNp?: string | null
-  email?: string | null
-  password: string
-  phone: string
-  role?: $Enums.ROLE
-  gender?: $Enums.GENDER
-  isBlocked?: boolean
-  isDeactivated?: boolean
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  createdById?: string | null
-  isDummyAccount?: boolean
-  requireLoginVerification?: boolean
-  application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
-  auditLog?: Prisma.AuditLogCreateNestedManyWithoutUserInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedManyWithoutTriggeredByInput
-  applicationsByAdmin?: Prisma.ApplicationCreateNestedManyWithoutCreatedByAdminInput
-}
-
-export type UserUncheckedCreateWithoutAssessmentsInput = {
-  id?: string
-  name: string
-  nameNp?: string | null
-  email?: string | null
-  password: string
-  phone: string
-  role?: $Enums.ROLE
-  gender?: $Enums.GENDER
-  isBlocked?: boolean
-  isDeactivated?: boolean
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  createdById?: string | null
-  isDummyAccount?: boolean
-  requireLoginVerification?: boolean
-  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
-  auditLog?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
-  bulkOperationLog?: Prisma.BulkOperationLogUncheckedCreateNestedManyWithoutTriggeredByInput
-  applicationsByAdmin?: Prisma.ApplicationUncheckedCreateNestedManyWithoutCreatedByAdminInput
-}
-
-export type UserCreateOrConnectWithoutAssessmentsInput = {
-  where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutAssessmentsInput, Prisma.UserUncheckedCreateWithoutAssessmentsInput>
-}
-
-export type UserUpsertWithoutAssessmentsInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutAssessmentsInput, Prisma.UserUncheckedUpdateWithoutAssessmentsInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutAssessmentsInput, Prisma.UserUncheckedCreateWithoutAssessmentsInput>
-  where?: Prisma.UserWhereInput
-}
-
-export type UserUpdateToOneWithWhereWithoutAssessmentsInput = {
-  where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutAssessmentsInput, Prisma.UserUncheckedUpdateWithoutAssessmentsInput>
-}
-
-export type UserUpdateWithoutAssessmentsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  nameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  password?: Prisma.StringFieldUpdateOperationsInput | string
-  phone?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-  gender?: Prisma.EnumGENDERFieldUpdateOperationsInput | $Enums.GENDER
-  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
-  auditLog?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateManyWithoutTriggeredByNestedInput
-  applicationsByAdmin?: Prisma.ApplicationUpdateManyWithoutCreatedByAdminNestedInput
-}
-
-export type UserUncheckedUpdateWithoutAssessmentsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  nameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  password?: Prisma.StringFieldUpdateOperationsInput | string
-  phone?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumROLEFieldUpdateOperationsInput | $Enums.ROLE
-  gender?: Prisma.EnumGENDERFieldUpdateOperationsInput | $Enums.GENDER
-  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
-  auditLog?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUncheckedUpdateManyWithoutTriggeredByNestedInput
-  applicationsByAdmin?: Prisma.ApplicationUncheckedUpdateManyWithoutCreatedByAdminNestedInput
 }
 
 export type UserCreateWithoutAuditLogInput = {
@@ -1037,7 +898,6 @@ export type UserCreateWithoutAuditLogInput = {
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
   application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutAssessorInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedManyWithoutTriggeredByInput
   applicationsByAdmin?: Prisma.ApplicationCreateNestedManyWithoutCreatedByAdminInput
 }
@@ -1060,7 +920,6 @@ export type UserUncheckedCreateWithoutAuditLogInput = {
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
   application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutAssessorInput
   bulkOperationLog?: Prisma.BulkOperationLogUncheckedCreateNestedManyWithoutTriggeredByInput
   applicationsByAdmin?: Prisma.ApplicationUncheckedCreateNestedManyWithoutCreatedByAdminInput
 }
@@ -1099,7 +958,6 @@ export type UserUpdateWithoutAuditLogInput = {
   isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
   requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
   application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutAssessorNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateManyWithoutTriggeredByNestedInput
   applicationsByAdmin?: Prisma.ApplicationUpdateManyWithoutCreatedByAdminNestedInput
 }
@@ -1122,7 +980,6 @@ export type UserUncheckedUpdateWithoutAuditLogInput = {
   isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
   requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
   application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutAssessorNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUncheckedUpdateManyWithoutTriggeredByNestedInput
   applicationsByAdmin?: Prisma.ApplicationUncheckedUpdateManyWithoutCreatedByAdminNestedInput
 }
@@ -1145,7 +1002,6 @@ export type UserCreateWithoutBulkOperationLogInput = {
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
   application?: Prisma.ApplicationCreateNestedManyWithoutUserInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutAssessorInput
   auditLog?: Prisma.AuditLogCreateNestedManyWithoutUserInput
   applicationsByAdmin?: Prisma.ApplicationCreateNestedManyWithoutCreatedByAdminInput
 }
@@ -1168,7 +1024,6 @@ export type UserUncheckedCreateWithoutBulkOperationLogInput = {
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
   application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutUserInput
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutAssessorInput
   auditLog?: Prisma.AuditLogUncheckedCreateNestedManyWithoutUserInput
   applicationsByAdmin?: Prisma.ApplicationUncheckedCreateNestedManyWithoutCreatedByAdminInput
 }
@@ -1207,7 +1062,6 @@ export type UserUpdateWithoutBulkOperationLogInput = {
   isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
   requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
   application?: Prisma.ApplicationUpdateManyWithoutUserNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutAssessorNestedInput
   auditLog?: Prisma.AuditLogUpdateManyWithoutUserNestedInput
   applicationsByAdmin?: Prisma.ApplicationUpdateManyWithoutCreatedByAdminNestedInput
 }
@@ -1230,7 +1084,6 @@ export type UserUncheckedUpdateWithoutBulkOperationLogInput = {
   isDummyAccount?: Prisma.BoolFieldUpdateOperationsInput | boolean
   requireLoginVerification?: Prisma.BoolFieldUpdateOperationsInput | boolean
   application?: Prisma.ApplicationUncheckedUpdateManyWithoutUserNestedInput
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutAssessorNestedInput
   auditLog?: Prisma.AuditLogUncheckedUpdateManyWithoutUserNestedInput
   applicationsByAdmin?: Prisma.ApplicationUncheckedUpdateManyWithoutCreatedByAdminNestedInput
 }
@@ -1242,7 +1095,6 @@ export type UserUncheckedUpdateWithoutBulkOperationLogInput = {
 
 export type UserCountOutputType = {
   application: number
-  assessments: number
   auditLog: number
   bulkOperationLog: number
   applicationsByAdmin: number
@@ -1250,7 +1102,6 @@ export type UserCountOutputType = {
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | UserCountOutputTypeCountApplicationArgs
-  assessments?: boolean | UserCountOutputTypeCountAssessmentsArgs
   auditLog?: boolean | UserCountOutputTypeCountAuditLogArgs
   bulkOperationLog?: boolean | UserCountOutputTypeCountBulkOperationLogArgs
   applicationsByAdmin?: boolean | UserCountOutputTypeCountApplicationsByAdminArgs
@@ -1271,13 +1122,6 @@ export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
  */
 export type UserCountOutputTypeCountApplicationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ApplicationWhereInput
-}
-
-/**
- * UserCountOutputType without action
- */
-export type UserCountOutputTypeCountAssessmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.AssessmentWhereInput
 }
 
 /**
@@ -1320,7 +1164,6 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   isDummyAccount?: boolean
   requireLoginVerification?: boolean
   application?: boolean | Prisma.User$applicationArgs<ExtArgs>
-  assessments?: boolean | Prisma.User$assessmentsArgs<ExtArgs>
   auditLog?: boolean | Prisma.User$auditLogArgs<ExtArgs>
   bulkOperationLog?: boolean | Prisma.User$bulkOperationLogArgs<ExtArgs>
   applicationsByAdmin?: boolean | Prisma.User$applicationsByAdminArgs<ExtArgs>
@@ -1387,7 +1230,6 @@ export type UserSelectScalar = {
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "nameNp" | "email" | "password" | "phone" | "role" | "gender" | "isBlocked" | "isDeactivated" | "createdAt" | "updatedAt" | "deletedAt" | "createdById" | "isDummyAccount" | "requireLoginVerification", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | Prisma.User$applicationArgs<ExtArgs>
-  assessments?: boolean | Prisma.User$assessmentsArgs<ExtArgs>
   auditLog?: boolean | Prisma.User$auditLogArgs<ExtArgs>
   bulkOperationLog?: boolean | Prisma.User$bulkOperationLogArgs<ExtArgs>
   applicationsByAdmin?: boolean | Prisma.User$applicationsByAdminArgs<ExtArgs>
@@ -1400,7 +1242,6 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name: "User"
   objects: {
     application: Prisma.$ApplicationPayload<ExtArgs>[]
-    assessments: Prisma.$AssessmentPayload<ExtArgs>[]
     auditLog: Prisma.$AuditLogPayload<ExtArgs>[]
     bulkOperationLog: Prisma.$BulkOperationLogPayload<ExtArgs>[]
     applicationsByAdmin: Prisma.$ApplicationPayload<ExtArgs>[]
@@ -1817,7 +1658,6 @@ readonly fields: UserFieldRefs;
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   application<T extends Prisma.User$applicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$applicationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  assessments<T extends Prisma.User$assessmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$assessmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AssessmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   auditLog<T extends Prisma.User$auditLogArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$auditLogArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   bulkOperationLog<T extends Prisma.User$bulkOperationLogArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$bulkOperationLogArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BulkOperationLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   applicationsByAdmin<T extends Prisma.User$applicationsByAdminArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$applicationsByAdminArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2275,30 +2115,6 @@ export type User$applicationArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.ApplicationScalarFieldEnum | Prisma.ApplicationScalarFieldEnum[]
-}
-
-/**
- * User.assessments
- */
-export type User$assessmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Assessment
-   */
-  select?: Prisma.AssessmentSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Assessment
-   */
-  omit?: Prisma.AssessmentOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.AssessmentInclude<ExtArgs> | null
-  where?: Prisma.AssessmentWhereInput
-  orderBy?: Prisma.AssessmentOrderByWithRelationInput | Prisma.AssessmentOrderByWithRelationInput[]
-  cursor?: Prisma.AssessmentWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.AssessmentScalarFieldEnum | Prisma.AssessmentScalarFieldEnum[]
 }
 
 /**

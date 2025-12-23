@@ -55,26 +55,8 @@ export const ModelName = {
   Media: 'Media',
   ApplicationCycle: 'ApplicationCycle',
   Application: 'Application',
-  Assessment: 'Assessment',
-  ScoreThreshold: 'ScoreThreshold',
   CodeCounter: 'CodeCounter',
   StatusHistory: 'StatusHistory',
-  EntrepreneurProfile: 'EntrepreneurProfile',
-  ProductUsage: 'ProductUsage',
-  ProjectIntroduction: 'ProjectIntroduction',
-  ProjectAnalysis: 'ProjectAnalysis',
-  RiskImpactAnalysis: 'RiskImpactAnalysis',
-  SwotAnalysis: 'SwotAnalysis',
-  FinancialAnalysis: 'FinancialAnalysis',
-  WorkPlan: 'WorkPlan',
-  Proposer: 'Proposer',
-  StartupSector: 'StartupSector',
-  StartupSubSector: 'StartupSubSector',
-  DocumentSetup: 'DocumentSetup',
-  LoanRecipient: 'LoanRecipient',
-  Committee: 'Committee',
-  Member: 'Member',
-  CommitteeMember: 'CommitteeMember',
   Address: 'Address',
   Province: 'Province',
   District: 'District',
@@ -162,70 +144,34 @@ export type ApplicationCycleScalarFieldEnum = (typeof ApplicationCycleScalarFiel
 export const ApplicationScalarFieldEnum = {
   id: 'id',
   applicationCode: 'applicationCode',
-  firmCompanyIndustryName: 'firmCompanyIndustryName',
-  firmCompanyIndustryNameNp: 'firmCompanyIndustryNameNp',
-  initialRegistrationOffice: 'initialRegistrationOffice',
-  registrationDate: 'registrationDate',
-  registrationNumber: 'registrationNumber',
-  panNumber: 'panNumber',
-  licenseProviderOffice: 'licenseProviderOffice',
-  licenseIssuanceDate: 'licenseIssuanceDate',
-  licenseValidityPeriod: 'licenseValidityPeriod',
-  officeAddressId: 'officeAddressId',
-  officeTelephone: 'officeTelephone',
-  officeEmail: 'officeEmail',
-  officeWebsite: 'officeWebsite',
-  representativeName: 'representativeName',
-  representativeDesignation: 'representativeDesignation',
-  representativeTelephone: 'representativeTelephone',
-  representativeMobile: 'representativeMobile',
-  representativeEmail: 'representativeEmail',
-  mediaCaption: 'mediaCaption',
-  status: 'status',
-  rejectionReason: 'rejectionReason',
+  applicantName: 'applicantName',
+  applicantNameNp: 'applicantNameNp',
+  addressId: 'addressId',
+  telephone: 'telephone',
+  email: 'email',
+  dateOfBirth: 'dateOfBirth',
+  educationQualification: 'educationQualification',
+  profession: 'profession',
+  fatherName: 'fatherName',
+  fatherProfession: 'fatherProfession',
+  useOfModernTechnology: 'useOfModernTechnology',
+  possibilityOfSellingProducedGoods: 'possibilityOfSellingProducedGoods',
+  institutionalUpgradeSupport: 'institutionalUpgradeSupport',
+  existingOperatingProfession: 'existingOperatingProfession',
+  professionToBeUpgraded: 'professionToBeUpgraded',
+  estimatedCost: 'estimatedCost',
+  submissionDate: 'submissionDate',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt',
+  status: 'status',
   applicationCycleId: 'applicationCycleId',
-  tempProposer: 'tempProposer',
-  isAffiliatedWithEPC: 'isAffiliatedWithEPC',
-  submissionDate: 'submissionDate',
-  cleanedFirmNepaliName: 'cleanedFirmNepaliName',
   userId: 'userId',
   createdByAdminId: 'createdByAdminId',
   bulkOperationLogId: 'bulkOperationLogId'
 } as const
 
 export type ApplicationScalarFieldEnum = (typeof ApplicationScalarFieldEnum)[keyof typeof ApplicationScalarFieldEnum]
-
-
-export const AssessmentScalarFieldEnum = {
-  id: 'id',
-  applicationId: 'applicationId',
-  assessmentType: 'assessmentType',
-  scoreSheet: 'scoreSheet',
-  score: 'score',
-  originalScore: 'originalScore',
-  remarks: 'remarks',
-  rejectionReason: 'rejectionReason',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  assessorId: 'assessorId',
-  isDraft: 'isDraft'
-} as const
-
-export type AssessmentScalarFieldEnum = (typeof AssessmentScalarFieldEnum)[keyof typeof AssessmentScalarFieldEnum]
-
-
-export const ScoreThresholdScalarFieldEnum = {
-  id: 'id',
-  assessmentType: 'assessmentType',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  passingScore: 'passingScore'
-} as const
-
-export type ScoreThresholdScalarFieldEnum = (typeof ScoreThresholdScalarFieldEnum)[keyof typeof ScoreThresholdScalarFieldEnum]
 
 
 export const CodeCounterScalarFieldEnum = {
@@ -250,305 +196,6 @@ export const StatusHistoryScalarFieldEnum = {
 } as const
 
 export type StatusHistoryScalarFieldEnum = (typeof StatusHistoryScalarFieldEnum)[keyof typeof StatusHistoryScalarFieldEnum]
-
-
-export const EntrepreneurProfileScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  citizenshipNumber: 'citizenshipNumber',
-  issuedDate: 'issuedDate',
-  issuedDistrict: 'issuedDistrict',
-  temporaryAddressId: 'temporaryAddressId',
-  permanentAddressId: 'permanentAddressId',
-  mobileNumber: 'mobileNumber',
-  gender: 'gender',
-  isMainEntrepreneur: 'isMainEntrepreneur',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  applicationId: 'applicationId',
-  educationalQualification: 'educationalQualification',
-  experience: 'experience',
-  training: 'training'
-} as const
-
-export type EntrepreneurProfileScalarFieldEnum = (typeof EntrepreneurProfileScalarFieldEnum)[keyof typeof EntrepreneurProfileScalarFieldEnum]
-
-
-export const ProductUsageScalarFieldEnum = {
-  id: 'id',
-  productOrServiceName: 'productOrServiceName',
-  productOrServiceNature: 'productOrServiceNature',
-  targetCustomerAndMarket: 'targetCustomerAndMarket',
-  hasTrademarkPatentDesignGeographical: 'hasTrademarkPatentDesignGeographical',
-  mainFeaturesOfProductOrService: 'mainFeaturesOfProductOrService',
-  specialUtilityOfProductOrService: 'specialUtilityOfProductOrService',
-  qualityCertificationOfProductOrService: 'qualityCertificationOfProductOrService',
-  technologyAdoptedInProduction: 'technologyAdoptedInProduction',
-  isTechnologySelfProduced: 'isTechnologySelfProduced',
-  technologyAdoptionPurpose: 'technologyAdoptionPurpose',
-  sourceOfRawMaterials: 'sourceOfRawMaterials',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  applicationId: 'applicationId'
-} as const
-
-export type ProductUsageScalarFieldEnum = (typeof ProductUsageScalarFieldEnum)[keyof typeof ProductUsageScalarFieldEnum]
-
-
-export const ProjectIntroductionScalarFieldEnum = {
-  id: 'id',
-  projectIntroduction: 'projectIntroduction',
-  projectObjective: 'projectObjective',
-  startupSectorId: 'startupSectorId',
-  totalEstimatedCost: 'totalEstimatedCost',
-  expenditureSoFar: 'expenditureSoFar',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  applicationId: 'applicationId',
-  isProjectInPrioritySector: 'isProjectInPrioritySector',
-  startupSubSectorId: 'startupSubSectorId'
-} as const
-
-export type ProjectIntroductionScalarFieldEnum = (typeof ProjectIntroductionScalarFieldEnum)[keyof typeof ProjectIntroductionScalarFieldEnum]
-
-
-export const ProjectAnalysisScalarFieldEnum = {
-  id: 'id',
-  isEstablishedMoreThan10Years: 'isEstablishedMoreThan10Years',
-  isAnnualTurnoverExceeded15Crores: 'isAnnualTurnoverExceeded15Crores',
-  isInnovativeTechnologyUsed: 'isInnovativeTechnologyUsed',
-  selfInvestmentAmount: 'selfInvestmentAmount',
-  requestedLoanAmount: 'requestedLoanAmount',
-  lastFiscalYearSalesAmount: 'lastFiscalYearSalesAmount',
-  isBlacklistedInCreditBureau: 'isBlacklistedInCreditBureau',
-  isOtherGovGrantReceived: 'isOtherGovGrantReceived',
-  innovativeWork: 'innovativeWork',
-  innovativeWorkDescription: 'innovativeWorkDescription',
-  nextYearEstimatedJobCreation: 'nextYearEstimatedJobCreation',
-  productMarket: 'productMarket',
-  rawMaterialSource: 'rawMaterialSource',
-  entrepreneurialExperience: 'entrepreneurialExperience',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  applicationId: 'applicationId',
-  isRegisteredAsStartup: 'isRegisteredAsStartup',
-  isTechEnabled: 'isTechEnabled'
-} as const
-
-export type ProjectAnalysisScalarFieldEnum = (typeof ProjectAnalysisScalarFieldEnum)[keyof typeof ProjectAnalysisScalarFieldEnum]
-
-
-export const RiskImpactAnalysisScalarFieldEnum = {
-  id: 'id',
-  isRiskAnalysisDone: 'isRiskAnalysisDone',
-  riskFactor: 'riskFactor',
-  riskMitigationPlan: 'riskMitigationPlan',
-  isQualityImproved: 'isQualityImproved',
-  isCostReduced: 'isCostReduced',
-  isTimeReduced: 'isTimeReduced',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  applicationId: 'applicationId'
-} as const
-
-export type RiskImpactAnalysisScalarFieldEnum = (typeof RiskImpactAnalysisScalarFieldEnum)[keyof typeof RiskImpactAnalysisScalarFieldEnum]
-
-
-export const SwotAnalysisScalarFieldEnum = {
-  id: 'id',
-  strength: 'strength',
-  weakness: 'weakness',
-  opportunity: 'opportunity',
-  threat: 'threat',
-  productionStartDate: 'productionStartDate',
-  expectedProductionStartDate: 'expectedProductionStartDate',
-  expectedProfitableFiscalYear: 'expectedProfitableFiscalYear',
-  isElectricityAvailable: 'isElectricityAvailable',
-  isRoadAvailable: 'isRoadAvailable',
-  isCommunicationAvailable: 'isCommunicationAvailable',
-  isDrinkingWaterAvailable: 'isDrinkingWaterAvailable',
-  isBuildingAvailable: 'isBuildingAvailable',
-  otherFacilities: 'otherFacilities',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  applicationId: 'applicationId',
-  involvedCommunityDetails: 'involvedCommunityDetails',
-  isWasteMaterialReused: 'isWasteMaterialReused',
-  landAvailability: 'landAvailability',
-  partnershipDetailsInProject: 'partnershipDetailsInProject'
-} as const
-
-export type SwotAnalysisScalarFieldEnum = (typeof SwotAnalysisScalarFieldEnum)[keyof typeof SwotAnalysisScalarFieldEnum]
-
-
-export const FinancialAnalysisScalarFieldEnum = {
-  id: 'id',
-  totalEstimatedCostOfProject: 'totalEstimatedCostOfProject',
-  totalCostIncurredInProjectSoFar: 'totalCostIncurredInProjectSoFar',
-  sourceOfInvestment: 'sourceOfInvestment',
-  operatingExpenseProjection: 'operatingExpenseProjection',
-  fiscalYear: 'fiscalYear',
-  annualIncomeAndProfitLossDetails: 'annualIncomeAndProfitLossDetails',
-  enterpriseAndWorkforceInsurance: 'enterpriseAndWorkforceInsurance',
-  riskMitigationMeasures: 'riskMitigationMeasures',
-  reinvestmentRatioFromProfit: 'reinvestmentRatioFromProfit',
-  selfInvestmentRatioInTotalLoanInvestment: 'selfInvestmentRatioInTotalLoanInvestment',
-  principalAndInterestPaymentDetailsOnLoanInvestment: 'principalAndInterestPaymentDetailsOnLoanInvestment',
-  applicationId: 'applicationId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt'
-} as const
-
-export type FinancialAnalysisScalarFieldEnum = (typeof FinancialAnalysisScalarFieldEnum)[keyof typeof FinancialAnalysisScalarFieldEnum]
-
-
-export const WorkPlanScalarFieldEnum = {
-  id: 'id',
-  activity: 'activity',
-  time: 'time',
-  budget: 'budget',
-  expectedOutcome: 'expectedOutcome',
-  risk: 'risk',
-  remarks: 'remarks',
-  applicationId: 'applicationId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt'
-} as const
-
-export type WorkPlanScalarFieldEnum = (typeof WorkPlanScalarFieldEnum)[keyof typeof WorkPlanScalarFieldEnum]
-
-
-export const ProposerScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  proposedDate: 'proposedDate',
-  phone: 'phone',
-  email: 'email',
-  applicationId: 'applicationId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type ProposerScalarFieldEnum = (typeof ProposerScalarFieldEnum)[keyof typeof ProposerScalarFieldEnum]
-
-
-export const StartupSectorScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  nameNp: 'nameNp',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  code: 'code'
-} as const
-
-export type StartupSectorScalarFieldEnum = (typeof StartupSectorScalarFieldEnum)[keyof typeof StartupSectorScalarFieldEnum]
-
-
-export const StartupSubSectorScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  nameNp: 'nameNp',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  startupSectorId: 'startupSectorId',
-  code: 'code'
-} as const
-
-export type StartupSubSectorScalarFieldEnum = (typeof StartupSubSectorScalarFieldEnum)[keyof typeof StartupSubSectorScalarFieldEnum]
-
-
-export const DocumentSetupScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  nameNp: 'nameNp',
-  mediaType: 'mediaType',
-  isActive: 'isActive',
-  isRequired: 'isRequired',
-  acceptedExtensions: 'acceptedExtensions',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  visibilityOrder: 'visibilityOrder'
-} as const
-
-export type DocumentSetupScalarFieldEnum = (typeof DocumentSetupScalarFieldEnum)[keyof typeof DocumentSetupScalarFieldEnum]
-
-
-export const LoanRecipientScalarFieldEnum = {
-  id: 'id',
-  applicationCode: 'applicationCode',
-  projectName: 'projectName',
-  projectAddress: 'projectAddress',
-  entrepreneurName: 'entrepreneurName',
-  loanRecommendedAmount: 'loanRecommendedAmount',
-  loanReceivedAmount: 'loanReceivedAmount',
-  panNumber: 'panNumber',
-  registrationNumber: 'registrationNumber',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  applicationCycleId: 'applicationCycleId',
-  bulkOperationLogId: 'bulkOperationLogId'
-} as const
-
-export type LoanRecipientScalarFieldEnum = (typeof LoanRecipientScalarFieldEnum)[keyof typeof LoanRecipientScalarFieldEnum]
-
-
-export const CommitteeScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  nameNp: 'nameNp',
-  formationDate: 'formationDate',
-  type: 'type',
-  remarks: 'remarks',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type CommitteeScalarFieldEnum = (typeof CommitteeScalarFieldEnum)[keyof typeof CommitteeScalarFieldEnum]
-
-
-export const MemberScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  nameNp: 'nameNp',
-  phone: 'phone',
-  email: 'email',
-  dateOfBirth: 'dateOfBirth',
-  gender: 'gender',
-  citizenshipNumber: 'citizenshipNumber',
-  issuedDistrict: 'issuedDistrict',
-  issuedDate: 'issuedDate',
-  experience: 'experience',
-  qualification: 'qualification',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  addressId: 'addressId',
-  startupSectorId: 'startupSectorId'
-} as const
-
-export type MemberScalarFieldEnum = (typeof MemberScalarFieldEnum)[keyof typeof MemberScalarFieldEnum]
-
-
-export const CommitteeMemberScalarFieldEnum = {
-  id: 'id',
-  committeeId: 'committeeId',
-  memberId: 'memberId',
-  joiningDate: 'joiningDate',
-  designation: 'designation',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type CommitteeMemberScalarFieldEnum = (typeof CommitteeMemberScalarFieldEnum)[keyof typeof CommitteeMemberScalarFieldEnum]
 
 
 export const AddressScalarFieldEnum = {

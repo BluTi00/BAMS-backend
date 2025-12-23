@@ -33,21 +33,4 @@ const getDateWiseAnalytics = async (
   })
 }
 
-const getStageProgressAnalytics = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
-  const result = await analyticsService.getStageProgress(
-    req.query.applicationCycleId as string
-  )
-
-  res.status(StatusCodes.OK).json({
-    data: result,
-  })
-}
-
-export {
-  getStatsSummaryAnalytics,
-  getDateWiseAnalytics,
-  getStageProgressAnalytics,
-}
+export { getStatsSummaryAnalytics, getDateWiseAnalytics }

@@ -58,16 +58,6 @@ export type ApplicationCycle = Prisma.ApplicationCycleModel
  */
 export type Application = Prisma.ApplicationModel
 /**
- * Model Assessment
- * 
- */
-export type Assessment = Prisma.AssessmentModel
-/**
- * Model ScoreThreshold
- * 
- */
-export type ScoreThreshold = Prisma.ScoreThresholdModel
-/**
  * Model CodeCounter
  * 
  */
@@ -77,86 +67,6 @@ export type CodeCounter = Prisma.CodeCounterModel
  * 
  */
 export type StatusHistory = Prisma.StatusHistoryModel
-/**
- * Model EntrepreneurProfile
- * 
- */
-export type EntrepreneurProfile = Prisma.EntrepreneurProfileModel
-/**
- * Model ProductUsage
- * 
- */
-export type ProductUsage = Prisma.ProductUsageModel
-/**
- * Model ProjectIntroduction
- * 
- */
-export type ProjectIntroduction = Prisma.ProjectIntroductionModel
-/**
- * Model ProjectAnalysis
- * 
- */
-export type ProjectAnalysis = Prisma.ProjectAnalysisModel
-/**
- * Model RiskImpactAnalysis
- * 
- */
-export type RiskImpactAnalysis = Prisma.RiskImpactAnalysisModel
-/**
- * Model SwotAnalysis
- * 
- */
-export type SwotAnalysis = Prisma.SwotAnalysisModel
-/**
- * Model FinancialAnalysis
- * 
- */
-export type FinancialAnalysis = Prisma.FinancialAnalysisModel
-/**
- * Model WorkPlan
- * 
- */
-export type WorkPlan = Prisma.WorkPlanModel
-/**
- * Model Proposer
- * 
- */
-export type Proposer = Prisma.ProposerModel
-/**
- * Model StartupSector
- * 
- */
-export type StartupSector = Prisma.StartupSectorModel
-/**
- * Model StartupSubSector
- * 
- */
-export type StartupSubSector = Prisma.StartupSubSectorModel
-/**
- * Model DocumentSetup
- * 
- */
-export type DocumentSetup = Prisma.DocumentSetupModel
-/**
- * Model LoanRecipient
- * 
- */
-export type LoanRecipient = Prisma.LoanRecipientModel
-/**
- * Model Committee
- * 
- */
-export type Committee = Prisma.CommitteeModel
-/**
- * Model Member
- * 
- */
-export type Member = Prisma.MemberModel
-/**
- * Model CommitteeMember
- * 
- */
-export type CommitteeMember = Prisma.CommitteeMemberModel
 /**
  * Model Address
  * 

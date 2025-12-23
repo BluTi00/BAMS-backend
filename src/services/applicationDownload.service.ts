@@ -16,12 +16,10 @@ class ApplicationDownloadService {
   async getPdfById({
     id,
     includeAttachment,
-    isUserRole,
     enablePuppeteerCluster,
   }: {
     id: string
     includeAttachment?: boolean
-    isUserRole?: boolean
     enablePuppeteerCluster?: boolean
   }): Promise<any> {
     if (!id) {
@@ -33,7 +31,7 @@ class ApplicationDownloadService {
       pdf: applicationPdf,
       fileName,
       applicationCode,
-    } = await generateApplicationPdf(id, isUserRole, enablePuppeteerCluster)
+    } = await generateApplicationPdf(id, enablePuppeteerCluster)
 
     // fs.writeFileSync('./applicationPdf.pdf', applicationPdf || '')
 

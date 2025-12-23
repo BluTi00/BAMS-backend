@@ -64,6 +64,14 @@ const createApplication = async (
   res.status(StatusCodes.OK).json({ msg: message, data: createdApplicationId })
 }
 
+const getApplication = async (req: Request, res: Response): Promise<void> => {
+  const application = await applicationService.getOne({
+    userId: req.user?.userId,
+    applicationCycleId: req.query?.applicationCycleId as string,
+  })
+  res.status(StatusCodes.OK).json({ data: application })
+}
+
 const getSingleApplication = async (
   req: Request,
   res: Response
@@ -73,14 +81,6 @@ const getSingleApplication = async (
     user: req.user,
   })
   res.status(StatusCodes.OK).json({ data: application })
-}
-
-const getCanEditApplication = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
-  const canEdit = await applicationService.canEdit(req.params.id, req.user)
-  res.status(StatusCodes.OK).json({ canEdit })
 }
 
 const updateApplication = async (
@@ -115,33 +115,6 @@ const deleteApplication = async (
   res.status(StatusCodes.OK).json({ msg: message })
 }
 
-const getUserApplicationId = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
-  const applicationId = await applicationService.getApplicationId(req.user)
-  res.status(StatusCodes.OK).json({ data: applicationId })
-}
-
-const uploadDocument = async (req: Request, res: Response): Promise<void> => {
-  const message = await applicationService.uploadDocument(
-    req.params.id,
-    req.body
-  )
-  res.status(StatusCodes.OK).json({ msg: message })
-}
-
-const registerApplication = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
-  const message = await applicationService.register(
-    req.params.id,
-    req.user?.userId
-  )
-  res.status(StatusCodes.OK).json({ msg: message })
-}
-
 const exportApplications = async (
   req: Request,
   res: Response
@@ -157,43 +130,6 @@ const exportApplications = async (
   })
 }
 
-const getApplicationsForAssessment = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
-  const { page, perPage, search } = validatePagination(
-    req.query.currentPage as string,
-    req.query.perPage as string,
-    req.query.searchTerm as string
-  )
-  const { sortId, desc } = validateSorting(
-    req.query.id as string,
-    req.query.desc as string
-  )
-
-  const filters = {
-    applicationCycleId: req.query.applicationCycleId as string,
-    status: req.query.status as string,
-    user: req?.user as TokenData,
-  }
-
-  const { applications, totalCount } =
-    await applicationService.getAllForAssessment({
-      paginationData: {
-        page,
-        perPage,
-        search,
-        sortId,
-        desc,
-      },
-      filters,
-    })
-  res.status(StatusCodes.OK).json({
-    data: applications,
-    pagination: getPagingData(totalCount, page, perPage, search),
-  })
-}
-
 export {
   getApplications,
   createApplication,
@@ -201,11 +137,6 @@ export {
   deleteApplication,
   updateApplicationStatus,
   updateApplication,
-  getUserApplicationId,
-  uploadDocument,
-  registerApplication,
-  getCanEditApplication,
   exportApplications,
-  //
-  getApplicationsForAssessment,
+  getApplication,
 }

@@ -27,43 +27,39 @@ export type AggregateApplication = {
 }
 
 export type ApplicationAvgAggregateOutputType = {
-  officeAddressId: number | null
+  addressId: number | null
+  estimatedCost: number | null
 }
 
 export type ApplicationSumAggregateOutputType = {
-  officeAddressId: number | null
+  addressId: number | null
+  estimatedCost: number | null
 }
 
 export type ApplicationMinAggregateOutputType = {
   id: string | null
   applicationCode: string | null
-  firmCompanyIndustryName: string | null
-  firmCompanyIndustryNameNp: string | null
-  initialRegistrationOffice: string | null
-  registrationDate: string | null
-  registrationNumber: string | null
-  panNumber: string | null
-  licenseProviderOffice: string | null
-  licenseIssuanceDate: string | null
-  licenseValidityPeriod: string | null
-  officeAddressId: number | null
-  officeTelephone: string | null
-  officeEmail: string | null
-  officeWebsite: string | null
-  representativeName: string | null
-  representativeDesignation: string | null
-  representativeTelephone: string | null
-  representativeMobile: string | null
-  representativeEmail: string | null
-  status: $Enums.APPLICATION_STATUS | null
-  rejectionReason: string | null
+  applicantName: string | null
+  applicantNameNp: string | null
+  addressId: number | null
+  telephone: string | null
+  email: string | null
+  dateOfBirth: string | null
+  educationQualification: string | null
+  profession: string | null
+  fatherName: string | null
+  fatherProfession: string | null
+  useOfModernTechnology: boolean | null
+  possibilityOfSellingProducedGoods: boolean | null
+  institutionalUpgradeSupport: boolean | null
+  existingOperatingProfession: string | null
+  estimatedCost: number | null
+  submissionDate: string | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
+  status: $Enums.APPLICATION_STATUS | null
   applicationCycleId: string | null
-  isAffiliatedWithEPC: boolean | null
-  submissionDate: string | null
-  cleanedFirmNepaliName: string | null
   userId: string | null
   createdByAdminId: string | null
   bulkOperationLogId: string | null
@@ -72,33 +68,27 @@ export type ApplicationMinAggregateOutputType = {
 export type ApplicationMaxAggregateOutputType = {
   id: string | null
   applicationCode: string | null
-  firmCompanyIndustryName: string | null
-  firmCompanyIndustryNameNp: string | null
-  initialRegistrationOffice: string | null
-  registrationDate: string | null
-  registrationNumber: string | null
-  panNumber: string | null
-  licenseProviderOffice: string | null
-  licenseIssuanceDate: string | null
-  licenseValidityPeriod: string | null
-  officeAddressId: number | null
-  officeTelephone: string | null
-  officeEmail: string | null
-  officeWebsite: string | null
-  representativeName: string | null
-  representativeDesignation: string | null
-  representativeTelephone: string | null
-  representativeMobile: string | null
-  representativeEmail: string | null
-  status: $Enums.APPLICATION_STATUS | null
-  rejectionReason: string | null
+  applicantName: string | null
+  applicantNameNp: string | null
+  addressId: number | null
+  telephone: string | null
+  email: string | null
+  dateOfBirth: string | null
+  educationQualification: string | null
+  profession: string | null
+  fatherName: string | null
+  fatherProfession: string | null
+  useOfModernTechnology: boolean | null
+  possibilityOfSellingProducedGoods: boolean | null
+  institutionalUpgradeSupport: boolean | null
+  existingOperatingProfession: string | null
+  estimatedCost: number | null
+  submissionDate: string | null
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
+  status: $Enums.APPLICATION_STATUS | null
   applicationCycleId: string | null
-  isAffiliatedWithEPC: boolean | null
-  submissionDate: string | null
-  cleanedFirmNepaliName: string | null
   userId: string | null
   createdByAdminId: string | null
   bulkOperationLogId: string | null
@@ -107,35 +97,28 @@ export type ApplicationMaxAggregateOutputType = {
 export type ApplicationCountAggregateOutputType = {
   id: number
   applicationCode: number
-  firmCompanyIndustryName: number
-  firmCompanyIndustryNameNp: number
-  initialRegistrationOffice: number
-  registrationDate: number
-  registrationNumber: number
-  panNumber: number
-  licenseProviderOffice: number
-  licenseIssuanceDate: number
-  licenseValidityPeriod: number
-  officeAddressId: number
-  officeTelephone: number
-  officeEmail: number
-  officeWebsite: number
-  representativeName: number
-  representativeDesignation: number
-  representativeTelephone: number
-  representativeMobile: number
-  representativeEmail: number
-  mediaCaption: number
-  status: number
-  rejectionReason: number
+  applicantName: number
+  applicantNameNp: number
+  addressId: number
+  telephone: number
+  email: number
+  dateOfBirth: number
+  educationQualification: number
+  profession: number
+  fatherName: number
+  fatherProfession: number
+  useOfModernTechnology: number
+  possibilityOfSellingProducedGoods: number
+  institutionalUpgradeSupport: number
+  existingOperatingProfession: number
+  professionToBeUpgraded: number
+  estimatedCost: number
+  submissionDate: number
   createdAt: number
   updatedAt: number
   deletedAt: number
+  status: number
   applicationCycleId: number
-  tempProposer: number
-  isAffiliatedWithEPC: number
-  submissionDate: number
-  cleanedFirmNepaliName: number
   userId: number
   createdByAdminId: number
   bulkOperationLogId: number
@@ -144,43 +127,39 @@ export type ApplicationCountAggregateOutputType = {
 
 
 export type ApplicationAvgAggregateInputType = {
-  officeAddressId?: true
+  addressId?: true
+  estimatedCost?: true
 }
 
 export type ApplicationSumAggregateInputType = {
-  officeAddressId?: true
+  addressId?: true
+  estimatedCost?: true
 }
 
 export type ApplicationMinAggregateInputType = {
   id?: true
   applicationCode?: true
-  firmCompanyIndustryName?: true
-  firmCompanyIndustryNameNp?: true
-  initialRegistrationOffice?: true
-  registrationDate?: true
-  registrationNumber?: true
-  panNumber?: true
-  licenseProviderOffice?: true
-  licenseIssuanceDate?: true
-  licenseValidityPeriod?: true
-  officeAddressId?: true
-  officeTelephone?: true
-  officeEmail?: true
-  officeWebsite?: true
-  representativeName?: true
-  representativeDesignation?: true
-  representativeTelephone?: true
-  representativeMobile?: true
-  representativeEmail?: true
-  status?: true
-  rejectionReason?: true
+  applicantName?: true
+  applicantNameNp?: true
+  addressId?: true
+  telephone?: true
+  email?: true
+  dateOfBirth?: true
+  educationQualification?: true
+  profession?: true
+  fatherName?: true
+  fatherProfession?: true
+  useOfModernTechnology?: true
+  possibilityOfSellingProducedGoods?: true
+  institutionalUpgradeSupport?: true
+  existingOperatingProfession?: true
+  estimatedCost?: true
+  submissionDate?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
+  status?: true
   applicationCycleId?: true
-  isAffiliatedWithEPC?: true
-  submissionDate?: true
-  cleanedFirmNepaliName?: true
   userId?: true
   createdByAdminId?: true
   bulkOperationLogId?: true
@@ -189,33 +168,27 @@ export type ApplicationMinAggregateInputType = {
 export type ApplicationMaxAggregateInputType = {
   id?: true
   applicationCode?: true
-  firmCompanyIndustryName?: true
-  firmCompanyIndustryNameNp?: true
-  initialRegistrationOffice?: true
-  registrationDate?: true
-  registrationNumber?: true
-  panNumber?: true
-  licenseProviderOffice?: true
-  licenseIssuanceDate?: true
-  licenseValidityPeriod?: true
-  officeAddressId?: true
-  officeTelephone?: true
-  officeEmail?: true
-  officeWebsite?: true
-  representativeName?: true
-  representativeDesignation?: true
-  representativeTelephone?: true
-  representativeMobile?: true
-  representativeEmail?: true
-  status?: true
-  rejectionReason?: true
+  applicantName?: true
+  applicantNameNp?: true
+  addressId?: true
+  telephone?: true
+  email?: true
+  dateOfBirth?: true
+  educationQualification?: true
+  profession?: true
+  fatherName?: true
+  fatherProfession?: true
+  useOfModernTechnology?: true
+  possibilityOfSellingProducedGoods?: true
+  institutionalUpgradeSupport?: true
+  existingOperatingProfession?: true
+  estimatedCost?: true
+  submissionDate?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
+  status?: true
   applicationCycleId?: true
-  isAffiliatedWithEPC?: true
-  submissionDate?: true
-  cleanedFirmNepaliName?: true
   userId?: true
   createdByAdminId?: true
   bulkOperationLogId?: true
@@ -224,35 +197,28 @@ export type ApplicationMaxAggregateInputType = {
 export type ApplicationCountAggregateInputType = {
   id?: true
   applicationCode?: true
-  firmCompanyIndustryName?: true
-  firmCompanyIndustryNameNp?: true
-  initialRegistrationOffice?: true
-  registrationDate?: true
-  registrationNumber?: true
-  panNumber?: true
-  licenseProviderOffice?: true
-  licenseIssuanceDate?: true
-  licenseValidityPeriod?: true
-  officeAddressId?: true
-  officeTelephone?: true
-  officeEmail?: true
-  officeWebsite?: true
-  representativeName?: true
-  representativeDesignation?: true
-  representativeTelephone?: true
-  representativeMobile?: true
-  representativeEmail?: true
-  mediaCaption?: true
-  status?: true
-  rejectionReason?: true
+  applicantName?: true
+  applicantNameNp?: true
+  addressId?: true
+  telephone?: true
+  email?: true
+  dateOfBirth?: true
+  educationQualification?: true
+  profession?: true
+  fatherName?: true
+  fatherProfession?: true
+  useOfModernTechnology?: true
+  possibilityOfSellingProducedGoods?: true
+  institutionalUpgradeSupport?: true
+  existingOperatingProfession?: true
+  professionToBeUpgraded?: true
+  estimatedCost?: true
+  submissionDate?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
+  status?: true
   applicationCycleId?: true
-  tempProposer?: true
-  isAffiliatedWithEPC?: true
-  submissionDate?: true
-  cleanedFirmNepaliName?: true
   userId?: true
   createdByAdminId?: true
   bulkOperationLogId?: true
@@ -348,35 +314,28 @@ export type ApplicationGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 export type ApplicationGroupByOutputType = {
   id: string
   applicationCode: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice: string | null
-  registrationDate: string | null
-  registrationNumber: string | null
-  panNumber: string | null
-  licenseProviderOffice: string | null
-  licenseIssuanceDate: string | null
-  licenseValidityPeriod: string | null
-  officeAddressId: number
-  officeTelephone: string | null
-  officeEmail: string | null
-  officeWebsite: string | null
-  representativeName: string | null
-  representativeDesignation: string | null
-  representativeTelephone: string | null
-  representativeMobile: string
-  representativeEmail: string | null
-  mediaCaption: runtime.JsonValue | null
-  status: $Enums.APPLICATION_STATUS
-  rejectionReason: string | null
+  applicantName: string
+  applicantNameNp: string | null
+  addressId: number
+  telephone: string | null
+  email: string | null
+  dateOfBirth: string | null
+  educationQualification: string | null
+  profession: string | null
+  fatherName: string | null
+  fatherProfession: string | null
+  useOfModernTechnology: boolean | null
+  possibilityOfSellingProducedGoods: boolean | null
+  institutionalUpgradeSupport: boolean | null
+  existingOperatingProfession: string | null
+  professionToBeUpgraded: string[]
+  estimatedCost: number | null
+  submissionDate: string | null
   createdAt: Date
   updatedAt: Date
   deletedAt: Date | null
+  status: $Enums.APPLICATION_STATUS
   applicationCycleId: string | null
-  tempProposer: runtime.JsonValue | null
-  isAffiliatedWithEPC: boolean | null
-  submissionDate: string | null
-  cleanedFirmNepaliName: string | null
   userId: string | null
   createdByAdminId: string | null
   bulkOperationLogId: string | null
@@ -408,53 +367,36 @@ export type ApplicationWhereInput = {
   NOT?: Prisma.ApplicationWhereInput | Prisma.ApplicationWhereInput[]
   id?: Prisma.StringFilter<"Application"> | string
   applicationCode?: Prisma.StringNullableFilter<"Application"> | string | null
-  firmCompanyIndustryName?: Prisma.StringFilter<"Application"> | string
-  firmCompanyIndustryNameNp?: Prisma.StringFilter<"Application"> | string
-  initialRegistrationOffice?: Prisma.StringNullableFilter<"Application"> | string | null
-  registrationDate?: Prisma.StringNullableFilter<"Application"> | string | null
-  registrationNumber?: Prisma.StringNullableFilter<"Application"> | string | null
-  panNumber?: Prisma.StringNullableFilter<"Application"> | string | null
-  licenseProviderOffice?: Prisma.StringNullableFilter<"Application"> | string | null
-  licenseIssuanceDate?: Prisma.StringNullableFilter<"Application"> | string | null
-  licenseValidityPeriod?: Prisma.StringNullableFilter<"Application"> | string | null
-  officeAddressId?: Prisma.IntFilter<"Application"> | number
-  officeTelephone?: Prisma.StringNullableFilter<"Application"> | string | null
-  officeEmail?: Prisma.StringNullableFilter<"Application"> | string | null
-  officeWebsite?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeName?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeDesignation?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeTelephone?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeMobile?: Prisma.StringFilter<"Application"> | string
-  representativeEmail?: Prisma.StringNullableFilter<"Application"> | string | null
-  mediaCaption?: Prisma.JsonNullableFilter<"Application">
-  status?: Prisma.EnumAPPLICATION_STATUSFilter<"Application"> | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.StringNullableFilter<"Application"> | string | null
+  applicantName?: Prisma.StringFilter<"Application"> | string
+  applicantNameNp?: Prisma.StringNullableFilter<"Application"> | string | null
+  addressId?: Prisma.IntFilter<"Application"> | number
+  telephone?: Prisma.StringNullableFilter<"Application"> | string | null
+  email?: Prisma.StringNullableFilter<"Application"> | string | null
+  dateOfBirth?: Prisma.StringNullableFilter<"Application"> | string | null
+  educationQualification?: Prisma.StringNullableFilter<"Application"> | string | null
+  profession?: Prisma.StringNullableFilter<"Application"> | string | null
+  fatherName?: Prisma.StringNullableFilter<"Application"> | string | null
+  fatherProfession?: Prisma.StringNullableFilter<"Application"> | string | null
+  useOfModernTechnology?: Prisma.BoolNullableFilter<"Application"> | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.BoolNullableFilter<"Application"> | boolean | null
+  institutionalUpgradeSupport?: Prisma.BoolNullableFilter<"Application"> | boolean | null
+  existingOperatingProfession?: Prisma.StringNullableFilter<"Application"> | string | null
+  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
+  estimatedCost?: Prisma.FloatNullableFilter<"Application"> | number | null
+  submissionDate?: Prisma.StringNullableFilter<"Application"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Application"> | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFilter<"Application"> | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.StringNullableFilter<"Application"> | string | null
-  tempProposer?: Prisma.JsonNullableFilter<"Application">
-  isAffiliatedWithEPC?: Prisma.BoolNullableFilter<"Application"> | boolean | null
-  submissionDate?: Prisma.StringNullableFilter<"Application"> | string | null
-  cleanedFirmNepaliName?: Prisma.StringNullableFilter<"Application"> | string | null
   userId?: Prisma.StringNullableFilter<"Application"> | string | null
   createdByAdminId?: Prisma.StringNullableFilter<"Application"> | string | null
   bulkOperationLogId?: Prisma.StringNullableFilter<"Application"> | string | null
   applicationCycle?: Prisma.XOR<Prisma.ApplicationCycleNullableScalarRelationFilter, Prisma.ApplicationCycleWhereInput> | null
-  officeAddress?: Prisma.XOR<Prisma.AddressScalarRelationFilter, Prisma.AddressWhereInput>
+  address?: Prisma.XOR<Prisma.AddressScalarRelationFilter, Prisma.AddressWhereInput>
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-  assessments?: Prisma.AssessmentListRelationFilter
-  entrepreneurProfile?: Prisma.EntrepreneurProfileListRelationFilter
-  financialAnalysis?: Prisma.XOR<Prisma.FinancialAnalysisNullableScalarRelationFilter, Prisma.FinancialAnalysisWhereInput> | null
   media?: Prisma.MediaListRelationFilter
-  productUsage?: Prisma.XOR<Prisma.ProductUsageNullableScalarRelationFilter, Prisma.ProductUsageWhereInput> | null
-  projectAnalysis?: Prisma.XOR<Prisma.ProjectAnalysisNullableScalarRelationFilter, Prisma.ProjectAnalysisWhereInput> | null
-  projectIntroduction?: Prisma.XOR<Prisma.ProjectIntroductionNullableScalarRelationFilter, Prisma.ProjectIntroductionWhereInput> | null
-  proposer?: Prisma.XOR<Prisma.ProposerNullableScalarRelationFilter, Prisma.ProposerWhereInput> | null
-  riskImpactAnalysis?: Prisma.XOR<Prisma.RiskImpactAnalysisNullableScalarRelationFilter, Prisma.RiskImpactAnalysisWhereInput> | null
   statusHistory?: Prisma.StatusHistoryListRelationFilter
-  swotAnalysis?: Prisma.XOR<Prisma.SwotAnalysisNullableScalarRelationFilter, Prisma.SwotAnalysisWhereInput> | null
-  workPlan?: Prisma.WorkPlanListRelationFilter
   createdByAdmin?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   bulkOperationLog?: Prisma.XOR<Prisma.BulkOperationLogNullableScalarRelationFilter, Prisma.BulkOperationLogWhereInput> | null
 }
@@ -462,148 +404,107 @@ export type ApplicationWhereInput = {
 export type ApplicationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   applicationCode?: Prisma.SortOrderInput | Prisma.SortOrder
-  firmCompanyIndustryName?: Prisma.SortOrder
-  firmCompanyIndustryNameNp?: Prisma.SortOrder
-  initialRegistrationOffice?: Prisma.SortOrderInput | Prisma.SortOrder
-  registrationDate?: Prisma.SortOrderInput | Prisma.SortOrder
-  registrationNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  panNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  licenseProviderOffice?: Prisma.SortOrderInput | Prisma.SortOrder
-  licenseIssuanceDate?: Prisma.SortOrderInput | Prisma.SortOrder
-  licenseValidityPeriod?: Prisma.SortOrderInput | Prisma.SortOrder
-  officeAddressId?: Prisma.SortOrder
-  officeTelephone?: Prisma.SortOrderInput | Prisma.SortOrder
-  officeEmail?: Prisma.SortOrderInput | Prisma.SortOrder
-  officeWebsite?: Prisma.SortOrderInput | Prisma.SortOrder
-  representativeName?: Prisma.SortOrderInput | Prisma.SortOrder
-  representativeDesignation?: Prisma.SortOrderInput | Prisma.SortOrder
-  representativeTelephone?: Prisma.SortOrderInput | Prisma.SortOrder
-  representativeMobile?: Prisma.SortOrder
-  representativeEmail?: Prisma.SortOrderInput | Prisma.SortOrder
-  mediaCaption?: Prisma.SortOrderInput | Prisma.SortOrder
-  status?: Prisma.SortOrder
-  rejectionReason?: Prisma.SortOrderInput | Prisma.SortOrder
+  applicantName?: Prisma.SortOrder
+  applicantNameNp?: Prisma.SortOrderInput | Prisma.SortOrder
+  addressId?: Prisma.SortOrder
+  telephone?: Prisma.SortOrderInput | Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
+  dateOfBirth?: Prisma.SortOrderInput | Prisma.SortOrder
+  educationQualification?: Prisma.SortOrderInput | Prisma.SortOrder
+  profession?: Prisma.SortOrderInput | Prisma.SortOrder
+  fatherName?: Prisma.SortOrderInput | Prisma.SortOrder
+  fatherProfession?: Prisma.SortOrderInput | Prisma.SortOrder
+  useOfModernTechnology?: Prisma.SortOrderInput | Prisma.SortOrder
+  possibilityOfSellingProducedGoods?: Prisma.SortOrderInput | Prisma.SortOrder
+  institutionalUpgradeSupport?: Prisma.SortOrderInput | Prisma.SortOrder
+  existingOperatingProfession?: Prisma.SortOrderInput | Prisma.SortOrder
+  professionToBeUpgraded?: Prisma.SortOrder
+  estimatedCost?: Prisma.SortOrderInput | Prisma.SortOrder
+  submissionDate?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrderInput | Prisma.SortOrder
-  tempProposer?: Prisma.SortOrderInput | Prisma.SortOrder
-  isAffiliatedWithEPC?: Prisma.SortOrderInput | Prisma.SortOrder
-  submissionDate?: Prisma.SortOrderInput | Prisma.SortOrder
-  cleanedFirmNepaliName?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdByAdminId?: Prisma.SortOrderInput | Prisma.SortOrder
   bulkOperationLogId?: Prisma.SortOrderInput | Prisma.SortOrder
   applicationCycle?: Prisma.ApplicationCycleOrderByWithRelationInput
-  officeAddress?: Prisma.AddressOrderByWithRelationInput
+  address?: Prisma.AddressOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
-  assessments?: Prisma.AssessmentOrderByRelationAggregateInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileOrderByRelationAggregateInput
-  financialAnalysis?: Prisma.FinancialAnalysisOrderByWithRelationInput
   media?: Prisma.MediaOrderByRelationAggregateInput
-  productUsage?: Prisma.ProductUsageOrderByWithRelationInput
-  projectAnalysis?: Prisma.ProjectAnalysisOrderByWithRelationInput
-  projectIntroduction?: Prisma.ProjectIntroductionOrderByWithRelationInput
-  proposer?: Prisma.ProposerOrderByWithRelationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisOrderByWithRelationInput
   statusHistory?: Prisma.StatusHistoryOrderByRelationAggregateInput
-  swotAnalysis?: Prisma.SwotAnalysisOrderByWithRelationInput
-  workPlan?: Prisma.WorkPlanOrderByRelationAggregateInput
   createdByAdmin?: Prisma.UserOrderByWithRelationInput
   bulkOperationLog?: Prisma.BulkOperationLogOrderByWithRelationInput
 }
 
 export type ApplicationWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  officeAddressId?: number
+  addressId?: number
   userId_applicationCycleId?: Prisma.ApplicationUserIdApplicationCycleIdCompoundUniqueInput
   applicationCode_applicationCycleId?: Prisma.ApplicationApplicationCodeApplicationCycleIdCompoundUniqueInput
   AND?: Prisma.ApplicationWhereInput | Prisma.ApplicationWhereInput[]
   OR?: Prisma.ApplicationWhereInput[]
   NOT?: Prisma.ApplicationWhereInput | Prisma.ApplicationWhereInput[]
   applicationCode?: Prisma.StringNullableFilter<"Application"> | string | null
-  firmCompanyIndustryName?: Prisma.StringFilter<"Application"> | string
-  firmCompanyIndustryNameNp?: Prisma.StringFilter<"Application"> | string
-  initialRegistrationOffice?: Prisma.StringNullableFilter<"Application"> | string | null
-  registrationDate?: Prisma.StringNullableFilter<"Application"> | string | null
-  registrationNumber?: Prisma.StringNullableFilter<"Application"> | string | null
-  panNumber?: Prisma.StringNullableFilter<"Application"> | string | null
-  licenseProviderOffice?: Prisma.StringNullableFilter<"Application"> | string | null
-  licenseIssuanceDate?: Prisma.StringNullableFilter<"Application"> | string | null
-  licenseValidityPeriod?: Prisma.StringNullableFilter<"Application"> | string | null
-  officeTelephone?: Prisma.StringNullableFilter<"Application"> | string | null
-  officeEmail?: Prisma.StringNullableFilter<"Application"> | string | null
-  officeWebsite?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeName?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeDesignation?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeTelephone?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeMobile?: Prisma.StringFilter<"Application"> | string
-  representativeEmail?: Prisma.StringNullableFilter<"Application"> | string | null
-  mediaCaption?: Prisma.JsonNullableFilter<"Application">
-  status?: Prisma.EnumAPPLICATION_STATUSFilter<"Application"> | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.StringNullableFilter<"Application"> | string | null
+  applicantName?: Prisma.StringFilter<"Application"> | string
+  applicantNameNp?: Prisma.StringNullableFilter<"Application"> | string | null
+  telephone?: Prisma.StringNullableFilter<"Application"> | string | null
+  email?: Prisma.StringNullableFilter<"Application"> | string | null
+  dateOfBirth?: Prisma.StringNullableFilter<"Application"> | string | null
+  educationQualification?: Prisma.StringNullableFilter<"Application"> | string | null
+  profession?: Prisma.StringNullableFilter<"Application"> | string | null
+  fatherName?: Prisma.StringNullableFilter<"Application"> | string | null
+  fatherProfession?: Prisma.StringNullableFilter<"Application"> | string | null
+  useOfModernTechnology?: Prisma.BoolNullableFilter<"Application"> | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.BoolNullableFilter<"Application"> | boolean | null
+  institutionalUpgradeSupport?: Prisma.BoolNullableFilter<"Application"> | boolean | null
+  existingOperatingProfession?: Prisma.StringNullableFilter<"Application"> | string | null
+  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
+  estimatedCost?: Prisma.FloatNullableFilter<"Application"> | number | null
+  submissionDate?: Prisma.StringNullableFilter<"Application"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Application"> | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFilter<"Application"> | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.StringNullableFilter<"Application"> | string | null
-  tempProposer?: Prisma.JsonNullableFilter<"Application">
-  isAffiliatedWithEPC?: Prisma.BoolNullableFilter<"Application"> | boolean | null
-  submissionDate?: Prisma.StringNullableFilter<"Application"> | string | null
-  cleanedFirmNepaliName?: Prisma.StringNullableFilter<"Application"> | string | null
   userId?: Prisma.StringNullableFilter<"Application"> | string | null
   createdByAdminId?: Prisma.StringNullableFilter<"Application"> | string | null
   bulkOperationLogId?: Prisma.StringNullableFilter<"Application"> | string | null
   applicationCycle?: Prisma.XOR<Prisma.ApplicationCycleNullableScalarRelationFilter, Prisma.ApplicationCycleWhereInput> | null
-  officeAddress?: Prisma.XOR<Prisma.AddressScalarRelationFilter, Prisma.AddressWhereInput>
+  address?: Prisma.XOR<Prisma.AddressScalarRelationFilter, Prisma.AddressWhereInput>
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-  assessments?: Prisma.AssessmentListRelationFilter
-  entrepreneurProfile?: Prisma.EntrepreneurProfileListRelationFilter
-  financialAnalysis?: Prisma.XOR<Prisma.FinancialAnalysisNullableScalarRelationFilter, Prisma.FinancialAnalysisWhereInput> | null
   media?: Prisma.MediaListRelationFilter
-  productUsage?: Prisma.XOR<Prisma.ProductUsageNullableScalarRelationFilter, Prisma.ProductUsageWhereInput> | null
-  projectAnalysis?: Prisma.XOR<Prisma.ProjectAnalysisNullableScalarRelationFilter, Prisma.ProjectAnalysisWhereInput> | null
-  projectIntroduction?: Prisma.XOR<Prisma.ProjectIntroductionNullableScalarRelationFilter, Prisma.ProjectIntroductionWhereInput> | null
-  proposer?: Prisma.XOR<Prisma.ProposerNullableScalarRelationFilter, Prisma.ProposerWhereInput> | null
-  riskImpactAnalysis?: Prisma.XOR<Prisma.RiskImpactAnalysisNullableScalarRelationFilter, Prisma.RiskImpactAnalysisWhereInput> | null
   statusHistory?: Prisma.StatusHistoryListRelationFilter
-  swotAnalysis?: Prisma.XOR<Prisma.SwotAnalysisNullableScalarRelationFilter, Prisma.SwotAnalysisWhereInput> | null
-  workPlan?: Prisma.WorkPlanListRelationFilter
   createdByAdmin?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   bulkOperationLog?: Prisma.XOR<Prisma.BulkOperationLogNullableScalarRelationFilter, Prisma.BulkOperationLogWhereInput> | null
-}, "id" | "officeAddressId" | "userId_applicationCycleId" | "applicationCode_applicationCycleId">
+}, "id" | "addressId" | "userId_applicationCycleId" | "applicationCode_applicationCycleId">
 
 export type ApplicationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   applicationCode?: Prisma.SortOrderInput | Prisma.SortOrder
-  firmCompanyIndustryName?: Prisma.SortOrder
-  firmCompanyIndustryNameNp?: Prisma.SortOrder
-  initialRegistrationOffice?: Prisma.SortOrderInput | Prisma.SortOrder
-  registrationDate?: Prisma.SortOrderInput | Prisma.SortOrder
-  registrationNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  panNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  licenseProviderOffice?: Prisma.SortOrderInput | Prisma.SortOrder
-  licenseIssuanceDate?: Prisma.SortOrderInput | Prisma.SortOrder
-  licenseValidityPeriod?: Prisma.SortOrderInput | Prisma.SortOrder
-  officeAddressId?: Prisma.SortOrder
-  officeTelephone?: Prisma.SortOrderInput | Prisma.SortOrder
-  officeEmail?: Prisma.SortOrderInput | Prisma.SortOrder
-  officeWebsite?: Prisma.SortOrderInput | Prisma.SortOrder
-  representativeName?: Prisma.SortOrderInput | Prisma.SortOrder
-  representativeDesignation?: Prisma.SortOrderInput | Prisma.SortOrder
-  representativeTelephone?: Prisma.SortOrderInput | Prisma.SortOrder
-  representativeMobile?: Prisma.SortOrder
-  representativeEmail?: Prisma.SortOrderInput | Prisma.SortOrder
-  mediaCaption?: Prisma.SortOrderInput | Prisma.SortOrder
-  status?: Prisma.SortOrder
-  rejectionReason?: Prisma.SortOrderInput | Prisma.SortOrder
+  applicantName?: Prisma.SortOrder
+  applicantNameNp?: Prisma.SortOrderInput | Prisma.SortOrder
+  addressId?: Prisma.SortOrder
+  telephone?: Prisma.SortOrderInput | Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
+  dateOfBirth?: Prisma.SortOrderInput | Prisma.SortOrder
+  educationQualification?: Prisma.SortOrderInput | Prisma.SortOrder
+  profession?: Prisma.SortOrderInput | Prisma.SortOrder
+  fatherName?: Prisma.SortOrderInput | Prisma.SortOrder
+  fatherProfession?: Prisma.SortOrderInput | Prisma.SortOrder
+  useOfModernTechnology?: Prisma.SortOrderInput | Prisma.SortOrder
+  possibilityOfSellingProducedGoods?: Prisma.SortOrderInput | Prisma.SortOrder
+  institutionalUpgradeSupport?: Prisma.SortOrderInput | Prisma.SortOrder
+  existingOperatingProfession?: Prisma.SortOrderInput | Prisma.SortOrder
+  professionToBeUpgraded?: Prisma.SortOrder
+  estimatedCost?: Prisma.SortOrderInput | Prisma.SortOrder
+  submissionDate?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrderInput | Prisma.SortOrder
-  tempProposer?: Prisma.SortOrderInput | Prisma.SortOrder
-  isAffiliatedWithEPC?: Prisma.SortOrderInput | Prisma.SortOrder
-  submissionDate?: Prisma.SortOrderInput | Prisma.SortOrder
-  cleanedFirmNepaliName?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdByAdminId?: Prisma.SortOrderInput | Prisma.SortOrder
   bulkOperationLogId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -620,35 +521,28 @@ export type ApplicationScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ApplicationScalarWhereWithAggregatesInput | Prisma.ApplicationScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Application"> | string
   applicationCode?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  firmCompanyIndustryName?: Prisma.StringWithAggregatesFilter<"Application"> | string
-  firmCompanyIndustryNameNp?: Prisma.StringWithAggregatesFilter<"Application"> | string
-  initialRegistrationOffice?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  registrationDate?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  registrationNumber?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  panNumber?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  licenseProviderOffice?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  licenseIssuanceDate?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  licenseValidityPeriod?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  officeAddressId?: Prisma.IntWithAggregatesFilter<"Application"> | number
-  officeTelephone?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  officeEmail?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  officeWebsite?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  representativeName?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  representativeDesignation?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  representativeTelephone?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  representativeMobile?: Prisma.StringWithAggregatesFilter<"Application"> | string
-  representativeEmail?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  mediaCaption?: Prisma.JsonNullableWithAggregatesFilter<"Application">
-  status?: Prisma.EnumAPPLICATION_STATUSWithAggregatesFilter<"Application"> | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  applicantName?: Prisma.StringWithAggregatesFilter<"Application"> | string
+  applicantNameNp?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  addressId?: Prisma.IntWithAggregatesFilter<"Application"> | number
+  telephone?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  email?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  dateOfBirth?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  educationQualification?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  profession?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  fatherName?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  fatherProfession?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  useOfModernTechnology?: Prisma.BoolNullableWithAggregatesFilter<"Application"> | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.BoolNullableWithAggregatesFilter<"Application"> | boolean | null
+  institutionalUpgradeSupport?: Prisma.BoolNullableWithAggregatesFilter<"Application"> | boolean | null
+  existingOperatingProfession?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
+  estimatedCost?: Prisma.FloatNullableWithAggregatesFilter<"Application"> | number | null
+  submissionDate?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Application"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Application"> | Date | string
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Application"> | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSWithAggregatesFilter<"Application"> | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  tempProposer?: Prisma.JsonNullableWithAggregatesFilter<"Application">
-  isAffiliatedWithEPC?: Prisma.BoolNullableWithAggregatesFilter<"Application"> | boolean | null
-  submissionDate?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  cleanedFirmNepaliName?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
   userId?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
   createdByAdminId?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
   bulkOperationLogId?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
@@ -657,48 +551,31 @@ export type ApplicationScalarWhereWithAggregatesInput = {
 export type ApplicationCreateInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
+  address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
 }
@@ -706,97 +583,63 @@ export type ApplicationCreateInput = {
 export type ApplicationUncheckedCreateInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   userId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
+  address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
 }
@@ -804,84 +647,60 @@ export type ApplicationUpdateInput = {
 export type ApplicationUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationCreateManyInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   userId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
@@ -890,67 +709,53 @@ export type ApplicationCreateManyInput = {
 export type ApplicationUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
 }
 
 export type ApplicationUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -971,6 +776,14 @@ export type ApplicationNullableScalarRelationFilter = {
   isNot?: Prisma.ApplicationWhereInput | null
 }
 
+export type StringNullableListFilter<$PrismaModel = never> = {
+  equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
+  has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
+  hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
+}
+
 export type ApplicationUserIdApplicationCycleIdCompoundUniqueInput = {
   userId: string
   applicationCycleId: string
@@ -984,74 +797,62 @@ export type ApplicationApplicationCodeApplicationCycleIdCompoundUniqueInput = {
 export type ApplicationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   applicationCode?: Prisma.SortOrder
-  firmCompanyIndustryName?: Prisma.SortOrder
-  firmCompanyIndustryNameNp?: Prisma.SortOrder
-  initialRegistrationOffice?: Prisma.SortOrder
-  registrationDate?: Prisma.SortOrder
-  registrationNumber?: Prisma.SortOrder
-  panNumber?: Prisma.SortOrder
-  licenseProviderOffice?: Prisma.SortOrder
-  licenseIssuanceDate?: Prisma.SortOrder
-  licenseValidityPeriod?: Prisma.SortOrder
-  officeAddressId?: Prisma.SortOrder
-  officeTelephone?: Prisma.SortOrder
-  officeEmail?: Prisma.SortOrder
-  officeWebsite?: Prisma.SortOrder
-  representativeName?: Prisma.SortOrder
-  representativeDesignation?: Prisma.SortOrder
-  representativeTelephone?: Prisma.SortOrder
-  representativeMobile?: Prisma.SortOrder
-  representativeEmail?: Prisma.SortOrder
-  mediaCaption?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  rejectionReason?: Prisma.SortOrder
+  applicantName?: Prisma.SortOrder
+  applicantNameNp?: Prisma.SortOrder
+  addressId?: Prisma.SortOrder
+  telephone?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  dateOfBirth?: Prisma.SortOrder
+  educationQualification?: Prisma.SortOrder
+  profession?: Prisma.SortOrder
+  fatherName?: Prisma.SortOrder
+  fatherProfession?: Prisma.SortOrder
+  useOfModernTechnology?: Prisma.SortOrder
+  possibilityOfSellingProducedGoods?: Prisma.SortOrder
+  institutionalUpgradeSupport?: Prisma.SortOrder
+  existingOperatingProfession?: Prisma.SortOrder
+  professionToBeUpgraded?: Prisma.SortOrder
+  estimatedCost?: Prisma.SortOrder
+  submissionDate?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
-  tempProposer?: Prisma.SortOrder
-  isAffiliatedWithEPC?: Prisma.SortOrder
-  submissionDate?: Prisma.SortOrder
-  cleanedFirmNepaliName?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdByAdminId?: Prisma.SortOrder
   bulkOperationLogId?: Prisma.SortOrder
 }
 
 export type ApplicationAvgOrderByAggregateInput = {
-  officeAddressId?: Prisma.SortOrder
+  addressId?: Prisma.SortOrder
+  estimatedCost?: Prisma.SortOrder
 }
 
 export type ApplicationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   applicationCode?: Prisma.SortOrder
-  firmCompanyIndustryName?: Prisma.SortOrder
-  firmCompanyIndustryNameNp?: Prisma.SortOrder
-  initialRegistrationOffice?: Prisma.SortOrder
-  registrationDate?: Prisma.SortOrder
-  registrationNumber?: Prisma.SortOrder
-  panNumber?: Prisma.SortOrder
-  licenseProviderOffice?: Prisma.SortOrder
-  licenseIssuanceDate?: Prisma.SortOrder
-  licenseValidityPeriod?: Prisma.SortOrder
-  officeAddressId?: Prisma.SortOrder
-  officeTelephone?: Prisma.SortOrder
-  officeEmail?: Prisma.SortOrder
-  officeWebsite?: Prisma.SortOrder
-  representativeName?: Prisma.SortOrder
-  representativeDesignation?: Prisma.SortOrder
-  representativeTelephone?: Prisma.SortOrder
-  representativeMobile?: Prisma.SortOrder
-  representativeEmail?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  rejectionReason?: Prisma.SortOrder
+  applicantName?: Prisma.SortOrder
+  applicantNameNp?: Prisma.SortOrder
+  addressId?: Prisma.SortOrder
+  telephone?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  dateOfBirth?: Prisma.SortOrder
+  educationQualification?: Prisma.SortOrder
+  profession?: Prisma.SortOrder
+  fatherName?: Prisma.SortOrder
+  fatherProfession?: Prisma.SortOrder
+  useOfModernTechnology?: Prisma.SortOrder
+  possibilityOfSellingProducedGoods?: Prisma.SortOrder
+  institutionalUpgradeSupport?: Prisma.SortOrder
+  existingOperatingProfession?: Prisma.SortOrder
+  estimatedCost?: Prisma.SortOrder
+  submissionDate?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
-  isAffiliatedWithEPC?: Prisma.SortOrder
-  submissionDate?: Prisma.SortOrder
-  cleanedFirmNepaliName?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdByAdminId?: Prisma.SortOrder
   bulkOperationLogId?: Prisma.SortOrder
@@ -1060,40 +861,35 @@ export type ApplicationMaxOrderByAggregateInput = {
 export type ApplicationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   applicationCode?: Prisma.SortOrder
-  firmCompanyIndustryName?: Prisma.SortOrder
-  firmCompanyIndustryNameNp?: Prisma.SortOrder
-  initialRegistrationOffice?: Prisma.SortOrder
-  registrationDate?: Prisma.SortOrder
-  registrationNumber?: Prisma.SortOrder
-  panNumber?: Prisma.SortOrder
-  licenseProviderOffice?: Prisma.SortOrder
-  licenseIssuanceDate?: Prisma.SortOrder
-  licenseValidityPeriod?: Prisma.SortOrder
-  officeAddressId?: Prisma.SortOrder
-  officeTelephone?: Prisma.SortOrder
-  officeEmail?: Prisma.SortOrder
-  officeWebsite?: Prisma.SortOrder
-  representativeName?: Prisma.SortOrder
-  representativeDesignation?: Prisma.SortOrder
-  representativeTelephone?: Prisma.SortOrder
-  representativeMobile?: Prisma.SortOrder
-  representativeEmail?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  rejectionReason?: Prisma.SortOrder
+  applicantName?: Prisma.SortOrder
+  applicantNameNp?: Prisma.SortOrder
+  addressId?: Prisma.SortOrder
+  telephone?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  dateOfBirth?: Prisma.SortOrder
+  educationQualification?: Prisma.SortOrder
+  profession?: Prisma.SortOrder
+  fatherName?: Prisma.SortOrder
+  fatherProfession?: Prisma.SortOrder
+  useOfModernTechnology?: Prisma.SortOrder
+  possibilityOfSellingProducedGoods?: Prisma.SortOrder
+  institutionalUpgradeSupport?: Prisma.SortOrder
+  existingOperatingProfession?: Prisma.SortOrder
+  estimatedCost?: Prisma.SortOrder
+  submissionDate?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
-  isAffiliatedWithEPC?: Prisma.SortOrder
-  submissionDate?: Prisma.SortOrder
-  cleanedFirmNepaliName?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdByAdminId?: Prisma.SortOrder
   bulkOperationLogId?: Prisma.SortOrder
 }
 
 export type ApplicationSumOrderByAggregateInput = {
-  officeAddressId?: Prisma.SortOrder
+  addressId?: Prisma.SortOrder
+  estimatedCost?: Prisma.SortOrder
 }
 
 export type ApplicationScalarRelationFilter = {
@@ -1243,12 +1039,29 @@ export type ApplicationUncheckedUpdateManyWithoutApplicationCycleNestedInput = {
   deleteMany?: Prisma.ApplicationScalarWhereInput | Prisma.ApplicationScalarWhereInput[]
 }
 
-export type EnumAPPLICATION_STATUSFieldUpdateOperationsInput = {
-  set?: $Enums.APPLICATION_STATUS
+export type ApplicationCreateprofessionToBeUpgradedInput = {
+  set: string[]
 }
 
 export type NullableBoolFieldUpdateOperationsInput = {
   set?: boolean | null
+}
+
+export type ApplicationUpdateprofessionToBeUpgradedInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type NullableFloatFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type EnumAPPLICATION_STATUSFieldUpdateOperationsInput = {
+  set?: $Enums.APPLICATION_STATUS
 }
 
 export type IntFieldUpdateOperationsInput = {
@@ -1257,20 +1070,6 @@ export type IntFieldUpdateOperationsInput = {
   decrement?: number
   multiply?: number
   divide?: number
-}
-
-export type ApplicationCreateNestedOneWithoutAssessmentsInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutAssessmentsInput, Prisma.ApplicationUncheckedCreateWithoutAssessmentsInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutAssessmentsInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUpdateOneRequiredWithoutAssessmentsNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutAssessmentsInput, Prisma.ApplicationUncheckedCreateWithoutAssessmentsInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutAssessmentsInput
-  upsert?: Prisma.ApplicationUpsertWithoutAssessmentsInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutAssessmentsInput, Prisma.ApplicationUpdateWithoutAssessmentsInput>, Prisma.ApplicationUncheckedUpdateWithoutAssessmentsInput>
 }
 
 export type ApplicationCreateNestedOneWithoutStatusHistoryInput = {
@@ -1287,180 +1086,36 @@ export type ApplicationUpdateOneRequiredWithoutStatusHistoryNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutStatusHistoryInput, Prisma.ApplicationUpdateWithoutStatusHistoryInput>, Prisma.ApplicationUncheckedUpdateWithoutStatusHistoryInput>
 }
 
-export type ApplicationCreateNestedOneWithoutEntrepreneurProfileInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutEntrepreneurProfileInput, Prisma.ApplicationUncheckedCreateWithoutEntrepreneurProfileInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutEntrepreneurProfileInput
+export type ApplicationCreateNestedOneWithoutAddressInput = {
+  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutAddressInput, Prisma.ApplicationUncheckedCreateWithoutAddressInput>
+  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutAddressInput
   connect?: Prisma.ApplicationWhereUniqueInput
 }
 
-export type ApplicationUpdateOneWithoutEntrepreneurProfileNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutEntrepreneurProfileInput, Prisma.ApplicationUncheckedCreateWithoutEntrepreneurProfileInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutEntrepreneurProfileInput
-  upsert?: Prisma.ApplicationUpsertWithoutEntrepreneurProfileInput
+export type ApplicationUncheckedCreateNestedOneWithoutAddressInput = {
+  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutAddressInput, Prisma.ApplicationUncheckedCreateWithoutAddressInput>
+  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutAddressInput
+  connect?: Prisma.ApplicationWhereUniqueInput
+}
+
+export type ApplicationUpdateOneWithoutAddressNestedInput = {
+  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutAddressInput, Prisma.ApplicationUncheckedCreateWithoutAddressInput>
+  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutAddressInput
+  upsert?: Prisma.ApplicationUpsertWithoutAddressInput
   disconnect?: Prisma.ApplicationWhereInput | boolean
   delete?: Prisma.ApplicationWhereInput | boolean
   connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutEntrepreneurProfileInput, Prisma.ApplicationUpdateWithoutEntrepreneurProfileInput>, Prisma.ApplicationUncheckedUpdateWithoutEntrepreneurProfileInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutAddressInput, Prisma.ApplicationUpdateWithoutAddressInput>, Prisma.ApplicationUncheckedUpdateWithoutAddressInput>
 }
 
-export type ApplicationCreateNestedOneWithoutProductUsageInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutProductUsageInput, Prisma.ApplicationUncheckedCreateWithoutProductUsageInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutProductUsageInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUpdateOneWithoutProductUsageNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutProductUsageInput, Prisma.ApplicationUncheckedCreateWithoutProductUsageInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutProductUsageInput
-  upsert?: Prisma.ApplicationUpsertWithoutProductUsageInput
+export type ApplicationUncheckedUpdateOneWithoutAddressNestedInput = {
+  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutAddressInput, Prisma.ApplicationUncheckedCreateWithoutAddressInput>
+  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutAddressInput
+  upsert?: Prisma.ApplicationUpsertWithoutAddressInput
   disconnect?: Prisma.ApplicationWhereInput | boolean
   delete?: Prisma.ApplicationWhereInput | boolean
   connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutProductUsageInput, Prisma.ApplicationUpdateWithoutProductUsageInput>, Prisma.ApplicationUncheckedUpdateWithoutProductUsageInput>
-}
-
-export type ApplicationCreateNestedOneWithoutProjectIntroductionInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutProjectIntroductionInput, Prisma.ApplicationUncheckedCreateWithoutProjectIntroductionInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutProjectIntroductionInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUpdateOneWithoutProjectIntroductionNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutProjectIntroductionInput, Prisma.ApplicationUncheckedCreateWithoutProjectIntroductionInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutProjectIntroductionInput
-  upsert?: Prisma.ApplicationUpsertWithoutProjectIntroductionInput
-  disconnect?: Prisma.ApplicationWhereInput | boolean
-  delete?: Prisma.ApplicationWhereInput | boolean
-  connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutProjectIntroductionInput, Prisma.ApplicationUpdateWithoutProjectIntroductionInput>, Prisma.ApplicationUncheckedUpdateWithoutProjectIntroductionInput>
-}
-
-export type ApplicationCreateNestedOneWithoutProjectAnalysisInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutProjectAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutProjectAnalysisInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutProjectAnalysisInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUpdateOneWithoutProjectAnalysisNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutProjectAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutProjectAnalysisInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutProjectAnalysisInput
-  upsert?: Prisma.ApplicationUpsertWithoutProjectAnalysisInput
-  disconnect?: Prisma.ApplicationWhereInput | boolean
-  delete?: Prisma.ApplicationWhereInput | boolean
-  connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutProjectAnalysisInput, Prisma.ApplicationUpdateWithoutProjectAnalysisInput>, Prisma.ApplicationUncheckedUpdateWithoutProjectAnalysisInput>
-}
-
-export type ApplicationCreateNestedOneWithoutRiskImpactAnalysisInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutRiskImpactAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutRiskImpactAnalysisInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutRiskImpactAnalysisInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUpdateOneWithoutRiskImpactAnalysisNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutRiskImpactAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutRiskImpactAnalysisInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutRiskImpactAnalysisInput
-  upsert?: Prisma.ApplicationUpsertWithoutRiskImpactAnalysisInput
-  disconnect?: Prisma.ApplicationWhereInput | boolean
-  delete?: Prisma.ApplicationWhereInput | boolean
-  connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutRiskImpactAnalysisInput, Prisma.ApplicationUpdateWithoutRiskImpactAnalysisInput>, Prisma.ApplicationUncheckedUpdateWithoutRiskImpactAnalysisInput>
-}
-
-export type ApplicationCreateNestedOneWithoutSwotAnalysisInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutSwotAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutSwotAnalysisInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutSwotAnalysisInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUpdateOneWithoutSwotAnalysisNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutSwotAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutSwotAnalysisInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutSwotAnalysisInput
-  upsert?: Prisma.ApplicationUpsertWithoutSwotAnalysisInput
-  disconnect?: Prisma.ApplicationWhereInput | boolean
-  delete?: Prisma.ApplicationWhereInput | boolean
-  connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutSwotAnalysisInput, Prisma.ApplicationUpdateWithoutSwotAnalysisInput>, Prisma.ApplicationUncheckedUpdateWithoutSwotAnalysisInput>
-}
-
-export type ApplicationCreateNestedOneWithoutFinancialAnalysisInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutFinancialAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutFinancialAnalysisInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutFinancialAnalysisInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUpdateOneWithoutFinancialAnalysisNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutFinancialAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutFinancialAnalysisInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutFinancialAnalysisInput
-  upsert?: Prisma.ApplicationUpsertWithoutFinancialAnalysisInput
-  disconnect?: Prisma.ApplicationWhereInput | boolean
-  delete?: Prisma.ApplicationWhereInput | boolean
-  connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutFinancialAnalysisInput, Prisma.ApplicationUpdateWithoutFinancialAnalysisInput>, Prisma.ApplicationUncheckedUpdateWithoutFinancialAnalysisInput>
-}
-
-export type ApplicationCreateNestedOneWithoutWorkPlanInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutWorkPlanInput, Prisma.ApplicationUncheckedCreateWithoutWorkPlanInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutWorkPlanInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUpdateOneWithoutWorkPlanNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutWorkPlanInput, Prisma.ApplicationUncheckedCreateWithoutWorkPlanInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutWorkPlanInput
-  upsert?: Prisma.ApplicationUpsertWithoutWorkPlanInput
-  disconnect?: Prisma.ApplicationWhereInput | boolean
-  delete?: Prisma.ApplicationWhereInput | boolean
-  connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutWorkPlanInput, Prisma.ApplicationUpdateWithoutWorkPlanInput>, Prisma.ApplicationUncheckedUpdateWithoutWorkPlanInput>
-}
-
-export type ApplicationCreateNestedOneWithoutProposerInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutProposerInput, Prisma.ApplicationUncheckedCreateWithoutProposerInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutProposerInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUpdateOneWithoutProposerNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutProposerInput, Prisma.ApplicationUncheckedCreateWithoutProposerInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutProposerInput
-  upsert?: Prisma.ApplicationUpsertWithoutProposerInput
-  disconnect?: Prisma.ApplicationWhereInput | boolean
-  delete?: Prisma.ApplicationWhereInput | boolean
-  connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutProposerInput, Prisma.ApplicationUpdateWithoutProposerInput>, Prisma.ApplicationUncheckedUpdateWithoutProposerInput>
-}
-
-export type ApplicationCreateNestedOneWithoutOfficeAddressInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutOfficeAddressInput, Prisma.ApplicationUncheckedCreateWithoutOfficeAddressInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutOfficeAddressInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUncheckedCreateNestedOneWithoutOfficeAddressInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutOfficeAddressInput, Prisma.ApplicationUncheckedCreateWithoutOfficeAddressInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutOfficeAddressInput
-  connect?: Prisma.ApplicationWhereUniqueInput
-}
-
-export type ApplicationUpdateOneWithoutOfficeAddressNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutOfficeAddressInput, Prisma.ApplicationUncheckedCreateWithoutOfficeAddressInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutOfficeAddressInput
-  upsert?: Prisma.ApplicationUpsertWithoutOfficeAddressInput
-  disconnect?: Prisma.ApplicationWhereInput | boolean
-  delete?: Prisma.ApplicationWhereInput | boolean
-  connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutOfficeAddressInput, Prisma.ApplicationUpdateWithoutOfficeAddressInput>, Prisma.ApplicationUncheckedUpdateWithoutOfficeAddressInput>
-}
-
-export type ApplicationUncheckedUpdateOneWithoutOfficeAddressNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutOfficeAddressInput, Prisma.ApplicationUncheckedCreateWithoutOfficeAddressInput>
-  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutOfficeAddressInput
-  upsert?: Prisma.ApplicationUpsertWithoutOfficeAddressInput
-  disconnect?: Prisma.ApplicationWhereInput | boolean
-  delete?: Prisma.ApplicationWhereInput | boolean
-  connect?: Prisma.ApplicationWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutOfficeAddressInput, Prisma.ApplicationUpdateWithoutOfficeAddressInput>, Prisma.ApplicationUncheckedUpdateWithoutOfficeAddressInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutAddressInput, Prisma.ApplicationUpdateWithoutAddressInput>, Prisma.ApplicationUncheckedUpdateWithoutAddressInput>
 }
 
 export type ApplicationCreateNestedManyWithoutBulkOperationLogInput = {
@@ -1508,47 +1163,30 @@ export type ApplicationUncheckedUpdateManyWithoutBulkOperationLogNestedInput = {
 export type ApplicationCreateWithoutUserInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
+  address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
 }
@@ -1556,49 +1194,32 @@ export type ApplicationCreateWithoutUserInput = {
 export type ApplicationUncheckedCreateWithoutUserInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutUserInput = {
@@ -1614,97 +1235,63 @@ export type ApplicationCreateManyUserInputEnvelope = {
 export type ApplicationCreateWithoutCreatedByAdminInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
+  address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
 }
 
 export type ApplicationUncheckedCreateWithoutCreatedByAdminInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   userId?: string | null
   bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutCreatedByAdminInput = {
@@ -1739,35 +1326,28 @@ export type ApplicationScalarWhereInput = {
   NOT?: Prisma.ApplicationScalarWhereInput | Prisma.ApplicationScalarWhereInput[]
   id?: Prisma.StringFilter<"Application"> | string
   applicationCode?: Prisma.StringNullableFilter<"Application"> | string | null
-  firmCompanyIndustryName?: Prisma.StringFilter<"Application"> | string
-  firmCompanyIndustryNameNp?: Prisma.StringFilter<"Application"> | string
-  initialRegistrationOffice?: Prisma.StringNullableFilter<"Application"> | string | null
-  registrationDate?: Prisma.StringNullableFilter<"Application"> | string | null
-  registrationNumber?: Prisma.StringNullableFilter<"Application"> | string | null
-  panNumber?: Prisma.StringNullableFilter<"Application"> | string | null
-  licenseProviderOffice?: Prisma.StringNullableFilter<"Application"> | string | null
-  licenseIssuanceDate?: Prisma.StringNullableFilter<"Application"> | string | null
-  licenseValidityPeriod?: Prisma.StringNullableFilter<"Application"> | string | null
-  officeAddressId?: Prisma.IntFilter<"Application"> | number
-  officeTelephone?: Prisma.StringNullableFilter<"Application"> | string | null
-  officeEmail?: Prisma.StringNullableFilter<"Application"> | string | null
-  officeWebsite?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeName?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeDesignation?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeTelephone?: Prisma.StringNullableFilter<"Application"> | string | null
-  representativeMobile?: Prisma.StringFilter<"Application"> | string
-  representativeEmail?: Prisma.StringNullableFilter<"Application"> | string | null
-  mediaCaption?: Prisma.JsonNullableFilter<"Application">
-  status?: Prisma.EnumAPPLICATION_STATUSFilter<"Application"> | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.StringNullableFilter<"Application"> | string | null
+  applicantName?: Prisma.StringFilter<"Application"> | string
+  applicantNameNp?: Prisma.StringNullableFilter<"Application"> | string | null
+  addressId?: Prisma.IntFilter<"Application"> | number
+  telephone?: Prisma.StringNullableFilter<"Application"> | string | null
+  email?: Prisma.StringNullableFilter<"Application"> | string | null
+  dateOfBirth?: Prisma.StringNullableFilter<"Application"> | string | null
+  educationQualification?: Prisma.StringNullableFilter<"Application"> | string | null
+  profession?: Prisma.StringNullableFilter<"Application"> | string | null
+  fatherName?: Prisma.StringNullableFilter<"Application"> | string | null
+  fatherProfession?: Prisma.StringNullableFilter<"Application"> | string | null
+  useOfModernTechnology?: Prisma.BoolNullableFilter<"Application"> | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.BoolNullableFilter<"Application"> | boolean | null
+  institutionalUpgradeSupport?: Prisma.BoolNullableFilter<"Application"> | boolean | null
+  existingOperatingProfession?: Prisma.StringNullableFilter<"Application"> | string | null
+  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
+  estimatedCost?: Prisma.FloatNullableFilter<"Application"> | number | null
+  submissionDate?: Prisma.StringNullableFilter<"Application"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Application"> | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFilter<"Application"> | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.StringNullableFilter<"Application"> | string | null
-  tempProposer?: Prisma.JsonNullableFilter<"Application">
-  isAffiliatedWithEPC?: Prisma.BoolNullableFilter<"Application"> | boolean | null
-  submissionDate?: Prisma.StringNullableFilter<"Application"> | string | null
-  cleanedFirmNepaliName?: Prisma.StringNullableFilter<"Application"> | string | null
   userId?: Prisma.StringNullableFilter<"Application"> | string | null
   createdByAdminId?: Prisma.StringNullableFilter<"Application"> | string | null
   bulkOperationLogId?: Prisma.StringNullableFilter<"Application"> | string | null
@@ -1792,47 +1372,30 @@ export type ApplicationUpdateManyWithWhereWithoutCreatedByAdminInput = {
 export type ApplicationCreateWithoutMediaInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
+  address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
 }
@@ -1840,49 +1403,32 @@ export type ApplicationCreateWithoutMediaInput = {
 export type ApplicationUncheckedCreateWithoutMediaInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   userId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutMediaInput = {
@@ -1904,47 +1450,30 @@ export type ApplicationUpdateToOneWithWhereWithoutMediaInput = {
 export type ApplicationUpdateWithoutMediaInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
+  address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
 }
@@ -1952,95 +1481,61 @@ export type ApplicationUpdateWithoutMediaInput = {
 export type ApplicationUncheckedUpdateWithoutMediaInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationCreateWithoutApplicationCycleInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
+  status?: $Enums.APPLICATION_STATUS
+  address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
 }
@@ -2048,49 +1543,32 @@ export type ApplicationCreateWithoutApplicationCycleInput = {
 export type ApplicationUncheckedCreateWithoutApplicationCycleInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
+  status?: $Enums.APPLICATION_STATUS
   userId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutApplicationCycleInput = {
@@ -2119,258 +1597,33 @@ export type ApplicationUpdateManyWithWhereWithoutApplicationCycleInput = {
   data: Prisma.XOR<Prisma.ApplicationUpdateManyMutationInput, Prisma.ApplicationUncheckedUpdateManyWithoutApplicationCycleInput>
 }
 
-export type ApplicationCreateWithoutAssessmentsInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
-  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
-  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
-}
-
-export type ApplicationUncheckedCreateWithoutAssessmentsInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  userId?: string | null
-  createdByAdminId?: string | null
-  bulkOperationLogId?: string | null
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
-}
-
-export type ApplicationCreateOrConnectWithoutAssessmentsInput = {
-  where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutAssessmentsInput, Prisma.ApplicationUncheckedCreateWithoutAssessmentsInput>
-}
-
-export type ApplicationUpsertWithoutAssessmentsInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutAssessmentsInput, Prisma.ApplicationUncheckedUpdateWithoutAssessmentsInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutAssessmentsInput, Prisma.ApplicationUncheckedCreateWithoutAssessmentsInput>
-  where?: Prisma.ApplicationWhereInput
-}
-
-export type ApplicationUpdateToOneWithWhereWithoutAssessmentsInput = {
-  where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutAssessmentsInput, Prisma.ApplicationUncheckedUpdateWithoutAssessmentsInput>
-}
-
-export type ApplicationUpdateWithoutAssessmentsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
-  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
-  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
-}
-
-export type ApplicationUncheckedUpdateWithoutAssessmentsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
-}
-
 export type ApplicationCreateWithoutStatusHistoryInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
+  address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
 }
@@ -2378,49 +1631,32 @@ export type ApplicationCreateWithoutStatusHistoryInput = {
 export type ApplicationUncheckedCreateWithoutStatusHistoryInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   userId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutStatusHistoryInput = {
@@ -2442,47 +1678,30 @@ export type ApplicationUpdateToOneWithWhereWithoutStatusHistoryInput = {
 export type ApplicationUpdateWithoutStatusHistoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
+  address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
 }
@@ -2490,2225 +1709,234 @@ export type ApplicationUpdateWithoutStatusHistoryInput = {
 export type ApplicationUncheckedUpdateWithoutStatusHistoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
-export type ApplicationCreateWithoutEntrepreneurProfileInput = {
+export type ApplicationCreateWithoutAddressInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
 }
 
-export type ApplicationUncheckedCreateWithoutEntrepreneurProfileInput = {
+export type ApplicationUncheckedCreateWithoutAddressInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   userId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
 }
 
-export type ApplicationCreateOrConnectWithoutEntrepreneurProfileInput = {
+export type ApplicationCreateOrConnectWithoutAddressInput = {
   where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutEntrepreneurProfileInput, Prisma.ApplicationUncheckedCreateWithoutEntrepreneurProfileInput>
+  create: Prisma.XOR<Prisma.ApplicationCreateWithoutAddressInput, Prisma.ApplicationUncheckedCreateWithoutAddressInput>
 }
 
-export type ApplicationUpsertWithoutEntrepreneurProfileInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutEntrepreneurProfileInput, Prisma.ApplicationUncheckedUpdateWithoutEntrepreneurProfileInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutEntrepreneurProfileInput, Prisma.ApplicationUncheckedCreateWithoutEntrepreneurProfileInput>
+export type ApplicationUpsertWithoutAddressInput = {
+  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutAddressInput, Prisma.ApplicationUncheckedUpdateWithoutAddressInput>
+  create: Prisma.XOR<Prisma.ApplicationCreateWithoutAddressInput, Prisma.ApplicationUncheckedCreateWithoutAddressInput>
   where?: Prisma.ApplicationWhereInput
 }
 
-export type ApplicationUpdateToOneWithWhereWithoutEntrepreneurProfileInput = {
+export type ApplicationUpdateToOneWithWhereWithoutAddressInput = {
   where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutEntrepreneurProfileInput, Prisma.ApplicationUncheckedUpdateWithoutEntrepreneurProfileInput>
+  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutAddressInput, Prisma.ApplicationUncheckedUpdateWithoutAddressInput>
 }
 
-export type ApplicationUpdateWithoutEntrepreneurProfileInput = {
+export type ApplicationUpdateWithoutAddressInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
 }
 
-export type ApplicationUncheckedUpdateWithoutEntrepreneurProfileInput = {
+export type ApplicationUncheckedUpdateWithoutAddressInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
-}
-
-export type ApplicationCreateWithoutProductUsageInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
-  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
-  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
-}
-
-export type ApplicationUncheckedCreateWithoutProductUsageInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  userId?: string | null
-  createdByAdminId?: string | null
-  bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
-}
-
-export type ApplicationCreateOrConnectWithoutProductUsageInput = {
-  where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutProductUsageInput, Prisma.ApplicationUncheckedCreateWithoutProductUsageInput>
-}
-
-export type ApplicationUpsertWithoutProductUsageInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutProductUsageInput, Prisma.ApplicationUncheckedUpdateWithoutProductUsageInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutProductUsageInput, Prisma.ApplicationUncheckedCreateWithoutProductUsageInput>
-  where?: Prisma.ApplicationWhereInput
-}
-
-export type ApplicationUpdateToOneWithWhereWithoutProductUsageInput = {
-  where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutProductUsageInput, Prisma.ApplicationUncheckedUpdateWithoutProductUsageInput>
-}
-
-export type ApplicationUpdateWithoutProductUsageInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
-  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
-  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
-}
-
-export type ApplicationUncheckedUpdateWithoutProductUsageInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
-}
-
-export type ApplicationCreateWithoutProjectIntroductionInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
-  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
-  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
-}
-
-export type ApplicationUncheckedCreateWithoutProjectIntroductionInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  userId?: string | null
-  createdByAdminId?: string | null
-  bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
-}
-
-export type ApplicationCreateOrConnectWithoutProjectIntroductionInput = {
-  where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutProjectIntroductionInput, Prisma.ApplicationUncheckedCreateWithoutProjectIntroductionInput>
-}
-
-export type ApplicationUpsertWithoutProjectIntroductionInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutProjectIntroductionInput, Prisma.ApplicationUncheckedUpdateWithoutProjectIntroductionInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutProjectIntroductionInput, Prisma.ApplicationUncheckedCreateWithoutProjectIntroductionInput>
-  where?: Prisma.ApplicationWhereInput
-}
-
-export type ApplicationUpdateToOneWithWhereWithoutProjectIntroductionInput = {
-  where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutProjectIntroductionInput, Prisma.ApplicationUncheckedUpdateWithoutProjectIntroductionInput>
-}
-
-export type ApplicationUpdateWithoutProjectIntroductionInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
-  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
-  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
-}
-
-export type ApplicationUncheckedUpdateWithoutProjectIntroductionInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
-}
-
-export type ApplicationCreateWithoutProjectAnalysisInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
-  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
-  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
-}
-
-export type ApplicationUncheckedCreateWithoutProjectAnalysisInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  userId?: string | null
-  createdByAdminId?: string | null
-  bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
-}
-
-export type ApplicationCreateOrConnectWithoutProjectAnalysisInput = {
-  where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutProjectAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutProjectAnalysisInput>
-}
-
-export type ApplicationUpsertWithoutProjectAnalysisInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutProjectAnalysisInput, Prisma.ApplicationUncheckedUpdateWithoutProjectAnalysisInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutProjectAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutProjectAnalysisInput>
-  where?: Prisma.ApplicationWhereInput
-}
-
-export type ApplicationUpdateToOneWithWhereWithoutProjectAnalysisInput = {
-  where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutProjectAnalysisInput, Prisma.ApplicationUncheckedUpdateWithoutProjectAnalysisInput>
-}
-
-export type ApplicationUpdateWithoutProjectAnalysisInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
-  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
-  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
-}
-
-export type ApplicationUncheckedUpdateWithoutProjectAnalysisInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
-}
-
-export type ApplicationCreateWithoutRiskImpactAnalysisInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
-  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
-  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
-}
-
-export type ApplicationUncheckedCreateWithoutRiskImpactAnalysisInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  userId?: string | null
-  createdByAdminId?: string | null
-  bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
-}
-
-export type ApplicationCreateOrConnectWithoutRiskImpactAnalysisInput = {
-  where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutRiskImpactAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutRiskImpactAnalysisInput>
-}
-
-export type ApplicationUpsertWithoutRiskImpactAnalysisInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutRiskImpactAnalysisInput, Prisma.ApplicationUncheckedUpdateWithoutRiskImpactAnalysisInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutRiskImpactAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutRiskImpactAnalysisInput>
-  where?: Prisma.ApplicationWhereInput
-}
-
-export type ApplicationUpdateToOneWithWhereWithoutRiskImpactAnalysisInput = {
-  where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutRiskImpactAnalysisInput, Prisma.ApplicationUncheckedUpdateWithoutRiskImpactAnalysisInput>
-}
-
-export type ApplicationUpdateWithoutRiskImpactAnalysisInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
-  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
-  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
-}
-
-export type ApplicationUncheckedUpdateWithoutRiskImpactAnalysisInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
-}
-
-export type ApplicationCreateWithoutSwotAnalysisInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
-  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
-  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
-}
-
-export type ApplicationUncheckedCreateWithoutSwotAnalysisInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  userId?: string | null
-  createdByAdminId?: string | null
-  bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
-}
-
-export type ApplicationCreateOrConnectWithoutSwotAnalysisInput = {
-  where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutSwotAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutSwotAnalysisInput>
-}
-
-export type ApplicationUpsertWithoutSwotAnalysisInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutSwotAnalysisInput, Prisma.ApplicationUncheckedUpdateWithoutSwotAnalysisInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutSwotAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutSwotAnalysisInput>
-  where?: Prisma.ApplicationWhereInput
-}
-
-export type ApplicationUpdateToOneWithWhereWithoutSwotAnalysisInput = {
-  where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutSwotAnalysisInput, Prisma.ApplicationUncheckedUpdateWithoutSwotAnalysisInput>
-}
-
-export type ApplicationUpdateWithoutSwotAnalysisInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
-  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
-  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
-}
-
-export type ApplicationUncheckedUpdateWithoutSwotAnalysisInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
-}
-
-export type ApplicationCreateWithoutFinancialAnalysisInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
-  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
-  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
-}
-
-export type ApplicationUncheckedCreateWithoutFinancialAnalysisInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  userId?: string | null
-  createdByAdminId?: string | null
-  bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
-}
-
-export type ApplicationCreateOrConnectWithoutFinancialAnalysisInput = {
-  where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutFinancialAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutFinancialAnalysisInput>
-}
-
-export type ApplicationUpsertWithoutFinancialAnalysisInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutFinancialAnalysisInput, Prisma.ApplicationUncheckedUpdateWithoutFinancialAnalysisInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutFinancialAnalysisInput, Prisma.ApplicationUncheckedCreateWithoutFinancialAnalysisInput>
-  where?: Prisma.ApplicationWhereInput
-}
-
-export type ApplicationUpdateToOneWithWhereWithoutFinancialAnalysisInput = {
-  where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutFinancialAnalysisInput, Prisma.ApplicationUncheckedUpdateWithoutFinancialAnalysisInput>
-}
-
-export type ApplicationUpdateWithoutFinancialAnalysisInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
-  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
-  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
-}
-
-export type ApplicationUncheckedUpdateWithoutFinancialAnalysisInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
-}
-
-export type ApplicationCreateWithoutWorkPlanInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
-  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
-}
-
-export type ApplicationUncheckedCreateWithoutWorkPlanInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  userId?: string | null
-  createdByAdminId?: string | null
-  bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-}
-
-export type ApplicationCreateOrConnectWithoutWorkPlanInput = {
-  where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutWorkPlanInput, Prisma.ApplicationUncheckedCreateWithoutWorkPlanInput>
-}
-
-export type ApplicationUpsertWithoutWorkPlanInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutWorkPlanInput, Prisma.ApplicationUncheckedUpdateWithoutWorkPlanInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutWorkPlanInput, Prisma.ApplicationUncheckedCreateWithoutWorkPlanInput>
-  where?: Prisma.ApplicationWhereInput
-}
-
-export type ApplicationUpdateToOneWithWhereWithoutWorkPlanInput = {
-  where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutWorkPlanInput, Prisma.ApplicationUncheckedUpdateWithoutWorkPlanInput>
-}
-
-export type ApplicationUpdateWithoutWorkPlanInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
-  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
-}
-
-export type ApplicationUncheckedUpdateWithoutWorkPlanInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-}
-
-export type ApplicationCreateWithoutProposerInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
-  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
-  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
-}
-
-export type ApplicationUncheckedCreateWithoutProposerInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  userId?: string | null
-  createdByAdminId?: string | null
-  bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
-}
-
-export type ApplicationCreateOrConnectWithoutProposerInput = {
-  where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutProposerInput, Prisma.ApplicationUncheckedCreateWithoutProposerInput>
-}
-
-export type ApplicationUpsertWithoutProposerInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutProposerInput, Prisma.ApplicationUncheckedUpdateWithoutProposerInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutProposerInput, Prisma.ApplicationUncheckedCreateWithoutProposerInput>
-  where?: Prisma.ApplicationWhereInput
-}
-
-export type ApplicationUpdateToOneWithWhereWithoutProposerInput = {
-  where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutProposerInput, Prisma.ApplicationUncheckedUpdateWithoutProposerInput>
-}
-
-export type ApplicationUpdateWithoutProposerInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
-  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
-  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
-}
-
-export type ApplicationUncheckedUpdateWithoutProposerInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
-}
-
-export type ApplicationCreateWithoutOfficeAddressInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
-  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
-  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
-}
-
-export type ApplicationUncheckedCreateWithoutOfficeAddressInput = {
-  id?: string
-  applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
-  userId?: string | null
-  createdByAdminId?: string | null
-  bulkOperationLogId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
-}
-
-export type ApplicationCreateOrConnectWithoutOfficeAddressInput = {
-  where: Prisma.ApplicationWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutOfficeAddressInput, Prisma.ApplicationUncheckedCreateWithoutOfficeAddressInput>
-}
-
-export type ApplicationUpsertWithoutOfficeAddressInput = {
-  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutOfficeAddressInput, Prisma.ApplicationUncheckedUpdateWithoutOfficeAddressInput>
-  create: Prisma.XOR<Prisma.ApplicationCreateWithoutOfficeAddressInput, Prisma.ApplicationUncheckedCreateWithoutOfficeAddressInput>
-  where?: Prisma.ApplicationWhereInput
-}
-
-export type ApplicationUpdateToOneWithWhereWithoutOfficeAddressInput = {
-  where?: Prisma.ApplicationWhereInput
-  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutOfficeAddressInput, Prisma.ApplicationUncheckedUpdateWithoutOfficeAddressInput>
-}
-
-export type ApplicationUpdateWithoutOfficeAddressInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
-  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
-  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
-}
-
-export type ApplicationUncheckedUpdateWithoutOfficeAddressInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationCreateWithoutBulkOperationLogInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
-  officeAddress: Prisma.AddressCreateNestedOneWithoutApplicationInput
+  address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
-  assessments?: Prisma.AssessmentCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
 }
 
 export type ApplicationUncheckedCreateWithoutBulkOperationLogInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   userId?: string | null
   createdByAdminId?: string | null
-  assessments?: Prisma.AssessmentUncheckedCreateNestedManyWithoutApplicationInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedCreateNestedManyWithoutApplicationInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
-  productUsage?: Prisma.ProductUsageUncheckedCreateNestedOneWithoutApplicationInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedCreateNestedOneWithoutApplicationInput
-  proposer?: Prisma.ProposerUncheckedCreateNestedOneWithoutApplicationInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedCreateNestedOneWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedCreateNestedOneWithoutApplicationInput
-  workPlan?: Prisma.WorkPlanUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutBulkOperationLogInput = {
@@ -4740,35 +1968,28 @@ export type ApplicationUpdateManyWithWhereWithoutBulkOperationLogInput = {
 export type ApplicationCreateManyUserInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
 }
@@ -4776,35 +1997,28 @@ export type ApplicationCreateManyUserInput = {
 export type ApplicationCreateManyCreatedByAdminInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   userId?: string | null
   bulkOperationLogId?: string | null
 }
@@ -4812,47 +2026,30 @@ export type ApplicationCreateManyCreatedByAdminInput = {
 export type ApplicationUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
+  address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
 }
@@ -4860,83 +2057,59 @@ export type ApplicationUpdateWithoutUserInput = {
 export type ApplicationUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
@@ -4944,131 +2117,90 @@ export type ApplicationUncheckedUpdateManyWithoutUserInput = {
 export type ApplicationUpdateWithoutCreatedByAdminInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
+  address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
 }
 
 export type ApplicationUncheckedUpdateWithoutCreatedByAdminInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateManyWithoutCreatedByAdminInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
@@ -5076,34 +2208,27 @@ export type ApplicationUncheckedUpdateManyWithoutCreatedByAdminInput = {
 export type ApplicationCreateManyApplicationCycleInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
+  status?: $Enums.APPLICATION_STATUS
   userId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
@@ -5112,47 +2237,30 @@ export type ApplicationCreateManyApplicationCycleInput = {
 export type ApplicationUpdateWithoutApplicationCycleInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
 }
@@ -5160,82 +2268,58 @@ export type ApplicationUpdateWithoutApplicationCycleInput = {
 export type ApplicationUncheckedUpdateWithoutApplicationCycleInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateManyWithoutApplicationCycleInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -5244,35 +2328,28 @@ export type ApplicationUncheckedUpdateManyWithoutApplicationCycleInput = {
 export type ApplicationCreateManyBulkOperationLogInput = {
   id?: string
   applicationCode?: string | null
-  firmCompanyIndustryName: string
-  firmCompanyIndustryNameNp: string
-  initialRegistrationOffice?: string | null
-  registrationDate?: string | null
-  registrationNumber?: string | null
-  panNumber?: string | null
-  licenseProviderOffice?: string | null
-  licenseIssuanceDate?: string | null
-  licenseValidityPeriod?: string | null
-  officeAddressId: number
-  officeTelephone?: string | null
-  officeEmail?: string | null
-  officeWebsite?: string | null
-  representativeName?: string | null
-  representativeDesignation?: string | null
-  representativeTelephone?: string | null
-  representativeMobile: string
-  representativeEmail?: string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: $Enums.APPLICATION_STATUS
-  rejectionReason?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: number | null
+  submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
   applicationCycleId?: string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: boolean | null
-  submissionDate?: string | null
-  cleanedFirmNepaliName?: string | null
   userId?: string | null
   createdByAdminId?: string | null
 }
@@ -5280,131 +2357,90 @@ export type ApplicationCreateManyBulkOperationLogInput = {
 export type ApplicationUpdateWithoutBulkOperationLogInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
-  officeAddress?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
+  address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
-  assessments?: Prisma.AssessmentUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
 }
 
 export type ApplicationUncheckedUpdateWithoutBulkOperationLogInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  assessments?: Prisma.AssessmentUncheckedUpdateManyWithoutApplicationNestedInput
-  entrepreneurProfile?: Prisma.EntrepreneurProfileUncheckedUpdateManyWithoutApplicationNestedInput
-  financialAnalysis?: Prisma.FinancialAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
-  productUsage?: Prisma.ProductUsageUncheckedUpdateOneWithoutApplicationNestedInput
-  projectAnalysis?: Prisma.ProjectAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  projectIntroduction?: Prisma.ProjectIntroductionUncheckedUpdateOneWithoutApplicationNestedInput
-  proposer?: Prisma.ProposerUncheckedUpdateOneWithoutApplicationNestedInput
-  riskImpactAnalysis?: Prisma.RiskImpactAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
-  swotAnalysis?: Prisma.SwotAnalysisUncheckedUpdateOneWithoutApplicationNestedInput
-  workPlan?: Prisma.WorkPlanUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateManyWithoutBulkOperationLogInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  firmCompanyIndustryName?: Prisma.StringFieldUpdateOperationsInput | string
-  firmCompanyIndustryNameNp?: Prisma.StringFieldUpdateOperationsInput | string
-  initialRegistrationOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseProviderOffice?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseIssuanceDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  licenseValidityPeriod?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeAddressId?: Prisma.IntFieldUpdateOperationsInput | number
-  officeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  officeWebsite?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeDesignation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeTelephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  representativeMobile?: Prisma.StringFieldUpdateOperationsInput | string
-  representativeEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  mediaCaption?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
-  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  tempProposer?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  isAffiliatedWithEPC?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cleanedFirmNepaliName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
@@ -5415,19 +2451,13 @@ export type ApplicationUncheckedUpdateManyWithoutBulkOperationLogInput = {
  */
 
 export type ApplicationCountOutputType = {
-  assessments: number
-  entrepreneurProfile: number
   media: number
   statusHistory: number
-  workPlan: number
 }
 
 export type ApplicationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  assessments?: boolean | ApplicationCountOutputTypeCountAssessmentsArgs
-  entrepreneurProfile?: boolean | ApplicationCountOutputTypeCountEntrepreneurProfileArgs
   media?: boolean | ApplicationCountOutputTypeCountMediaArgs
   statusHistory?: boolean | ApplicationCountOutputTypeCountStatusHistoryArgs
-  workPlan?: boolean | ApplicationCountOutputTypeCountWorkPlanArgs
 }
 
 /**
@@ -5438,20 +2468,6 @@ export type ApplicationCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.
    * Select specific fields to fetch from the ApplicationCountOutputType
    */
   select?: Prisma.ApplicationCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * ApplicationCountOutputType without action
- */
-export type ApplicationCountOutputTypeCountAssessmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.AssessmentWhereInput
-}
-
-/**
- * ApplicationCountOutputType without action
- */
-export type ApplicationCountOutputTypeCountEntrepreneurProfileArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.EntrepreneurProfileWhereInput
 }
 
 /**
@@ -5468,64 +2484,40 @@ export type ApplicationCountOutputTypeCountStatusHistoryArgs<ExtArgs extends run
   where?: Prisma.StatusHistoryWhereInput
 }
 
-/**
- * ApplicationCountOutputType without action
- */
-export type ApplicationCountOutputTypeCountWorkPlanArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.WorkPlanWhereInput
-}
-
 
 export type ApplicationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   applicationCode?: boolean
-  firmCompanyIndustryName?: boolean
-  firmCompanyIndustryNameNp?: boolean
-  initialRegistrationOffice?: boolean
-  registrationDate?: boolean
-  registrationNumber?: boolean
-  panNumber?: boolean
-  licenseProviderOffice?: boolean
-  licenseIssuanceDate?: boolean
-  licenseValidityPeriod?: boolean
-  officeAddressId?: boolean
-  officeTelephone?: boolean
-  officeEmail?: boolean
-  officeWebsite?: boolean
-  representativeName?: boolean
-  representativeDesignation?: boolean
-  representativeTelephone?: boolean
-  representativeMobile?: boolean
-  representativeEmail?: boolean
-  mediaCaption?: boolean
-  status?: boolean
-  rejectionReason?: boolean
+  applicantName?: boolean
+  applicantNameNp?: boolean
+  addressId?: boolean
+  telephone?: boolean
+  email?: boolean
+  dateOfBirth?: boolean
+  educationQualification?: boolean
+  profession?: boolean
+  fatherName?: boolean
+  fatherProfession?: boolean
+  useOfModernTechnology?: boolean
+  possibilityOfSellingProducedGoods?: boolean
+  institutionalUpgradeSupport?: boolean
+  existingOperatingProfession?: boolean
+  professionToBeUpgraded?: boolean
+  estimatedCost?: boolean
+  submissionDate?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  status?: boolean
   applicationCycleId?: boolean
-  tempProposer?: boolean
-  isAffiliatedWithEPC?: boolean
-  submissionDate?: boolean
-  cleanedFirmNepaliName?: boolean
   userId?: boolean
   createdByAdminId?: boolean
   bulkOperationLogId?: boolean
   applicationCycle?: boolean | Prisma.Application$applicationCycleArgs<ExtArgs>
-  officeAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  address?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
   user?: boolean | Prisma.Application$userArgs<ExtArgs>
-  assessments?: boolean | Prisma.Application$assessmentsArgs<ExtArgs>
-  entrepreneurProfile?: boolean | Prisma.Application$entrepreneurProfileArgs<ExtArgs>
-  financialAnalysis?: boolean | Prisma.Application$financialAnalysisArgs<ExtArgs>
   media?: boolean | Prisma.Application$mediaArgs<ExtArgs>
-  productUsage?: boolean | Prisma.Application$productUsageArgs<ExtArgs>
-  projectAnalysis?: boolean | Prisma.Application$projectAnalysisArgs<ExtArgs>
-  projectIntroduction?: boolean | Prisma.Application$projectIntroductionArgs<ExtArgs>
-  proposer?: boolean | Prisma.Application$proposerArgs<ExtArgs>
-  riskImpactAnalysis?: boolean | Prisma.Application$riskImpactAnalysisArgs<ExtArgs>
   statusHistory?: boolean | Prisma.Application$statusHistoryArgs<ExtArgs>
-  swotAnalysis?: boolean | Prisma.Application$swotAnalysisArgs<ExtArgs>
-  workPlan?: boolean | Prisma.Application$workPlanArgs<ExtArgs>
   createdByAdmin?: boolean | Prisma.Application$createdByAdminArgs<ExtArgs>
   bulkOperationLog?: boolean | Prisma.Application$bulkOperationLogArgs<ExtArgs>
   _count?: boolean | Prisma.ApplicationCountOutputTypeDefaultArgs<ExtArgs>
@@ -5534,40 +2526,33 @@ export type ApplicationSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 export type ApplicationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   applicationCode?: boolean
-  firmCompanyIndustryName?: boolean
-  firmCompanyIndustryNameNp?: boolean
-  initialRegistrationOffice?: boolean
-  registrationDate?: boolean
-  registrationNumber?: boolean
-  panNumber?: boolean
-  licenseProviderOffice?: boolean
-  licenseIssuanceDate?: boolean
-  licenseValidityPeriod?: boolean
-  officeAddressId?: boolean
-  officeTelephone?: boolean
-  officeEmail?: boolean
-  officeWebsite?: boolean
-  representativeName?: boolean
-  representativeDesignation?: boolean
-  representativeTelephone?: boolean
-  representativeMobile?: boolean
-  representativeEmail?: boolean
-  mediaCaption?: boolean
-  status?: boolean
-  rejectionReason?: boolean
+  applicantName?: boolean
+  applicantNameNp?: boolean
+  addressId?: boolean
+  telephone?: boolean
+  email?: boolean
+  dateOfBirth?: boolean
+  educationQualification?: boolean
+  profession?: boolean
+  fatherName?: boolean
+  fatherProfession?: boolean
+  useOfModernTechnology?: boolean
+  possibilityOfSellingProducedGoods?: boolean
+  institutionalUpgradeSupport?: boolean
+  existingOperatingProfession?: boolean
+  professionToBeUpgraded?: boolean
+  estimatedCost?: boolean
+  submissionDate?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  status?: boolean
   applicationCycleId?: boolean
-  tempProposer?: boolean
-  isAffiliatedWithEPC?: boolean
-  submissionDate?: boolean
-  cleanedFirmNepaliName?: boolean
   userId?: boolean
   createdByAdminId?: boolean
   bulkOperationLogId?: boolean
   applicationCycle?: boolean | Prisma.Application$applicationCycleArgs<ExtArgs>
-  officeAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  address?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
   user?: boolean | Prisma.Application$userArgs<ExtArgs>
   createdByAdmin?: boolean | Prisma.Application$createdByAdminArgs<ExtArgs>
   bulkOperationLog?: boolean | Prisma.Application$bulkOperationLogArgs<ExtArgs>
@@ -5576,40 +2561,33 @@ export type ApplicationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 export type ApplicationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   applicationCode?: boolean
-  firmCompanyIndustryName?: boolean
-  firmCompanyIndustryNameNp?: boolean
-  initialRegistrationOffice?: boolean
-  registrationDate?: boolean
-  registrationNumber?: boolean
-  panNumber?: boolean
-  licenseProviderOffice?: boolean
-  licenseIssuanceDate?: boolean
-  licenseValidityPeriod?: boolean
-  officeAddressId?: boolean
-  officeTelephone?: boolean
-  officeEmail?: boolean
-  officeWebsite?: boolean
-  representativeName?: boolean
-  representativeDesignation?: boolean
-  representativeTelephone?: boolean
-  representativeMobile?: boolean
-  representativeEmail?: boolean
-  mediaCaption?: boolean
-  status?: boolean
-  rejectionReason?: boolean
+  applicantName?: boolean
+  applicantNameNp?: boolean
+  addressId?: boolean
+  telephone?: boolean
+  email?: boolean
+  dateOfBirth?: boolean
+  educationQualification?: boolean
+  profession?: boolean
+  fatherName?: boolean
+  fatherProfession?: boolean
+  useOfModernTechnology?: boolean
+  possibilityOfSellingProducedGoods?: boolean
+  institutionalUpgradeSupport?: boolean
+  existingOperatingProfession?: boolean
+  professionToBeUpgraded?: boolean
+  estimatedCost?: boolean
+  submissionDate?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  status?: boolean
   applicationCycleId?: boolean
-  tempProposer?: boolean
-  isAffiliatedWithEPC?: boolean
-  submissionDate?: boolean
-  cleanedFirmNepaliName?: boolean
   userId?: boolean
   createdByAdminId?: boolean
   bulkOperationLogId?: boolean
   applicationCycle?: boolean | Prisma.Application$applicationCycleArgs<ExtArgs>
-  officeAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  address?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
   user?: boolean | Prisma.Application$userArgs<ExtArgs>
   createdByAdmin?: boolean | Prisma.Application$createdByAdminArgs<ExtArgs>
   bulkOperationLog?: boolean | Prisma.Application$bulkOperationLogArgs<ExtArgs>
@@ -5618,71 +2596,54 @@ export type ApplicationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 export type ApplicationSelectScalar = {
   id?: boolean
   applicationCode?: boolean
-  firmCompanyIndustryName?: boolean
-  firmCompanyIndustryNameNp?: boolean
-  initialRegistrationOffice?: boolean
-  registrationDate?: boolean
-  registrationNumber?: boolean
-  panNumber?: boolean
-  licenseProviderOffice?: boolean
-  licenseIssuanceDate?: boolean
-  licenseValidityPeriod?: boolean
-  officeAddressId?: boolean
-  officeTelephone?: boolean
-  officeEmail?: boolean
-  officeWebsite?: boolean
-  representativeName?: boolean
-  representativeDesignation?: boolean
-  representativeTelephone?: boolean
-  representativeMobile?: boolean
-  representativeEmail?: boolean
-  mediaCaption?: boolean
-  status?: boolean
-  rejectionReason?: boolean
+  applicantName?: boolean
+  applicantNameNp?: boolean
+  addressId?: boolean
+  telephone?: boolean
+  email?: boolean
+  dateOfBirth?: boolean
+  educationQualification?: boolean
+  profession?: boolean
+  fatherName?: boolean
+  fatherProfession?: boolean
+  useOfModernTechnology?: boolean
+  possibilityOfSellingProducedGoods?: boolean
+  institutionalUpgradeSupport?: boolean
+  existingOperatingProfession?: boolean
+  professionToBeUpgraded?: boolean
+  estimatedCost?: boolean
+  submissionDate?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  status?: boolean
   applicationCycleId?: boolean
-  tempProposer?: boolean
-  isAffiliatedWithEPC?: boolean
-  submissionDate?: boolean
-  cleanedFirmNepaliName?: boolean
   userId?: boolean
   createdByAdminId?: boolean
   bulkOperationLogId?: boolean
 }
 
-export type ApplicationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "applicationCode" | "firmCompanyIndustryName" | "firmCompanyIndustryNameNp" | "initialRegistrationOffice" | "registrationDate" | "registrationNumber" | "panNumber" | "licenseProviderOffice" | "licenseIssuanceDate" | "licenseValidityPeriod" | "officeAddressId" | "officeTelephone" | "officeEmail" | "officeWebsite" | "representativeName" | "representativeDesignation" | "representativeTelephone" | "representativeMobile" | "representativeEmail" | "mediaCaption" | "status" | "rejectionReason" | "createdAt" | "updatedAt" | "deletedAt" | "applicationCycleId" | "tempProposer" | "isAffiliatedWithEPC" | "submissionDate" | "cleanedFirmNepaliName" | "userId" | "createdByAdminId" | "bulkOperationLogId", ExtArgs["result"]["application"]>
+export type ApplicationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "applicationCode" | "applicantName" | "applicantNameNp" | "addressId" | "telephone" | "email" | "dateOfBirth" | "educationQualification" | "profession" | "fatherName" | "fatherProfession" | "useOfModernTechnology" | "possibilityOfSellingProducedGoods" | "institutionalUpgradeSupport" | "existingOperatingProfession" | "professionToBeUpgraded" | "estimatedCost" | "submissionDate" | "createdAt" | "updatedAt" | "deletedAt" | "status" | "applicationCycleId" | "userId" | "createdByAdminId" | "bulkOperationLogId", ExtArgs["result"]["application"]>
 export type ApplicationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   applicationCycle?: boolean | Prisma.Application$applicationCycleArgs<ExtArgs>
-  officeAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  address?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
   user?: boolean | Prisma.Application$userArgs<ExtArgs>
-  assessments?: boolean | Prisma.Application$assessmentsArgs<ExtArgs>
-  entrepreneurProfile?: boolean | Prisma.Application$entrepreneurProfileArgs<ExtArgs>
-  financialAnalysis?: boolean | Prisma.Application$financialAnalysisArgs<ExtArgs>
   media?: boolean | Prisma.Application$mediaArgs<ExtArgs>
-  productUsage?: boolean | Prisma.Application$productUsageArgs<ExtArgs>
-  projectAnalysis?: boolean | Prisma.Application$projectAnalysisArgs<ExtArgs>
-  projectIntroduction?: boolean | Prisma.Application$projectIntroductionArgs<ExtArgs>
-  proposer?: boolean | Prisma.Application$proposerArgs<ExtArgs>
-  riskImpactAnalysis?: boolean | Prisma.Application$riskImpactAnalysisArgs<ExtArgs>
   statusHistory?: boolean | Prisma.Application$statusHistoryArgs<ExtArgs>
-  swotAnalysis?: boolean | Prisma.Application$swotAnalysisArgs<ExtArgs>
-  workPlan?: boolean | Prisma.Application$workPlanArgs<ExtArgs>
   createdByAdmin?: boolean | Prisma.Application$createdByAdminArgs<ExtArgs>
   bulkOperationLog?: boolean | Prisma.Application$bulkOperationLogArgs<ExtArgs>
   _count?: boolean | Prisma.ApplicationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ApplicationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   applicationCycle?: boolean | Prisma.Application$applicationCycleArgs<ExtArgs>
-  officeAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  address?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
   user?: boolean | Prisma.Application$userArgs<ExtArgs>
   createdByAdmin?: boolean | Prisma.Application$createdByAdminArgs<ExtArgs>
   bulkOperationLog?: boolean | Prisma.Application$bulkOperationLogArgs<ExtArgs>
 }
 export type ApplicationIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   applicationCycle?: boolean | Prisma.Application$applicationCycleArgs<ExtArgs>
-  officeAddress?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
+  address?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
   user?: boolean | Prisma.Application$userArgs<ExtArgs>
   createdByAdmin?: boolean | Prisma.Application$createdByAdminArgs<ExtArgs>
   bulkOperationLog?: boolean | Prisma.Application$bulkOperationLogArgs<ExtArgs>
@@ -5692,55 +2653,38 @@ export type $ApplicationPayload<ExtArgs extends runtime.Types.Extensions.Interna
   name: "Application"
   objects: {
     applicationCycle: Prisma.$ApplicationCyclePayload<ExtArgs> | null
-    officeAddress: Prisma.$AddressPayload<ExtArgs>
+    address: Prisma.$AddressPayload<ExtArgs>
     user: Prisma.$UserPayload<ExtArgs> | null
-    assessments: Prisma.$AssessmentPayload<ExtArgs>[]
-    entrepreneurProfile: Prisma.$EntrepreneurProfilePayload<ExtArgs>[]
-    financialAnalysis: Prisma.$FinancialAnalysisPayload<ExtArgs> | null
     media: Prisma.$MediaPayload<ExtArgs>[]
-    productUsage: Prisma.$ProductUsagePayload<ExtArgs> | null
-    projectAnalysis: Prisma.$ProjectAnalysisPayload<ExtArgs> | null
-    projectIntroduction: Prisma.$ProjectIntroductionPayload<ExtArgs> | null
-    proposer: Prisma.$ProposerPayload<ExtArgs> | null
-    riskImpactAnalysis: Prisma.$RiskImpactAnalysisPayload<ExtArgs> | null
     statusHistory: Prisma.$StatusHistoryPayload<ExtArgs>[]
-    swotAnalysis: Prisma.$SwotAnalysisPayload<ExtArgs> | null
-    workPlan: Prisma.$WorkPlanPayload<ExtArgs>[]
     createdByAdmin: Prisma.$UserPayload<ExtArgs> | null
     bulkOperationLog: Prisma.$BulkOperationLogPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     applicationCode: string | null
-    firmCompanyIndustryName: string
-    firmCompanyIndustryNameNp: string
-    initialRegistrationOffice: string | null
-    registrationDate: string | null
-    registrationNumber: string | null
-    panNumber: string | null
-    licenseProviderOffice: string | null
-    licenseIssuanceDate: string | null
-    licenseValidityPeriod: string | null
-    officeAddressId: number
-    officeTelephone: string | null
-    officeEmail: string | null
-    officeWebsite: string | null
-    representativeName: string | null
-    representativeDesignation: string | null
-    representativeTelephone: string | null
-    representativeMobile: string
-    representativeEmail: string | null
-    mediaCaption: runtime.JsonValue | null
-    status: $Enums.APPLICATION_STATUS
-    rejectionReason: string | null
+    applicantName: string
+    applicantNameNp: string | null
+    addressId: number
+    telephone: string | null
+    email: string | null
+    dateOfBirth: string | null
+    educationQualification: string | null
+    profession: string | null
+    fatherName: string | null
+    fatherProfession: string | null
+    useOfModernTechnology: boolean | null
+    possibilityOfSellingProducedGoods: boolean | null
+    institutionalUpgradeSupport: boolean | null
+    existingOperatingProfession: string | null
+    professionToBeUpgraded: string[]
+    estimatedCost: number | null
+    submissionDate: string | null
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
+    status: $Enums.APPLICATION_STATUS
     applicationCycleId: string | null
-    tempProposer: runtime.JsonValue | null
-    isAffiliatedWithEPC: boolean | null
-    submissionDate: string | null
-    cleanedFirmNepaliName: string | null
     userId: string | null
     createdByAdminId: string | null
     bulkOperationLogId: string | null
@@ -6139,20 +3083,10 @@ readonly fields: ApplicationFieldRefs;
 export interface Prisma__ApplicationClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   applicationCycle<T extends Prisma.Application$applicationCycleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$applicationCycleArgs<ExtArgs>>): Prisma.Prisma__ApplicationCycleClient<runtime.Types.Result.GetResult<Prisma.$ApplicationCyclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  officeAddress<T extends Prisma.AddressDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AddressDefaultArgs<ExtArgs>>): Prisma.Prisma__AddressClient<runtime.Types.Result.GetResult<Prisma.$AddressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  address<T extends Prisma.AddressDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AddressDefaultArgs<ExtArgs>>): Prisma.Prisma__AddressClient<runtime.Types.Result.GetResult<Prisma.$AddressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   user<T extends Prisma.Application$userArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$userArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  assessments<T extends Prisma.Application$assessmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$assessmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AssessmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  entrepreneurProfile<T extends Prisma.Application$entrepreneurProfileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$entrepreneurProfileArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EntrepreneurProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  financialAnalysis<T extends Prisma.Application$financialAnalysisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$financialAnalysisArgs<ExtArgs>>): Prisma.Prisma__FinancialAnalysisClient<runtime.Types.Result.GetResult<Prisma.$FinancialAnalysisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   media<T extends Prisma.Application$mediaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$mediaArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MediaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  productUsage<T extends Prisma.Application$productUsageArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$productUsageArgs<ExtArgs>>): Prisma.Prisma__ProductUsageClient<runtime.Types.Result.GetResult<Prisma.$ProductUsagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  projectAnalysis<T extends Prisma.Application$projectAnalysisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$projectAnalysisArgs<ExtArgs>>): Prisma.Prisma__ProjectAnalysisClient<runtime.Types.Result.GetResult<Prisma.$ProjectAnalysisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  projectIntroduction<T extends Prisma.Application$projectIntroductionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$projectIntroductionArgs<ExtArgs>>): Prisma.Prisma__ProjectIntroductionClient<runtime.Types.Result.GetResult<Prisma.$ProjectIntroductionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  proposer<T extends Prisma.Application$proposerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$proposerArgs<ExtArgs>>): Prisma.Prisma__ProposerClient<runtime.Types.Result.GetResult<Prisma.$ProposerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  riskImpactAnalysis<T extends Prisma.Application$riskImpactAnalysisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$riskImpactAnalysisArgs<ExtArgs>>): Prisma.Prisma__RiskImpactAnalysisClient<runtime.Types.Result.GetResult<Prisma.$RiskImpactAnalysisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   statusHistory<T extends Prisma.Application$statusHistoryArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$statusHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StatusHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  swotAnalysis<T extends Prisma.Application$swotAnalysisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$swotAnalysisArgs<ExtArgs>>): Prisma.Prisma__SwotAnalysisClient<runtime.Types.Result.GetResult<Prisma.$SwotAnalysisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  workPlan<T extends Prisma.Application$workPlanArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$workPlanArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   createdByAdmin<T extends Prisma.Application$createdByAdminArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$createdByAdminArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   bulkOperationLog<T extends Prisma.Application$bulkOperationLogArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$bulkOperationLogArgs<ExtArgs>>): Prisma.Prisma__BulkOperationLogClient<runtime.Types.Result.GetResult<Prisma.$BulkOperationLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
@@ -6186,35 +3120,28 @@ export interface Prisma__ApplicationClient<T, Null = never, ExtArgs extends runt
 export interface ApplicationFieldRefs {
   readonly id: Prisma.FieldRef<"Application", 'String'>
   readonly applicationCode: Prisma.FieldRef<"Application", 'String'>
-  readonly firmCompanyIndustryName: Prisma.FieldRef<"Application", 'String'>
-  readonly firmCompanyIndustryNameNp: Prisma.FieldRef<"Application", 'String'>
-  readonly initialRegistrationOffice: Prisma.FieldRef<"Application", 'String'>
-  readonly registrationDate: Prisma.FieldRef<"Application", 'String'>
-  readonly registrationNumber: Prisma.FieldRef<"Application", 'String'>
-  readonly panNumber: Prisma.FieldRef<"Application", 'String'>
-  readonly licenseProviderOffice: Prisma.FieldRef<"Application", 'String'>
-  readonly licenseIssuanceDate: Prisma.FieldRef<"Application", 'String'>
-  readonly licenseValidityPeriod: Prisma.FieldRef<"Application", 'String'>
-  readonly officeAddressId: Prisma.FieldRef<"Application", 'Int'>
-  readonly officeTelephone: Prisma.FieldRef<"Application", 'String'>
-  readonly officeEmail: Prisma.FieldRef<"Application", 'String'>
-  readonly officeWebsite: Prisma.FieldRef<"Application", 'String'>
-  readonly representativeName: Prisma.FieldRef<"Application", 'String'>
-  readonly representativeDesignation: Prisma.FieldRef<"Application", 'String'>
-  readonly representativeTelephone: Prisma.FieldRef<"Application", 'String'>
-  readonly representativeMobile: Prisma.FieldRef<"Application", 'String'>
-  readonly representativeEmail: Prisma.FieldRef<"Application", 'String'>
-  readonly mediaCaption: Prisma.FieldRef<"Application", 'Json'>
-  readonly status: Prisma.FieldRef<"Application", 'APPLICATION_STATUS'>
-  readonly rejectionReason: Prisma.FieldRef<"Application", 'String'>
+  readonly applicantName: Prisma.FieldRef<"Application", 'String'>
+  readonly applicantNameNp: Prisma.FieldRef<"Application", 'String'>
+  readonly addressId: Prisma.FieldRef<"Application", 'Int'>
+  readonly telephone: Prisma.FieldRef<"Application", 'String'>
+  readonly email: Prisma.FieldRef<"Application", 'String'>
+  readonly dateOfBirth: Prisma.FieldRef<"Application", 'String'>
+  readonly educationQualification: Prisma.FieldRef<"Application", 'String'>
+  readonly profession: Prisma.FieldRef<"Application", 'String'>
+  readonly fatherName: Prisma.FieldRef<"Application", 'String'>
+  readonly fatherProfession: Prisma.FieldRef<"Application", 'String'>
+  readonly useOfModernTechnology: Prisma.FieldRef<"Application", 'Boolean'>
+  readonly possibilityOfSellingProducedGoods: Prisma.FieldRef<"Application", 'Boolean'>
+  readonly institutionalUpgradeSupport: Prisma.FieldRef<"Application", 'Boolean'>
+  readonly existingOperatingProfession: Prisma.FieldRef<"Application", 'String'>
+  readonly professionToBeUpgraded: Prisma.FieldRef<"Application", 'String[]'>
+  readonly estimatedCost: Prisma.FieldRef<"Application", 'Float'>
+  readonly submissionDate: Prisma.FieldRef<"Application", 'String'>
   readonly createdAt: Prisma.FieldRef<"Application", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Application", 'DateTime'>
   readonly deletedAt: Prisma.FieldRef<"Application", 'DateTime'>
+  readonly status: Prisma.FieldRef<"Application", 'APPLICATION_STATUS'>
   readonly applicationCycleId: Prisma.FieldRef<"Application", 'String'>
-  readonly tempProposer: Prisma.FieldRef<"Application", 'Json'>
-  readonly isAffiliatedWithEPC: Prisma.FieldRef<"Application", 'Boolean'>
-  readonly submissionDate: Prisma.FieldRef<"Application", 'String'>
-  readonly cleanedFirmNepaliName: Prisma.FieldRef<"Application", 'String'>
   readonly userId: Prisma.FieldRef<"Application", 'String'>
   readonly createdByAdminId: Prisma.FieldRef<"Application", 'String'>
   readonly bulkOperationLogId: Prisma.FieldRef<"Application", 'String'>
@@ -6652,73 +3579,6 @@ export type Application$userArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 /**
- * Application.assessments
- */
-export type Application$assessmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Assessment
-   */
-  select?: Prisma.AssessmentSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Assessment
-   */
-  omit?: Prisma.AssessmentOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.AssessmentInclude<ExtArgs> | null
-  where?: Prisma.AssessmentWhereInput
-  orderBy?: Prisma.AssessmentOrderByWithRelationInput | Prisma.AssessmentOrderByWithRelationInput[]
-  cursor?: Prisma.AssessmentWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.AssessmentScalarFieldEnum | Prisma.AssessmentScalarFieldEnum[]
-}
-
-/**
- * Application.entrepreneurProfile
- */
-export type Application$entrepreneurProfileArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the EntrepreneurProfile
-   */
-  select?: Prisma.EntrepreneurProfileSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the EntrepreneurProfile
-   */
-  omit?: Prisma.EntrepreneurProfileOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.EntrepreneurProfileInclude<ExtArgs> | null
-  where?: Prisma.EntrepreneurProfileWhereInput
-  orderBy?: Prisma.EntrepreneurProfileOrderByWithRelationInput | Prisma.EntrepreneurProfileOrderByWithRelationInput[]
-  cursor?: Prisma.EntrepreneurProfileWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.EntrepreneurProfileScalarFieldEnum | Prisma.EntrepreneurProfileScalarFieldEnum[]
-}
-
-/**
- * Application.financialAnalysis
- */
-export type Application$financialAnalysisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the FinancialAnalysis
-   */
-  select?: Prisma.FinancialAnalysisSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the FinancialAnalysis
-   */
-  omit?: Prisma.FinancialAnalysisOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.FinancialAnalysisInclude<ExtArgs> | null
-  where?: Prisma.FinancialAnalysisWhereInput
-}
-
-/**
  * Application.media
  */
 export type Application$mediaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -6743,101 +3603,6 @@ export type Application$mediaArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
- * Application.productUsage
- */
-export type Application$productUsageArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the ProductUsage
-   */
-  select?: Prisma.ProductUsageSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the ProductUsage
-   */
-  omit?: Prisma.ProductUsageOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ProductUsageInclude<ExtArgs> | null
-  where?: Prisma.ProductUsageWhereInput
-}
-
-/**
- * Application.projectAnalysis
- */
-export type Application$projectAnalysisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the ProjectAnalysis
-   */
-  select?: Prisma.ProjectAnalysisSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the ProjectAnalysis
-   */
-  omit?: Prisma.ProjectAnalysisOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ProjectAnalysisInclude<ExtArgs> | null
-  where?: Prisma.ProjectAnalysisWhereInput
-}
-
-/**
- * Application.projectIntroduction
- */
-export type Application$projectIntroductionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the ProjectIntroduction
-   */
-  select?: Prisma.ProjectIntroductionSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the ProjectIntroduction
-   */
-  omit?: Prisma.ProjectIntroductionOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ProjectIntroductionInclude<ExtArgs> | null
-  where?: Prisma.ProjectIntroductionWhereInput
-}
-
-/**
- * Application.proposer
- */
-export type Application$proposerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Proposer
-   */
-  select?: Prisma.ProposerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Proposer
-   */
-  omit?: Prisma.ProposerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ProposerInclude<ExtArgs> | null
-  where?: Prisma.ProposerWhereInput
-}
-
-/**
- * Application.riskImpactAnalysis
- */
-export type Application$riskImpactAnalysisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the RiskImpactAnalysis
-   */
-  select?: Prisma.RiskImpactAnalysisSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the RiskImpactAnalysis
-   */
-  omit?: Prisma.RiskImpactAnalysisOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.RiskImpactAnalysisInclude<ExtArgs> | null
-  where?: Prisma.RiskImpactAnalysisWhereInput
-}
-
-/**
  * Application.statusHistory
  */
 export type Application$statusHistoryArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -6859,49 +3624,6 @@ export type Application$statusHistoryArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.StatusHistoryScalarFieldEnum | Prisma.StatusHistoryScalarFieldEnum[]
-}
-
-/**
- * Application.swotAnalysis
- */
-export type Application$swotAnalysisArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the SwotAnalysis
-   */
-  select?: Prisma.SwotAnalysisSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the SwotAnalysis
-   */
-  omit?: Prisma.SwotAnalysisOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.SwotAnalysisInclude<ExtArgs> | null
-  where?: Prisma.SwotAnalysisWhereInput
-}
-
-/**
- * Application.workPlan
- */
-export type Application$workPlanArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the WorkPlan
-   */
-  select?: Prisma.WorkPlanSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the WorkPlan
-   */
-  omit?: Prisma.WorkPlanOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.WorkPlanInclude<ExtArgs> | null
-  where?: Prisma.WorkPlanWhereInput
-  orderBy?: Prisma.WorkPlanOrderByWithRelationInput | Prisma.WorkPlanOrderByWithRelationInput[]
-  cursor?: Prisma.WorkPlanWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.WorkPlanScalarFieldEnum | Prisma.WorkPlanScalarFieldEnum[]
 }
 
 /**

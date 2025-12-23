@@ -1,8 +1,4 @@
-import { db } from '../db/db.server'
 import { withSkipAudit } from '../middleware/context'
-import ApplicationCycleService from '../services/applicationCycle.service'
-
-const applicationCycleService = new ApplicationCycleService()
 
 /* */
 // const pdfEnqueue = async () => {
@@ -55,47 +51,10 @@ const applicationCycleService = new ApplicationCycleService()
 //   return
 // }
 
-/* */
-const preScreeningFn = async () => {
-  console.log('Running pre-screening... 🌱')
-
-  const { applicationCycle } = await applicationCycleService.getLatest()
-
-  if (!applicationCycle) {
-    throw new Error('No application cycle found')
-  }
-
-  const applications = await db.application.findMany({
-    where: {
-      applicationCycleId: applicationCycle.id,
-      status: 'REGISTERED',
-      productUsage: null,
-      projectAnalysis: null,
-      projectIntroduction: null,
-      riskImpactAnalysis: null,
-      swotAnalysis: null,
-      workPlan: {
-        none: {},
-      },
-    },
-    select: {
-      id: true,
-    },
-  })
-
-  console.log(
-    'Registered Applications with only two step completed:',
-    applications.length
-  )
-
-  return
-}
-
 const dbQuery = async () => {
   try {
     await withSkipAudit(async () => {
       //
-      await preScreeningFn()
     })
 
     console.log(`Successfully 🌱`)

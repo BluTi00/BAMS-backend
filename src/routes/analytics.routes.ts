@@ -4,7 +4,6 @@ import { ROLE } from '../generated/client/client'
 import {
   getStatsSummaryAnalytics,
   getDateWiseAnalytics,
-  getStageProgressAnalytics,
 } from '../controllers/analytics.controller'
 const router = express.Router()
 
@@ -20,6 +19,5 @@ router.use(
 )
 router.route('/reg-summary').get(getStatsSummaryAnalytics)
 router.route('/date-wise').get(getDateWiseAnalytics)
-router.route('/stage-progress').get(getStageProgressAnalytics)
 
 export default router

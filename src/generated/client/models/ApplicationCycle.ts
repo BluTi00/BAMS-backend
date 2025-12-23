@@ -208,7 +208,6 @@ export type ApplicationCycleWhereInput = {
   deletedAt?: Prisma.DateTimeNullableFilter<"ApplicationCycle"> | Date | string | null
   application?: Prisma.ApplicationListRelationFilter
   codeCounters?: Prisma.CodeCounterListRelationFilter
-  loanRecipient?: Prisma.LoanRecipientListRelationFilter
 }
 
 export type ApplicationCycleOrderByWithRelationInput = {
@@ -222,7 +221,6 @@ export type ApplicationCycleOrderByWithRelationInput = {
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   application?: Prisma.ApplicationOrderByRelationAggregateInput
   codeCounters?: Prisma.CodeCounterOrderByRelationAggregateInput
-  loanRecipient?: Prisma.LoanRecipientOrderByRelationAggregateInput
 }
 
 export type ApplicationCycleWhereUniqueInput = Prisma.AtLeast<{
@@ -239,7 +237,6 @@ export type ApplicationCycleWhereUniqueInput = Prisma.AtLeast<{
   deletedAt?: Prisma.DateTimeNullableFilter<"ApplicationCycle"> | Date | string | null
   application?: Prisma.ApplicationListRelationFilter
   codeCounters?: Prisma.CodeCounterListRelationFilter
-  loanRecipient?: Prisma.LoanRecipientListRelationFilter
 }, "id">
 
 export type ApplicationCycleOrderByWithAggregationInput = {
@@ -281,7 +278,6 @@ export type ApplicationCycleCreateInput = {
   deletedAt?: Date | string | null
   application?: Prisma.ApplicationCreateNestedManyWithoutApplicationCycleInput
   codeCounters?: Prisma.CodeCounterCreateNestedManyWithoutApplicationCycleInput
-  loanRecipient?: Prisma.LoanRecipientCreateNestedManyWithoutApplicationCycleInput
 }
 
 export type ApplicationCycleUncheckedCreateInput = {
@@ -295,7 +291,6 @@ export type ApplicationCycleUncheckedCreateInput = {
   deletedAt?: Date | string | null
   application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutApplicationCycleInput
   codeCounters?: Prisma.CodeCounterUncheckedCreateNestedManyWithoutApplicationCycleInput
-  loanRecipient?: Prisma.LoanRecipientUncheckedCreateNestedManyWithoutApplicationCycleInput
 }
 
 export type ApplicationCycleUpdateInput = {
@@ -309,7 +304,6 @@ export type ApplicationCycleUpdateInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   application?: Prisma.ApplicationUpdateManyWithoutApplicationCycleNestedInput
   codeCounters?: Prisma.CodeCounterUpdateManyWithoutApplicationCycleNestedInput
-  loanRecipient?: Prisma.LoanRecipientUpdateManyWithoutApplicationCycleNestedInput
 }
 
 export type ApplicationCycleUncheckedUpdateInput = {
@@ -323,7 +317,6 @@ export type ApplicationCycleUncheckedUpdateInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   application?: Prisma.ApplicationUncheckedUpdateManyWithoutApplicationCycleNestedInput
   codeCounters?: Prisma.CodeCounterUncheckedUpdateManyWithoutApplicationCycleNestedInput
-  loanRecipient?: Prisma.LoanRecipientUncheckedUpdateManyWithoutApplicationCycleNestedInput
 }
 
 export type ApplicationCycleCreateManyInput = {
@@ -432,22 +425,6 @@ export type ApplicationCycleUpdateOneRequiredWithoutCodeCountersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationCycleUpdateToOneWithWhereWithoutCodeCountersInput, Prisma.ApplicationCycleUpdateWithoutCodeCountersInput>, Prisma.ApplicationCycleUncheckedUpdateWithoutCodeCountersInput>
 }
 
-export type ApplicationCycleCreateNestedOneWithoutLoanRecipientInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCycleCreateWithoutLoanRecipientInput, Prisma.ApplicationCycleUncheckedCreateWithoutLoanRecipientInput>
-  connectOrCreate?: Prisma.ApplicationCycleCreateOrConnectWithoutLoanRecipientInput
-  connect?: Prisma.ApplicationCycleWhereUniqueInput
-}
-
-export type ApplicationCycleUpdateOneWithoutLoanRecipientNestedInput = {
-  create?: Prisma.XOR<Prisma.ApplicationCycleCreateWithoutLoanRecipientInput, Prisma.ApplicationCycleUncheckedCreateWithoutLoanRecipientInput>
-  connectOrCreate?: Prisma.ApplicationCycleCreateOrConnectWithoutLoanRecipientInput
-  upsert?: Prisma.ApplicationCycleUpsertWithoutLoanRecipientInput
-  disconnect?: Prisma.ApplicationCycleWhereInput | boolean
-  delete?: Prisma.ApplicationCycleWhereInput | boolean
-  connect?: Prisma.ApplicationCycleWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationCycleUpdateToOneWithWhereWithoutLoanRecipientInput, Prisma.ApplicationCycleUpdateWithoutLoanRecipientInput>, Prisma.ApplicationCycleUncheckedUpdateWithoutLoanRecipientInput>
-}
-
 export type ApplicationCycleCreateWithoutApplicationInput = {
   id?: string
   name?: string | null
@@ -458,7 +435,6 @@ export type ApplicationCycleCreateWithoutApplicationInput = {
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   codeCounters?: Prisma.CodeCounterCreateNestedManyWithoutApplicationCycleInput
-  loanRecipient?: Prisma.LoanRecipientCreateNestedManyWithoutApplicationCycleInput
 }
 
 export type ApplicationCycleUncheckedCreateWithoutApplicationInput = {
@@ -471,7 +447,6 @@ export type ApplicationCycleUncheckedCreateWithoutApplicationInput = {
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   codeCounters?: Prisma.CodeCounterUncheckedCreateNestedManyWithoutApplicationCycleInput
-  loanRecipient?: Prisma.LoanRecipientUncheckedCreateNestedManyWithoutApplicationCycleInput
 }
 
 export type ApplicationCycleCreateOrConnectWithoutApplicationInput = {
@@ -500,7 +475,6 @@ export type ApplicationCycleUpdateWithoutApplicationInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   codeCounters?: Prisma.CodeCounterUpdateManyWithoutApplicationCycleNestedInput
-  loanRecipient?: Prisma.LoanRecipientUpdateManyWithoutApplicationCycleNestedInput
 }
 
 export type ApplicationCycleUncheckedUpdateWithoutApplicationInput = {
@@ -513,7 +487,6 @@ export type ApplicationCycleUncheckedUpdateWithoutApplicationInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   codeCounters?: Prisma.CodeCounterUncheckedUpdateManyWithoutApplicationCycleNestedInput
-  loanRecipient?: Prisma.LoanRecipientUncheckedUpdateManyWithoutApplicationCycleNestedInput
 }
 
 export type ApplicationCycleCreateWithoutCodeCountersInput = {
@@ -526,7 +499,6 @@ export type ApplicationCycleCreateWithoutCodeCountersInput = {
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   application?: Prisma.ApplicationCreateNestedManyWithoutApplicationCycleInput
-  loanRecipient?: Prisma.LoanRecipientCreateNestedManyWithoutApplicationCycleInput
 }
 
 export type ApplicationCycleUncheckedCreateWithoutCodeCountersInput = {
@@ -539,7 +511,6 @@ export type ApplicationCycleUncheckedCreateWithoutCodeCountersInput = {
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutApplicationCycleInput
-  loanRecipient?: Prisma.LoanRecipientUncheckedCreateNestedManyWithoutApplicationCycleInput
 }
 
 export type ApplicationCycleCreateOrConnectWithoutCodeCountersInput = {
@@ -568,7 +539,6 @@ export type ApplicationCycleUpdateWithoutCodeCountersInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   application?: Prisma.ApplicationUpdateManyWithoutApplicationCycleNestedInput
-  loanRecipient?: Prisma.LoanRecipientUpdateManyWithoutApplicationCycleNestedInput
 }
 
 export type ApplicationCycleUncheckedUpdateWithoutCodeCountersInput = {
@@ -581,75 +551,6 @@ export type ApplicationCycleUncheckedUpdateWithoutCodeCountersInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   application?: Prisma.ApplicationUncheckedUpdateManyWithoutApplicationCycleNestedInput
-  loanRecipient?: Prisma.LoanRecipientUncheckedUpdateManyWithoutApplicationCycleNestedInput
-}
-
-export type ApplicationCycleCreateWithoutLoanRecipientInput = {
-  id?: string
-  name?: string | null
-  startDate?: Date | string | null
-  endDate?: Date | string | null
-  isDisabled?: boolean
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  application?: Prisma.ApplicationCreateNestedManyWithoutApplicationCycleInput
-  codeCounters?: Prisma.CodeCounterCreateNestedManyWithoutApplicationCycleInput
-}
-
-export type ApplicationCycleUncheckedCreateWithoutLoanRecipientInput = {
-  id?: string
-  name?: string | null
-  startDate?: Date | string | null
-  endDate?: Date | string | null
-  isDisabled?: boolean
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  deletedAt?: Date | string | null
-  application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutApplicationCycleInput
-  codeCounters?: Prisma.CodeCounterUncheckedCreateNestedManyWithoutApplicationCycleInput
-}
-
-export type ApplicationCycleCreateOrConnectWithoutLoanRecipientInput = {
-  where: Prisma.ApplicationCycleWhereUniqueInput
-  create: Prisma.XOR<Prisma.ApplicationCycleCreateWithoutLoanRecipientInput, Prisma.ApplicationCycleUncheckedCreateWithoutLoanRecipientInput>
-}
-
-export type ApplicationCycleUpsertWithoutLoanRecipientInput = {
-  update: Prisma.XOR<Prisma.ApplicationCycleUpdateWithoutLoanRecipientInput, Prisma.ApplicationCycleUncheckedUpdateWithoutLoanRecipientInput>
-  create: Prisma.XOR<Prisma.ApplicationCycleCreateWithoutLoanRecipientInput, Prisma.ApplicationCycleUncheckedCreateWithoutLoanRecipientInput>
-  where?: Prisma.ApplicationCycleWhereInput
-}
-
-export type ApplicationCycleUpdateToOneWithWhereWithoutLoanRecipientInput = {
-  where?: Prisma.ApplicationCycleWhereInput
-  data: Prisma.XOR<Prisma.ApplicationCycleUpdateWithoutLoanRecipientInput, Prisma.ApplicationCycleUncheckedUpdateWithoutLoanRecipientInput>
-}
-
-export type ApplicationCycleUpdateWithoutLoanRecipientInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  isDisabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.ApplicationUpdateManyWithoutApplicationCycleNestedInput
-  codeCounters?: Prisma.CodeCounterUpdateManyWithoutApplicationCycleNestedInput
-}
-
-export type ApplicationCycleUncheckedUpdateWithoutLoanRecipientInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  isDisabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  application?: Prisma.ApplicationUncheckedUpdateManyWithoutApplicationCycleNestedInput
-  codeCounters?: Prisma.CodeCounterUncheckedUpdateManyWithoutApplicationCycleNestedInput
 }
 
 
@@ -660,13 +561,11 @@ export type ApplicationCycleUncheckedUpdateWithoutLoanRecipientInput = {
 export type ApplicationCycleCountOutputType = {
   application: number
   codeCounters: number
-  loanRecipient: number
 }
 
 export type ApplicationCycleCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | ApplicationCycleCountOutputTypeCountApplicationArgs
   codeCounters?: boolean | ApplicationCycleCountOutputTypeCountCodeCountersArgs
-  loanRecipient?: boolean | ApplicationCycleCountOutputTypeCountLoanRecipientArgs
 }
 
 /**
@@ -693,13 +592,6 @@ export type ApplicationCycleCountOutputTypeCountCodeCountersArgs<ExtArgs extends
   where?: Prisma.CodeCounterWhereInput
 }
 
-/**
- * ApplicationCycleCountOutputType without action
- */
-export type ApplicationCycleCountOutputTypeCountLoanRecipientArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.LoanRecipientWhereInput
-}
-
 
 export type ApplicationCycleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -712,7 +604,6 @@ export type ApplicationCycleSelect<ExtArgs extends runtime.Types.Extensions.Inte
   deletedAt?: boolean
   application?: boolean | Prisma.ApplicationCycle$applicationArgs<ExtArgs>
   codeCounters?: boolean | Prisma.ApplicationCycle$codeCountersArgs<ExtArgs>
-  loanRecipient?: boolean | Prisma.ApplicationCycle$loanRecipientArgs<ExtArgs>
   _count?: boolean | Prisma.ApplicationCycleCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["applicationCycle"]>
 
@@ -753,7 +644,6 @@ export type ApplicationCycleOmit<ExtArgs extends runtime.Types.Extensions.Intern
 export type ApplicationCycleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | Prisma.ApplicationCycle$applicationArgs<ExtArgs>
   codeCounters?: boolean | Prisma.ApplicationCycle$codeCountersArgs<ExtArgs>
-  loanRecipient?: boolean | Prisma.ApplicationCycle$loanRecipientArgs<ExtArgs>
   _count?: boolean | Prisma.ApplicationCycleCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ApplicationCycleIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -764,7 +654,6 @@ export type $ApplicationCyclePayload<ExtArgs extends runtime.Types.Extensions.In
   objects: {
     application: Prisma.$ApplicationPayload<ExtArgs>[]
     codeCounters: Prisma.$CodeCounterPayload<ExtArgs>[]
-    loanRecipient: Prisma.$LoanRecipientPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1171,7 +1060,6 @@ export interface Prisma__ApplicationCycleClient<T, Null = never, ExtArgs extends
   readonly [Symbol.toStringTag]: "PrismaPromise"
   application<T extends Prisma.ApplicationCycle$applicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApplicationCycle$applicationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   codeCounters<T extends Prisma.ApplicationCycle$codeCountersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApplicationCycle$codeCountersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CodeCounterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  loanRecipient<T extends Prisma.ApplicationCycle$loanRecipientArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApplicationCycle$loanRecipientArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LoanRecipientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1642,30 +1530,6 @@ export type ApplicationCycle$codeCountersArgs<ExtArgs extends runtime.Types.Exte
   take?: number
   skip?: number
   distinct?: Prisma.CodeCounterScalarFieldEnum | Prisma.CodeCounterScalarFieldEnum[]
-}
-
-/**
- * ApplicationCycle.loanRecipient
- */
-export type ApplicationCycle$loanRecipientArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the LoanRecipient
-   */
-  select?: Prisma.LoanRecipientSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the LoanRecipient
-   */
-  omit?: Prisma.LoanRecipientOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.LoanRecipientInclude<ExtArgs> | null
-  where?: Prisma.LoanRecipientWhereInput
-  orderBy?: Prisma.LoanRecipientOrderByWithRelationInput | Prisma.LoanRecipientOrderByWithRelationInput[]
-  cursor?: Prisma.LoanRecipientWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.LoanRecipientScalarFieldEnum | Prisma.LoanRecipientScalarFieldEnum[]
 }
 
 /**

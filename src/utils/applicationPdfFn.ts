@@ -1,18 +1,17 @@
-import { APPLICATION_STATUS } from '../generated/client/client'
 import { includeAddress, includeMedia } from '../constants/constant'
 import { BadRequestError } from '../errors'
 import { convertText, getNepaliAlphabet } from './digitConverter'
 import { ADToBS } from './dateFunction'
-import { constructAddress, readTemplate } from './helper'
+import { readTemplate } from './helper'
 import { db } from '../db/db.server'
 import path from 'path'
 import { getTemplateFolderPath } from './path.utils'
 import puppeteer from 'puppeteer'
-import { getBase64Image, getMediaAbsolutePath } from './pdf.utils'
-import { getNepaliLabel } from './applicationConstant'
+import { getMediaAbsolutePath } from './pdf.utils'
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
 import fs from 'fs'
 import { initPuppeteerCluster } from './puppeteerCluster'
+import { MediaType } from '../constants/enum'
 
 // Constants
 const blankSpace = '____________'
@@ -23,7 +22,6 @@ const bulletMark = '•'
 
 export const generateApplicationPdf = async (
   applicationId: string,
-  isUserRole?: boolean,
   enablePuppeteerCluster: boolean = false
 ) => {
   const application = await db.application.findUnique({
@@ -31,32 +29,9 @@ export const generateApplicationPdf = async (
       id: applicationId,
     },
     include: {
-      officeAddress: includeAddress,
+      address: includeAddress,
       applicationCycle: true,
       media: includeMedia,
-      entrepreneurProfile: {
-        include: {
-          temporaryAddress: includeAddress,
-          permanentAddress: includeAddress,
-        },
-      },
-      projectIntroduction: {
-        include: {
-          startupSector: true,
-          startupSubSector: true,
-        },
-      },
-      projectAnalysis: true,
-      riskImpactAnalysis: true,
-      swotAnalysis: true,
-      financialAnalysis: true,
-      workPlan: true,
-      productUsage: true,
-      proposer: {
-        include: {
-          media: includeMedia,
-        },
-      },
       user: {
         select: {
           role: true,
@@ -69,131 +44,55 @@ export const generateApplicationPdf = async (
     throw new BadRequestError('Application not found')
   }
 
-  const {
-    productUsage,
-    projectIntroduction,
-    projectAnalysis,
-    riskImpactAnalysis,
-    swotAnalysis,
-    financialAnalysis,
-    workPlan,
-    entrepreneurProfile,
-    proposer,
-  } = application
-
   // --------- PREPARE DATA FOR TEMPLATE ---------
-  // application registration detail
-  const hideRegistrationDetail =
-    isUserRole && application.status === APPLICATION_STATUS.INCOMPLETE
 
-  const applicationRegistrationNumber = hideRegistrationDetail
-    ? ''
-    : application.applicationCode || ''
+  const applicationRegistrationNumber = application.applicationCode || ''
 
-  const applicationRegistrationDate = hideRegistrationDetail
-    ? ''
-    : convertText(ADToBS(application.createdAt), 'ne') || ''
+  const applicationRegistrationDate =
+    convertText(ADToBS(application.createdAt), 'ne') || ''
 
   // ------ COMPANY PROFILE SECTION -------
-  const officeAddress = application.officeAddress as any
+  const address = application.address as any
 
-  const officeProvince = officeAddress?.province
-    ? officeAddress.province?.provinceTitleNepali || ''
+  const province = address?.province
+    ? address.province?.provinceTitleNepali || ''
     : ''
-  const officeDistrict = officeAddress?.district
-    ? officeAddress.district.districtTitleNepali || ''
-    : ''
-
-  const officeMunicipality = officeAddress?.municipality
-    ? officeAddress.municipality.municipalityTitleNepali || ''
+  const district = address?.district
+    ? address.district.districtTitleNepali || ''
     : ''
 
-  const officeWard = officeAddress?.ward
-    ? officeAddress.ward.wardNumberNepali || ''
+  const municipality = address?.municipality
+    ? address.municipality.municipalityTitleNepali || ''
     : ''
-  const officeLocality = officeAddress?.locality || ''
+
+  const officeWard = address?.ward ? address.ward.wardNumberNepali || '' : ''
+  const officeLocality = address?.locality || ''
 
   const companyProfileData = [
     {
-      title: '१. फर्म, कम्पनी वा उद्योगको विवरण',
+      title: '(क) आवेदकको विवरण',
       isBulletPoint: true,
       sectionData: [
         {
-          label: 'फर्म / कम्पनी / उद्योगको नाम',
-          value: application?.firmCompanyIndustryNameNp,
-        },
-        {
-          label: 'सुरु दर्ता भएको निकाय',
-          value: application?.initialRegistrationOffice,
+          label: 'आवेदकको नाम',
+          value: application?.applicantNameNp,
         },
         {
           label: '',
           group: [
             {
-              label: 'दर्ता मिति',
-              value: application?.registrationDate,
-            },
-
-            {
-              label: 'दर्ता नम्बर',
-              value: application?.registrationNumber,
-            },
-          ],
-        },
-        {
-          label: 'उधम सम्बर्धन केन्द्रमा आबद्ध',
-          radioOptions: [
-            {
-              label: 'रहेको',
-              checked: application?.isAffiliatedWithEPC,
-            },
-            {
-              label: 'नरहेको',
-              checked: !application?.isAffiliatedWithEPC,
-            },
-          ],
-        },
-        {
-          label: 'स्थायी लेखा नम्बर',
-          value: application?.panNumber,
-        },
-
-        {
-          label:
-            'कारोबार सुरू गर्न इजाजत आवश्यक पर्ने फर्म, कम्पनी वा उद्योगको हकमा इजाजत जारी गर्ने निकाय',
-          value: application?.licenseProviderOffice,
-        },
-        {
-          label: '',
-          group: [
-            {
-              label: 'इजाजत प्राप्त मिति',
-              value: application?.licenseIssuanceDate,
-            },
-
-            {
-              label: 'इजाजत बहाल रहने अवधि',
-              value: application?.licenseValidityPeriod,
-              lineBreak: true,
-            },
-          ],
-        },
-        {
-          label: '',
-          group: [
-            {
-              label: 'मुख्य कारोबार स्थल वा कार्यालय रहेको ठेगाना: प्रदेश',
-              value: officeProvince,
+              label: 'ठेगाना: प्रदेश',
+              value: province,
             },
 
             {
               label: 'जिल्ला',
-              value: officeDistrict,
+              value: district,
             },
 
             {
               label: ' गा.पा./न.पा./उ.म.न.पा./म.न.पा.',
-              value: officeMunicipality,
+              value: municipality,
             },
 
             {
@@ -208,17 +107,12 @@ export const generateApplicationPdf = async (
 
             {
               label: 'टेलिफोन नं.',
-              value: application?.officeTelephone,
+              value: application?.telephone,
             },
 
             {
               label: 'इमेल',
-              value: application?.officeEmail,
-            },
-
-            {
-              label: 'वेबसाइट',
-              value: application?.officeWebsite,
+              value: application?.email,
             },
           ],
         },
@@ -226,836 +120,149 @@ export const generateApplicationPdf = async (
           label: '',
           group: [
             {
-              label: 'प्रस्तावक (आधिकारिक प्रतिनिधि)को नाम थर',
-              value: application?.representativeName,
+              label: 'जन्म मिति',
+              value: application?.dateOfBirth,
             },
 
             {
-              label: 'पद/दर्जा',
-              value: application?.representativeDesignation,
-            },
-
-            {
-              label: 'टेलिफोन नं.',
-              value: application?.representativeTelephone,
-            },
-
-            {
-              label: 'मोबाइल नं.',
-              value: application?.representativeMobile,
-            },
-
-            {
-              label: 'इमेल',
-              value: application?.representativeEmail,
+              label: 'शैक्षिक योग्यता',
+              value: application?.educationQualification,
             },
           ],
         },
-      ],
-    },
-  ]
 
-  const companyProfileHtml = getSectionHtml({
-    data: companyProfileData,
-  })
+        {
+          label: 'पेशा',
+          value: application?.profession,
+        },
 
-  // ------- ENTREPRENEUR PROFILE SECTION ---------
-  const entrepreneurList = entrepreneurProfile
-    .map((entrepreneur: any, index: number) => {
-      return `
-        <tr>
-          <td>${convertText(index + 1, 'ne')}</td>
-          <td>${entrepreneur?.name} ${entrepreneur.isMainEntrepreneur ? '<br>(मुख्य उद्यमी)</br>' : ''} </td>
-          <td>${entrepreneur?.citizenshipNumber}</td>
-          <td>${constructAddress(entrepreneur.permanentAddress, 'ne')}</td>
-          <td>${constructAddress(entrepreneur.temporaryAddress, 'ne')}</td>
-          <td>
-					${[
-            entrepreneur?.educationalQualification,
-            entrepreneur?.training,
-            entrepreneur?.experience,
-          ]
-            .filter(Boolean)
-            .join(' / ')}
-					</td>
-          <td>${convertText(entrepreneur?.mobileNumber, 'ne')}</td>
-        </tr>
-        `
-    })
-    .join('')
+        {
+          label: 'बाबुको नाम',
+          value: application?.fatherName,
+        },
 
-  // ------- PRODUCT USAGE SECTION ---------
-  const productAndUsageData = [
-    {
-      title: '३. उत्पादन हुने वस्तु र यसको उपयोगको विवरण',
-      isNpAlphaNumbering: true,
-      sectionData: [
         {
-          label: 'वस्तु वा सेवाको नाम',
-          value: productUsage?.productOrServiceName,
+          label: 'बाबुको पेशा',
+          value: application?.fatherProfession,
         },
+
         {
-          label: 'वस्तु वा सेवाको प्रकृति',
-          value: productUsage?.productOrServiceNature,
+          label: 'परम्परागत पेसा निरन्तरताको अवस्था:',
+          value: '',
         },
+
         {
-          label: 'लक्षित ग्राहक तथा बजार',
-          value: productUsage?.targetCustomerAndMarket,
-        },
-        {
-          label:
-            'वस्तु वा सेवाको कुनै ट्रेडमार्क, प्याटेन्ट, डिजाइन वा भौगोलिक संकेत',
+          label: 'आधुनिक प्रविधिको प्रयोग',
           radioOptions: [
             {
               label: 'भएको',
-              checked: productUsage?.hasTrademarkPatentDesignGeographical,
+              checked: application?.useOfModernTechnology,
             },
             {
               label: 'नभएको',
-              checked: !productUsage?.hasTrademarkPatentDesignGeographical,
+              checked: !application?.useOfModernTechnology,
             },
           ],
         },
-        {
-          label: 'वस्तु वा सेवाका मुख्य विशेषता',
-          value: productUsage?.mainFeaturesOfProductOrService,
-        },
-        {
-          label: 'वस्तु वा सेवाको विशेष उपयोगिता',
-          value: productUsage?.specialUtilityOfProductOrService,
-        },
-        {
-          label: 'वस्तु वा सेवाको गुणस्तर प्रमाणिकरण',
-          radioOptions: [
-            {
-              label: 'गरेको',
-              checked: productUsage?.qualityCertificationOfProductOrService,
-            },
-            {
-              label: 'नगरेको',
-              checked: !productUsage?.qualityCertificationOfProductOrService,
-            },
-          ],
-        },
-        {
-          label: 'उत्पादनमा अवलम्बन भएको वा हुने प्रविधि',
-          value: productUsage?.technologyAdoptedInProduction,
-        },
-        {
-          label: 'अवलम्बन भएको वा हुने प्रविधि आफै उत्पादन',
-          radioOptions: [
-            {
-              label: 'गरेको',
-              checked: productUsage?.isTechnologySelfProduced,
-            },
-            {
-              label: 'नगरेको',
-              checked: !productUsage?.isTechnologySelfProduced,
-            },
-          ],
-        },
-        {
-          label: 'प्रविधि अवलम्बन गर्ने उद्देश्य',
-          value: getNepaliLabel(productUsage?.technologyAdoptionPurpose),
-        },
-        {
-          label: 'कच्चा पदार्थको स्रोत',
-          value: productUsage?.sourceOfRawMaterials,
-        },
-      ],
-    },
-  ]
-
-  const productAndUsageHtml = getSectionHtml({
-    data: productAndUsageData,
-  })
-
-  // ------- PROJECT INTRODUCTION SECTION ---------
-  let startupSectorName = ''
-  if (application?.projectIntroduction?.startupSectorId) {
-    const startupSector = await db.startupSector.findUnique({
-      where: {
-        id: application?.projectIntroduction?.startupSectorId as string,
-      },
-    })
-    startupSectorName = startupSector?.nameNp || ''
-  }
-
-  let starupSubSectorName = ''
-  if (application?.projectIntroduction?.startupSubSectorId) {
-    const startupSubSector = await db.startupSubSector.findUnique({
-      where: {
-        id: application?.projectIntroduction?.startupSubSectorId as string,
-      },
-    })
-    starupSubSectorName = startupSubSector?.nameNp || ''
-  }
-
-  const projectIntroductionData = [
-    {
-      title: '',
-      sectionData: [
-        {
-          label: '१. परियोजनाको परिचय (दुई सय शब्दमा नबढ्ने गरी)',
-          value: projectIntroduction?.projectIntroduction,
-          lineBreak: true,
-        },
 
         {
-          label: '२. परियोजनाको उद्देश्य (पचास शब्दमा नबढ्ने गरी)',
-          value: projectIntroduction?.projectObjective,
-          lineBreak: true,
-        },
-
-        {
-          label: '३. उद्यमको क्षेत्र (दफा ३ सँग सम्बन्धित) / उपक्षेत्र',
-          value: startupSectorName
-            ? `${startupSectorName} / ${starupSubSectorName}`
-            : undefined,
-        },
-      ],
-    },
-
-    {
-      title: '',
-      isIndent: true,
-      sectionData: [
-        {
-          label: 'क. परियोजना सरकारको प्राथमिकता प्राप्त क्षेत्रस‌ँग सम्बन्धित',
-          radioOptions: [
-            {
-              label: 'रहेको',
-              checked: projectIntroduction?.isProjectInPrioritySector,
-            },
-            {
-              label: 'नरहेको',
-              checked: !projectIntroduction?.isProjectInPrioritySector,
-            },
-          ],
-        },
-      ],
-    },
-  ]
-
-  const projectIntroductionHtml = getSectionHtml({
-    data: projectIntroductionData,
-  })
-
-  // ------- PROJECT ANALYSIS SECTION ---------
-  const projectAnalysisData = [
-    {
-      title:
-        'अ) स्टार्टअप उद्यमको रूपमा रहने आधार (दफा ४ अनुसारका मापदण्डसमेत सम्बन्धित सबैमा चिनो लगाउने):',
-      sectionData: [
-        {
-          label: '(क) उद्योग दर्ता गर्ने निकायमा स्टार्टअपको रुपमा दर्ता',
+          label: 'उत्पादित वस्तु बिक्रीको सम्भावना',
           radioOptions: [
             {
               label: 'भएको',
-              checked: projectAnalysis?.isRegisteredAsStartup,
+              checked: application?.possibilityOfSellingProducedGoods,
             },
             {
               label: 'नभएको',
-              checked: !projectAnalysis?.isRegisteredAsStartup,
+              checked: !application?.possibilityOfSellingProducedGoods,
             },
           ],
         },
 
         {
-          label: '(ख) प्रविधिको प्रयोग (टेक इनेबल्ड)',
-          radioOptions: [
-            {
-              label: 'भएको',
-              checked: projectAnalysis?.isTechEnabled,
-            },
-            {
-              label: 'नभएको',
-              checked: !projectAnalysis?.isTechEnabled,
-            },
-          ],
-        },
-
-        {
-          label: '(ग) उद्यम स्थापना भएको दस वर्ष',
-          radioOptions: [
-            {
-              label: 'नाघेको',
-              checked: projectAnalysis?.isEstablishedMoreThan10Years,
-            },
-            {
-              label: 'ननाघेको',
-              checked: !projectAnalysis?.isEstablishedMoreThan10Years,
-            },
-          ],
-        },
-
-        {
-          label:
-            '(घ) उद्यमको वार्षिक कारोबार कुनै आ.व.मा पन्ध्र करोड रूपैयाँभन्दा बढी',
-          radioOptions: [
-            {
-              label: 'भएको',
-              checked: projectAnalysis?.isAnnualTurnoverExceeded15Crores,
-            },
-            {
-              label: 'नभएको',
-              checked: !projectAnalysis?.isAnnualTurnoverExceeded15Crores,
-            },
-          ],
-        },
-
-        {
-          label:
-            '(ङ) कुनै वस्तु वा सेवाको उत्पादन वा वितरण प्रक्रियामा उपभोक्ताले भोग्दै आएको समस्यालाई समाधान गर्न नयाँ प्रविधिको उपयोग एवं सिर्जनशील सोचको प्रयोग',
-          radioOptions: [
-            {
-              label: 'भएको',
-              checked: projectAnalysis?.isInnovativeTechnologyUsed,
-            },
-            {
-              label: 'नभएको',
-              checked: !projectAnalysis?.isInnovativeTechnologyUsed,
-            },
-          ],
-        },
-
-        {
-          label: '(च) उद्यमीले हालसम्म गरेको स्वलगानी रु.',
-          value: projectAnalysis?.selfInvestmentAmount,
-        },
-
-        {
-          label: '(छ) स्टार्टअप उद्यम कर्जाका लागि माग गरिएको रकम रु.',
-          value: projectAnalysis?.requestedLoanAmount,
-        },
-
-        {
-          label: '(ज) गत आर्थिक वर्षको बिक्री रकम: रू.',
-          value: projectAnalysis?.lastFiscalYearSalesAmount,
-        },
-
-        {
-          label: '(झ) कर्जा सूचना केन्द्रको कालोसूचीमा',
-          radioOptions: [
-            {
-              label: 'रहेको',
-              checked: projectAnalysis?.isBlacklistedInCreditBureau,
-            },
-            {
-              label: 'नरहेको',
-              checked: !projectAnalysis?.isBlacklistedInCreditBureau,
-            },
-          ],
-        },
-
-        {
-          label:
-            '(ञ) प्रस्तावित परियोजनाको लागि नेपाल सरकार, प्रदेश सरकार वा स्थानीय तहबाट हालसम्म अन्य कुनै अनुदान वा सहुलियत',
+          label: 'कुनै संस्थाबाट पेसागत स्तरोन्नतिका लागि सहयोग',
           radioOptions: [
             {
               label: 'लिएको',
-              checked: projectAnalysis?.isOtherGovGrantReceived,
+              checked: application?.institutionalUpgradeSupport,
             },
             {
               label: 'नलिएको',
-              checked: !projectAnalysis?.isOtherGovGrantReceived,
+              checked: !application?.institutionalUpgradeSupport,
             },
           ],
         },
       ],
     },
-    {
-      title:
-        'आ) परियोजना सञ्‍चालनबाट हुने नवप्रवर्तनीय कार्य (मिल्ने कुनै एकमा चिनो लगाउने):',
-      sectionData: [
-        {
-          label:
-            '(क) विद्यमान वस्तु उत्पादन वा सेवा प्रवाहको समग्र प्रणालीमा नवीन पद्धतिको विकास',
-          radioOptions: [
-            {
-              label: '',
-              checked:
-                projectAnalysis?.innovativeWork === 'SYSTEM_WIDE_INNOVATION',
-            },
-          ],
-        },
-
-        {
-          label:
-            '(ख) विद्यमान वस्तु उत्पादन वा सेवा प्रवाहको खास क्षेत्रमा नवीन पद्धतिको विकास',
-          radioOptions: [
-            {
-              label: '',
-              checked:
-                projectAnalysis?.innovativeWork === 'SPECIFIC_AREA_INNOVATION',
-            },
-          ],
-        },
-
-        {
-          label:
-            '(ग) विद्यमान वस्तु उत्पादन वा सेवा प्रवाहको कुनै प्रक्रियामा नवीन पद्धतिको विकास',
-          radioOptions: [
-            {
-              label: '',
-              checked: projectAnalysis?.innovativeWork === 'PROCESS_INNOVATION',
-            },
-          ],
-        },
-
-        {
-          label:
-            'त्यस्तो नवीन पद्धति सम्बन्धी संक्षिप्‍त विवरण (पचास शब्दमा नबढ्ने गरी)',
-          value: projectAnalysis?.innovativeWorkDescription,
-          lineBreak: true,
-        },
-      ],
-    },
-    {
-      title: '',
-      sectionData: [
-        {
-          label:
-            'इ) आगामी एक वर्षको अवधिमा थप रोजगारी सिर्जनाको सम्भाव्य सङ्ख्या',
-          value: projectAnalysis?.nextYearEstimatedJobCreation,
-        },
-        {
-          label:
-            'ई) परियोजनाबाट उत्पादित वस्तु वा सेवा बिक्रीको बजार (कुनै एकमा  चिनो लगाउने)',
-          lineBreak: true,
-          radioOptions: [
-            {
-              label: 'स्वदेशी बजार',
-              checked: projectAnalysis?.productMarket === 'DOMESTIC_MARKET',
-            },
-            {
-              label: 'अन्तर्राष्ट्रिय बजार',
-              checked:
-                projectAnalysis?.productMarket === 'INTERNATIONAL_MARKET',
-            },
-
-            {
-              label: 'स्वदेशी तथा अन्तर्राष्ट्रिय दुवै बजार',
-              checked: projectAnalysis?.productMarket === 'BOTH_MARKETS',
-            },
-          ],
-        },
-
-        {
-          label:
-            'उ) परियोजनामा प्रयोग हुने प्रत्यक्ष कच्चापदार्थको स्रोत (कुनै एकमा चिनो लगाउने)',
-          lineBreak: true,
-          radioOptions: [
-            {
-              label: 'पूर्णरूपमा स्वदेशी',
-              checked: projectAnalysis?.rawMaterialSource === 'FULLY_DOMESTIC',
-            },
-            {
-              label: 'पूर्णरूपमा वैदेशिक',
-              checked: projectAnalysis?.rawMaterialSource === 'FULLY_FOREIGN',
-            },
-            {
-              label: 'अधिकतम स्वदेशी',
-              checked: projectAnalysis?.rawMaterialSource === 'MOSTLY_DOMESTIC',
-            },
-            {
-              label: 'अधिकतम वैदेशिक',
-              checked: projectAnalysis?.rawMaterialSource === 'MOSTLY_FOREIGN',
-            },
-
-            {
-              label: 'परम्परागत तथा स्थानीय कच्चापदार्थको प्रयोग भएको',
-              checked:
-                projectAnalysis?.rawMaterialSource ===
-                'TRADITIONAL_LOCAL_MATERIALS',
-            },
-          ],
-        },
-
-        {
-          label: 'ऊ) प्रस्तावित परियोजनाको विषयक्षेत्रमा मुख्य उद्यमीको अनुभव',
-          lineBreak: true,
-          radioOptions: [
-            {
-              label: 'अनुभव नभएको',
-              checked:
-                projectAnalysis?.entrepreneurialExperience === 'NO_EXPERIENCE',
-            },
-
-            {
-              label: 'दुई वर्षभन्दा कम अनुभव भएको',
-              checked:
-                projectAnalysis?.entrepreneurialExperience ===
-                'LESS_THAN_TWO_YEARS',
-            },
-
-            {
-              label: 'दुई वर्ष वा सोभन्दा बढीको अनुभव भएको',
-              checked:
-                projectAnalysis?.entrepreneurialExperience ===
-                'TWO_YEARS_OR_MORE',
-            },
-          ],
-        },
-      ],
-    },
-  ]
-  const projectAnalysisHtml = getSectionHtml({
-    data: projectAnalysisData,
-  })
-
-  // ------- RISK IMPACT ANALYSIS SECTION ---------
-  const riskImpactAnalysisData = [
-    {
-      title: 'ऋ) जोखिम पहिचान तथा व्यवस्थापनः',
-      sectionData: [
-        {
-          label: 'परियोजनाको जोखिम विश्लेषण कार्य गरिएको',
-          radioOptions: [
-            {
-              label: 'छ',
-              checked: riskImpactAnalysis?.isRiskAnalysisDone,
-            },
-            {
-              label: 'छैन',
-              checked: !riskImpactAnalysis?.isRiskAnalysisDone,
-            },
-          ],
-        },
-
-        {
-          label: 'गरिएको छ भने जोखिमको विषय (पचास शब्दमा नबढ्ने गरी)',
-          lineBreak: true,
-          value: riskImpactAnalysis?.riskFactor,
-        },
-
-        {
-          label:
-            'जोखिम न्यूनीकरण तथा व्यवस्थापनको योजना (एक सय शब्दमा नबढ्नेगरी)',
-          lineBreak: true,
-          value: riskImpactAnalysis?.riskMitigationPlan,
-        },
-      ],
-    },
 
     {
-      title:
-        'ए) प्रस्तावित परियोजनाको कार्यान्वयनबाट वस्तु वा सेवा प्रवाहमा हुने सुधार (कुनै एकमा चिनो लगाउने)',
+      title: '(ख) परम्परागत पेसा स्तरोन्नतिको लागि:',
+      isBulletPoint: true,
       sectionData: [
         {
-          label:
-            'विद्यमान वस्तु उत्पादन वा सेवा प्रवाहको गुणस्तर अभिवृद्धि हुने',
-          radioOptions: [
-            {
-              label: 'हुन्छ',
-              checked: riskImpactAnalysis?.isQualityImproved,
-            },
-
-            {
-              label: 'हुँदैन',
-              checked: !riskImpactAnalysis?.isQualityImproved,
-            },
-          ],
+          label: '१. विद्यमान सञ्‍चालनमा रहेको पेसा:',
+          value: application?.existingOperatingProfession,
         },
-
         {
-          label: 'विद्यमान वस्तु उत्पादन वा सेवा प्रवाहको वित्तीय लागत घटाउने',
-          radioOptions: [
-            {
-              label: 'घटाउँछ',
-              checked: riskImpactAnalysis?.isQualityImproved,
-            },
-
-            {
-              label: 'घटाउँदैन',
-              checked: !riskImpactAnalysis?.isQualityImproved,
-            },
-          ],
+          label: '२. स्तरोन्नति गर्न चाहेको',
+          value: application?.professionToBeUpgraded?.map(
+            (item: any, index) => /*html*/ `
+           <p style="margin-left: 1rem">${convertText(index + 1, 'ne')}. ${item}</p>
+          `
+          ),
         },
-
         {
-          label: 'विद्यमान वस्तु उत्पादन वा सेवा प्रवाहको समय घटाउने',
-          radioOptions: [
-            {
-              label: 'घटाउँछ',
-              checked: riskImpactAnalysis?.isTimeReduced,
-            },
-
-            {
-              label: 'घटाउँदैन',
-              checked: !riskImpactAnalysis?.isTimeReduced,
-            },
-          ],
+          label: '३. अनुमानित लागत रु.',
+          value: application?.estimatedCost,
         },
       ],
     },
   ]
 
-  const riskImpactAnalysisHtml = getSectionHtml({
-    data: riskImpactAnalysisData,
+  const applicationHtml = getSectionHtml({
+    data: companyProfileData,
   })
-
-  // ------ SWOT ANALYSIS SECTION ---------
-  const swotAnalysisData = [
-    {
-      title: 'ऐ) परियोजनाको SWOT Analysis:',
-      sectionData: [
-        {
-          label: 'सबल पक्ष (एक सय शब्दमा नबढ्ने गरी)',
-          value: swotAnalysis?.strength,
-          lineBreak: true,
-        },
-
-        {
-          label: 'कमजोर पक्ष (एक सय शब्दमा नबढ्ने गरी)',
-          value: swotAnalysis?.weakness,
-          lineBreak: true,
-        },
-
-        {
-          label: 'अवसर (एक सय शब्दमा नबढ्ने गरी)',
-          value: swotAnalysis?.opportunity,
-          lineBreak: true,
-        },
-
-        {
-          label: 'चुनौती (एक सय शब्दमा नबढ्ने गरी)',
-          value: swotAnalysis?.threat,
-          lineBreak: true,
-        },
-      ],
-    },
-
-    {
-      title: '',
-      sectionData: [
-        {
-          label: `ओ) परियोजनाले वस्तु वा सेवा उत्पादन र बिक्री आरम्भ गरेको मिति <span class="bold">${swotAnalysis?.productionStartDate || blankSpace}</span> वा आरम्भ हुने अपेक्षित मिति`,
-          value: swotAnalysis?.expectedProductionStartDate,
-        },
-
-        {
-          label: 'औ) परियोजना मुनाफामा जाने अपेक्षित आर्थिक वर्ष',
-          value: swotAnalysis?.expectedProfitableFiscalYear,
-        },
-        {
-          label:
-            'अं) परियोजना स्थलमा पूर्वाधारको अवस्था (सम्बन्धित सबैमा चिनो लगाउने)',
-          lineBreak: true,
-          radioOptions: [
-            {
-              label: 'विद्युत्',
-              checked: swotAnalysis?.isElectricityAvailable,
-            },
-            {
-              label: 'सडक',
-              checked: swotAnalysis?.isRoadAvailable,
-            },
-
-            {
-              label: 'सञ्‍चार',
-              checked: swotAnalysis?.isCommunicationAvailable,
-            },
-
-            {
-              label: 'खानेपानी',
-              checked: swotAnalysis?.isDrinkingWaterAvailable,
-            },
-
-            {
-              label: 'भवन',
-              checked: swotAnalysis?.isBuildingAvailable,
-            },
-          ],
-        },
-        {
-          label: 'भूमिको उपलब्धता',
-          lineBreak: true,
-          isIndent: true,
-          radioOptions: [
-            {
-              label: `आफ्नै स्वामित्वको`,
-              checked: swotAnalysis?.landAvailability === 'OWN_LAND',
-            },
-
-            {
-              label: 'भाडा वा लिजमा',
-              checked:
-                swotAnalysis?.landAvailability === 'RENTED_OR_LEASED_LAND',
-            },
-          ],
-        },
-
-        {
-          label: 'अन्य (खुलाउने)',
-          value: swotAnalysis?.otherFacilities,
-          isIndent: true,
-        },
-
-        {
-          label: 'परियोजनामा साझेदारिको विवरण',
-          value: swotAnalysis?.partnershipDetailsInProject,
-          isIndent: true,
-        },
-
-        {
-          label:
-            'अ:) परियोजना सञ्चालनको क्रममा खेर जाने कच्चापदार्थ लगायत अन्य बाइ प्रोडक्टको पुन: प्रयोग',
-          radioOptions: [
-            {
-              label: 'गरेको',
-              checked: swotAnalysis?.isWasteMaterialReused,
-            },
-            {
-              label: 'नगरेको',
-              checked: !swotAnalysis?.isWasteMaterialReused,
-            },
-          ],
-        },
-
-        {
-          label:
-            'अआ:) परियोजनामा संलग्न वा पहुँच पुग्ने वर्ग तथा समुदायको विवरण',
-          value: swotAnalysis?.involvedCommunityDetails,
-        },
-      ],
-    },
-  ]
-
-  const swotAnalysisHtml = getSectionHtml({
-    data: swotAnalysisData,
-  })
-
-  // ------- FINANCIAL ANALYSIS SECTION ---------
-  const financialAnalysisData = [
-    {
-      title: '',
-      sectionData: [
-        {
-          label: `१. परियोजनाको कुल अनुमानित लागत रु <span class="bold">${financialAnalysis?.totalEstimatedCostOfProject || blankSpace}</span> हालसम्म परियोजनामा  भएको खर्च रु`,
-          value: financialAnalysis?.totalCostIncurredInProjectSoFar,
-        },
-
-        {
-          label: '२. लगानि को स्रोत',
-          value: financialAnalysis?.sourceOfInvestment,
-        },
-
-        {
-          label: '३. सञ्चालन खर्च प्रक्षेपण',
-          value: financialAnalysis?.operatingExpenseProjection,
-        },
-
-        {
-          label: `४. आ.व. <span class="bold">${financialAnalysis?.fiscalYear || blankSpace}</span>को वार्षिक आय तथा नाफा नोक्सानको विवरण`,
-          value: financialAnalysis?.annualIncomeAndProfitLossDetails,
-        },
-
-        {
-          label: '५. उद्यम तथा जनशक्तिको बिमा',
-          value: financialAnalysis?.enterpriseAndWorkforceInsurance,
-        },
-
-        {
-          label: '६. जोखिम न्युनिकरणका उपाय',
-          value: financialAnalysis?.riskMitigationMeasures,
-        },
-
-        {
-          label: '७. नाफाबाट पुन: लगानी गरेको अनुपात',
-          value: financialAnalysis?.reinvestmentRatioFromProfit,
-        },
-
-        {
-          label: '८. कुल ऋण लगानीमा स्वलगानीको अनुपात',
-          value: financialAnalysis?.selfInvestmentRatioInTotalLoanInvestment,
-        },
-
-        {
-          label: '९. ऋण लगानीमा रहेकोमा सावाँ तथा ब्याज भुक्तानी गरेको विवरण',
-          value:
-            financialAnalysis?.principalAndInterestPaymentDetailsOnLoanInvestment,
-        },
-      ],
-    },
-  ]
-
-  const financialAnalysisHtml = getSectionHtml({
-    data: financialAnalysisData,
-  })
-
-  // ------- WORK PLAN SECTION ---------
-  const workPlanList = workPlan
-    .map((work: any, index: number) => {
-      return `
-        <tr>
-          <td>${convertText(index + 1, 'ne')}</td>
-          <td>${work?.activity}</td>
-          <td>${work?.time}</td>
-          <td>${work?.budget}</td>
-          <td>${work?.expectedOutcome}</td>
-          <td>${work?.risk}</td>
-          <td>${work?.remarks}</td>
-        </tr>
-        `
-    })
-    .join('')
 
   // ------ DOCUMENT SECTION ---------
-
-  const documentSetup = await db.documentSetup.findMany({
-    where: {
-      isActive: true,
-    },
-    orderBy: {
-      visibilityOrder: 'asc',
-    },
-  })
-
-  const documentListData = documentSetup?.map((doc, index) => {
-    return {
-      label: `${convertText(index + 1, 'ne')}. ${doc.nameNp}`,
-      radioOptions: [
-        {
-          label: '',
-          checked: application.media.some((m) => m.mediaType === doc.mediaType),
-        },
-      ],
-    }
-  })
+  const documentList = application.media.map((media) => media.mediaType)
 
   const documentListHtml = getSectionHtml({
     data: [
       {
-        title: '',
-        sectionData: documentListData,
+        title: '(ग) आवेदनको साथमा संलग्न गर्नुपर्ने कागजात:',
+        sectionData: [
+          {
+            label:
+              '१. आवेदकको नेपाली नागरिकताको प्रमाणपत्रको प्रतिलिपि (अगाडि)',
+            value: documentList.includes(MediaType.CITIZENSHIP_FRONT),
+          },
+          {
+            label:
+              '२. आवेदकको नेपाली नागरिकताको प्रमाणपत्रको प्रतिलिपि (पछाडि)',
+            value: documentList.includes(MediaType.CITIZENSHIP_BACK),
+          },
+          {
+            label:
+              '३. राष्ट्रिय दलित आयोग वा सम्बन्धित जिल्ला प्रशासन कार्यालयबाट दलित प्रमाणित कागजातको प्रतिलिपि',
+            value: documentList.includes(MediaType.DALIT_CERTIFICATE),
+          },
+          {
+            label:
+              '४. उद्यमशीलता विकास वा सीपमुलक तालिमको प्रमाणपत्रको प्रतिलिपि (यदि भएमा)',
+            value: documentList.includes(MediaType.TRAINING_CERTIFICATE),
+          },
+          {
+            label: '५. शैक्षिक योग्यताको प्रमाण-पत्रको प्रतिलिपि (यदि भएमा)',
+            value: documentList.includes(MediaType.EDUCATIONAL_CERTIFICATE),
+          },
+          {
+            label: '६. सम्बन्धित वडा कार्यालयको सिफारिस पत्र',
+            value: documentList.includes(MediaType.RECOMMENDATION_LETTER),
+          },
+        ],
       },
     ],
   })
-
-  // ------- PROPOSER SECTION ---------
-  const proposerName = proposer?.name || ''
-  const proposedDate = proposer?.proposedDate || ''
-  const phoneNumber = proposer?.phone || ''
-  const email = proposer?.email || ''
-
-  const signatureUrl =
-    proposer?.media.find((m) => m.mediaType === 'SIGNATURE')?.url || ''
-  const signatureBase64 = await getBase64Image(signatureUrl)
-  const proposerSignatureHtml = signatureBase64
-    ? `<img src='${signatureBase64}' style="object-fit: contain; width: 100%; height: 100%;"/>`
-    : ''
-
-  const projectStampUrl =
-    proposer?.media.find((m) => m.mediaType === 'PROJECT_STAMP')?.url || ''
-
-  const projectStampBase64 = await getBase64Image(projectStampUrl)
-  const projectStampHtml = projectStampBase64
-    ? `<img src='${projectStampBase64}' style="object-fit: contain; width: 100%; height: 100%;"/>`
-    : ''
-
-  const submittedDocumentCount =
-    convertText(application?.media?.length, 'ne') || '०'
 
   // -------- GENERATE PDF FROM TEMPLATE ---------
   const filePath = path.join(getTemplateFolderPath(), 'applicationForm.html')
@@ -1066,24 +273,8 @@ export const generateApplicationPdf = async (
     .replace('{{applicationRegistrationNumber}}', applicationRegistrationNumber)
     .replace('{{applicationRegistrationDate}}', applicationRegistrationDate)
 
-    .replace('{{companyProfileHtml}}', companyProfileHtml)
-    .replace('{{entrepreneurList}}', entrepreneurList)
-    .replace('{{productAndUsageHtml}}', productAndUsageHtml)
-    .replace('{{projectIntroductionHtml}}', projectIntroductionHtml)
-    .replace('{{projectAnalysisHtml}}', projectAnalysisHtml)
-    .replace('{{riskImpactAnalysisHtml}}', riskImpactAnalysisHtml)
-    .replace('{{swotAnalysisHtml}}', swotAnalysisHtml)
-    .replace('{{financialAnalysisHtml}}', financialAnalysisHtml)
-    .replace('{{workPlanList}}', workPlanList)
+    .replace('{{applicationHtml}}', applicationHtml)
     .replace('{{documentListHtml}}', documentListHtml)
-    //
-    .replace('{{proposerName}}', proposerName)
-    .replace('{{proposedDate}}', proposedDate)
-    .replace('{{phoneNumber}}', phoneNumber)
-    .replace('{{email}}', email)
-    .replace('{{proposerSignatureHtml}}', proposerSignatureHtml)
-    .replace('{{projectStampHtml}}', projectStampHtml)
-    .replace('{{submittedDocumentCount}}', submittedDocumentCount)
 
   const applicationPdfName = `${application.applicationCode}-${new Date().getTime()}`
 

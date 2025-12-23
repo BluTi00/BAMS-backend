@@ -241,9 +241,6 @@ export type AddressWhereInput = {
   wardId?: Prisma.IntNullableFilter<"Address"> | number | null
   locality?: Prisma.StringNullableFilter<"Address"> | string | null
   application?: Prisma.XOR<Prisma.ApplicationNullableScalarRelationFilter, Prisma.ApplicationWhereInput> | null
-  entrepreneurProfilePermanent?: Prisma.XOR<Prisma.EntrepreneurProfileNullableScalarRelationFilter, Prisma.EntrepreneurProfileWhereInput> | null
-  entrepreneurProfileTemporary?: Prisma.XOR<Prisma.EntrepreneurProfileNullableScalarRelationFilter, Prisma.EntrepreneurProfileWhereInput> | null
-  members?: Prisma.MemberListRelationFilter
   district?: Prisma.XOR<Prisma.DistrictNullableScalarRelationFilter, Prisma.DistrictWhereInput> | null
   municipality?: Prisma.XOR<Prisma.MunicipalityNullableScalarRelationFilter, Prisma.MunicipalityWhereInput> | null
   province?: Prisma.XOR<Prisma.ProvinceNullableScalarRelationFilter, Prisma.ProvinceWhereInput> | null
@@ -258,9 +255,6 @@ export type AddressOrderByWithRelationInput = {
   wardId?: Prisma.SortOrderInput | Prisma.SortOrder
   locality?: Prisma.SortOrderInput | Prisma.SortOrder
   application?: Prisma.ApplicationOrderByWithRelationInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileOrderByWithRelationInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileOrderByWithRelationInput
-  members?: Prisma.MemberOrderByRelationAggregateInput
   district?: Prisma.DistrictOrderByWithRelationInput
   municipality?: Prisma.MunicipalityOrderByWithRelationInput
   province?: Prisma.ProvinceOrderByWithRelationInput
@@ -278,9 +272,6 @@ export type AddressWhereUniqueInput = Prisma.AtLeast<{
   wardId?: Prisma.IntNullableFilter<"Address"> | number | null
   locality?: Prisma.StringNullableFilter<"Address"> | string | null
   application?: Prisma.XOR<Prisma.ApplicationNullableScalarRelationFilter, Prisma.ApplicationWhereInput> | null
-  entrepreneurProfilePermanent?: Prisma.XOR<Prisma.EntrepreneurProfileNullableScalarRelationFilter, Prisma.EntrepreneurProfileWhereInput> | null
-  entrepreneurProfileTemporary?: Prisma.XOR<Prisma.EntrepreneurProfileNullableScalarRelationFilter, Prisma.EntrepreneurProfileWhereInput> | null
-  members?: Prisma.MemberListRelationFilter
   district?: Prisma.XOR<Prisma.DistrictNullableScalarRelationFilter, Prisma.DistrictWhereInput> | null
   municipality?: Prisma.XOR<Prisma.MunicipalityNullableScalarRelationFilter, Prisma.MunicipalityWhereInput> | null
   province?: Prisma.XOR<Prisma.ProvinceNullableScalarRelationFilter, Prisma.ProvinceWhereInput> | null
@@ -315,10 +306,7 @@ export type AddressScalarWhereWithAggregatesInput = {
 
 export type AddressCreateInput = {
   locality?: string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberCreateNestedManyWithoutAddressInput
+  application?: Prisma.ApplicationCreateNestedOneWithoutAddressInput
   district?: Prisma.DistrictCreateNestedOneWithoutAddressInput
   municipality?: Prisma.MunicipalityCreateNestedOneWithoutAddressInput
   province?: Prisma.ProvinceCreateNestedOneWithoutAddressInput
@@ -332,18 +320,12 @@ export type AddressUncheckedCreateInput = {
   municipalityId?: number | null
   wardId?: number | null
   locality?: string | null
-  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberUncheckedCreateNestedManyWithoutAddressInput
+  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutAddressInput
 }
 
 export type AddressUpdateInput = {
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUpdateManyWithoutAddressNestedInput
+  application?: Prisma.ApplicationUpdateOneWithoutAddressNestedInput
   district?: Prisma.DistrictUpdateOneWithoutAddressNestedInput
   municipality?: Prisma.MunicipalityUpdateOneWithoutAddressNestedInput
   province?: Prisma.ProvinceUpdateOneWithoutAddressNestedInput
@@ -357,10 +339,7 @@ export type AddressUncheckedUpdateInput = {
   municipalityId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wardId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUncheckedUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUncheckedUpdateManyWithoutAddressNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateOneWithoutAddressNestedInput
 }
 
 export type AddressCreateManyInput = {
@@ -388,11 +367,6 @@ export type AddressUncheckedUpdateManyInput = {
 export type AddressScalarRelationFilter = {
   is?: Prisma.AddressWhereInput
   isNot?: Prisma.AddressWhereInput
-}
-
-export type AddressNullableScalarRelationFilter = {
-  is?: Prisma.AddressWhereInput | null
-  isNot?: Prisma.AddressWhereInput | null
 }
 
 export type AddressCountOrderByAggregateInput = {
@@ -462,48 +436,12 @@ export type AddressUpdateOneRequiredWithoutApplicationNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.AddressUpdateToOneWithWhereWithoutApplicationInput, Prisma.AddressUpdateWithoutApplicationInput>, Prisma.AddressUncheckedUpdateWithoutApplicationInput>
 }
 
-export type AddressCreateNestedOneWithoutEntrepreneurProfilePermanentInput = {
-  create?: Prisma.XOR<Prisma.AddressCreateWithoutEntrepreneurProfilePermanentInput, Prisma.AddressUncheckedCreateWithoutEntrepreneurProfilePermanentInput>
-  connectOrCreate?: Prisma.AddressCreateOrConnectWithoutEntrepreneurProfilePermanentInput
-  connect?: Prisma.AddressWhereUniqueInput
-}
-
-export type AddressCreateNestedOneWithoutEntrepreneurProfileTemporaryInput = {
-  create?: Prisma.XOR<Prisma.AddressCreateWithoutEntrepreneurProfileTemporaryInput, Prisma.AddressUncheckedCreateWithoutEntrepreneurProfileTemporaryInput>
-  connectOrCreate?: Prisma.AddressCreateOrConnectWithoutEntrepreneurProfileTemporaryInput
-  connect?: Prisma.AddressWhereUniqueInput
-}
-
-export type AddressUpdateOneRequiredWithoutEntrepreneurProfilePermanentNestedInput = {
-  create?: Prisma.XOR<Prisma.AddressCreateWithoutEntrepreneurProfilePermanentInput, Prisma.AddressUncheckedCreateWithoutEntrepreneurProfilePermanentInput>
-  connectOrCreate?: Prisma.AddressCreateOrConnectWithoutEntrepreneurProfilePermanentInput
-  upsert?: Prisma.AddressUpsertWithoutEntrepreneurProfilePermanentInput
-  connect?: Prisma.AddressWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.AddressUpdateToOneWithWhereWithoutEntrepreneurProfilePermanentInput, Prisma.AddressUpdateWithoutEntrepreneurProfilePermanentInput>, Prisma.AddressUncheckedUpdateWithoutEntrepreneurProfilePermanentInput>
-}
-
-export type AddressUpdateOneRequiredWithoutEntrepreneurProfileTemporaryNestedInput = {
-  create?: Prisma.XOR<Prisma.AddressCreateWithoutEntrepreneurProfileTemporaryInput, Prisma.AddressUncheckedCreateWithoutEntrepreneurProfileTemporaryInput>
-  connectOrCreate?: Prisma.AddressCreateOrConnectWithoutEntrepreneurProfileTemporaryInput
-  upsert?: Prisma.AddressUpsertWithoutEntrepreneurProfileTemporaryInput
-  connect?: Prisma.AddressWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.AddressUpdateToOneWithWhereWithoutEntrepreneurProfileTemporaryInput, Prisma.AddressUpdateWithoutEntrepreneurProfileTemporaryInput>, Prisma.AddressUncheckedUpdateWithoutEntrepreneurProfileTemporaryInput>
-}
-
-export type AddressCreateNestedOneWithoutMembersInput = {
-  create?: Prisma.XOR<Prisma.AddressCreateWithoutMembersInput, Prisma.AddressUncheckedCreateWithoutMembersInput>
-  connectOrCreate?: Prisma.AddressCreateOrConnectWithoutMembersInput
-  connect?: Prisma.AddressWhereUniqueInput
-}
-
-export type AddressUpdateOneWithoutMembersNestedInput = {
-  create?: Prisma.XOR<Prisma.AddressCreateWithoutMembersInput, Prisma.AddressUncheckedCreateWithoutMembersInput>
-  connectOrCreate?: Prisma.AddressCreateOrConnectWithoutMembersInput
-  upsert?: Prisma.AddressUpsertWithoutMembersInput
-  disconnect?: Prisma.AddressWhereInput | boolean
-  delete?: Prisma.AddressWhereInput | boolean
-  connect?: Prisma.AddressWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.AddressUpdateToOneWithWhereWithoutMembersInput, Prisma.AddressUpdateWithoutMembersInput>, Prisma.AddressUncheckedUpdateWithoutMembersInput>
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type AddressCreateNestedManyWithoutProvinceInput = {
@@ -676,9 +614,6 @@ export type AddressUncheckedUpdateManyWithoutWardNestedInput = {
 
 export type AddressCreateWithoutApplicationInput = {
   locality?: string | null
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberCreateNestedManyWithoutAddressInput
   district?: Prisma.DistrictCreateNestedOneWithoutAddressInput
   municipality?: Prisma.MunicipalityCreateNestedOneWithoutAddressInput
   province?: Prisma.ProvinceCreateNestedOneWithoutAddressInput
@@ -692,9 +627,6 @@ export type AddressUncheckedCreateWithoutApplicationInput = {
   municipalityId?: number | null
   wardId?: number | null
   locality?: string | null
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberUncheckedCreateNestedManyWithoutAddressInput
 }
 
 export type AddressCreateOrConnectWithoutApplicationInput = {
@@ -715,9 +647,6 @@ export type AddressUpdateToOneWithWhereWithoutApplicationInput = {
 
 export type AddressUpdateWithoutApplicationInput = {
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUpdateManyWithoutAddressNestedInput
   district?: Prisma.DistrictUpdateOneWithoutAddressNestedInput
   municipality?: Prisma.MunicipalityUpdateOneWithoutAddressNestedInput
   province?: Prisma.ProvinceUpdateOneWithoutAddressNestedInput
@@ -731,203 +660,11 @@ export type AddressUncheckedUpdateWithoutApplicationInput = {
   municipalityId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wardId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUncheckedUpdateManyWithoutAddressNestedInput
-}
-
-export type AddressCreateWithoutEntrepreneurProfilePermanentInput = {
-  locality?: string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberCreateNestedManyWithoutAddressInput
-  district?: Prisma.DistrictCreateNestedOneWithoutAddressInput
-  municipality?: Prisma.MunicipalityCreateNestedOneWithoutAddressInput
-  province?: Prisma.ProvinceCreateNestedOneWithoutAddressInput
-  ward?: Prisma.WardCreateNestedOneWithoutAddressInput
-}
-
-export type AddressUncheckedCreateWithoutEntrepreneurProfilePermanentInput = {
-  id?: number
-  provinceId?: number | null
-  districtId?: number | null
-  municipalityId?: number | null
-  wardId?: number | null
-  locality?: string | null
-  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberUncheckedCreateNestedManyWithoutAddressInput
-}
-
-export type AddressCreateOrConnectWithoutEntrepreneurProfilePermanentInput = {
-  where: Prisma.AddressWhereUniqueInput
-  create: Prisma.XOR<Prisma.AddressCreateWithoutEntrepreneurProfilePermanentInput, Prisma.AddressUncheckedCreateWithoutEntrepreneurProfilePermanentInput>
-}
-
-export type AddressCreateWithoutEntrepreneurProfileTemporaryInput = {
-  locality?: string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileCreateNestedOneWithoutPermanentAddressInput
-  members?: Prisma.MemberCreateNestedManyWithoutAddressInput
-  district?: Prisma.DistrictCreateNestedOneWithoutAddressInput
-  municipality?: Prisma.MunicipalityCreateNestedOneWithoutAddressInput
-  province?: Prisma.ProvinceCreateNestedOneWithoutAddressInput
-  ward?: Prisma.WardCreateNestedOneWithoutAddressInput
-}
-
-export type AddressUncheckedCreateWithoutEntrepreneurProfileTemporaryInput = {
-  id?: number
-  provinceId?: number | null
-  districtId?: number | null
-  municipalityId?: number | null
-  wardId?: number | null
-  locality?: string | null
-  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutPermanentAddressInput
-  members?: Prisma.MemberUncheckedCreateNestedManyWithoutAddressInput
-}
-
-export type AddressCreateOrConnectWithoutEntrepreneurProfileTemporaryInput = {
-  where: Prisma.AddressWhereUniqueInput
-  create: Prisma.XOR<Prisma.AddressCreateWithoutEntrepreneurProfileTemporaryInput, Prisma.AddressUncheckedCreateWithoutEntrepreneurProfileTemporaryInput>
-}
-
-export type AddressUpsertWithoutEntrepreneurProfilePermanentInput = {
-  update: Prisma.XOR<Prisma.AddressUpdateWithoutEntrepreneurProfilePermanentInput, Prisma.AddressUncheckedUpdateWithoutEntrepreneurProfilePermanentInput>
-  create: Prisma.XOR<Prisma.AddressCreateWithoutEntrepreneurProfilePermanentInput, Prisma.AddressUncheckedCreateWithoutEntrepreneurProfilePermanentInput>
-  where?: Prisma.AddressWhereInput
-}
-
-export type AddressUpdateToOneWithWhereWithoutEntrepreneurProfilePermanentInput = {
-  where?: Prisma.AddressWhereInput
-  data: Prisma.XOR<Prisma.AddressUpdateWithoutEntrepreneurProfilePermanentInput, Prisma.AddressUncheckedUpdateWithoutEntrepreneurProfilePermanentInput>
-}
-
-export type AddressUpdateWithoutEntrepreneurProfilePermanentInput = {
-  locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUpdateManyWithoutAddressNestedInput
-  district?: Prisma.DistrictUpdateOneWithoutAddressNestedInput
-  municipality?: Prisma.MunicipalityUpdateOneWithoutAddressNestedInput
-  province?: Prisma.ProvinceUpdateOneWithoutAddressNestedInput
-  ward?: Prisma.WardUpdateOneWithoutAddressNestedInput
-}
-
-export type AddressUncheckedUpdateWithoutEntrepreneurProfilePermanentInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  provinceId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  districtId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  municipalityId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  wardId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUncheckedUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUncheckedUpdateManyWithoutAddressNestedInput
-}
-
-export type AddressUpsertWithoutEntrepreneurProfileTemporaryInput = {
-  update: Prisma.XOR<Prisma.AddressUpdateWithoutEntrepreneurProfileTemporaryInput, Prisma.AddressUncheckedUpdateWithoutEntrepreneurProfileTemporaryInput>
-  create: Prisma.XOR<Prisma.AddressCreateWithoutEntrepreneurProfileTemporaryInput, Prisma.AddressUncheckedCreateWithoutEntrepreneurProfileTemporaryInput>
-  where?: Prisma.AddressWhereInput
-}
-
-export type AddressUpdateToOneWithWhereWithoutEntrepreneurProfileTemporaryInput = {
-  where?: Prisma.AddressWhereInput
-  data: Prisma.XOR<Prisma.AddressUpdateWithoutEntrepreneurProfileTemporaryInput, Prisma.AddressUncheckedUpdateWithoutEntrepreneurProfileTemporaryInput>
-}
-
-export type AddressUpdateWithoutEntrepreneurProfileTemporaryInput = {
-  locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUpdateOneWithoutPermanentAddressNestedInput
-  members?: Prisma.MemberUpdateManyWithoutAddressNestedInput
-  district?: Prisma.DistrictUpdateOneWithoutAddressNestedInput
-  municipality?: Prisma.MunicipalityUpdateOneWithoutAddressNestedInput
-  province?: Prisma.ProvinceUpdateOneWithoutAddressNestedInput
-  ward?: Prisma.WardUpdateOneWithoutAddressNestedInput
-}
-
-export type AddressUncheckedUpdateWithoutEntrepreneurProfileTemporaryInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  provinceId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  districtId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  municipalityId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  wardId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUncheckedUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutPermanentAddressNestedInput
-  members?: Prisma.MemberUncheckedUpdateManyWithoutAddressNestedInput
-}
-
-export type AddressCreateWithoutMembersInput = {
-  locality?: string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileCreateNestedOneWithoutTemporaryAddressInput
-  district?: Prisma.DistrictCreateNestedOneWithoutAddressInput
-  municipality?: Prisma.MunicipalityCreateNestedOneWithoutAddressInput
-  province?: Prisma.ProvinceCreateNestedOneWithoutAddressInput
-  ward?: Prisma.WardCreateNestedOneWithoutAddressInput
-}
-
-export type AddressUncheckedCreateWithoutMembersInput = {
-  id?: number
-  provinceId?: number | null
-  districtId?: number | null
-  municipalityId?: number | null
-  wardId?: number | null
-  locality?: string | null
-  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutTemporaryAddressInput
-}
-
-export type AddressCreateOrConnectWithoutMembersInput = {
-  where: Prisma.AddressWhereUniqueInput
-  create: Prisma.XOR<Prisma.AddressCreateWithoutMembersInput, Prisma.AddressUncheckedCreateWithoutMembersInput>
-}
-
-export type AddressUpsertWithoutMembersInput = {
-  update: Prisma.XOR<Prisma.AddressUpdateWithoutMembersInput, Prisma.AddressUncheckedUpdateWithoutMembersInput>
-  create: Prisma.XOR<Prisma.AddressCreateWithoutMembersInput, Prisma.AddressUncheckedCreateWithoutMembersInput>
-  where?: Prisma.AddressWhereInput
-}
-
-export type AddressUpdateToOneWithWhereWithoutMembersInput = {
-  where?: Prisma.AddressWhereInput
-  data: Prisma.XOR<Prisma.AddressUpdateWithoutMembersInput, Prisma.AddressUncheckedUpdateWithoutMembersInput>
-}
-
-export type AddressUpdateWithoutMembersInput = {
-  locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUpdateOneWithoutTemporaryAddressNestedInput
-  district?: Prisma.DistrictUpdateOneWithoutAddressNestedInput
-  municipality?: Prisma.MunicipalityUpdateOneWithoutAddressNestedInput
-  province?: Prisma.ProvinceUpdateOneWithoutAddressNestedInput
-  ward?: Prisma.WardUpdateOneWithoutAddressNestedInput
-}
-
-export type AddressUncheckedUpdateWithoutMembersInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  provinceId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  districtId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  municipalityId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  wardId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUncheckedUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutTemporaryAddressNestedInput
 }
 
 export type AddressCreateWithoutProvinceInput = {
   locality?: string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberCreateNestedManyWithoutAddressInput
+  application?: Prisma.ApplicationCreateNestedOneWithoutAddressInput
   district?: Prisma.DistrictCreateNestedOneWithoutAddressInput
   municipality?: Prisma.MunicipalityCreateNestedOneWithoutAddressInput
   ward?: Prisma.WardCreateNestedOneWithoutAddressInput
@@ -939,10 +676,7 @@ export type AddressUncheckedCreateWithoutProvinceInput = {
   municipalityId?: number | null
   wardId?: number | null
   locality?: string | null
-  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberUncheckedCreateNestedManyWithoutAddressInput
+  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutAddressInput
 }
 
 export type AddressCreateOrConnectWithoutProvinceInput = {
@@ -985,10 +719,7 @@ export type AddressScalarWhereInput = {
 
 export type AddressCreateWithoutDistrictInput = {
   locality?: string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberCreateNestedManyWithoutAddressInput
+  application?: Prisma.ApplicationCreateNestedOneWithoutAddressInput
   municipality?: Prisma.MunicipalityCreateNestedOneWithoutAddressInput
   province?: Prisma.ProvinceCreateNestedOneWithoutAddressInput
   ward?: Prisma.WardCreateNestedOneWithoutAddressInput
@@ -1000,10 +731,7 @@ export type AddressUncheckedCreateWithoutDistrictInput = {
   municipalityId?: number | null
   wardId?: number | null
   locality?: string | null
-  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberUncheckedCreateNestedManyWithoutAddressInput
+  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutAddressInput
 }
 
 export type AddressCreateOrConnectWithoutDistrictInput = {
@@ -1034,10 +762,7 @@ export type AddressUpdateManyWithWhereWithoutDistrictInput = {
 
 export type AddressCreateWithoutMunicipalityInput = {
   locality?: string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberCreateNestedManyWithoutAddressInput
+  application?: Prisma.ApplicationCreateNestedOneWithoutAddressInput
   district?: Prisma.DistrictCreateNestedOneWithoutAddressInput
   province?: Prisma.ProvinceCreateNestedOneWithoutAddressInput
   ward?: Prisma.WardCreateNestedOneWithoutAddressInput
@@ -1049,10 +774,7 @@ export type AddressUncheckedCreateWithoutMunicipalityInput = {
   districtId?: number | null
   wardId?: number | null
   locality?: string | null
-  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberUncheckedCreateNestedManyWithoutAddressInput
+  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutAddressInput
 }
 
 export type AddressCreateOrConnectWithoutMunicipalityInput = {
@@ -1083,10 +805,7 @@ export type AddressUpdateManyWithWhereWithoutMunicipalityInput = {
 
 export type AddressCreateWithoutWardInput = {
   locality?: string | null
-  application?: Prisma.ApplicationCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberCreateNestedManyWithoutAddressInput
+  application?: Prisma.ApplicationCreateNestedOneWithoutAddressInput
   district?: Prisma.DistrictCreateNestedOneWithoutAddressInput
   municipality?: Prisma.MunicipalityCreateNestedOneWithoutAddressInput
   province?: Prisma.ProvinceCreateNestedOneWithoutAddressInput
@@ -1098,10 +817,7 @@ export type AddressUncheckedCreateWithoutWardInput = {
   districtId?: number | null
   municipalityId?: number | null
   locality?: string | null
-  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutOfficeAddressInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutPermanentAddressInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedCreateNestedOneWithoutTemporaryAddressInput
-  members?: Prisma.MemberUncheckedCreateNestedManyWithoutAddressInput
+  application?: Prisma.ApplicationUncheckedCreateNestedOneWithoutAddressInput
 }
 
 export type AddressCreateOrConnectWithoutWardInput = {
@@ -1140,10 +856,7 @@ export type AddressCreateManyProvinceInput = {
 
 export type AddressUpdateWithoutProvinceInput = {
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUpdateManyWithoutAddressNestedInput
+  application?: Prisma.ApplicationUpdateOneWithoutAddressNestedInput
   district?: Prisma.DistrictUpdateOneWithoutAddressNestedInput
   municipality?: Prisma.MunicipalityUpdateOneWithoutAddressNestedInput
   ward?: Prisma.WardUpdateOneWithoutAddressNestedInput
@@ -1155,10 +868,7 @@ export type AddressUncheckedUpdateWithoutProvinceInput = {
   municipalityId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wardId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUncheckedUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUncheckedUpdateManyWithoutAddressNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateOneWithoutAddressNestedInput
 }
 
 export type AddressUncheckedUpdateManyWithoutProvinceInput = {
@@ -1179,10 +889,7 @@ export type AddressCreateManyDistrictInput = {
 
 export type AddressUpdateWithoutDistrictInput = {
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUpdateManyWithoutAddressNestedInput
+  application?: Prisma.ApplicationUpdateOneWithoutAddressNestedInput
   municipality?: Prisma.MunicipalityUpdateOneWithoutAddressNestedInput
   province?: Prisma.ProvinceUpdateOneWithoutAddressNestedInput
   ward?: Prisma.WardUpdateOneWithoutAddressNestedInput
@@ -1194,10 +901,7 @@ export type AddressUncheckedUpdateWithoutDistrictInput = {
   municipalityId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wardId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUncheckedUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUncheckedUpdateManyWithoutAddressNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateOneWithoutAddressNestedInput
 }
 
 export type AddressUncheckedUpdateManyWithoutDistrictInput = {
@@ -1218,10 +922,7 @@ export type AddressCreateManyMunicipalityInput = {
 
 export type AddressUpdateWithoutMunicipalityInput = {
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUpdateManyWithoutAddressNestedInput
+  application?: Prisma.ApplicationUpdateOneWithoutAddressNestedInput
   district?: Prisma.DistrictUpdateOneWithoutAddressNestedInput
   province?: Prisma.ProvinceUpdateOneWithoutAddressNestedInput
   ward?: Prisma.WardUpdateOneWithoutAddressNestedInput
@@ -1233,10 +934,7 @@ export type AddressUncheckedUpdateWithoutMunicipalityInput = {
   districtId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   wardId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUncheckedUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUncheckedUpdateManyWithoutAddressNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateOneWithoutAddressNestedInput
 }
 
 export type AddressUncheckedUpdateManyWithoutMunicipalityInput = {
@@ -1257,10 +955,7 @@ export type AddressCreateManyWardInput = {
 
 export type AddressUpdateWithoutWardInput = {
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUpdateManyWithoutAddressNestedInput
+  application?: Prisma.ApplicationUpdateOneWithoutAddressNestedInput
   district?: Prisma.DistrictUpdateOneWithoutAddressNestedInput
   municipality?: Prisma.MunicipalityUpdateOneWithoutAddressNestedInput
   province?: Prisma.ProvinceUpdateOneWithoutAddressNestedInput
@@ -1272,10 +967,7 @@ export type AddressUncheckedUpdateWithoutWardInput = {
   districtId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   municipalityId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   locality?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  application?: Prisma.ApplicationUncheckedUpdateOneWithoutOfficeAddressNestedInput
-  entrepreneurProfilePermanent?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutPermanentAddressNestedInput
-  entrepreneurProfileTemporary?: Prisma.EntrepreneurProfileUncheckedUpdateOneWithoutTemporaryAddressNestedInput
-  members?: Prisma.MemberUncheckedUpdateManyWithoutAddressNestedInput
+  application?: Prisma.ApplicationUncheckedUpdateOneWithoutAddressNestedInput
 }
 
 export type AddressUncheckedUpdateManyWithoutWardInput = {
@@ -1287,35 +979,6 @@ export type AddressUncheckedUpdateManyWithoutWardInput = {
 }
 
 
-/**
- * Count Type AddressCountOutputType
- */
-
-export type AddressCountOutputType = {
-  members: number
-}
-
-export type AddressCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  members?: boolean | AddressCountOutputTypeCountMembersArgs
-}
-
-/**
- * AddressCountOutputType without action
- */
-export type AddressCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AddressCountOutputType
-   */
-  select?: Prisma.AddressCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * AddressCountOutputType without action
- */
-export type AddressCountOutputTypeCountMembersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.MemberWhereInput
-}
-
 
 export type AddressSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1325,14 +988,10 @@ export type AddressSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   wardId?: boolean
   locality?: boolean
   application?: boolean | Prisma.Address$applicationArgs<ExtArgs>
-  entrepreneurProfilePermanent?: boolean | Prisma.Address$entrepreneurProfilePermanentArgs<ExtArgs>
-  entrepreneurProfileTemporary?: boolean | Prisma.Address$entrepreneurProfileTemporaryArgs<ExtArgs>
-  members?: boolean | Prisma.Address$membersArgs<ExtArgs>
   district?: boolean | Prisma.Address$districtArgs<ExtArgs>
   municipality?: boolean | Prisma.Address$municipalityArgs<ExtArgs>
   province?: boolean | Prisma.Address$provinceArgs<ExtArgs>
   ward?: boolean | Prisma.Address$wardArgs<ExtArgs>
-  _count?: boolean | Prisma.AddressCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["address"]>
 
 export type AddressSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1373,14 +1032,10 @@ export type AddressSelectScalar = {
 export type AddressOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "provinceId" | "districtId" | "municipalityId" | "wardId" | "locality", ExtArgs["result"]["address"]>
 export type AddressInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | Prisma.Address$applicationArgs<ExtArgs>
-  entrepreneurProfilePermanent?: boolean | Prisma.Address$entrepreneurProfilePermanentArgs<ExtArgs>
-  entrepreneurProfileTemporary?: boolean | Prisma.Address$entrepreneurProfileTemporaryArgs<ExtArgs>
-  members?: boolean | Prisma.Address$membersArgs<ExtArgs>
   district?: boolean | Prisma.Address$districtArgs<ExtArgs>
   municipality?: boolean | Prisma.Address$municipalityArgs<ExtArgs>
   province?: boolean | Prisma.Address$provinceArgs<ExtArgs>
   ward?: boolean | Prisma.Address$wardArgs<ExtArgs>
-  _count?: boolean | Prisma.AddressCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AddressIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   district?: boolean | Prisma.Address$districtArgs<ExtArgs>
@@ -1399,9 +1054,6 @@ export type $AddressPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   name: "Address"
   objects: {
     application: Prisma.$ApplicationPayload<ExtArgs> | null
-    entrepreneurProfilePermanent: Prisma.$EntrepreneurProfilePayload<ExtArgs> | null
-    entrepreneurProfileTemporary: Prisma.$EntrepreneurProfilePayload<ExtArgs> | null
-    members: Prisma.$MemberPayload<ExtArgs>[]
     district: Prisma.$DistrictPayload<ExtArgs> | null
     municipality: Prisma.$MunicipalityPayload<ExtArgs> | null
     province: Prisma.$ProvincePayload<ExtArgs> | null
@@ -1809,9 +1461,6 @@ readonly fields: AddressFieldRefs;
 export interface Prisma__AddressClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   application<T extends Prisma.Address$applicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Address$applicationArgs<ExtArgs>>): Prisma.Prisma__ApplicationClient<runtime.Types.Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  entrepreneurProfilePermanent<T extends Prisma.Address$entrepreneurProfilePermanentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Address$entrepreneurProfilePermanentArgs<ExtArgs>>): Prisma.Prisma__EntrepreneurProfileClient<runtime.Types.Result.GetResult<Prisma.$EntrepreneurProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  entrepreneurProfileTemporary<T extends Prisma.Address$entrepreneurProfileTemporaryArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Address$entrepreneurProfileTemporaryArgs<ExtArgs>>): Prisma.Prisma__EntrepreneurProfileClient<runtime.Types.Result.GetResult<Prisma.$EntrepreneurProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  members<T extends Prisma.Address$membersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Address$membersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   district<T extends Prisma.Address$districtArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Address$districtArgs<ExtArgs>>): Prisma.Prisma__DistrictClient<runtime.Types.Result.GetResult<Prisma.$DistrictPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   municipality<T extends Prisma.Address$municipalityArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Address$municipalityArgs<ExtArgs>>): Prisma.Prisma__MunicipalityClient<runtime.Types.Result.GetResult<Prisma.$MunicipalityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   province<T extends Prisma.Address$provinceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Address$provinceArgs<ExtArgs>>): Prisma.Prisma__ProvinceClient<runtime.Types.Result.GetResult<Prisma.$ProvincePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
@@ -2263,68 +1912,6 @@ export type Address$applicationArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   include?: Prisma.ApplicationInclude<ExtArgs> | null
   where?: Prisma.ApplicationWhereInput
-}
-
-/**
- * Address.entrepreneurProfilePermanent
- */
-export type Address$entrepreneurProfilePermanentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the EntrepreneurProfile
-   */
-  select?: Prisma.EntrepreneurProfileSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the EntrepreneurProfile
-   */
-  omit?: Prisma.EntrepreneurProfileOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.EntrepreneurProfileInclude<ExtArgs> | null
-  where?: Prisma.EntrepreneurProfileWhereInput
-}
-
-/**
- * Address.entrepreneurProfileTemporary
- */
-export type Address$entrepreneurProfileTemporaryArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the EntrepreneurProfile
-   */
-  select?: Prisma.EntrepreneurProfileSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the EntrepreneurProfile
-   */
-  omit?: Prisma.EntrepreneurProfileOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.EntrepreneurProfileInclude<ExtArgs> | null
-  where?: Prisma.EntrepreneurProfileWhereInput
-}
-
-/**
- * Address.members
- */
-export type Address$membersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Member
-   */
-  select?: Prisma.MemberSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Member
-   */
-  omit?: Prisma.MemberOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.MemberInclude<ExtArgs> | null
-  where?: Prisma.MemberWhereInput
-  orderBy?: Prisma.MemberOrderByWithRelationInput | Prisma.MemberOrderByWithRelationInput[]
-  cursor?: Prisma.MemberWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.MemberScalarFieldEnum | Prisma.MemberScalarFieldEnum[]
 }
 
 /**

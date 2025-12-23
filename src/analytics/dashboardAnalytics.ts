@@ -1,8 +1,4 @@
-import {
-  APPLICATION_STATUS,
-  ASSESSMENT_TYPE,
-  ROLE,
-} from '../generated/client/client'
+import { APPLICATION_STATUS, ROLE } from '../generated/client/client'
 import { db } from '../db/db.server'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -84,48 +80,6 @@ export const getDashboardStatSummary = async (
     },
   })
 
-  // registration completed applications
-  const totalCompleted = await db.application.count({
-    where: {
-      applicationCycleId: applicationCycle ? applicationCycle.id : undefined,
-      status: APPLICATION_STATUS.REGISTERED,
-      deletedAt: null,
-    },
-  })
-
-  const todayCompleted = await db.application.count({
-    where: {
-      applicationCycleId: applicationCycle ? applicationCycle.id : undefined,
-      status: APPLICATION_STATUS.REGISTERED,
-      createdAt: {
-        gte: startOfTodayNepal,
-        lt: endOfTodayNepal,
-      },
-      deletedAt: null,
-    },
-  })
-
-  // in progress applications
-  const totalInProgress = await db.application.count({
-    where: {
-      applicationCycleId: applicationCycle ? applicationCycle.id : undefined,
-      status: APPLICATION_STATUS.INCOMPLETE,
-      deletedAt: null,
-    },
-  })
-
-  const todayInProgress = await db.application.count({
-    where: {
-      applicationCycleId: applicationCycle ? applicationCycle.id : undefined,
-      status: APPLICATION_STATUS.INCOMPLETE,
-      createdAt: {
-        gte: startOfTodayNepal,
-        lt: endOfTodayNepal,
-      },
-      deletedAt: null,
-    },
-  })
-
   return {
     user: {
       total: totalUsers,
@@ -134,14 +88,6 @@ export const getDashboardStatSummary = async (
     application: {
       total: totalApplications,
       today: todayApplications,
-    },
-    completedApplication: {
-      total: totalCompleted,
-      today: todayCompleted,
-    },
-    inProgressApplication: {
-      total: totalInProgress,
-      today: todayInProgress,
     },
   }
 }
@@ -350,102 +296,3 @@ const getHourlyData = async (
 // =====================================================================
 // -------- STAGE PROGRESS STATS ---------
 // =====================================================================
-
-export const getDashboardStageProgressStats = async (
-  applicationCycleId?: string
-): Promise<any> => {
-  // --------- APPLICATION INTAKE STAGE ---------
-  // total application
-  const totalApplications = await db.application.count({
-    where: {
-      applicationCycleId,
-      deletedAt: null,
-    },
-  })
-
-  // registration completed applications
-  const totalCompletedApplications = await db.application.count({
-    where: {
-      applicationCycleId,
-      status: APPLICATION_STATUS.REGISTERED,
-      deletedAt: null,
-    },
-  })
-
-  // in progress applications
-  const totalInProgressApplication = await db.application.count({
-    where: {
-      applicationCycleId,
-      status: APPLICATION_STATUS.INCOMPLETE,
-      deletedAt: null,
-    },
-  })
-
-  const totalOfflineApplications = await db.application.count({
-    where: {
-      applicationCycleId,
-      status: APPLICATION_STATUS.INCOMPLETE,
-      applicationCode: {
-        contains: 'M',
-      },
-      deletedAt: null,
-    },
-  })
-
-  // -------- AI SCREENING STAGE ---------
-  const screeningCompleted = await db.application.count({
-    where: {
-      applicationCycleId,
-      assessments: {
-        some: {
-          assessmentType: ASSESSMENT_TYPE.AI_SCREENING,
-        },
-      },
-    },
-  })
-
-  const screeningPending = totalCompletedApplications - screeningCompleted
-
-  return [
-    {
-      stageName: 'Application Intake Stage',
-      isCompleted: true,
-      data: [
-        { label: 'Reg. Completed', value: totalCompletedApplications },
-        { label: 'Reg. Incomplete', value: totalInProgressApplication },
-        { label: 'Reg. Offline', value: totalOfflineApplications },
-        {
-          label: 'Total Applicants',
-          value: totalApplications,
-        },
-      ],
-    },
-    {
-      stageName: 'AI Screening Stage',
-      isCurrent: true,
-      data: [
-        { label: 'Screening Completed', value: screeningCompleted },
-        { label: 'Screening Pending', value: screeningPending },
-        { label: 'Total Screening', value: totalApplications },
-      ],
-    },
-
-    {
-      stageName: 'Expert Evaluation Stage',
-      data: [
-        { label: 'Pending', value: '' },
-        { label: 'Completed', value: '' },
-        { label: 'Total Evaluation', value: '' },
-      ],
-    },
-
-    {
-      stageName: 'Business Proposal Stage',
-      data: [
-        { label: 'Pending', value: '' },
-        { label: 'Completed', value: '' },
-        { label: 'Total Interview', value: '' },
-      ],
-    },
-  ]
-}

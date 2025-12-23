@@ -245,7 +245,6 @@ export type BulkOperationLogWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"BulkOperationLog"> | Date | string
   triggeredById?: Prisma.StringNullableFilter<"BulkOperationLog"> | string | null
   triggeredBy?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-  loanRecipients?: Prisma.LoanRecipientListRelationFilter
   applications?: Prisma.ApplicationListRelationFilter
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorListRelationFilter
 }
@@ -260,7 +259,6 @@ export type BulkOperationLogOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   triggeredById?: Prisma.SortOrderInput | Prisma.SortOrder
   triggeredBy?: Prisma.UserOrderByWithRelationInput
-  loanRecipients?: Prisma.LoanRecipientOrderByRelationAggregateInput
   applications?: Prisma.ApplicationOrderByRelationAggregateInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorOrderByRelationAggregateInput
 }
@@ -278,7 +276,6 @@ export type BulkOperationLogWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"BulkOperationLog"> | Date | string
   triggeredById?: Prisma.StringNullableFilter<"BulkOperationLog"> | string | null
   triggeredBy?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
-  loanRecipients?: Prisma.LoanRecipientListRelationFilter
   applications?: Prisma.ApplicationListRelationFilter
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorListRelationFilter
 }, "id">
@@ -322,7 +319,6 @@ export type BulkOperationLogCreateInput = {
   reversedAt?: Date | string | null
   createdAt?: Date | string
   triggeredBy?: Prisma.UserCreateNestedOneWithoutBulkOperationLogInput
-  loanRecipients?: Prisma.LoanRecipientCreateNestedManyWithoutBulkOperationLogInput
   applications?: Prisma.ApplicationCreateNestedManyWithoutBulkOperationLogInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorCreateNestedManyWithoutBulkOperationInput
 }
@@ -336,7 +332,6 @@ export type BulkOperationLogUncheckedCreateInput = {
   reversedAt?: Date | string | null
   createdAt?: Date | string
   triggeredById?: string | null
-  loanRecipients?: Prisma.LoanRecipientUncheckedCreateNestedManyWithoutBulkOperationLogInput
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutBulkOperationLogInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUncheckedCreateNestedManyWithoutBulkOperationInput
 }
@@ -350,7 +345,6 @@ export type BulkOperationLogUpdateInput = {
   reversedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggeredBy?: Prisma.UserUpdateOneWithoutBulkOperationLogNestedInput
-  loanRecipients?: Prisma.LoanRecipientUpdateManyWithoutBulkOperationLogNestedInput
   applications?: Prisma.ApplicationUpdateManyWithoutBulkOperationLogNestedInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUpdateManyWithoutBulkOperationNestedInput
 }
@@ -364,7 +358,6 @@ export type BulkOperationLogUncheckedUpdateInput = {
   reversedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggeredById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  loanRecipients?: Prisma.LoanRecipientUncheckedUpdateManyWithoutBulkOperationLogNestedInput
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutBulkOperationLogNestedInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUncheckedUpdateManyWithoutBulkOperationNestedInput
 }
@@ -522,22 +515,6 @@ export type BulkOperationLogUpdateOneWithoutApplicationsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.BulkOperationLogUpdateToOneWithWhereWithoutApplicationsInput, Prisma.BulkOperationLogUpdateWithoutApplicationsInput>, Prisma.BulkOperationLogUncheckedUpdateWithoutApplicationsInput>
 }
 
-export type BulkOperationLogCreateNestedOneWithoutLoanRecipientsInput = {
-  create?: Prisma.XOR<Prisma.BulkOperationLogCreateWithoutLoanRecipientsInput, Prisma.BulkOperationLogUncheckedCreateWithoutLoanRecipientsInput>
-  connectOrCreate?: Prisma.BulkOperationLogCreateOrConnectWithoutLoanRecipientsInput
-  connect?: Prisma.BulkOperationLogWhereUniqueInput
-}
-
-export type BulkOperationLogUpdateOneWithoutLoanRecipientsNestedInput = {
-  create?: Prisma.XOR<Prisma.BulkOperationLogCreateWithoutLoanRecipientsInput, Prisma.BulkOperationLogUncheckedCreateWithoutLoanRecipientsInput>
-  connectOrCreate?: Prisma.BulkOperationLogCreateOrConnectWithoutLoanRecipientsInput
-  upsert?: Prisma.BulkOperationLogUpsertWithoutLoanRecipientsInput
-  disconnect?: Prisma.BulkOperationLogWhereInput | boolean
-  delete?: Prisma.BulkOperationLogWhereInput | boolean
-  connect?: Prisma.BulkOperationLogWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.BulkOperationLogUpdateToOneWithWhereWithoutLoanRecipientsInput, Prisma.BulkOperationLogUpdateWithoutLoanRecipientsInput>, Prisma.BulkOperationLogUncheckedUpdateWithoutLoanRecipientsInput>
-}
-
 export type EnumBULK_OPERATION_TYPEFieldUpdateOperationsInput = {
   set?: $Enums.BULK_OPERATION_TYPE
 }
@@ -564,7 +541,6 @@ export type BulkOperationLogCreateWithoutTriggeredByInput = {
   isReversed?: boolean
   reversedAt?: Date | string | null
   createdAt?: Date | string
-  loanRecipients?: Prisma.LoanRecipientCreateNestedManyWithoutBulkOperationLogInput
   applications?: Prisma.ApplicationCreateNestedManyWithoutBulkOperationLogInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorCreateNestedManyWithoutBulkOperationInput
 }
@@ -577,7 +553,6 @@ export type BulkOperationLogUncheckedCreateWithoutTriggeredByInput = {
   isReversed?: boolean
   reversedAt?: Date | string | null
   createdAt?: Date | string
-  loanRecipients?: Prisma.LoanRecipientUncheckedCreateNestedManyWithoutBulkOperationLogInput
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutBulkOperationLogInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUncheckedCreateNestedManyWithoutBulkOperationInput
 }
@@ -631,7 +606,6 @@ export type BulkOperationLogCreateWithoutApplicationsInput = {
   reversedAt?: Date | string | null
   createdAt?: Date | string
   triggeredBy?: Prisma.UserCreateNestedOneWithoutBulkOperationLogInput
-  loanRecipients?: Prisma.LoanRecipientCreateNestedManyWithoutBulkOperationLogInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorCreateNestedManyWithoutBulkOperationInput
 }
 
@@ -644,7 +618,6 @@ export type BulkOperationLogUncheckedCreateWithoutApplicationsInput = {
   reversedAt?: Date | string | null
   createdAt?: Date | string
   triggeredById?: string | null
-  loanRecipients?: Prisma.LoanRecipientUncheckedCreateNestedManyWithoutBulkOperationLogInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUncheckedCreateNestedManyWithoutBulkOperationInput
 }
 
@@ -673,7 +646,6 @@ export type BulkOperationLogUpdateWithoutApplicationsInput = {
   reversedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggeredBy?: Prisma.UserUpdateOneWithoutBulkOperationLogNestedInput
-  loanRecipients?: Prisma.LoanRecipientUpdateManyWithoutBulkOperationLogNestedInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUpdateManyWithoutBulkOperationNestedInput
 }
 
@@ -686,75 +658,6 @@ export type BulkOperationLogUncheckedUpdateWithoutApplicationsInput = {
   reversedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggeredById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  loanRecipients?: Prisma.LoanRecipientUncheckedUpdateManyWithoutBulkOperationLogNestedInput
-  bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUncheckedUpdateManyWithoutBulkOperationNestedInput
-}
-
-export type BulkOperationLogCreateWithoutLoanRecipientsInput = {
-  id?: string
-  operationType?: $Enums.BULK_OPERATION_TYPE
-  totalCount?: number | null
-  duration?: number | null
-  isReversed?: boolean
-  reversedAt?: Date | string | null
-  createdAt?: Date | string
-  triggeredBy?: Prisma.UserCreateNestedOneWithoutBulkOperationLogInput
-  applications?: Prisma.ApplicationCreateNestedManyWithoutBulkOperationLogInput
-  bulkOperationRowErrors?: Prisma.BulkOperationRowErrorCreateNestedManyWithoutBulkOperationInput
-}
-
-export type BulkOperationLogUncheckedCreateWithoutLoanRecipientsInput = {
-  id?: string
-  operationType?: $Enums.BULK_OPERATION_TYPE
-  totalCount?: number | null
-  duration?: number | null
-  isReversed?: boolean
-  reversedAt?: Date | string | null
-  createdAt?: Date | string
-  triggeredById?: string | null
-  applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutBulkOperationLogInput
-  bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUncheckedCreateNestedManyWithoutBulkOperationInput
-}
-
-export type BulkOperationLogCreateOrConnectWithoutLoanRecipientsInput = {
-  where: Prisma.BulkOperationLogWhereUniqueInput
-  create: Prisma.XOR<Prisma.BulkOperationLogCreateWithoutLoanRecipientsInput, Prisma.BulkOperationLogUncheckedCreateWithoutLoanRecipientsInput>
-}
-
-export type BulkOperationLogUpsertWithoutLoanRecipientsInput = {
-  update: Prisma.XOR<Prisma.BulkOperationLogUpdateWithoutLoanRecipientsInput, Prisma.BulkOperationLogUncheckedUpdateWithoutLoanRecipientsInput>
-  create: Prisma.XOR<Prisma.BulkOperationLogCreateWithoutLoanRecipientsInput, Prisma.BulkOperationLogUncheckedCreateWithoutLoanRecipientsInput>
-  where?: Prisma.BulkOperationLogWhereInput
-}
-
-export type BulkOperationLogUpdateToOneWithWhereWithoutLoanRecipientsInput = {
-  where?: Prisma.BulkOperationLogWhereInput
-  data: Prisma.XOR<Prisma.BulkOperationLogUpdateWithoutLoanRecipientsInput, Prisma.BulkOperationLogUncheckedUpdateWithoutLoanRecipientsInput>
-}
-
-export type BulkOperationLogUpdateWithoutLoanRecipientsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  operationType?: Prisma.EnumBULK_OPERATION_TYPEFieldUpdateOperationsInput | $Enums.BULK_OPERATION_TYPE
-  totalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  isReversed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  reversedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  triggeredBy?: Prisma.UserUpdateOneWithoutBulkOperationLogNestedInput
-  applications?: Prisma.ApplicationUpdateManyWithoutBulkOperationLogNestedInput
-  bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUpdateManyWithoutBulkOperationNestedInput
-}
-
-export type BulkOperationLogUncheckedUpdateWithoutLoanRecipientsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  operationType?: Prisma.EnumBULK_OPERATION_TYPEFieldUpdateOperationsInput | $Enums.BULK_OPERATION_TYPE
-  totalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  duration?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  isReversed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  reversedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  triggeredById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  applications?: Prisma.ApplicationUncheckedUpdateManyWithoutBulkOperationLogNestedInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUncheckedUpdateManyWithoutBulkOperationNestedInput
 }
 
@@ -767,7 +670,6 @@ export type BulkOperationLogCreateWithoutBulkOperationRowErrorsInput = {
   reversedAt?: Date | string | null
   createdAt?: Date | string
   triggeredBy?: Prisma.UserCreateNestedOneWithoutBulkOperationLogInput
-  loanRecipients?: Prisma.LoanRecipientCreateNestedManyWithoutBulkOperationLogInput
   applications?: Prisma.ApplicationCreateNestedManyWithoutBulkOperationLogInput
 }
 
@@ -780,7 +682,6 @@ export type BulkOperationLogUncheckedCreateWithoutBulkOperationRowErrorsInput = 
   reversedAt?: Date | string | null
   createdAt?: Date | string
   triggeredById?: string | null
-  loanRecipients?: Prisma.LoanRecipientUncheckedCreateNestedManyWithoutBulkOperationLogInput
   applications?: Prisma.ApplicationUncheckedCreateNestedManyWithoutBulkOperationLogInput
 }
 
@@ -809,7 +710,6 @@ export type BulkOperationLogUpdateWithoutBulkOperationRowErrorsInput = {
   reversedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggeredBy?: Prisma.UserUpdateOneWithoutBulkOperationLogNestedInput
-  loanRecipients?: Prisma.LoanRecipientUpdateManyWithoutBulkOperationLogNestedInput
   applications?: Prisma.ApplicationUpdateManyWithoutBulkOperationLogNestedInput
 }
 
@@ -822,7 +722,6 @@ export type BulkOperationLogUncheckedUpdateWithoutBulkOperationRowErrorsInput = 
   reversedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggeredById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  loanRecipients?: Prisma.LoanRecipientUncheckedUpdateManyWithoutBulkOperationLogNestedInput
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutBulkOperationLogNestedInput
 }
 
@@ -844,7 +743,6 @@ export type BulkOperationLogUpdateWithoutTriggeredByInput = {
   isReversed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reversedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  loanRecipients?: Prisma.LoanRecipientUpdateManyWithoutBulkOperationLogNestedInput
   applications?: Prisma.ApplicationUpdateManyWithoutBulkOperationLogNestedInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUpdateManyWithoutBulkOperationNestedInput
 }
@@ -857,7 +755,6 @@ export type BulkOperationLogUncheckedUpdateWithoutTriggeredByInput = {
   isReversed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   reversedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  loanRecipients?: Prisma.LoanRecipientUncheckedUpdateManyWithoutBulkOperationLogNestedInput
   applications?: Prisma.ApplicationUncheckedUpdateManyWithoutBulkOperationLogNestedInput
   bulkOperationRowErrors?: Prisma.BulkOperationRowErrorUncheckedUpdateManyWithoutBulkOperationNestedInput
 }
@@ -878,13 +775,11 @@ export type BulkOperationLogUncheckedUpdateManyWithoutTriggeredByInput = {
  */
 
 export type BulkOperationLogCountOutputType = {
-  loanRecipients: number
   applications: number
   bulkOperationRowErrors: number
 }
 
 export type BulkOperationLogCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  loanRecipients?: boolean | BulkOperationLogCountOutputTypeCountLoanRecipientsArgs
   applications?: boolean | BulkOperationLogCountOutputTypeCountApplicationsArgs
   bulkOperationRowErrors?: boolean | BulkOperationLogCountOutputTypeCountBulkOperationRowErrorsArgs
 }
@@ -897,13 +792,6 @@ export type BulkOperationLogCountOutputTypeDefaultArgs<ExtArgs extends runtime.T
    * Select specific fields to fetch from the BulkOperationLogCountOutputType
    */
   select?: Prisma.BulkOperationLogCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * BulkOperationLogCountOutputType without action
- */
-export type BulkOperationLogCountOutputTypeCountLoanRecipientsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.LoanRecipientWhereInput
 }
 
 /**
@@ -931,7 +819,6 @@ export type BulkOperationLogSelect<ExtArgs extends runtime.Types.Extensions.Inte
   createdAt?: boolean
   triggeredById?: boolean
   triggeredBy?: boolean | Prisma.BulkOperationLog$triggeredByArgs<ExtArgs>
-  loanRecipients?: boolean | Prisma.BulkOperationLog$loanRecipientsArgs<ExtArgs>
   applications?: boolean | Prisma.BulkOperationLog$applicationsArgs<ExtArgs>
   bulkOperationRowErrors?: boolean | Prisma.BulkOperationLog$bulkOperationRowErrorsArgs<ExtArgs>
   _count?: boolean | Prisma.BulkOperationLogCountOutputTypeDefaultArgs<ExtArgs>
@@ -975,7 +862,6 @@ export type BulkOperationLogSelectScalar = {
 export type BulkOperationLogOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "operationType" | "totalCount" | "duration" | "isReversed" | "reversedAt" | "createdAt" | "triggeredById", ExtArgs["result"]["bulkOperationLog"]>
 export type BulkOperationLogInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   triggeredBy?: boolean | Prisma.BulkOperationLog$triggeredByArgs<ExtArgs>
-  loanRecipients?: boolean | Prisma.BulkOperationLog$loanRecipientsArgs<ExtArgs>
   applications?: boolean | Prisma.BulkOperationLog$applicationsArgs<ExtArgs>
   bulkOperationRowErrors?: boolean | Prisma.BulkOperationLog$bulkOperationRowErrorsArgs<ExtArgs>
   _count?: boolean | Prisma.BulkOperationLogCountOutputTypeDefaultArgs<ExtArgs>
@@ -991,7 +877,6 @@ export type $BulkOperationLogPayload<ExtArgs extends runtime.Types.Extensions.In
   name: "BulkOperationLog"
   objects: {
     triggeredBy: Prisma.$UserPayload<ExtArgs> | null
-    loanRecipients: Prisma.$LoanRecipientPayload<ExtArgs>[]
     applications: Prisma.$ApplicationPayload<ExtArgs>[]
     bulkOperationRowErrors: Prisma.$BulkOperationRowErrorPayload<ExtArgs>[]
   }
@@ -1399,7 +1284,6 @@ readonly fields: BulkOperationLogFieldRefs;
 export interface Prisma__BulkOperationLogClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   triggeredBy<T extends Prisma.BulkOperationLog$triggeredByArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BulkOperationLog$triggeredByArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  loanRecipients<T extends Prisma.BulkOperationLog$loanRecipientsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BulkOperationLog$loanRecipientsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LoanRecipientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   applications<T extends Prisma.BulkOperationLog$applicationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BulkOperationLog$applicationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   bulkOperationRowErrors<T extends Prisma.BulkOperationLog$bulkOperationRowErrorsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.BulkOperationLog$bulkOperationRowErrorsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BulkOperationRowErrorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1851,30 +1735,6 @@ export type BulkOperationLog$triggeredByArgs<ExtArgs extends runtime.Types.Exten
    */
   include?: Prisma.UserInclude<ExtArgs> | null
   where?: Prisma.UserWhereInput
-}
-
-/**
- * BulkOperationLog.loanRecipients
- */
-export type BulkOperationLog$loanRecipientsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the LoanRecipient
-   */
-  select?: Prisma.LoanRecipientSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the LoanRecipient
-   */
-  omit?: Prisma.LoanRecipientOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.LoanRecipientInclude<ExtArgs> | null
-  where?: Prisma.LoanRecipientWhereInput
-  orderBy?: Prisma.LoanRecipientOrderByWithRelationInput | Prisma.LoanRecipientOrderByWithRelationInput[]
-  cursor?: Prisma.LoanRecipientWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.LoanRecipientScalarFieldEnum | Prisma.LoanRecipientScalarFieldEnum[]
 }
 
 /**
