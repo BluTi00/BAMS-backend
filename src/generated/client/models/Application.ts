@@ -41,6 +41,9 @@ export type ApplicationMinAggregateOutputType = {
   applicationCode: string | null
   applicantName: string | null
   applicantNameNp: string | null
+  citizenshipNumber: string | null
+  issuedDate: string | null
+  issuedDistrict: string | null
   addressId: number | null
   telephone: string | null
   email: string | null
@@ -59,6 +62,7 @@ export type ApplicationMinAggregateOutputType = {
   updatedAt: Date | null
   deletedAt: Date | null
   status: $Enums.APPLICATION_STATUS | null
+  programType: $Enums.PROGRAM_TYPE | null
   applicationCycleId: string | null
   userId: string | null
   createdByAdminId: string | null
@@ -70,6 +74,9 @@ export type ApplicationMaxAggregateOutputType = {
   applicationCode: string | null
   applicantName: string | null
   applicantNameNp: string | null
+  citizenshipNumber: string | null
+  issuedDate: string | null
+  issuedDistrict: string | null
   addressId: number | null
   telephone: string | null
   email: string | null
@@ -88,6 +95,7 @@ export type ApplicationMaxAggregateOutputType = {
   updatedAt: Date | null
   deletedAt: Date | null
   status: $Enums.APPLICATION_STATUS | null
+  programType: $Enums.PROGRAM_TYPE | null
   applicationCycleId: string | null
   userId: string | null
   createdByAdminId: string | null
@@ -99,6 +107,9 @@ export type ApplicationCountAggregateOutputType = {
   applicationCode: number
   applicantName: number
   applicantNameNp: number
+  citizenshipNumber: number
+  issuedDate: number
+  issuedDistrict: number
   addressId: number
   telephone: number
   email: number
@@ -111,13 +122,15 @@ export type ApplicationCountAggregateOutputType = {
   possibilityOfSellingProducedGoods: number
   institutionalUpgradeSupport: number
   existingOperatingProfession: number
-  professionToBeUpgraded: number
   estimatedCost: number
   submissionDate: number
   createdAt: number
   updatedAt: number
   deletedAt: number
   status: number
+  entrepreneurshipRelatedTraining: number
+  professionToBeUpgraded: number
+  programType: number
   applicationCycleId: number
   userId: number
   createdByAdminId: number
@@ -141,6 +154,9 @@ export type ApplicationMinAggregateInputType = {
   applicationCode?: true
   applicantName?: true
   applicantNameNp?: true
+  citizenshipNumber?: true
+  issuedDate?: true
+  issuedDistrict?: true
   addressId?: true
   telephone?: true
   email?: true
@@ -159,6 +175,7 @@ export type ApplicationMinAggregateInputType = {
   updatedAt?: true
   deletedAt?: true
   status?: true
+  programType?: true
   applicationCycleId?: true
   userId?: true
   createdByAdminId?: true
@@ -170,6 +187,9 @@ export type ApplicationMaxAggregateInputType = {
   applicationCode?: true
   applicantName?: true
   applicantNameNp?: true
+  citizenshipNumber?: true
+  issuedDate?: true
+  issuedDistrict?: true
   addressId?: true
   telephone?: true
   email?: true
@@ -188,6 +208,7 @@ export type ApplicationMaxAggregateInputType = {
   updatedAt?: true
   deletedAt?: true
   status?: true
+  programType?: true
   applicationCycleId?: true
   userId?: true
   createdByAdminId?: true
@@ -199,6 +220,9 @@ export type ApplicationCountAggregateInputType = {
   applicationCode?: true
   applicantName?: true
   applicantNameNp?: true
+  citizenshipNumber?: true
+  issuedDate?: true
+  issuedDistrict?: true
   addressId?: true
   telephone?: true
   email?: true
@@ -211,13 +235,15 @@ export type ApplicationCountAggregateInputType = {
   possibilityOfSellingProducedGoods?: true
   institutionalUpgradeSupport?: true
   existingOperatingProfession?: true
-  professionToBeUpgraded?: true
   estimatedCost?: true
   submissionDate?: true
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
   status?: true
+  entrepreneurshipRelatedTraining?: true
+  professionToBeUpgraded?: true
+  programType?: true
   applicationCycleId?: true
   userId?: true
   createdByAdminId?: true
@@ -316,6 +342,9 @@ export type ApplicationGroupByOutputType = {
   applicationCode: string | null
   applicantName: string
   applicantNameNp: string | null
+  citizenshipNumber: string | null
+  issuedDate: string | null
+  issuedDistrict: string | null
   addressId: number
   telephone: string | null
   email: string | null
@@ -328,13 +357,15 @@ export type ApplicationGroupByOutputType = {
   possibilityOfSellingProducedGoods: boolean | null
   institutionalUpgradeSupport: boolean | null
   existingOperatingProfession: string | null
-  professionToBeUpgraded: string[]
   estimatedCost: number | null
   submissionDate: string | null
   createdAt: Date
   updatedAt: Date
   deletedAt: Date | null
   status: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining: runtime.JsonValue[]
+  professionToBeUpgraded: string[]
+  programType: $Enums.PROGRAM_TYPE
   applicationCycleId: string | null
   userId: string | null
   createdByAdminId: string | null
@@ -369,6 +400,9 @@ export type ApplicationWhereInput = {
   applicationCode?: Prisma.StringNullableFilter<"Application"> | string | null
   applicantName?: Prisma.StringFilter<"Application"> | string
   applicantNameNp?: Prisma.StringNullableFilter<"Application"> | string | null
+  citizenshipNumber?: Prisma.StringNullableFilter<"Application"> | string | null
+  issuedDate?: Prisma.StringNullableFilter<"Application"> | string | null
+  issuedDistrict?: Prisma.StringNullableFilter<"Application"> | string | null
   addressId?: Prisma.IntFilter<"Application"> | number
   telephone?: Prisma.StringNullableFilter<"Application"> | string | null
   email?: Prisma.StringNullableFilter<"Application"> | string | null
@@ -381,13 +415,15 @@ export type ApplicationWhereInput = {
   possibilityOfSellingProducedGoods?: Prisma.BoolNullableFilter<"Application"> | boolean | null
   institutionalUpgradeSupport?: Prisma.BoolNullableFilter<"Application"> | boolean | null
   existingOperatingProfession?: Prisma.StringNullableFilter<"Application"> | string | null
-  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
   estimatedCost?: Prisma.FloatNullableFilter<"Application"> | number | null
   submissionDate?: Prisma.StringNullableFilter<"Application"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Application"> | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFilter<"Application"> | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.JsonNullableListFilter<"Application">
+  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
+  programType?: Prisma.EnumPROGRAM_TYPEFilter<"Application"> | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.StringNullableFilter<"Application"> | string | null
   userId?: Prisma.StringNullableFilter<"Application"> | string | null
   createdByAdminId?: Prisma.StringNullableFilter<"Application"> | string | null
@@ -406,6 +442,9 @@ export type ApplicationOrderByWithRelationInput = {
   applicationCode?: Prisma.SortOrderInput | Prisma.SortOrder
   applicantName?: Prisma.SortOrder
   applicantNameNp?: Prisma.SortOrderInput | Prisma.SortOrder
+  citizenshipNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  issuedDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  issuedDistrict?: Prisma.SortOrderInput | Prisma.SortOrder
   addressId?: Prisma.SortOrder
   telephone?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -418,13 +457,15 @@ export type ApplicationOrderByWithRelationInput = {
   possibilityOfSellingProducedGoods?: Prisma.SortOrderInput | Prisma.SortOrder
   institutionalUpgradeSupport?: Prisma.SortOrderInput | Prisma.SortOrder
   existingOperatingProfession?: Prisma.SortOrderInput | Prisma.SortOrder
-  professionToBeUpgraded?: Prisma.SortOrder
   estimatedCost?: Prisma.SortOrderInput | Prisma.SortOrder
   submissionDate?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
+  entrepreneurshipRelatedTraining?: Prisma.SortOrder
+  professionToBeUpgraded?: Prisma.SortOrder
+  programType?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdByAdminId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -441,7 +482,7 @@ export type ApplicationOrderByWithRelationInput = {
 export type ApplicationWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   addressId?: number
-  userId_applicationCycleId?: Prisma.ApplicationUserIdApplicationCycleIdCompoundUniqueInput
+  userId_applicationCycleId_programType?: Prisma.ApplicationUserIdApplicationCycleIdProgramTypeCompoundUniqueInput
   applicationCode_applicationCycleId?: Prisma.ApplicationApplicationCodeApplicationCycleIdCompoundUniqueInput
   AND?: Prisma.ApplicationWhereInput | Prisma.ApplicationWhereInput[]
   OR?: Prisma.ApplicationWhereInput[]
@@ -449,6 +490,9 @@ export type ApplicationWhereUniqueInput = Prisma.AtLeast<{
   applicationCode?: Prisma.StringNullableFilter<"Application"> | string | null
   applicantName?: Prisma.StringFilter<"Application"> | string
   applicantNameNp?: Prisma.StringNullableFilter<"Application"> | string | null
+  citizenshipNumber?: Prisma.StringNullableFilter<"Application"> | string | null
+  issuedDate?: Prisma.StringNullableFilter<"Application"> | string | null
+  issuedDistrict?: Prisma.StringNullableFilter<"Application"> | string | null
   telephone?: Prisma.StringNullableFilter<"Application"> | string | null
   email?: Prisma.StringNullableFilter<"Application"> | string | null
   dateOfBirth?: Prisma.StringNullableFilter<"Application"> | string | null
@@ -460,13 +504,15 @@ export type ApplicationWhereUniqueInput = Prisma.AtLeast<{
   possibilityOfSellingProducedGoods?: Prisma.BoolNullableFilter<"Application"> | boolean | null
   institutionalUpgradeSupport?: Prisma.BoolNullableFilter<"Application"> | boolean | null
   existingOperatingProfession?: Prisma.StringNullableFilter<"Application"> | string | null
-  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
   estimatedCost?: Prisma.FloatNullableFilter<"Application"> | number | null
   submissionDate?: Prisma.StringNullableFilter<"Application"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Application"> | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFilter<"Application"> | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.JsonNullableListFilter<"Application">
+  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
+  programType?: Prisma.EnumPROGRAM_TYPEFilter<"Application"> | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.StringNullableFilter<"Application"> | string | null
   userId?: Prisma.StringNullableFilter<"Application"> | string | null
   createdByAdminId?: Prisma.StringNullableFilter<"Application"> | string | null
@@ -478,13 +524,16 @@ export type ApplicationWhereUniqueInput = Prisma.AtLeast<{
   statusHistory?: Prisma.StatusHistoryListRelationFilter
   createdByAdmin?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   bulkOperationLog?: Prisma.XOR<Prisma.BulkOperationLogNullableScalarRelationFilter, Prisma.BulkOperationLogWhereInput> | null
-}, "id" | "addressId" | "userId_applicationCycleId" | "applicationCode_applicationCycleId">
+}, "id" | "addressId" | "userId_applicationCycleId_programType" | "applicationCode_applicationCycleId">
 
 export type ApplicationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   applicationCode?: Prisma.SortOrderInput | Prisma.SortOrder
   applicantName?: Prisma.SortOrder
   applicantNameNp?: Prisma.SortOrderInput | Prisma.SortOrder
+  citizenshipNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  issuedDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  issuedDistrict?: Prisma.SortOrderInput | Prisma.SortOrder
   addressId?: Prisma.SortOrder
   telephone?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -497,13 +546,15 @@ export type ApplicationOrderByWithAggregationInput = {
   possibilityOfSellingProducedGoods?: Prisma.SortOrderInput | Prisma.SortOrder
   institutionalUpgradeSupport?: Prisma.SortOrderInput | Prisma.SortOrder
   existingOperatingProfession?: Prisma.SortOrderInput | Prisma.SortOrder
-  professionToBeUpgraded?: Prisma.SortOrder
   estimatedCost?: Prisma.SortOrderInput | Prisma.SortOrder
   submissionDate?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
+  entrepreneurshipRelatedTraining?: Prisma.SortOrder
+  professionToBeUpgraded?: Prisma.SortOrder
+  programType?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdByAdminId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -523,6 +574,9 @@ export type ApplicationScalarWhereWithAggregatesInput = {
   applicationCode?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
   applicantName?: Prisma.StringWithAggregatesFilter<"Application"> | string
   applicantNameNp?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  citizenshipNumber?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  issuedDate?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
+  issuedDistrict?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
   addressId?: Prisma.IntWithAggregatesFilter<"Application"> | number
   telephone?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
   email?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
@@ -535,13 +589,15 @@ export type ApplicationScalarWhereWithAggregatesInput = {
   possibilityOfSellingProducedGoods?: Prisma.BoolNullableWithAggregatesFilter<"Application"> | boolean | null
   institutionalUpgradeSupport?: Prisma.BoolNullableWithAggregatesFilter<"Application"> | boolean | null
   existingOperatingProfession?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
-  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
   estimatedCost?: Prisma.FloatNullableWithAggregatesFilter<"Application"> | number | null
   submissionDate?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Application"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Application"> | Date | string
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Application"> | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSWithAggregatesFilter<"Application"> | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.JsonNullableListFilter<"Application">
+  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
+  programType?: Prisma.EnumPROGRAM_TYPEWithAggregatesFilter<"Application"> | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
   userId?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
   createdByAdminId?: Prisma.StringNullableWithAggregatesFilter<"Application"> | string | null
@@ -553,6 +609,9 @@ export type ApplicationCreateInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   telephone?: string | null
   email?: string | null
   dateOfBirth?: string | null
@@ -564,13 +623,15 @@ export type ApplicationCreateInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
   address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
@@ -585,6 +646,9 @@ export type ApplicationUncheckedCreateInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -597,13 +661,15 @@ export type ApplicationUncheckedCreateInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   userId?: string | null
   createdByAdminId?: string | null
@@ -617,6 +683,9 @@ export type ApplicationUpdateInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -628,13 +697,15 @@ export type ApplicationUpdateInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
   address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
@@ -649,6 +720,9 @@ export type ApplicationUncheckedUpdateInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -661,13 +735,15 @@ export type ApplicationUncheckedUpdateInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -681,6 +757,9 @@ export type ApplicationCreateManyInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -693,13 +772,15 @@ export type ApplicationCreateManyInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   userId?: string | null
   createdByAdminId?: string | null
@@ -711,6 +792,9 @@ export type ApplicationUpdateManyMutationInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -722,13 +806,15 @@ export type ApplicationUpdateManyMutationInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
 }
 
 export type ApplicationUncheckedUpdateManyInput = {
@@ -736,6 +822,9 @@ export type ApplicationUncheckedUpdateManyInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -748,13 +837,15 @@ export type ApplicationUncheckedUpdateManyInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -776,6 +867,21 @@ export type ApplicationNullableScalarRelationFilter = {
   isNot?: Prisma.ApplicationWhereInput | null
 }
 
+export type JsonNullableListFilter<$PrismaModel = never> =
+| Prisma.PatchUndefined<
+    Prisma.Either<Required<JsonNullableListFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableListFilterBase<$PrismaModel>>, 'path'>>,
+    Required<JsonNullableListFilterBase<$PrismaModel>>
+  >
+| Prisma.OptionalFlat<Omit<Required<JsonNullableListFilterBase<$PrismaModel>>, 'path'>>
+
+export type JsonNullableListFilterBase<$PrismaModel = never> = {
+  equals?: runtime.InputJsonValue[] | Prisma.ListJsonFieldRefInput<$PrismaModel> | null
+  has?: runtime.InputJsonValue | Prisma.JsonFieldRefInput<$PrismaModel> | null
+  hasEvery?: runtime.InputJsonValue[] | Prisma.ListJsonFieldRefInput<$PrismaModel>
+  hasSome?: runtime.InputJsonValue[] | Prisma.ListJsonFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
+}
+
 export type StringNullableListFilter<$PrismaModel = never> = {
   equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
   has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
@@ -784,9 +890,10 @@ export type StringNullableListFilter<$PrismaModel = never> = {
   isEmpty?: boolean
 }
 
-export type ApplicationUserIdApplicationCycleIdCompoundUniqueInput = {
+export type ApplicationUserIdApplicationCycleIdProgramTypeCompoundUniqueInput = {
   userId: string
   applicationCycleId: string
+  programType: $Enums.PROGRAM_TYPE
 }
 
 export type ApplicationApplicationCodeApplicationCycleIdCompoundUniqueInput = {
@@ -799,6 +906,9 @@ export type ApplicationCountOrderByAggregateInput = {
   applicationCode?: Prisma.SortOrder
   applicantName?: Prisma.SortOrder
   applicantNameNp?: Prisma.SortOrder
+  citizenshipNumber?: Prisma.SortOrder
+  issuedDate?: Prisma.SortOrder
+  issuedDistrict?: Prisma.SortOrder
   addressId?: Prisma.SortOrder
   telephone?: Prisma.SortOrder
   email?: Prisma.SortOrder
@@ -811,13 +921,15 @@ export type ApplicationCountOrderByAggregateInput = {
   possibilityOfSellingProducedGoods?: Prisma.SortOrder
   institutionalUpgradeSupport?: Prisma.SortOrder
   existingOperatingProfession?: Prisma.SortOrder
-  professionToBeUpgraded?: Prisma.SortOrder
   estimatedCost?: Prisma.SortOrder
   submissionDate?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  entrepreneurshipRelatedTraining?: Prisma.SortOrder
+  professionToBeUpgraded?: Prisma.SortOrder
+  programType?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdByAdminId?: Prisma.SortOrder
@@ -834,6 +946,9 @@ export type ApplicationMaxOrderByAggregateInput = {
   applicationCode?: Prisma.SortOrder
   applicantName?: Prisma.SortOrder
   applicantNameNp?: Prisma.SortOrder
+  citizenshipNumber?: Prisma.SortOrder
+  issuedDate?: Prisma.SortOrder
+  issuedDistrict?: Prisma.SortOrder
   addressId?: Prisma.SortOrder
   telephone?: Prisma.SortOrder
   email?: Prisma.SortOrder
@@ -852,6 +967,7 @@ export type ApplicationMaxOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  programType?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdByAdminId?: Prisma.SortOrder
@@ -863,6 +979,9 @@ export type ApplicationMinOrderByAggregateInput = {
   applicationCode?: Prisma.SortOrder
   applicantName?: Prisma.SortOrder
   applicantNameNp?: Prisma.SortOrder
+  citizenshipNumber?: Prisma.SortOrder
+  issuedDate?: Prisma.SortOrder
+  issuedDistrict?: Prisma.SortOrder
   addressId?: Prisma.SortOrder
   telephone?: Prisma.SortOrder
   email?: Prisma.SortOrder
@@ -881,6 +1000,7 @@ export type ApplicationMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  programType?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdByAdminId?: Prisma.SortOrder
@@ -1039,17 +1159,16 @@ export type ApplicationUncheckedUpdateManyWithoutApplicationCycleNestedInput = {
   deleteMany?: Prisma.ApplicationScalarWhereInput | Prisma.ApplicationScalarWhereInput[]
 }
 
+export type ApplicationCreateentrepreneurshipRelatedTrainingInput = {
+  set: runtime.InputJsonValue[]
+}
+
 export type ApplicationCreateprofessionToBeUpgradedInput = {
   set: string[]
 }
 
 export type NullableBoolFieldUpdateOperationsInput = {
   set?: boolean | null
-}
-
-export type ApplicationUpdateprofessionToBeUpgradedInput = {
-  set?: string[]
-  push?: string | string[]
 }
 
 export type NullableFloatFieldUpdateOperationsInput = {
@@ -1062,6 +1181,20 @@ export type NullableFloatFieldUpdateOperationsInput = {
 
 export type EnumAPPLICATION_STATUSFieldUpdateOperationsInput = {
   set?: $Enums.APPLICATION_STATUS
+}
+
+export type ApplicationUpdateentrepreneurshipRelatedTrainingInput = {
+  set?: runtime.InputJsonValue[]
+  push?: runtime.InputJsonValue | runtime.InputJsonValue[]
+}
+
+export type ApplicationUpdateprofessionToBeUpgradedInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type EnumPROGRAM_TYPEFieldUpdateOperationsInput = {
+  set?: $Enums.PROGRAM_TYPE
 }
 
 export type IntFieldUpdateOperationsInput = {
@@ -1165,6 +1298,9 @@ export type ApplicationCreateWithoutUserInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   telephone?: string | null
   email?: string | null
   dateOfBirth?: string | null
@@ -1176,13 +1312,15 @@ export type ApplicationCreateWithoutUserInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
   address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
@@ -1196,6 +1334,9 @@ export type ApplicationUncheckedCreateWithoutUserInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -1208,13 +1349,15 @@ export type ApplicationUncheckedCreateWithoutUserInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
@@ -1237,6 +1380,9 @@ export type ApplicationCreateWithoutCreatedByAdminInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   telephone?: string | null
   email?: string | null
   dateOfBirth?: string | null
@@ -1248,13 +1394,15 @@ export type ApplicationCreateWithoutCreatedByAdminInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
   address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
@@ -1268,6 +1416,9 @@ export type ApplicationUncheckedCreateWithoutCreatedByAdminInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -1280,13 +1431,15 @@ export type ApplicationUncheckedCreateWithoutCreatedByAdminInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   userId?: string | null
   bulkOperationLogId?: string | null
@@ -1328,6 +1481,9 @@ export type ApplicationScalarWhereInput = {
   applicationCode?: Prisma.StringNullableFilter<"Application"> | string | null
   applicantName?: Prisma.StringFilter<"Application"> | string
   applicantNameNp?: Prisma.StringNullableFilter<"Application"> | string | null
+  citizenshipNumber?: Prisma.StringNullableFilter<"Application"> | string | null
+  issuedDate?: Prisma.StringNullableFilter<"Application"> | string | null
+  issuedDistrict?: Prisma.StringNullableFilter<"Application"> | string | null
   addressId?: Prisma.IntFilter<"Application"> | number
   telephone?: Prisma.StringNullableFilter<"Application"> | string | null
   email?: Prisma.StringNullableFilter<"Application"> | string | null
@@ -1340,13 +1496,15 @@ export type ApplicationScalarWhereInput = {
   possibilityOfSellingProducedGoods?: Prisma.BoolNullableFilter<"Application"> | boolean | null
   institutionalUpgradeSupport?: Prisma.BoolNullableFilter<"Application"> | boolean | null
   existingOperatingProfession?: Prisma.StringNullableFilter<"Application"> | string | null
-  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
   estimatedCost?: Prisma.FloatNullableFilter<"Application"> | number | null
   submissionDate?: Prisma.StringNullableFilter<"Application"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Application"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"Application"> | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFilter<"Application"> | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.JsonNullableListFilter<"Application">
+  professionToBeUpgraded?: Prisma.StringNullableListFilter<"Application">
+  programType?: Prisma.EnumPROGRAM_TYPEFilter<"Application"> | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.StringNullableFilter<"Application"> | string | null
   userId?: Prisma.StringNullableFilter<"Application"> | string | null
   createdByAdminId?: Prisma.StringNullableFilter<"Application"> | string | null
@@ -1374,6 +1532,9 @@ export type ApplicationCreateWithoutMediaInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   telephone?: string | null
   email?: string | null
   dateOfBirth?: string | null
@@ -1385,13 +1546,15 @@ export type ApplicationCreateWithoutMediaInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
   address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
@@ -1405,6 +1568,9 @@ export type ApplicationUncheckedCreateWithoutMediaInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -1417,13 +1583,15 @@ export type ApplicationUncheckedCreateWithoutMediaInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   userId?: string | null
   createdByAdminId?: string | null
@@ -1452,6 +1620,9 @@ export type ApplicationUpdateWithoutMediaInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1463,13 +1634,15 @@ export type ApplicationUpdateWithoutMediaInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
   address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
@@ -1483,6 +1656,9 @@ export type ApplicationUncheckedUpdateWithoutMediaInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1495,13 +1671,15 @@ export type ApplicationUncheckedUpdateWithoutMediaInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1514,6 +1692,9 @@ export type ApplicationCreateWithoutApplicationCycleInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   telephone?: string | null
   email?: string | null
   dateOfBirth?: string | null
@@ -1525,13 +1706,15 @@ export type ApplicationCreateWithoutApplicationCycleInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
@@ -1545,6 +1728,9 @@ export type ApplicationUncheckedCreateWithoutApplicationCycleInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -1557,13 +1743,15 @@ export type ApplicationUncheckedCreateWithoutApplicationCycleInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   userId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
@@ -1602,6 +1790,9 @@ export type ApplicationCreateWithoutStatusHistoryInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   telephone?: string | null
   email?: string | null
   dateOfBirth?: string | null
@@ -1613,13 +1804,15 @@ export type ApplicationCreateWithoutStatusHistoryInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
   address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
@@ -1633,6 +1826,9 @@ export type ApplicationUncheckedCreateWithoutStatusHistoryInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -1645,13 +1841,15 @@ export type ApplicationUncheckedCreateWithoutStatusHistoryInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   userId?: string | null
   createdByAdminId?: string | null
@@ -1680,6 +1878,9 @@ export type ApplicationUpdateWithoutStatusHistoryInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1691,13 +1892,15 @@ export type ApplicationUpdateWithoutStatusHistoryInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
   address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
@@ -1711,6 +1914,9 @@ export type ApplicationUncheckedUpdateWithoutStatusHistoryInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1723,13 +1929,15 @@ export type ApplicationUncheckedUpdateWithoutStatusHistoryInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1742,6 +1950,9 @@ export type ApplicationCreateWithoutAddressInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   telephone?: string | null
   email?: string | null
   dateOfBirth?: string | null
@@ -1753,13 +1964,15 @@ export type ApplicationCreateWithoutAddressInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
@@ -1773,6 +1986,9 @@ export type ApplicationUncheckedCreateWithoutAddressInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   telephone?: string | null
   email?: string | null
   dateOfBirth?: string | null
@@ -1784,13 +2000,15 @@ export type ApplicationUncheckedCreateWithoutAddressInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   userId?: string | null
   createdByAdminId?: string | null
@@ -1820,6 +2038,9 @@ export type ApplicationUpdateWithoutAddressInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1831,13 +2052,15 @@ export type ApplicationUpdateWithoutAddressInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
@@ -1851,6 +2074,9 @@ export type ApplicationUncheckedUpdateWithoutAddressInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1862,13 +2088,15 @@ export type ApplicationUncheckedUpdateWithoutAddressInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1882,6 +2110,9 @@ export type ApplicationCreateWithoutBulkOperationLogInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   telephone?: string | null
   email?: string | null
   dateOfBirth?: string | null
@@ -1893,13 +2124,15 @@ export type ApplicationCreateWithoutBulkOperationLogInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
   address: Prisma.AddressCreateNestedOneWithoutApplicationInput
   user?: Prisma.UserCreateNestedOneWithoutApplicationInput
@@ -1913,6 +2146,9 @@ export type ApplicationUncheckedCreateWithoutBulkOperationLogInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -1925,13 +2161,15 @@ export type ApplicationUncheckedCreateWithoutBulkOperationLogInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   userId?: string | null
   createdByAdminId?: string | null
@@ -1970,6 +2208,9 @@ export type ApplicationCreateManyUserInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -1982,13 +2223,15 @@ export type ApplicationCreateManyUserInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
@@ -1999,6 +2242,9 @@ export type ApplicationCreateManyCreatedByAdminInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -2011,13 +2257,15 @@ export type ApplicationCreateManyCreatedByAdminInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   userId?: string | null
   bulkOperationLogId?: string | null
@@ -2028,6 +2276,9 @@ export type ApplicationUpdateWithoutUserInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2039,13 +2290,15 @@ export type ApplicationUpdateWithoutUserInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
   address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
@@ -2059,6 +2312,9 @@ export type ApplicationUncheckedUpdateWithoutUserInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2071,13 +2327,15 @@ export type ApplicationUncheckedUpdateWithoutUserInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2090,6 +2348,9 @@ export type ApplicationUncheckedUpdateManyWithoutUserInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2102,13 +2363,15 @@ export type ApplicationUncheckedUpdateManyWithoutUserInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2119,6 +2382,9 @@ export type ApplicationUpdateWithoutCreatedByAdminInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2130,13 +2396,15 @@ export type ApplicationUpdateWithoutCreatedByAdminInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
   address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
@@ -2150,6 +2418,9 @@ export type ApplicationUncheckedUpdateWithoutCreatedByAdminInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2162,13 +2433,15 @@ export type ApplicationUncheckedUpdateWithoutCreatedByAdminInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2181,6 +2454,9 @@ export type ApplicationUncheckedUpdateManyWithoutCreatedByAdminInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2193,13 +2469,15 @@ export type ApplicationUncheckedUpdateManyWithoutCreatedByAdminInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2210,6 +2488,9 @@ export type ApplicationCreateManyApplicationCycleInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -2222,13 +2503,15 @@ export type ApplicationCreateManyApplicationCycleInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   userId?: string | null
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
@@ -2239,6 +2522,9 @@ export type ApplicationUpdateWithoutApplicationCycleInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2250,13 +2536,15 @@ export type ApplicationUpdateWithoutApplicationCycleInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
@@ -2270,6 +2558,9 @@ export type ApplicationUncheckedUpdateWithoutApplicationCycleInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2282,13 +2573,15 @@ export type ApplicationUncheckedUpdateWithoutApplicationCycleInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2301,6 +2594,9 @@ export type ApplicationUncheckedUpdateManyWithoutApplicationCycleInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2313,13 +2609,15 @@ export type ApplicationUncheckedUpdateManyWithoutApplicationCycleInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2330,6 +2628,9 @@ export type ApplicationCreateManyBulkOperationLogInput = {
   applicationCode?: string | null
   applicantName: string
   applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
   addressId: number
   telephone?: string | null
   email?: string | null
@@ -2342,13 +2643,15 @@ export type ApplicationCreateManyBulkOperationLogInput = {
   possibilityOfSellingProducedGoods?: boolean | null
   institutionalUpgradeSupport?: boolean | null
   existingOperatingProfession?: string | null
-  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
   estimatedCost?: number | null
   submissionDate?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
   applicationCycleId?: string | null
   userId?: string | null
   createdByAdminId?: string | null
@@ -2359,6 +2662,9 @@ export type ApplicationUpdateWithoutBulkOperationLogInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2370,13 +2676,15 @@ export type ApplicationUpdateWithoutBulkOperationLogInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
   address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
   user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
@@ -2390,6 +2698,9 @@ export type ApplicationUncheckedUpdateWithoutBulkOperationLogInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2402,13 +2713,15 @@ export type ApplicationUncheckedUpdateWithoutBulkOperationLogInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2421,6 +2734,9 @@ export type ApplicationUncheckedUpdateManyWithoutBulkOperationLogInput = {
   applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   applicantName?: Prisma.StringFieldUpdateOperationsInput | string
   applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   addressId?: Prisma.IntFieldUpdateOperationsInput | number
   telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2433,13 +2749,15 @@ export type ApplicationUncheckedUpdateManyWithoutBulkOperationLogInput = {
   possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2490,6 +2808,9 @@ export type ApplicationSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   applicationCode?: boolean
   applicantName?: boolean
   applicantNameNp?: boolean
+  citizenshipNumber?: boolean
+  issuedDate?: boolean
+  issuedDistrict?: boolean
   addressId?: boolean
   telephone?: boolean
   email?: boolean
@@ -2502,13 +2823,15 @@ export type ApplicationSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   possibilityOfSellingProducedGoods?: boolean
   institutionalUpgradeSupport?: boolean
   existingOperatingProfession?: boolean
-  professionToBeUpgraded?: boolean
   estimatedCost?: boolean
   submissionDate?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
   status?: boolean
+  entrepreneurshipRelatedTraining?: boolean
+  professionToBeUpgraded?: boolean
+  programType?: boolean
   applicationCycleId?: boolean
   userId?: boolean
   createdByAdminId?: boolean
@@ -2528,6 +2851,9 @@ export type ApplicationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   applicationCode?: boolean
   applicantName?: boolean
   applicantNameNp?: boolean
+  citizenshipNumber?: boolean
+  issuedDate?: boolean
+  issuedDistrict?: boolean
   addressId?: boolean
   telephone?: boolean
   email?: boolean
@@ -2540,13 +2866,15 @@ export type ApplicationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   possibilityOfSellingProducedGoods?: boolean
   institutionalUpgradeSupport?: boolean
   existingOperatingProfession?: boolean
-  professionToBeUpgraded?: boolean
   estimatedCost?: boolean
   submissionDate?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
   status?: boolean
+  entrepreneurshipRelatedTraining?: boolean
+  professionToBeUpgraded?: boolean
+  programType?: boolean
   applicationCycleId?: boolean
   userId?: boolean
   createdByAdminId?: boolean
@@ -2563,6 +2891,9 @@ export type ApplicationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   applicationCode?: boolean
   applicantName?: boolean
   applicantNameNp?: boolean
+  citizenshipNumber?: boolean
+  issuedDate?: boolean
+  issuedDistrict?: boolean
   addressId?: boolean
   telephone?: boolean
   email?: boolean
@@ -2575,13 +2906,15 @@ export type ApplicationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   possibilityOfSellingProducedGoods?: boolean
   institutionalUpgradeSupport?: boolean
   existingOperatingProfession?: boolean
-  professionToBeUpgraded?: boolean
   estimatedCost?: boolean
   submissionDate?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
   status?: boolean
+  entrepreneurshipRelatedTraining?: boolean
+  professionToBeUpgraded?: boolean
+  programType?: boolean
   applicationCycleId?: boolean
   userId?: boolean
   createdByAdminId?: boolean
@@ -2598,6 +2931,9 @@ export type ApplicationSelectScalar = {
   applicationCode?: boolean
   applicantName?: boolean
   applicantNameNp?: boolean
+  citizenshipNumber?: boolean
+  issuedDate?: boolean
+  issuedDistrict?: boolean
   addressId?: boolean
   telephone?: boolean
   email?: boolean
@@ -2610,20 +2946,22 @@ export type ApplicationSelectScalar = {
   possibilityOfSellingProducedGoods?: boolean
   institutionalUpgradeSupport?: boolean
   existingOperatingProfession?: boolean
-  professionToBeUpgraded?: boolean
   estimatedCost?: boolean
   submissionDate?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
   status?: boolean
+  entrepreneurshipRelatedTraining?: boolean
+  professionToBeUpgraded?: boolean
+  programType?: boolean
   applicationCycleId?: boolean
   userId?: boolean
   createdByAdminId?: boolean
   bulkOperationLogId?: boolean
 }
 
-export type ApplicationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "applicationCode" | "applicantName" | "applicantNameNp" | "addressId" | "telephone" | "email" | "dateOfBirth" | "educationQualification" | "profession" | "fatherName" | "fatherProfession" | "useOfModernTechnology" | "possibilityOfSellingProducedGoods" | "institutionalUpgradeSupport" | "existingOperatingProfession" | "professionToBeUpgraded" | "estimatedCost" | "submissionDate" | "createdAt" | "updatedAt" | "deletedAt" | "status" | "applicationCycleId" | "userId" | "createdByAdminId" | "bulkOperationLogId", ExtArgs["result"]["application"]>
+export type ApplicationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "applicationCode" | "applicantName" | "applicantNameNp" | "citizenshipNumber" | "issuedDate" | "issuedDistrict" | "addressId" | "telephone" | "email" | "dateOfBirth" | "educationQualification" | "profession" | "fatherName" | "fatherProfession" | "useOfModernTechnology" | "possibilityOfSellingProducedGoods" | "institutionalUpgradeSupport" | "existingOperatingProfession" | "estimatedCost" | "submissionDate" | "createdAt" | "updatedAt" | "deletedAt" | "status" | "entrepreneurshipRelatedTraining" | "professionToBeUpgraded" | "programType" | "applicationCycleId" | "userId" | "createdByAdminId" | "bulkOperationLogId", ExtArgs["result"]["application"]>
 export type ApplicationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   applicationCycle?: boolean | Prisma.Application$applicationCycleArgs<ExtArgs>
   address?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
@@ -2665,6 +3003,9 @@ export type $ApplicationPayload<ExtArgs extends runtime.Types.Extensions.Interna
     applicationCode: string | null
     applicantName: string
     applicantNameNp: string | null
+    citizenshipNumber: string | null
+    issuedDate: string | null
+    issuedDistrict: string | null
     addressId: number
     telephone: string | null
     email: string | null
@@ -2677,13 +3018,15 @@ export type $ApplicationPayload<ExtArgs extends runtime.Types.Extensions.Interna
     possibilityOfSellingProducedGoods: boolean | null
     institutionalUpgradeSupport: boolean | null
     existingOperatingProfession: string | null
-    professionToBeUpgraded: string[]
     estimatedCost: number | null
     submissionDate: string | null
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
     status: $Enums.APPLICATION_STATUS
+    entrepreneurshipRelatedTraining: runtime.JsonValue[]
+    professionToBeUpgraded: string[]
+    programType: $Enums.PROGRAM_TYPE
     applicationCycleId: string | null
     userId: string | null
     createdByAdminId: string | null
@@ -3122,6 +3465,9 @@ export interface ApplicationFieldRefs {
   readonly applicationCode: Prisma.FieldRef<"Application", 'String'>
   readonly applicantName: Prisma.FieldRef<"Application", 'String'>
   readonly applicantNameNp: Prisma.FieldRef<"Application", 'String'>
+  readonly citizenshipNumber: Prisma.FieldRef<"Application", 'String'>
+  readonly issuedDate: Prisma.FieldRef<"Application", 'String'>
+  readonly issuedDistrict: Prisma.FieldRef<"Application", 'String'>
   readonly addressId: Prisma.FieldRef<"Application", 'Int'>
   readonly telephone: Prisma.FieldRef<"Application", 'String'>
   readonly email: Prisma.FieldRef<"Application", 'String'>
@@ -3134,13 +3480,15 @@ export interface ApplicationFieldRefs {
   readonly possibilityOfSellingProducedGoods: Prisma.FieldRef<"Application", 'Boolean'>
   readonly institutionalUpgradeSupport: Prisma.FieldRef<"Application", 'Boolean'>
   readonly existingOperatingProfession: Prisma.FieldRef<"Application", 'String'>
-  readonly professionToBeUpgraded: Prisma.FieldRef<"Application", 'String[]'>
   readonly estimatedCost: Prisma.FieldRef<"Application", 'Float'>
   readonly submissionDate: Prisma.FieldRef<"Application", 'String'>
   readonly createdAt: Prisma.FieldRef<"Application", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Application", 'DateTime'>
   readonly deletedAt: Prisma.FieldRef<"Application", 'DateTime'>
   readonly status: Prisma.FieldRef<"Application", 'APPLICATION_STATUS'>
+  readonly entrepreneurshipRelatedTraining: Prisma.FieldRef<"Application", 'Json[]'>
+  readonly professionToBeUpgraded: Prisma.FieldRef<"Application", 'String[]'>
+  readonly programType: Prisma.FieldRef<"Application", 'PROGRAM_TYPE'>
   readonly applicationCycleId: Prisma.FieldRef<"Application", 'String'>
   readonly userId: Prisma.FieldRef<"Application", 'String'>
   readonly createdByAdminId: Prisma.FieldRef<"Application", 'String'>

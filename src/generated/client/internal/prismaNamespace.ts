@@ -1777,6 +1777,9 @@ export const ApplicationScalarFieldEnum = {
   applicationCode: 'applicationCode',
   applicantName: 'applicantName',
   applicantNameNp: 'applicantNameNp',
+  citizenshipNumber: 'citizenshipNumber',
+  issuedDate: 'issuedDate',
+  issuedDistrict: 'issuedDistrict',
   addressId: 'addressId',
   telephone: 'telephone',
   email: 'email',
@@ -1789,13 +1792,15 @@ export const ApplicationScalarFieldEnum = {
   possibilityOfSellingProducedGoods: 'possibilityOfSellingProducedGoods',
   institutionalUpgradeSupport: 'institutionalUpgradeSupport',
   existingOperatingProfession: 'existingOperatingProfession',
-  professionToBeUpgraded: 'professionToBeUpgraded',
   estimatedCost: 'estimatedCost',
   submissionDate: 'submissionDate',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt',
   status: 'status',
+  entrepreneurshipRelatedTraining: 'entrepreneurshipRelatedTraining',
+  professionToBeUpgraded: 'professionToBeUpgraded',
+  programType: 'programType',
   applicationCycleId: 'applicationCycleId',
   userId: 'userId',
   createdByAdminId: 'createdByAdminId',
@@ -2133,6 +2138,34 @@ export type ListEnumAPPLICATION_STATUSFieldRefInput<$PrismaModel> = FieldRefInpu
 
 
 /**
+ * Reference to a field of type 'Json[]'
+ */
+export type ListJsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'PROGRAM_TYPE'
+ */
+export type EnumPROGRAM_TYPEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PROGRAM_TYPE'>
+    
+
+
+/**
+ * Reference to a field of type 'PROGRAM_TYPE[]'
+ */
+export type ListEnumPROGRAM_TYPEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PROGRAM_TYPE[]'>
+    
+
+
+/**
  * Reference to a field of type 'SMS_STATUS'
  */
 export type EnumSMS_STATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SMS_STATUS'>
@@ -2157,13 +2190,6 @@ export type EnumOTP_TYPEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
  * Reference to a field of type 'OTP_TYPE[]'
  */
 export type ListEnumOTP_TYPEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OTP_TYPE[]'>
-    
-
-
-/**
- * Reference to a field of type 'Json'
- */
-export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
     
 
 

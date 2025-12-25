@@ -68,6 +68,7 @@ const getApplication = async (req: Request, res: Response): Promise<void> => {
   const application = await applicationService.getOne({
     userId: req.query?.userId as string,
     applicationCycleId: req.query?.applicationCycleId as string,
+    programType: req.query?.programType as string,
   })
   res.status(StatusCodes.OK).json({ data: application })
 }

@@ -66,6 +66,9 @@ model Application {
   applicationCode                   String?
   applicantName                     String
   applicantNameNp                   String?
+  citizenshipNumber                 String?
+  issuedDate                        String?
+  issuedDistrict                    String?
   addressId                         Int                @unique
   telephone                         String?
   email                             String?
@@ -78,13 +81,16 @@ model Application {
   possibilityOfSellingProducedGoods Boolean?           @default(false)
   institutionalUpgradeSupport       Boolean?           @default(false)
   existingOperatingProfession       String?
-  professionToBeUpgraded            String[]
   estimatedCost                     Float?
   submissionDate                    String?
   createdAt                         DateTime           @default(now())
   updatedAt                         DateTime           @updatedAt
   deletedAt                         DateTime?
   status                            APPLICATION_STATUS @default(REGISTERED)
+  // program type
+  entrepreneurshipRelatedTraining   Json[]
+  professionToBeUpgraded            String[]
+  programType                       PROGRAM_TYPE       @default(ENTREPRENEURSHIP_DEVELOPMENT)
   //
   applicationCycleId                String?
   userId                            String?
@@ -99,8 +105,13 @@ model Application {
   createdByAdmin                    User?              @relation("createdByAdmin", fields: [createdByAdminId], references: [id])
   bulkOperationLog                  BulkOperationLog?  @relation(fields: [bulkOperationLogId], references: [id])
 
-  @@unique([userId, applicationCycleId], map: "unique_user_cycle_idx")
+  @@unique([userId, applicationCycleId, programType], map: "unique_user_cycle_program_idx")
   @@unique([applicationCode, applicationCycleId], map: "unique_code_cycle_idx")
+}
+
+enum PROGRAM_TYPE {
+  ENTREPRENEURSHIP_DEVELOPMENT
+  TECHNOLOGY_UPGRADATION
 }
 
 model CodeCounter {

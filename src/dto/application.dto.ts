@@ -8,7 +8,7 @@ import {
   IsString,
 } from 'class-validator'
 import { AddressDto } from './address.dto'
-import { APPLICATION_STATUS } from '../generated/client/client'
+import { APPLICATION_STATUS, PROGRAM_TYPE } from '../generated/client/client'
 import { MediaDto } from './media.dto'
 
 export class ApplicationDto {
@@ -38,6 +38,18 @@ export class ApplicationDto {
   @IsOptional()
   @IsString()
   dateOfBirth: string
+
+  @IsString()
+  @IsOptional()
+  citizenshipNumber: string
+
+  @IsString()
+  @IsOptional()
+  issuedDate: string
+
+  @IsString()
+  @IsOptional()
+  issuedDistrict: string
 
   @IsOptional()
   @IsString()
@@ -71,8 +83,15 @@ export class ApplicationDto {
   @IsString()
   existingOperatingProfession: string
 
+  @IsNotEmpty()
+  @IsEnum(PROGRAM_TYPE)
+  programType: PROGRAM_TYPE
+
   @IsOptional()
   professionToBeUpgraded: string[]
+
+  @IsOptional()
+  entrepreneurshipRelatedTraining: any[]
 
   @IsNumber()
   estimatedCost: number

@@ -45,6 +45,11 @@ class ApplicationService {
       professionToBeUpgraded,
       estimatedCost,
       submissionDate,
+      citizenshipNumber,
+      issuedDate,
+      issuedDistrict,
+      programType,
+      entrepreneurshipRelatedTraining,
     } = data
 
     // check if user exits
@@ -131,6 +136,11 @@ class ApplicationService {
           professionToBeUpgraded,
           estimatedCost,
           submissionDate,
+          citizenshipNumber,
+          issuedDate,
+          issuedDistrict,
+          programType,
+          entrepreneurshipRelatedTraining,
           ...(user.role === ROLE.USER
             ? {
                 user: {
@@ -367,13 +377,24 @@ class ApplicationService {
   }
 
   async getOne(filters: any): Promise<any> {
-    const { userId, applicationCycleId } = filters
+    const { userId, applicationCycleId, programType } = filters
+
+    const searchCondition: Prisma.ApplicationWhereInput = {}
+
+    if (userId) {
+      searchCondition.userId = userId
+    }
+
+    if (applicationCycleId) {
+      searchCondition.applicationCycleId = applicationCycleId
+    }
+
+    if (programType) {
+      searchCondition.programType = programType
+    }
 
     const application = await db.application.findFirst({
-      where: {
-        userId,
-        applicationCycleId,
-      },
+      where: searchCondition,
     })
 
     return application || null
@@ -437,6 +458,11 @@ class ApplicationService {
       professionToBeUpgraded,
       estimatedCost,
       submissionDate,
+      citizenshipNumber,
+      issuedDate,
+      issuedDistrict,
+      programType,
+      entrepreneurshipRelatedTraining,
     } = data
 
     await db.application.update({
@@ -460,6 +486,11 @@ class ApplicationService {
         professionToBeUpgraded,
         estimatedCost,
         submissionDate,
+        citizenshipNumber,
+        issuedDate,
+        issuedDistrict,
+        programType,
+        entrepreneurshipRelatedTraining,
         address: {
           update: {
             provinceId: address.provinceId,
@@ -573,9 +604,17 @@ class ApplicationService {
       throw new BadRequestError('Application not found.')
     }
 
+    // delete application
     await db.application.delete({
       where: {
         id,
+      },
+    })
+
+    // delete address
+    await db.address.delete({
+      where: {
+        id: application.addressId,
       },
     })
 
