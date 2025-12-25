@@ -26,10 +26,23 @@ app.use(
   })
 )
 
+app.use(
+  cors({
+    // origin: 'http://localhost:5173', // ✅ your frontend origin
+    exposedHeaders: ['Content-Disposition'],
+    origin: [
+      DotenvConfig.NODE_ENV === Environment.PRODUCTION
+        ? DotenvConfig.BASE_URL
+        : DotenvConfig?.LOCAL_URL,
+    ], // Define specific domains allowed to interact with the API
+    credentials: true, // ✅ allow cookies to be sent
+  })
+)
+
 // Define a rate limit for API requests
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per `window` (15 minutes)
+  max: 1000, // Limit each IP to 100 requests per `window` (15 minutes)
   message: 'Too many requests from this IP, please try again later',
 })
 
@@ -50,18 +63,6 @@ declare global {
 //middleware
 app.use(limiter)
 app.use(express.static(path.resolve(process.cwd(), 'public/uploads')))
-app.use(
-  cors({
-    // origin: 'http://localhost:5173', // ✅ your frontend origin
-    exposedHeaders: ['Content-Disposition'],
-    origin: [
-      DotenvConfig.NODE_ENV === Environment.PRODUCTION
-        ? DotenvConfig.BASE_URL
-        : DotenvConfig?.LOCAL_URL,
-    ], // Define specific domains allowed to interact with the API
-    credentials: true, // ✅ allow cookies to be sent
-  })
-)
 
 app.use(express.json())
 app.use(cookieParser())

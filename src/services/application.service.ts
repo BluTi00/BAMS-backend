@@ -401,6 +401,12 @@ class ApplicationService {
 
     const application = await db.application.findFirst({
       where: searchCondition,
+      select: {
+        id: true,
+        applicationCode: true,
+        status: true,
+        createdAt: true,
+      },
     })
 
     return application || null
