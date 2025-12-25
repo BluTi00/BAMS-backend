@@ -1,10 +1,22 @@
+import { db } from '../db/db.server'
 import { withSkipAudit } from '../middleware/context'
+import { entrepreneurshipActivityData } from './miscellaneousData'
 
 // Global flag to indicate if seeding is in progress
 async function seedMiscellaneous() {
   try {
     await withSkipAudit(async () => {
       //
+      await db.entrepreneurshipActivity.deleteMany({})
+      for (const data of entrepreneurshipActivityData) {
+        await db.entrepreneurshipActivity.create({
+          data: {
+            name: data.name,
+            nameNp: data.nameNp,
+            code: data.code,
+          },
+        })
+      }
     })
 
     console.log(`Miscellaneous seeded successfully 🌱`)

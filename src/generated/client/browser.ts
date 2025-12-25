@@ -48,6 +48,11 @@ export type CodeCounter = Prisma.CodeCounterModel
  */
 export type StatusHistory = Prisma.StatusHistoryModel
 /**
+ * Model EntrepreneurshipActivity
+ * 
+ */
+export type EntrepreneurshipActivity = Prisma.EntrepreneurshipActivityModel
+/**
  * Model Address
  * 
  */

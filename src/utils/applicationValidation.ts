@@ -1,4 +1,4 @@
-import { ROLE } from '../generated/client/client'
+import { PROGRAM_TYPE, ROLE } from '../generated/client/client'
 import { BadRequestError } from '../errors'
 import { TokenData } from '../server'
 import { db } from '../db/db.server'
@@ -16,15 +16,18 @@ export const hasPermission = (application: any, user?: TokenData) => {
 export const validateApplicationRequest = async ({
   userId,
   applicationCycleId,
+  programType,
 }: {
   userId: string
   applicationCycleId: string
+  programType: PROGRAM_TYPE
 }) => {
   const hasAlreadyApplied = await db.application.findFirst({
     where: {
       userId,
       applicationCycleId,
       deletedAt: null,
+      programType,
     },
     include: {
       user: {

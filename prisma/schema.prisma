@@ -62,14 +62,14 @@ model ApplicationCycle {
 }
 
 model Application {
-  id                                String             @id @default(uuid())
+  id                                String                     @id @default(uuid())
   applicationCode                   String?
   applicantName                     String
   applicantNameNp                   String?
   citizenshipNumber                 String?
   issuedDate                        String?
   issuedDistrict                    String?
-  addressId                         Int                @unique
+  addressId                         Int                        @unique
   telephone                         String?
   email                             String?
   dateOfBirth                       String?
@@ -77,33 +77,34 @@ model Application {
   profession                        String?
   fatherName                        String?
   fatherProfession                  String?
-  useOfModernTechnology             Boolean?           @default(false)
-  possibilityOfSellingProducedGoods Boolean?           @default(false)
-  institutionalUpgradeSupport       Boolean?           @default(false)
+  useOfModernTechnology             Boolean?                   @default(false)
+  possibilityOfSellingProducedGoods Boolean?                   @default(false)
+  institutionalUpgradeSupport       Boolean?                   @default(false)
   existingOperatingProfession       String?
   estimatedCost                     Float?
   submissionDate                    String?
-  createdAt                         DateTime           @default(now())
-  updatedAt                         DateTime           @updatedAt
+  createdAt                         DateTime                   @default(now())
+  updatedAt                         DateTime                   @updatedAt
   deletedAt                         DateTime?
-  status                            APPLICATION_STATUS @default(REGISTERED)
+  status                            APPLICATION_STATUS         @default(REGISTERED)
   // program type
   entrepreneurshipRelatedTraining   Json[]
   professionToBeUpgraded            String[]
-  programType                       PROGRAM_TYPE       @default(ENTREPRENEURSHIP_DEVELOPMENT)
+  programType                       PROGRAM_TYPE               @default(ENTREPRENEURSHIP_DEVELOPMENT)
   //
   applicationCycleId                String?
   userId                            String?
   createdByAdminId                  String?
   bulkOperationLogId                String?
   //
-  applicationCycle                  ApplicationCycle?  @relation(fields: [applicationCycleId], references: [id], onDelete: Restrict)
-  address                           Address            @relation(fields: [addressId], references: [id])
-  user                              User?              @relation("createdByUser", fields: [userId], references: [id], onDelete: Cascade)
+  applicationCycle                  ApplicationCycle?          @relation(fields: [applicationCycleId], references: [id], onDelete: Restrict)
+  address                           Address                    @relation(fields: [addressId], references: [id])
+  user                              User?                      @relation("createdByUser", fields: [userId], references: [id], onDelete: Cascade)
   media                             Media[]
   statusHistory                     StatusHistory[]
-  createdByAdmin                    User?              @relation("createdByAdmin", fields: [createdByAdminId], references: [id])
-  bulkOperationLog                  BulkOperationLog?  @relation(fields: [bulkOperationLogId], references: [id])
+  createdByAdmin                    User?                      @relation("createdByAdmin", fields: [createdByAdminId], references: [id])
+  bulkOperationLog                  BulkOperationLog?          @relation(fields: [bulkOperationLogId], references: [id])
+  entrepreneurshipActivity          EntrepreneurshipActivity[]
 
   @@unique([userId, applicationCycleId, programType], map: "unique_user_cycle_program_idx")
   @@unique([applicationCode, applicationCycleId], map: "unique_code_cycle_idx")
@@ -134,6 +135,17 @@ model StatusHistory {
   updatedAt     DateTime    @updatedAt
   applicationId String
   application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+}
+
+model EntrepreneurshipActivity {
+  id          String        @id @default(uuid())
+  name        String
+  nameNp      String
+  code        String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  deletedAt   DateTime?
+  application Application[]
 }
 
 model Address {

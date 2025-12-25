@@ -18,6 +18,7 @@ import statusHistoryRouter from './statusHistory.routes'
 import resourceRouter from './resource.routes'
 import bulkOperationLogRouter from './bulkOperationLog.routes'
 import applicationBulkOpRouter from './applicationBulkOp.routes'
+import entrepreneurshipActivityRouter from './entrepreneurshipActivity.routes'
 
 // Define a function to register all routes
 const registerRoutes = (app: Router, apiRoute: string) => {
@@ -38,6 +39,10 @@ const registerRoutes = (app: Router, apiRoute: string) => {
   app.use(apiRoute + '/resource', resourceRouter)
   app.use(apiRoute + '/bulk-operation-log', bulkOperationLogRouter)
   app.use(apiRoute + '/application-bulk-op', applicationBulkOpRouter)
+  app.use(
+    apiRoute + '/entrepreneurship-activity',
+    entrepreneurshipActivityRouter
+  )
 }
 
 export default registerRoutes

@@ -57,6 +57,7 @@ export const ModelName = {
   Application: 'Application',
   CodeCounter: 'CodeCounter',
   StatusHistory: 'StatusHistory',
+  EntrepreneurshipActivity: 'EntrepreneurshipActivity',
   Address: 'Address',
   Province: 'Province',
   District: 'District',
@@ -201,6 +202,19 @@ export const StatusHistoryScalarFieldEnum = {
 } as const
 
 export type StatusHistoryScalarFieldEnum = (typeof StatusHistoryScalarFieldEnum)[keyof typeof StatusHistoryScalarFieldEnum]
+
+
+export const EntrepreneurshipActivityScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  nameNp: 'nameNp',
+  code: 'code',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type EntrepreneurshipActivityScalarFieldEnum = (typeof EntrepreneurshipActivityScalarFieldEnum)[keyof typeof EntrepreneurshipActivityScalarFieldEnum]
 
 
 export const AddressScalarFieldEnum = {

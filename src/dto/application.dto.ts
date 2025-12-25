@@ -106,6 +106,9 @@ export class ApplicationDto {
 
   @IsOptional()
   deletedMedia: string[]
+
+  @IsOptional()
+  entrepreneurshipActivity: string[]
 }
 
 export class UpdateApplicationStatusDto {

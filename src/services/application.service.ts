@@ -50,6 +50,7 @@ class ApplicationService {
       issuedDistrict,
       programType,
       entrepreneurshipRelatedTraining,
+      entrepreneurshipActivity,
     } = data
 
     // check if user exits
@@ -67,6 +68,7 @@ class ApplicationService {
       await validateApplicationRequest({
         userId: user.userId,
         applicationCycleId,
+        programType,
       })
     }
 
@@ -141,6 +143,9 @@ class ApplicationService {
           issuedDistrict,
           programType,
           entrepreneurshipRelatedTraining,
+          entrepreneurshipActivity: {
+            connect: entrepreneurshipActivity?.map((id) => ({ id })),
+          },
           ...(user.role === ROLE.USER
             ? {
                 user: {
@@ -362,6 +367,7 @@ class ApplicationService {
         address: includeAddress,
         applicationCycle: true,
         media: includeMedia,
+        entrepreneurshipActivity: true,
       },
     })
 
@@ -461,8 +467,8 @@ class ApplicationService {
       citizenshipNumber,
       issuedDate,
       issuedDistrict,
-      programType,
       entrepreneurshipRelatedTraining,
+      entrepreneurshipActivity,
     } = data
 
     await db.application.update({
@@ -489,8 +495,10 @@ class ApplicationService {
         citizenshipNumber,
         issuedDate,
         issuedDistrict,
-        programType,
         entrepreneurshipRelatedTraining,
+        entrepreneurshipActivity: {
+          set: entrepreneurshipActivity?.map((id) => ({ id })),
+        },
         address: {
           update: {
             provinceId: address.provinceId,

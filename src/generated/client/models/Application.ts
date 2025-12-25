@@ -435,6 +435,7 @@ export type ApplicationWhereInput = {
   statusHistory?: Prisma.StatusHistoryListRelationFilter
   createdByAdmin?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   bulkOperationLog?: Prisma.XOR<Prisma.BulkOperationLogNullableScalarRelationFilter, Prisma.BulkOperationLogWhereInput> | null
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityListRelationFilter
 }
 
 export type ApplicationOrderByWithRelationInput = {
@@ -477,6 +478,7 @@ export type ApplicationOrderByWithRelationInput = {
   statusHistory?: Prisma.StatusHistoryOrderByRelationAggregateInput
   createdByAdmin?: Prisma.UserOrderByWithRelationInput
   bulkOperationLog?: Prisma.BulkOperationLogOrderByWithRelationInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityOrderByRelationAggregateInput
 }
 
 export type ApplicationWhereUniqueInput = Prisma.AtLeast<{
@@ -524,6 +526,7 @@ export type ApplicationWhereUniqueInput = Prisma.AtLeast<{
   statusHistory?: Prisma.StatusHistoryListRelationFilter
   createdByAdmin?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   bulkOperationLog?: Prisma.XOR<Prisma.BulkOperationLogNullableScalarRelationFilter, Prisma.BulkOperationLogWhereInput> | null
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityListRelationFilter
 }, "id" | "addressId" | "userId_applicationCycleId_programType" | "applicationCode_applicationCycleId">
 
 export type ApplicationOrderByWithAggregationInput = {
@@ -639,6 +642,7 @@ export type ApplicationCreateInput = {
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationUncheckedCreateInput = {
@@ -676,6 +680,7 @@ export type ApplicationUncheckedCreateInput = {
   bulkOperationLogId?: string | null
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationUpdateInput = {
@@ -713,6 +718,7 @@ export type ApplicationUpdateInput = {
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateInput = {
@@ -750,6 +756,7 @@ export type ApplicationUncheckedUpdateInput = {
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationCreateManyInput = {
@@ -1219,6 +1226,44 @@ export type ApplicationUpdateOneRequiredWithoutStatusHistoryNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ApplicationUpdateToOneWithWhereWithoutStatusHistoryInput, Prisma.ApplicationUpdateWithoutStatusHistoryInput>, Prisma.ApplicationUncheckedUpdateWithoutStatusHistoryInput>
 }
 
+export type ApplicationCreateNestedManyWithoutEntrepreneurshipActivityInput = {
+  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutEntrepreneurshipActivityInput, Prisma.ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput> | Prisma.ApplicationCreateWithoutEntrepreneurshipActivityInput[] | Prisma.ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput[]
+  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutEntrepreneurshipActivityInput | Prisma.ApplicationCreateOrConnectWithoutEntrepreneurshipActivityInput[]
+  connect?: Prisma.ApplicationWhereUniqueInput | Prisma.ApplicationWhereUniqueInput[]
+}
+
+export type ApplicationUncheckedCreateNestedManyWithoutEntrepreneurshipActivityInput = {
+  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutEntrepreneurshipActivityInput, Prisma.ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput> | Prisma.ApplicationCreateWithoutEntrepreneurshipActivityInput[] | Prisma.ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput[]
+  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutEntrepreneurshipActivityInput | Prisma.ApplicationCreateOrConnectWithoutEntrepreneurshipActivityInput[]
+  connect?: Prisma.ApplicationWhereUniqueInput | Prisma.ApplicationWhereUniqueInput[]
+}
+
+export type ApplicationUpdateManyWithoutEntrepreneurshipActivityNestedInput = {
+  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutEntrepreneurshipActivityInput, Prisma.ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput> | Prisma.ApplicationCreateWithoutEntrepreneurshipActivityInput[] | Prisma.ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput[]
+  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutEntrepreneurshipActivityInput | Prisma.ApplicationCreateOrConnectWithoutEntrepreneurshipActivityInput[]
+  upsert?: Prisma.ApplicationUpsertWithWhereUniqueWithoutEntrepreneurshipActivityInput | Prisma.ApplicationUpsertWithWhereUniqueWithoutEntrepreneurshipActivityInput[]
+  set?: Prisma.ApplicationWhereUniqueInput | Prisma.ApplicationWhereUniqueInput[]
+  disconnect?: Prisma.ApplicationWhereUniqueInput | Prisma.ApplicationWhereUniqueInput[]
+  delete?: Prisma.ApplicationWhereUniqueInput | Prisma.ApplicationWhereUniqueInput[]
+  connect?: Prisma.ApplicationWhereUniqueInput | Prisma.ApplicationWhereUniqueInput[]
+  update?: Prisma.ApplicationUpdateWithWhereUniqueWithoutEntrepreneurshipActivityInput | Prisma.ApplicationUpdateWithWhereUniqueWithoutEntrepreneurshipActivityInput[]
+  updateMany?: Prisma.ApplicationUpdateManyWithWhereWithoutEntrepreneurshipActivityInput | Prisma.ApplicationUpdateManyWithWhereWithoutEntrepreneurshipActivityInput[]
+  deleteMany?: Prisma.ApplicationScalarWhereInput | Prisma.ApplicationScalarWhereInput[]
+}
+
+export type ApplicationUncheckedUpdateManyWithoutEntrepreneurshipActivityNestedInput = {
+  create?: Prisma.XOR<Prisma.ApplicationCreateWithoutEntrepreneurshipActivityInput, Prisma.ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput> | Prisma.ApplicationCreateWithoutEntrepreneurshipActivityInput[] | Prisma.ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput[]
+  connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutEntrepreneurshipActivityInput | Prisma.ApplicationCreateOrConnectWithoutEntrepreneurshipActivityInput[]
+  upsert?: Prisma.ApplicationUpsertWithWhereUniqueWithoutEntrepreneurshipActivityInput | Prisma.ApplicationUpsertWithWhereUniqueWithoutEntrepreneurshipActivityInput[]
+  set?: Prisma.ApplicationWhereUniqueInput | Prisma.ApplicationWhereUniqueInput[]
+  disconnect?: Prisma.ApplicationWhereUniqueInput | Prisma.ApplicationWhereUniqueInput[]
+  delete?: Prisma.ApplicationWhereUniqueInput | Prisma.ApplicationWhereUniqueInput[]
+  connect?: Prisma.ApplicationWhereUniqueInput | Prisma.ApplicationWhereUniqueInput[]
+  update?: Prisma.ApplicationUpdateWithWhereUniqueWithoutEntrepreneurshipActivityInput | Prisma.ApplicationUpdateWithWhereUniqueWithoutEntrepreneurshipActivityInput[]
+  updateMany?: Prisma.ApplicationUpdateManyWithWhereWithoutEntrepreneurshipActivityInput | Prisma.ApplicationUpdateManyWithWhereWithoutEntrepreneurshipActivityInput[]
+  deleteMany?: Prisma.ApplicationScalarWhereInput | Prisma.ApplicationScalarWhereInput[]
+}
+
 export type ApplicationCreateNestedOneWithoutAddressInput = {
   create?: Prisma.XOR<Prisma.ApplicationCreateWithoutAddressInput, Prisma.ApplicationUncheckedCreateWithoutAddressInput>
   connectOrCreate?: Prisma.ApplicationCreateOrConnectWithoutAddressInput
@@ -1327,6 +1372,7 @@ export type ApplicationCreateWithoutUserInput = {
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationUncheckedCreateWithoutUserInput = {
@@ -1363,6 +1409,7 @@ export type ApplicationUncheckedCreateWithoutUserInput = {
   bulkOperationLogId?: string | null
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutUserInput = {
@@ -1409,6 +1456,7 @@ export type ApplicationCreateWithoutCreatedByAdminInput = {
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationUncheckedCreateWithoutCreatedByAdminInput = {
@@ -1445,6 +1493,7 @@ export type ApplicationUncheckedCreateWithoutCreatedByAdminInput = {
   bulkOperationLogId?: string | null
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutCreatedByAdminInput = {
@@ -1561,6 +1610,7 @@ export type ApplicationCreateWithoutMediaInput = {
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationUncheckedCreateWithoutMediaInput = {
@@ -1597,6 +1647,7 @@ export type ApplicationUncheckedCreateWithoutMediaInput = {
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutMediaInput = {
@@ -1649,6 +1700,7 @@ export type ApplicationUpdateWithoutMediaInput = {
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateWithoutMediaInput = {
@@ -1685,6 +1737,7 @@ export type ApplicationUncheckedUpdateWithoutMediaInput = {
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationCreateWithoutApplicationCycleInput = {
@@ -1721,6 +1774,7 @@ export type ApplicationCreateWithoutApplicationCycleInput = {
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationUncheckedCreateWithoutApplicationCycleInput = {
@@ -1757,6 +1811,7 @@ export type ApplicationUncheckedCreateWithoutApplicationCycleInput = {
   bulkOperationLogId?: string | null
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutApplicationCycleInput = {
@@ -1819,6 +1874,7 @@ export type ApplicationCreateWithoutStatusHistoryInput = {
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationUncheckedCreateWithoutStatusHistoryInput = {
@@ -1855,6 +1911,7 @@ export type ApplicationUncheckedCreateWithoutStatusHistoryInput = {
   createdByAdminId?: string | null
   bulkOperationLogId?: string | null
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutStatusHistoryInput = {
@@ -1907,6 +1964,7 @@ export type ApplicationUpdateWithoutStatusHistoryInput = {
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateWithoutStatusHistoryInput = {
@@ -1943,6 +2001,102 @@ export type ApplicationUncheckedUpdateWithoutStatusHistoryInput = {
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedUpdateManyWithoutApplicationNestedInput
+}
+
+export type ApplicationCreateWithoutEntrepreneurshipActivityInput = {
+  id?: string
+  applicationCode?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  estimatedCost?: number | null
+  submissionDate?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
+  applicationCycle?: Prisma.ApplicationCycleCreateNestedOneWithoutApplicationInput
+  address: Prisma.AddressCreateNestedOneWithoutApplicationInput
+  user?: Prisma.UserCreateNestedOneWithoutApplicationInput
+  media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
+  statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
+  createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
+  bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
+}
+
+export type ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput = {
+  id?: string
+  applicationCode?: string | null
+  applicantName: string
+  applicantNameNp?: string | null
+  citizenshipNumber?: string | null
+  issuedDate?: string | null
+  issuedDistrict?: string | null
+  addressId: number
+  telephone?: string | null
+  email?: string | null
+  dateOfBirth?: string | null
+  educationQualification?: string | null
+  profession?: string | null
+  fatherName?: string | null
+  fatherProfession?: string | null
+  useOfModernTechnology?: boolean | null
+  possibilityOfSellingProducedGoods?: boolean | null
+  institutionalUpgradeSupport?: boolean | null
+  existingOperatingProfession?: string | null
+  estimatedCost?: number | null
+  submissionDate?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  status?: $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationCreateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationCreateprofessionToBeUpgradedInput | string[]
+  programType?: $Enums.PROGRAM_TYPE
+  applicationCycleId?: string | null
+  userId?: string | null
+  createdByAdminId?: string | null
+  bulkOperationLogId?: string | null
+  media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
+  statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
+}
+
+export type ApplicationCreateOrConnectWithoutEntrepreneurshipActivityInput = {
+  where: Prisma.ApplicationWhereUniqueInput
+  create: Prisma.XOR<Prisma.ApplicationCreateWithoutEntrepreneurshipActivityInput, Prisma.ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput>
+}
+
+export type ApplicationUpsertWithWhereUniqueWithoutEntrepreneurshipActivityInput = {
+  where: Prisma.ApplicationWhereUniqueInput
+  update: Prisma.XOR<Prisma.ApplicationUpdateWithoutEntrepreneurshipActivityInput, Prisma.ApplicationUncheckedUpdateWithoutEntrepreneurshipActivityInput>
+  create: Prisma.XOR<Prisma.ApplicationCreateWithoutEntrepreneurshipActivityInput, Prisma.ApplicationUncheckedCreateWithoutEntrepreneurshipActivityInput>
+}
+
+export type ApplicationUpdateWithWhereUniqueWithoutEntrepreneurshipActivityInput = {
+  where: Prisma.ApplicationWhereUniqueInput
+  data: Prisma.XOR<Prisma.ApplicationUpdateWithoutEntrepreneurshipActivityInput, Prisma.ApplicationUncheckedUpdateWithoutEntrepreneurshipActivityInput>
+}
+
+export type ApplicationUpdateManyWithWhereWithoutEntrepreneurshipActivityInput = {
+  where: Prisma.ApplicationScalarWhereInput
+  data: Prisma.XOR<Prisma.ApplicationUpdateManyMutationInput, Prisma.ApplicationUncheckedUpdateManyWithoutEntrepreneurshipActivityInput>
 }
 
 export type ApplicationCreateWithoutAddressInput = {
@@ -1979,6 +2133,7 @@ export type ApplicationCreateWithoutAddressInput = {
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
   bulkOperationLog?: Prisma.BulkOperationLogCreateNestedOneWithoutApplicationsInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationUncheckedCreateWithoutAddressInput = {
@@ -2015,6 +2170,7 @@ export type ApplicationUncheckedCreateWithoutAddressInput = {
   bulkOperationLogId?: string | null
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutAddressInput = {
@@ -2067,6 +2223,7 @@ export type ApplicationUpdateWithoutAddressInput = {
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateWithoutAddressInput = {
@@ -2103,6 +2260,7 @@ export type ApplicationUncheckedUpdateWithoutAddressInput = {
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationCreateWithoutBulkOperationLogInput = {
@@ -2139,6 +2297,7 @@ export type ApplicationCreateWithoutBulkOperationLogInput = {
   media?: Prisma.MediaCreateNestedManyWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryCreateNestedManyWithoutApplicationInput
   createdByAdmin?: Prisma.UserCreateNestedOneWithoutApplicationsByAdminInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationUncheckedCreateWithoutBulkOperationLogInput = {
@@ -2175,6 +2334,7 @@ export type ApplicationUncheckedCreateWithoutBulkOperationLogInput = {
   createdByAdminId?: string | null
   media?: Prisma.MediaUncheckedCreateNestedManyWithoutApplicationInput
   statusHistory?: Prisma.StatusHistoryUncheckedCreateNestedManyWithoutApplicationInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedCreateNestedManyWithoutApplicationInput
 }
 
 export type ApplicationCreateOrConnectWithoutBulkOperationLogInput = {
@@ -2305,6 +2465,7 @@ export type ApplicationUpdateWithoutUserInput = {
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateWithoutUserInput = {
@@ -2341,6 +2502,7 @@ export type ApplicationUncheckedUpdateWithoutUserInput = {
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateManyWithoutUserInput = {
@@ -2411,6 +2573,7 @@ export type ApplicationUpdateWithoutCreatedByAdminInput = {
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateWithoutCreatedByAdminInput = {
@@ -2447,6 +2610,7 @@ export type ApplicationUncheckedUpdateWithoutCreatedByAdminInput = {
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateManyWithoutCreatedByAdminInput = {
@@ -2551,6 +2715,7 @@ export type ApplicationUpdateWithoutApplicationCycleInput = {
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
   bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateWithoutApplicationCycleInput = {
@@ -2587,6 +2752,7 @@ export type ApplicationUncheckedUpdateWithoutApplicationCycleInput = {
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateManyWithoutApplicationCycleInput = {
@@ -2618,6 +2784,115 @@ export type ApplicationUncheckedUpdateManyWithoutApplicationCycleInput = {
   entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
   professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
   programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
+  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type ApplicationUpdateWithoutEntrepreneurshipActivityInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
+  applicationCycle?: Prisma.ApplicationCycleUpdateOneWithoutApplicationNestedInput
+  address?: Prisma.AddressUpdateOneRequiredWithoutApplicationNestedInput
+  user?: Prisma.UserUpdateOneWithoutApplicationNestedInput
+  media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
+  statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
+  createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
+  bulkOperationLog?: Prisma.BulkOperationLogUpdateOneWithoutApplicationsNestedInput
+}
+
+export type ApplicationUncheckedUpdateWithoutEntrepreneurshipActivityInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
+  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
+  statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+}
+
+export type ApplicationUncheckedUpdateManyWithoutEntrepreneurshipActivityInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  applicationCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  applicantName?: Prisma.StringFieldUpdateOperationsInput | string
+  applicantNameNp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  citizenshipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuedDistrict?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressId?: Prisma.IntFieldUpdateOperationsInput | number
+  telephone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dateOfBirth?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  educationQualification?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fatherProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  useOfModernTechnology?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  possibilityOfSellingProducedGoods?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  institutionalUpgradeSupport?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  existingOperatingProfession?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estimatedCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  submissionDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumAPPLICATION_STATUSFieldUpdateOperationsInput | $Enums.APPLICATION_STATUS
+  entrepreneurshipRelatedTraining?: Prisma.ApplicationUpdateentrepreneurshipRelatedTrainingInput | runtime.InputJsonValue[]
+  professionToBeUpgraded?: Prisma.ApplicationUpdateprofessionToBeUpgradedInput | string[]
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
+  applicationCycleId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bulkOperationLogId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2691,6 +2966,7 @@ export type ApplicationUpdateWithoutBulkOperationLogInput = {
   media?: Prisma.MediaUpdateManyWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUpdateManyWithoutApplicationNestedInput
   createdByAdmin?: Prisma.UserUpdateOneWithoutApplicationsByAdminNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateWithoutBulkOperationLogInput = {
@@ -2727,6 +3003,7 @@ export type ApplicationUncheckedUpdateWithoutBulkOperationLogInput = {
   createdByAdminId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   media?: Prisma.MediaUncheckedUpdateManyWithoutApplicationNestedInput
   statusHistory?: Prisma.StatusHistoryUncheckedUpdateManyWithoutApplicationNestedInput
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityUncheckedUpdateManyWithoutApplicationNestedInput
 }
 
 export type ApplicationUncheckedUpdateManyWithoutBulkOperationLogInput = {
@@ -2771,11 +3048,13 @@ export type ApplicationUncheckedUpdateManyWithoutBulkOperationLogInput = {
 export type ApplicationCountOutputType = {
   media: number
   statusHistory: number
+  entrepreneurshipActivity: number
 }
 
 export type ApplicationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   media?: boolean | ApplicationCountOutputTypeCountMediaArgs
   statusHistory?: boolean | ApplicationCountOutputTypeCountStatusHistoryArgs
+  entrepreneurshipActivity?: boolean | ApplicationCountOutputTypeCountEntrepreneurshipActivityArgs
 }
 
 /**
@@ -2800,6 +3079,13 @@ export type ApplicationCountOutputTypeCountMediaArgs<ExtArgs extends runtime.Typ
  */
 export type ApplicationCountOutputTypeCountStatusHistoryArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.StatusHistoryWhereInput
+}
+
+/**
+ * ApplicationCountOutputType without action
+ */
+export type ApplicationCountOutputTypeCountEntrepreneurshipActivityArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EntrepreneurshipActivityWhereInput
 }
 
 
@@ -2843,6 +3129,7 @@ export type ApplicationSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   statusHistory?: boolean | Prisma.Application$statusHistoryArgs<ExtArgs>
   createdByAdmin?: boolean | Prisma.Application$createdByAdminArgs<ExtArgs>
   bulkOperationLog?: boolean | Prisma.Application$bulkOperationLogArgs<ExtArgs>
+  entrepreneurshipActivity?: boolean | Prisma.Application$entrepreneurshipActivityArgs<ExtArgs>
   _count?: boolean | Prisma.ApplicationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["application"]>
 
@@ -2970,6 +3257,7 @@ export type ApplicationInclude<ExtArgs extends runtime.Types.Extensions.Internal
   statusHistory?: boolean | Prisma.Application$statusHistoryArgs<ExtArgs>
   createdByAdmin?: boolean | Prisma.Application$createdByAdminArgs<ExtArgs>
   bulkOperationLog?: boolean | Prisma.Application$bulkOperationLogArgs<ExtArgs>
+  entrepreneurshipActivity?: boolean | Prisma.Application$entrepreneurshipActivityArgs<ExtArgs>
   _count?: boolean | Prisma.ApplicationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ApplicationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2997,6 +3285,7 @@ export type $ApplicationPayload<ExtArgs extends runtime.Types.Extensions.Interna
     statusHistory: Prisma.$StatusHistoryPayload<ExtArgs>[]
     createdByAdmin: Prisma.$UserPayload<ExtArgs> | null
     bulkOperationLog: Prisma.$BulkOperationLogPayload<ExtArgs> | null
+    entrepreneurshipActivity: Prisma.$EntrepreneurshipActivityPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -3432,6 +3721,7 @@ export interface Prisma__ApplicationClient<T, Null = never, ExtArgs extends runt
   statusHistory<T extends Prisma.Application$statusHistoryArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$statusHistoryArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StatusHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   createdByAdmin<T extends Prisma.Application$createdByAdminArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$createdByAdminArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   bulkOperationLog<T extends Prisma.Application$bulkOperationLogArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$bulkOperationLogArgs<ExtArgs>>): Prisma.Prisma__BulkOperationLogClient<runtime.Types.Result.GetResult<Prisma.$BulkOperationLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  entrepreneurshipActivity<T extends Prisma.Application$entrepreneurshipActivityArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Application$entrepreneurshipActivityArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EntrepreneurshipActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4010,6 +4300,30 @@ export type Application$bulkOperationLogArgs<ExtArgs extends runtime.Types.Exten
    */
   include?: Prisma.BulkOperationLogInclude<ExtArgs> | null
   where?: Prisma.BulkOperationLogWhereInput
+}
+
+/**
+ * Application.entrepreneurshipActivity
+ */
+export type Application$entrepreneurshipActivityArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EntrepreneurshipActivity
+   */
+  select?: Prisma.EntrepreneurshipActivitySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EntrepreneurshipActivity
+   */
+  omit?: Prisma.EntrepreneurshipActivityOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EntrepreneurshipActivityInclude<ExtArgs> | null
+  where?: Prisma.EntrepreneurshipActivityWhereInput
+  orderBy?: Prisma.EntrepreneurshipActivityOrderByWithRelationInput | Prisma.EntrepreneurshipActivityOrderByWithRelationInput[]
+  cursor?: Prisma.EntrepreneurshipActivityWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EntrepreneurshipActivityScalarFieldEnum | Prisma.EntrepreneurshipActivityScalarFieldEnum[]
 }
 
 /**

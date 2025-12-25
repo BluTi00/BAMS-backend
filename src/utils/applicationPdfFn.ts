@@ -12,6 +12,7 @@ import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
 import fs from 'fs'
 import { initPuppeteerCluster } from './puppeteerCluster'
 import { MediaType } from '../constants/enum'
+import { PROGRAM_TYPE } from '../generated/client/enums'
 
 // Constants
 const blankSpace = '____________'
@@ -68,7 +69,7 @@ export const generateApplicationPdf = async (
   const officeWard = address?.ward ? address.ward.wardNumberNepali || '' : ''
   const officeLocality = address?.locality || ''
 
-  const applicationFormData = [
+  const applicationFormData: any[] = [
     {
       title: '(क) आवेदकको विवरण',
       isBulletPoint: true,
@@ -194,8 +195,52 @@ export const generateApplicationPdf = async (
         },
       ],
     },
+  ]
 
-    {
+  // entrepreneurship development program content
+  if (application.programType === PROGRAM_TYPE.ENTREPRENEURSHIP_DEVELOPMENT) {
+    const entrepreneurshipActivities =
+      await db.entrepreneurshipActivity.findMany({
+        where: {
+          application: {
+            some: {
+              id: application.id,
+            },
+          },
+        },
+      })
+
+    applicationFormData.push({
+      title: '(ख) विगतमा उद्यमशीलता सम्बन्धी तालिम / कार्यक्रममा समावेश भएको:',
+      sectionData: [
+        {
+          label: '',
+          value: application?.entrepreneurshipRelatedTraining
+            ?.map((item: any, index) => {
+              if (!item?.trainingName) return
+              return /*html*/ `
+           <p style="margin-left: 1rem">(${convertText(index + 1, 'ne')}) ${item?.trainingName}, ${item?.day} दिन </p>
+          `
+            })
+            .join(''),
+        },
+        {
+          label: 'कार्यक्रम',
+          value: entrepreneurshipActivities
+            ?.map(
+              (item, index) => /*html*/ `
+              <p style="margin-left: 1rem">(${getNepaliAlphabet(index)}) ${item?.nameNp} </p>
+          `
+            )
+            .join(''),
+        },
+      ],
+    })
+  }
+
+  // technology upgradation program content
+  if (application.programType === PROGRAM_TYPE.TECHNOLOGY_UPGRADATION) {
+    applicationFormData.push({
       title: '(ख) परम्परागत पेसा स्तरोन्नतिको लागि:',
       sectionData: [
         {
@@ -217,8 +262,8 @@ export const generateApplicationPdf = async (
           value: application?.estimatedCost,
         },
       ],
-    },
-  ]
+    })
+  }
 
   const applicationHtml = getSectionHtml({
     data: applicationFormData,
@@ -238,7 +283,7 @@ export const generateApplicationPdf = async (
             radioOptions: [
               {
                 label: '',
-                value: documentList.includes(MediaType.CITIZENSHIP_FRONT),
+                checked: documentList.includes(MediaType.CITIZENSHIP_FRONT),
               },
             ],
           },
@@ -248,18 +293,18 @@ export const generateApplicationPdf = async (
             radioOptions: [
               {
                 label: '',
-                value: documentList.includes(MediaType.CITIZENSHIP_BACK),
+                checked: documentList.includes(MediaType.CITIZENSHIP_BACK),
               },
             ],
           },
 
           {
             label:
-              '३. राष्ट्रिय दलित आयोग वा सम्बन्धित जिल्ला प्रशासन कार्यालयबाट दलित प्रमाणित कागजातको प्रतिलिपि',
+              '३. राष्ट्रिय दलित आयोग वा सम्बन्धित जिल्ला प्रशासन कार्यालयबाट दलित प्रमाणित कागजातको प्रतिलिपि (यदि थर/जात नखुलेमा)',
             radioOptions: [
               {
                 label: '',
-                value: documentList.includes(MediaType.DALIT_CERTIFICATE),
+                checked: documentList.includes(MediaType.DALIT_CERTIFICATE),
               },
             ],
           },
@@ -269,7 +314,7 @@ export const generateApplicationPdf = async (
             radioOptions: [
               {
                 label: '',
-                value: documentList.includes(MediaType.TRAINING_CERTIFICATE),
+                checked: documentList.includes(MediaType.TRAINING_CERTIFICATE),
               },
             ],
           },
@@ -278,16 +323,19 @@ export const generateApplicationPdf = async (
             radioOptions: [
               {
                 label: '',
-                value: documentList.includes(MediaType.EDUCATIONAL_CERTIFICATE),
+                checked: documentList.includes(
+                  MediaType.EDUCATIONAL_CERTIFICATE
+                ),
               },
             ],
           },
           {
-            label: '६. सम्बन्धित वडा कार्यालयको सिफारिस पत्र',
+            label:
+              '६. परम्परागत पेसामा आबद्ध रही प्रविधि स्तरोन्नति आवश्यक रहेको ब्यहोरा खुल्ने सम्बन्धित वडाको सिफारिस',
             radioOptions: [
               {
                 label: '',
-                value: documentList.includes(MediaType.RECOMMENDATION_LETTER),
+                checked: documentList.includes(MediaType.RECOMMENDATION_LETTER),
               },
             ],
           },
@@ -300,8 +348,20 @@ export const generateApplicationPdf = async (
   const filePath = path.join(getTemplateFolderPath(), 'applicationForm.html')
   const template = await readTemplate(filePath)
 
+  const scheduleNum =
+    application.programType === PROGRAM_TYPE.ENTREPRENEURSHIP_DEVELOPMENT
+      ? '१'
+      : '३'
+
+  const formTitle =
+    application.programType === PROGRAM_TYPE.ENTREPRENEURSHIP_DEVELOPMENT
+      ? 'उद्यमशीलता सम्बन्धी तालिम (दफा ७ सँग सम्बन्धित)'
+      : 'प्रविधि स्तरोन्नतिको आवेदन फारम (दफा ८ सँग सम्बन्धित)'
+
   // Replace placeholders with actual data
   const filledTemplate = template
+    .replace('{{scheduleNum}}', scheduleNum)
+    .replace('{{formTitle}}', formTitle)
     .replace('{{applicationRegistrationNumber}}', applicationRegistrationNumber)
     .replace('{{applicationRegistrationDate}}', applicationRegistrationDate)
     .replace('{{applicationHtml}}', applicationHtml)

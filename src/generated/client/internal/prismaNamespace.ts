@@ -390,6 +390,7 @@ export const ModelName = {
   Application: 'Application',
   CodeCounter: 'CodeCounter',
   StatusHistory: 'StatusHistory',
+  EntrepreneurshipActivity: 'EntrepreneurshipActivity',
   Address: 'Address',
   Province: 'Province',
   District: 'District',
@@ -416,7 +417,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "media" | "applicationCycle" | "application" | "codeCounter" | "statusHistory" | "address" | "province" | "district" | "municipality" | "ward" | "sMS" | "oTP" | "resource" | "auditLog" | "bulkOperationLog" | "bulkOperationRowError"
+    modelProps: "user" | "media" | "applicationCycle" | "application" | "codeCounter" | "statusHistory" | "entrepreneurshipActivity" | "address" | "province" | "district" | "municipality" | "ward" | "sMS" | "oTP" | "resource" | "auditLog" | "bulkOperationLog" | "bulkOperationRowError"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -861,6 +862,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.StatusHistoryCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.StatusHistoryCountAggregateOutputType> | number
+        }
+      }
+    }
+    EntrepreneurshipActivity: {
+      payload: Prisma.$EntrepreneurshipActivityPayload<ExtArgs>
+      fields: Prisma.EntrepreneurshipActivityFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EntrepreneurshipActivityFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EntrepreneurshipActivityFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload>
+        }
+        findFirst: {
+          args: Prisma.EntrepreneurshipActivityFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EntrepreneurshipActivityFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload>
+        }
+        findMany: {
+          args: Prisma.EntrepreneurshipActivityFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload>[]
+        }
+        create: {
+          args: Prisma.EntrepreneurshipActivityCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload>
+        }
+        createMany: {
+          args: Prisma.EntrepreneurshipActivityCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EntrepreneurshipActivityCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload>[]
+        }
+        delete: {
+          args: Prisma.EntrepreneurshipActivityDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload>
+        }
+        update: {
+          args: Prisma.EntrepreneurshipActivityUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload>
+        }
+        deleteMany: {
+          args: Prisma.EntrepreneurshipActivityDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EntrepreneurshipActivityUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EntrepreneurshipActivityUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload>[]
+        }
+        upsert: {
+          args: Prisma.EntrepreneurshipActivityUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EntrepreneurshipActivityPayload>
+        }
+        aggregate: {
+          args: Prisma.EntrepreneurshipActivityAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEntrepreneurshipActivity>
+        }
+        groupBy: {
+          args: Prisma.EntrepreneurshipActivityGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EntrepreneurshipActivityGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EntrepreneurshipActivityCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EntrepreneurshipActivityCountAggregateOutputType> | number
         }
       }
     }
@@ -1834,6 +1909,19 @@ export const StatusHistoryScalarFieldEnum = {
 export type StatusHistoryScalarFieldEnum = (typeof StatusHistoryScalarFieldEnum)[keyof typeof StatusHistoryScalarFieldEnum]
 
 
+export const EntrepreneurshipActivityScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  nameNp: 'nameNp',
+  code: 'code',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type EntrepreneurshipActivityScalarFieldEnum = (typeof EntrepreneurshipActivityScalarFieldEnum)[keyof typeof EntrepreneurshipActivityScalarFieldEnum]
+
+
 export const AddressScalarFieldEnum = {
   id: 'id',
   provinceId: 'provinceId',
@@ -2314,6 +2402,7 @@ export type GlobalOmitConfig = {
   application?: Prisma.ApplicationOmit
   codeCounter?: Prisma.CodeCounterOmit
   statusHistory?: Prisma.StatusHistoryOmit
+  entrepreneurshipActivity?: Prisma.EntrepreneurshipActivityOmit
   address?: Prisma.AddressOmit
   province?: Prisma.ProvinceOmit
   district?: Prisma.DistrictOmit
