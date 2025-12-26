@@ -3,7 +3,6 @@ import {
   IsBoolean,
   IsEnum,
   IsNotEmpty,
-  IsNumber,
   IsOptional,
   IsString,
 } from 'class-validator'
@@ -93,7 +92,7 @@ export class ApplicationDto {
   @IsOptional()
   entrepreneurshipRelatedTraining: any[]
 
-  @IsNumber()
+  @IsOptional()
   estimatedCost: number
 
   @IsString()
