@@ -16,7 +16,6 @@ import {
 } from '../controllers/application.controller'
 import { authenticateUser, authorization } from '../middleware/auth'
 import { ROLE } from '../generated/client/client'
-import validateApplicationCycle from '../middleware/validateApplicationCycle'
 
 const router = express.Router()
 
@@ -34,11 +33,7 @@ router.use(
 router
   .route('/')
   .get(getApplications)
-  .post(
-    validateDto(ApplicationDto),
-    validateApplicationCycle,
-    createApplication
-  )
+  .post(validateDto(ApplicationDto), createApplication)
 
 router.route('/export').post(exportApplications)
 
@@ -56,10 +51,6 @@ router
   .route('/:id')
   .get(getSingleApplication)
   .delete(authorization([ROLE.SUPER_ADMIN, ROLE.SUDO_ADMIN]), deleteApplication)
-  .patch(
-    validateDto(ApplicationDto),
-    validateApplicationCycle,
-    updateApplication
-  )
+  .patch(validateDto(ApplicationDto), updateApplication)
 
 export default router

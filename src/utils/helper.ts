@@ -3,10 +3,6 @@ import { IUser } from '../interface/global.interface'
 import { BadRequestError } from '../errors'
 import fs from 'fs'
 import { ROLE } from '../generated/client/client'
-import { db } from '../db/db.server'
-import ApplicationCycleService from '../services/applicationCycle.service'
-
-const applicationCycleService = new ApplicationCycleService()
 
 export const hashPassword = async (plainPassword: string) => {
   const salt = await bcrypt.genSalt(10)
@@ -151,34 +147,6 @@ export const arrangeMembers = (members: any) => {
     return designationOrder[a.designation] - designationOrder[b.designation]
   })
   return sortedMembers
-}
-
-export const getLatestApplicationCode = async () => {
-  const { applicationCycle } = await applicationCycleService.getLatest()
-
-  if (!applicationCycle) {
-    throw new BadRequestError('No active application cycle found.')
-  }
-
-  const prevApplication = await db.application.findFirst({
-    where: {
-      applicationCycleId: applicationCycle?.id,
-      applicationCode: {
-        startsWith: 'A-',
-      },
-    },
-    orderBy: {
-      createdAt: 'desc',
-    },
-  })
-
-  if (!prevApplication || !prevApplication.applicationCode) {
-    return `A-00001`
-  }
-
-  const applicationCode = prevApplication.applicationCode.split('-')
-  const applicationSerialNumber = Number(applicationCode[1]) + 1
-  return `A-${applicationSerialNumber.toString().padStart(5, '0')}`
 }
 
 // construct address for export operation

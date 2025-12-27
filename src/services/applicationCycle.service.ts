@@ -19,7 +19,7 @@ class ApplicationCycleService {
       throw new BadRequestError('Application Cycle already exists.')
     }
 
-    const newApplicationCycle = await db.applicationCycle.create({
+    await db.applicationCycle.create({
       data: {
         name,
         startDate: new Date(startDate),
@@ -28,14 +28,21 @@ class ApplicationCycleService {
       },
     })
 
-    // Create counter for application code generation
-    await db.codeCounter.create({
-      data: {
-        prefix: 'A',
-        applicationCycleId: newApplicationCycle.id,
-        lastValue: 0,
-      },
-    })
+    // Create counter for application code generation -> create separately
+    // await db.codeCounter.createMany({
+    //   data: [
+    //     {
+    //       prefix: 'E',
+    //       applicationCycleId: newApplicationCycle.id,
+    //       lastValue: 0,
+    //     },
+    //     {
+    //       prefix: 'T',
+    //       applicationCycleId: newApplicationCycle.id,
+    //       lastValue: 0,
+    //     },
+    //   ],
+    // })
 
     return messages.created('Application Cycle')
   }

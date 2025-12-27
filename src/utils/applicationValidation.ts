@@ -14,17 +14,34 @@ export const hasPermission = (application: any, user?: TokenData) => {
 }
 
 export const validateApplicationRequest = async ({
-  userId,
+  user,
   applicationCycleId,
   programType,
 }: {
-  userId: string
+  user: TokenData | undefined
   applicationCycleId: string
   programType: PROGRAM_TYPE
 }) => {
+  if (user?.role === ROLE.USER) {
+    const applicationCycle = await db.applicationCycle.findUnique({
+      where: {
+        id: applicationCycleId,
+      },
+    })
+
+    const today = new Date()
+    const isFormOpen =
+      today >= new Date(applicationCycle?.startDate as Date) &&
+      today <= new Date(applicationCycle?.endDate as Date)
+
+    if (!isFormOpen) {
+      throw new BadRequestError('Application form is closed')
+    }
+  }
+
   const hasAlreadyApplied = await db.application.findFirst({
     where: {
-      userId,
+      userId: user?.userId,
       applicationCycleId,
       deletedAt: null,
       programType,

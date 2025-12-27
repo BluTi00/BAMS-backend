@@ -11,6 +11,10 @@ import { APPLICATION_STATUS, PROGRAM_TYPE } from '../generated/client/client'
 import { MediaDto } from './media.dto'
 
 export class ApplicationDto {
+  @IsString()
+  @IsNotEmpty()
+  applicationCycleId: string
+
   @IsOptional()
   @IsString()
   applicationCode: string

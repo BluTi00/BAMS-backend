@@ -21,12 +21,9 @@ import { buildOrderBy } from '../utils/validateSorting'
 const mediaService = new MediaService()
 
 class ApplicationService {
-  async create(
-    data: ApplicationDto,
-    user: TokenData,
-    applicationCycleId: string
-  ): Promise<any> {
+  async create(data: ApplicationDto, user: TokenData): Promise<any> {
     const {
+      applicationCycleId,
       applicationCode: rawApplicationCodeOffline,
       applicantName,
       applicantNameNp,
@@ -66,42 +63,31 @@ class ApplicationService {
 
     if (user.role === ROLE.USER) {
       await validateApplicationRequest({
-        userId: user.userId,
+        user: user,
         applicationCycleId,
         programType,
       })
     }
 
-    const prefix = 'A'
-
     const newApplication = await db.$transaction(async (tx) => {
-      let applicationCode: string = ''
+      let applicationCode = rawApplicationCodeOffline
 
       if (user.role === ROLE.USER) {
         // Atomically increment the counter
         const counter = await tx.codeCounter.update({
           where: {
-            prefix_applicationCycleId: {
-              prefix,
-              applicationCycleId,
-            },
+            applicationCycleId: applicationCycleId,
           },
           data: { lastValue: { increment: 1 } },
         })
 
-        applicationCode = `${prefix}-${counter?.lastValue
+        if (!counter) {
+          throw new BadRequestError('Code counter not found.')
+        }
+
+        applicationCode = `${counter?.prefix}-${counter?.lastValue
           .toString()
           .padStart(5, '0')}`
-      } else {
-        // normalize offline application code e.g. M1, M32, M0045 to M00001
-        applicationCode = rawApplicationCodeOffline
-          .trim()
-          .toUpperCase()
-          .replace(/^M0*/, 'M') // Replace leading M followed by zeros with M
-          .replace(/^M(\d+)$/g, (_match, p1) => {
-            const numberPart = p1.padStart(4, '0') // Pad the numeric part to 4 digits
-            return `M${numberPart}`
-          })
       }
 
       // Create the new application
@@ -207,6 +193,7 @@ class ApplicationService {
       wardId,
       attachment,
       includeDeleted,
+      programType,
     } = filters
 
     // Build the search condition
@@ -259,6 +246,10 @@ class ApplicationService {
 
     if (status) {
       searchCondition.status = status
+    }
+
+    if (programType) {
+      searchCondition.programType = programType
     }
 
     if (provinceId) {

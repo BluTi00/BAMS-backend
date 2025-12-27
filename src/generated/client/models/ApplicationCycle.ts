@@ -33,6 +33,7 @@ export type ApplicationCycleMinAggregateOutputType = {
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
+  programType: $Enums.PROGRAM_TYPE | null
 }
 
 export type ApplicationCycleMaxAggregateOutputType = {
@@ -44,6 +45,7 @@ export type ApplicationCycleMaxAggregateOutputType = {
   createdAt: Date | null
   updatedAt: Date | null
   deletedAt: Date | null
+  programType: $Enums.PROGRAM_TYPE | null
 }
 
 export type ApplicationCycleCountAggregateOutputType = {
@@ -55,6 +57,7 @@ export type ApplicationCycleCountAggregateOutputType = {
   createdAt: number
   updatedAt: number
   deletedAt: number
+  programType: number
   _all: number
 }
 
@@ -68,6 +71,7 @@ export type ApplicationCycleMinAggregateInputType = {
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
+  programType?: true
 }
 
 export type ApplicationCycleMaxAggregateInputType = {
@@ -79,6 +83,7 @@ export type ApplicationCycleMaxAggregateInputType = {
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
+  programType?: true
 }
 
 export type ApplicationCycleCountAggregateInputType = {
@@ -90,6 +95,7 @@ export type ApplicationCycleCountAggregateInputType = {
   createdAt?: true
   updatedAt?: true
   deletedAt?: true
+  programType?: true
   _all?: true
 }
 
@@ -174,6 +180,7 @@ export type ApplicationCycleGroupByOutputType = {
   createdAt: Date
   updatedAt: Date
   deletedAt: Date | null
+  programType: $Enums.PROGRAM_TYPE
   _count: ApplicationCycleCountAggregateOutputType | null
   _min: ApplicationCycleMinAggregateOutputType | null
   _max: ApplicationCycleMaxAggregateOutputType | null
@@ -206,8 +213,9 @@ export type ApplicationCycleWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"ApplicationCycle"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ApplicationCycle"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"ApplicationCycle"> | Date | string | null
+  programType?: Prisma.EnumPROGRAM_TYPEFilter<"ApplicationCycle"> | $Enums.PROGRAM_TYPE
   application?: Prisma.ApplicationListRelationFilter
-  codeCounters?: Prisma.CodeCounterListRelationFilter
+  codeCounters?: Prisma.XOR<Prisma.CodeCounterNullableScalarRelationFilter, Prisma.CodeCounterWhereInput> | null
 }
 
 export type ApplicationCycleOrderByWithRelationInput = {
@@ -219,8 +227,9 @@ export type ApplicationCycleOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  programType?: Prisma.SortOrder
   application?: Prisma.ApplicationOrderByRelationAggregateInput
-  codeCounters?: Prisma.CodeCounterOrderByRelationAggregateInput
+  codeCounters?: Prisma.CodeCounterOrderByWithRelationInput
 }
 
 export type ApplicationCycleWhereUniqueInput = Prisma.AtLeast<{
@@ -235,8 +244,9 @@ export type ApplicationCycleWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"ApplicationCycle"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ApplicationCycle"> | Date | string
   deletedAt?: Prisma.DateTimeNullableFilter<"ApplicationCycle"> | Date | string | null
+  programType?: Prisma.EnumPROGRAM_TYPEFilter<"ApplicationCycle"> | $Enums.PROGRAM_TYPE
   application?: Prisma.ApplicationListRelationFilter
-  codeCounters?: Prisma.CodeCounterListRelationFilter
+  codeCounters?: Prisma.XOR<Prisma.CodeCounterNullableScalarRelationFilter, Prisma.CodeCounterWhereInput> | null
 }, "id">
 
 export type ApplicationCycleOrderByWithAggregationInput = {
@@ -248,6 +258,7 @@ export type ApplicationCycleOrderByWithAggregationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  programType?: Prisma.SortOrder
   _count?: Prisma.ApplicationCycleCountOrderByAggregateInput
   _max?: Prisma.ApplicationCycleMaxOrderByAggregateInput
   _min?: Prisma.ApplicationCycleMinOrderByAggregateInput
@@ -265,6 +276,7 @@ export type ApplicationCycleScalarWhereWithAggregatesInput = {
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ApplicationCycle"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ApplicationCycle"> | Date | string
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ApplicationCycle"> | Date | string | null
+  programType?: Prisma.EnumPROGRAM_TYPEWithAggregatesFilter<"ApplicationCycle"> | $Enums.PROGRAM_TYPE
 }
 
 export type ApplicationCycleCreateInput = {
@@ -276,8 +288,9 @@ export type ApplicationCycleCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  programType?: $Enums.PROGRAM_TYPE
   application?: Prisma.ApplicationCreateNestedManyWithoutApplicationCycleInput
-  codeCounters?: Prisma.CodeCounterCreateNestedManyWithoutApplicationCycleInput
+  codeCounters?: Prisma.CodeCounterCreateNestedOneWithoutApplicationCycleInput
 }
 
 export type ApplicationCycleUncheckedCreateInput = {
@@ -289,8 +302,9 @@ export type ApplicationCycleUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  programType?: $Enums.PROGRAM_TYPE
   application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutApplicationCycleInput
-  codeCounters?: Prisma.CodeCounterUncheckedCreateNestedManyWithoutApplicationCycleInput
+  codeCounters?: Prisma.CodeCounterUncheckedCreateNestedOneWithoutApplicationCycleInput
 }
 
 export type ApplicationCycleUpdateInput = {
@@ -302,8 +316,9 @@ export type ApplicationCycleUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   application?: Prisma.ApplicationUpdateManyWithoutApplicationCycleNestedInput
-  codeCounters?: Prisma.CodeCounterUpdateManyWithoutApplicationCycleNestedInput
+  codeCounters?: Prisma.CodeCounterUpdateOneWithoutApplicationCycleNestedInput
 }
 
 export type ApplicationCycleUncheckedUpdateInput = {
@@ -315,8 +330,9 @@ export type ApplicationCycleUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   application?: Prisma.ApplicationUncheckedUpdateManyWithoutApplicationCycleNestedInput
-  codeCounters?: Prisma.CodeCounterUncheckedUpdateManyWithoutApplicationCycleNestedInput
+  codeCounters?: Prisma.CodeCounterUncheckedUpdateOneWithoutApplicationCycleNestedInput
 }
 
 export type ApplicationCycleCreateManyInput = {
@@ -328,6 +344,7 @@ export type ApplicationCycleCreateManyInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  programType?: $Enums.PROGRAM_TYPE
 }
 
 export type ApplicationCycleUpdateManyMutationInput = {
@@ -339,6 +356,7 @@ export type ApplicationCycleUpdateManyMutationInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
 }
 
 export type ApplicationCycleUncheckedUpdateManyInput = {
@@ -350,6 +368,7 @@ export type ApplicationCycleUncheckedUpdateManyInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
 }
 
 export type ApplicationCycleCountOrderByAggregateInput = {
@@ -361,6 +380,7 @@ export type ApplicationCycleCountOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+  programType?: Prisma.SortOrder
 }
 
 export type ApplicationCycleMaxOrderByAggregateInput = {
@@ -372,6 +392,7 @@ export type ApplicationCycleMaxOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+  programType?: Prisma.SortOrder
 }
 
 export type ApplicationCycleMinOrderByAggregateInput = {
@@ -383,6 +404,7 @@ export type ApplicationCycleMinOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+  programType?: Prisma.SortOrder
 }
 
 export type ApplicationCycleNullableScalarRelationFilter = {
@@ -393,6 +415,10 @@ export type ApplicationCycleNullableScalarRelationFilter = {
 export type ApplicationCycleScalarRelationFilter = {
   is?: Prisma.ApplicationCycleWhereInput
   isNot?: Prisma.ApplicationCycleWhereInput
+}
+
+export type EnumPROGRAM_TYPEFieldUpdateOperationsInput = {
+  set?: $Enums.PROGRAM_TYPE
 }
 
 export type ApplicationCycleCreateNestedOneWithoutApplicationInput = {
@@ -434,7 +460,8 @@ export type ApplicationCycleCreateWithoutApplicationInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  codeCounters?: Prisma.CodeCounterCreateNestedManyWithoutApplicationCycleInput
+  programType?: $Enums.PROGRAM_TYPE
+  codeCounters?: Prisma.CodeCounterCreateNestedOneWithoutApplicationCycleInput
 }
 
 export type ApplicationCycleUncheckedCreateWithoutApplicationInput = {
@@ -446,7 +473,8 @@ export type ApplicationCycleUncheckedCreateWithoutApplicationInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
-  codeCounters?: Prisma.CodeCounterUncheckedCreateNestedManyWithoutApplicationCycleInput
+  programType?: $Enums.PROGRAM_TYPE
+  codeCounters?: Prisma.CodeCounterUncheckedCreateNestedOneWithoutApplicationCycleInput
 }
 
 export type ApplicationCycleCreateOrConnectWithoutApplicationInput = {
@@ -474,7 +502,8 @@ export type ApplicationCycleUpdateWithoutApplicationInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  codeCounters?: Prisma.CodeCounterUpdateManyWithoutApplicationCycleNestedInput
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
+  codeCounters?: Prisma.CodeCounterUpdateOneWithoutApplicationCycleNestedInput
 }
 
 export type ApplicationCycleUncheckedUpdateWithoutApplicationInput = {
@@ -486,7 +515,8 @@ export type ApplicationCycleUncheckedUpdateWithoutApplicationInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  codeCounters?: Prisma.CodeCounterUncheckedUpdateManyWithoutApplicationCycleNestedInput
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
+  codeCounters?: Prisma.CodeCounterUncheckedUpdateOneWithoutApplicationCycleNestedInput
 }
 
 export type ApplicationCycleCreateWithoutCodeCountersInput = {
@@ -498,6 +528,7 @@ export type ApplicationCycleCreateWithoutCodeCountersInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  programType?: $Enums.PROGRAM_TYPE
   application?: Prisma.ApplicationCreateNestedManyWithoutApplicationCycleInput
 }
 
@@ -510,6 +541,7 @@ export type ApplicationCycleUncheckedCreateWithoutCodeCountersInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  programType?: $Enums.PROGRAM_TYPE
   application?: Prisma.ApplicationUncheckedCreateNestedManyWithoutApplicationCycleInput
 }
 
@@ -538,6 +570,7 @@ export type ApplicationCycleUpdateWithoutCodeCountersInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   application?: Prisma.ApplicationUpdateManyWithoutApplicationCycleNestedInput
 }
 
@@ -550,6 +583,7 @@ export type ApplicationCycleUncheckedUpdateWithoutCodeCountersInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  programType?: Prisma.EnumPROGRAM_TYPEFieldUpdateOperationsInput | $Enums.PROGRAM_TYPE
   application?: Prisma.ApplicationUncheckedUpdateManyWithoutApplicationCycleNestedInput
 }
 
@@ -560,12 +594,10 @@ export type ApplicationCycleUncheckedUpdateWithoutCodeCountersInput = {
 
 export type ApplicationCycleCountOutputType = {
   application: number
-  codeCounters: number
 }
 
 export type ApplicationCycleCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | ApplicationCycleCountOutputTypeCountApplicationArgs
-  codeCounters?: boolean | ApplicationCycleCountOutputTypeCountCodeCountersArgs
 }
 
 /**
@@ -585,13 +617,6 @@ export type ApplicationCycleCountOutputTypeCountApplicationArgs<ExtArgs extends 
   where?: Prisma.ApplicationWhereInput
 }
 
-/**
- * ApplicationCycleCountOutputType without action
- */
-export type ApplicationCycleCountOutputTypeCountCodeCountersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.CodeCounterWhereInput
-}
-
 
 export type ApplicationCycleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -602,6 +627,7 @@ export type ApplicationCycleSelect<ExtArgs extends runtime.Types.Extensions.Inte
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  programType?: boolean
   application?: boolean | Prisma.ApplicationCycle$applicationArgs<ExtArgs>
   codeCounters?: boolean | Prisma.ApplicationCycle$codeCountersArgs<ExtArgs>
   _count?: boolean | Prisma.ApplicationCycleCountOutputTypeDefaultArgs<ExtArgs>
@@ -616,6 +642,7 @@ export type ApplicationCycleSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  programType?: boolean
 }, ExtArgs["result"]["applicationCycle"]>
 
 export type ApplicationCycleSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -627,6 +654,7 @@ export type ApplicationCycleSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  programType?: boolean
 }, ExtArgs["result"]["applicationCycle"]>
 
 export type ApplicationCycleSelectScalar = {
@@ -638,9 +666,10 @@ export type ApplicationCycleSelectScalar = {
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
+  programType?: boolean
 }
 
-export type ApplicationCycleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "startDate" | "endDate" | "isDisabled" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["applicationCycle"]>
+export type ApplicationCycleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "startDate" | "endDate" | "isDisabled" | "createdAt" | "updatedAt" | "deletedAt" | "programType", ExtArgs["result"]["applicationCycle"]>
 export type ApplicationCycleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   application?: boolean | Prisma.ApplicationCycle$applicationArgs<ExtArgs>
   codeCounters?: boolean | Prisma.ApplicationCycle$codeCountersArgs<ExtArgs>
@@ -653,7 +682,7 @@ export type $ApplicationCyclePayload<ExtArgs extends runtime.Types.Extensions.In
   name: "ApplicationCycle"
   objects: {
     application: Prisma.$ApplicationPayload<ExtArgs>[]
-    codeCounters: Prisma.$CodeCounterPayload<ExtArgs>[]
+    codeCounters: Prisma.$CodeCounterPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -664,6 +693,7 @@ export type $ApplicationCyclePayload<ExtArgs extends runtime.Types.Extensions.In
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
+    programType: $Enums.PROGRAM_TYPE
   }, ExtArgs["result"]["applicationCycle"]>
   composites: {}
 }
@@ -1059,7 +1089,7 @@ readonly fields: ApplicationCycleFieldRefs;
 export interface Prisma__ApplicationCycleClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   application<T extends Prisma.ApplicationCycle$applicationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApplicationCycle$applicationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  codeCounters<T extends Prisma.ApplicationCycle$codeCountersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApplicationCycle$codeCountersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CodeCounterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  codeCounters<T extends Prisma.ApplicationCycle$codeCountersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApplicationCycle$codeCountersArgs<ExtArgs>>): Prisma.Prisma__CodeCounterClient<runtime.Types.Result.GetResult<Prisma.$CodeCounterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1097,6 +1127,7 @@ export interface ApplicationCycleFieldRefs {
   readonly createdAt: Prisma.FieldRef<"ApplicationCycle", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"ApplicationCycle", 'DateTime'>
   readonly deletedAt: Prisma.FieldRef<"ApplicationCycle", 'DateTime'>
+  readonly programType: Prisma.FieldRef<"ApplicationCycle", 'PROGRAM_TYPE'>
 }
     
 
@@ -1525,11 +1556,6 @@ export type ApplicationCycle$codeCountersArgs<ExtArgs extends runtime.Types.Exte
    */
   include?: Prisma.CodeCounterInclude<ExtArgs> | null
   where?: Prisma.CodeCounterWhereInput
-  orderBy?: Prisma.CodeCounterOrderByWithRelationInput | Prisma.CodeCounterOrderByWithRelationInput[]
-  cursor?: Prisma.CodeCounterWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.CodeCounterScalarFieldEnum | Prisma.CodeCounterScalarFieldEnum[]
 }
 
 /**

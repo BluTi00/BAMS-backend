@@ -34,6 +34,7 @@ const getApplications = async (req: Request, res: Response): Promise<void> => {
     attachment: req.query.attachment as string,
     includeDeleted: checkBooleanParam(req.query.includeDeleted),
     completedSteps: req.query.completedSteps as string,
+    programType: req.query.programType as string,
   }
 
   const { applications, totalCount } = await applicationService.getAll({
@@ -56,11 +57,7 @@ const createApplication = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const message = await applicationService.create(
-    req.body,
-    req?.user as any,
-    req?.applicationCycleId as string
-  )
+  const message = await applicationService.create(req.body, req?.user as any)
   res.status(StatusCodes.OK).json({ msg: message })
 }
 

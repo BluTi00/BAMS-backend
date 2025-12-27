@@ -55,7 +55,6 @@ declare global {
   namespace Express {
     interface Request {
       user: TokenData
-      applicationCycleId?: string
     }
   }
 }

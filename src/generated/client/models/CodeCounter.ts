@@ -39,6 +39,8 @@ export type CodeCounterMinAggregateOutputType = {
   prefix: string | null
   applicationCycleId: string | null
   lastValue: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type CodeCounterMaxAggregateOutputType = {
@@ -46,6 +48,8 @@ export type CodeCounterMaxAggregateOutputType = {
   prefix: string | null
   applicationCycleId: string | null
   lastValue: number | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type CodeCounterCountAggregateOutputType = {
@@ -53,6 +57,8 @@ export type CodeCounterCountAggregateOutputType = {
   prefix: number
   applicationCycleId: number
   lastValue: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -70,6 +76,8 @@ export type CodeCounterMinAggregateInputType = {
   prefix?: true
   applicationCycleId?: true
   lastValue?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type CodeCounterMaxAggregateInputType = {
@@ -77,6 +85,8 @@ export type CodeCounterMaxAggregateInputType = {
   prefix?: true
   applicationCycleId?: true
   lastValue?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type CodeCounterCountAggregateInputType = {
@@ -84,6 +94,8 @@ export type CodeCounterCountAggregateInputType = {
   prefix?: true
   applicationCycleId?: true
   lastValue?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -178,6 +190,8 @@ export type CodeCounterGroupByOutputType = {
   prefix: string
   applicationCycleId: string
   lastValue: number
+  createdAt: Date
+  updatedAt: Date
   _count: CodeCounterCountAggregateOutputType | null
   _avg: CodeCounterAvgAggregateOutputType | null
   _sum: CodeCounterSumAggregateOutputType | null
@@ -208,6 +222,8 @@ export type CodeCounterWhereInput = {
   prefix?: Prisma.StringFilter<"CodeCounter"> | string
   applicationCycleId?: Prisma.StringFilter<"CodeCounter"> | string
   lastValue?: Prisma.IntFilter<"CodeCounter"> | number
+  createdAt?: Prisma.DateTimeFilter<"CodeCounter"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"CodeCounter"> | Date | string
   applicationCycle?: Prisma.XOR<Prisma.ApplicationCycleScalarRelationFilter, Prisma.ApplicationCycleWhereInput>
 }
 
@@ -216,26 +232,31 @@ export type CodeCounterOrderByWithRelationInput = {
   prefix?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
   lastValue?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   applicationCycle?: Prisma.ApplicationCycleOrderByWithRelationInput
 }
 
 export type CodeCounterWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  prefix_applicationCycleId?: Prisma.CodeCounterPrefixApplicationCycleIdCompoundUniqueInput
+  applicationCycleId?: string
   AND?: Prisma.CodeCounterWhereInput | Prisma.CodeCounterWhereInput[]
   OR?: Prisma.CodeCounterWhereInput[]
   NOT?: Prisma.CodeCounterWhereInput | Prisma.CodeCounterWhereInput[]
   prefix?: Prisma.StringFilter<"CodeCounter"> | string
-  applicationCycleId?: Prisma.StringFilter<"CodeCounter"> | string
   lastValue?: Prisma.IntFilter<"CodeCounter"> | number
+  createdAt?: Prisma.DateTimeFilter<"CodeCounter"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"CodeCounter"> | Date | string
   applicationCycle?: Prisma.XOR<Prisma.ApplicationCycleScalarRelationFilter, Prisma.ApplicationCycleWhereInput>
-}, "id" | "prefix_applicationCycleId">
+}, "id" | "applicationCycleId">
 
 export type CodeCounterOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   prefix?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
   lastValue?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.CodeCounterCountOrderByAggregateInput
   _avg?: Prisma.CodeCounterAvgOrderByAggregateInput
   _max?: Prisma.CodeCounterMaxOrderByAggregateInput
@@ -251,12 +272,16 @@ export type CodeCounterScalarWhereWithAggregatesInput = {
   prefix?: Prisma.StringWithAggregatesFilter<"CodeCounter"> | string
   applicationCycleId?: Prisma.StringWithAggregatesFilter<"CodeCounter"> | string
   lastValue?: Prisma.IntWithAggregatesFilter<"CodeCounter"> | number
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"CodeCounter"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"CodeCounter"> | Date | string
 }
 
 export type CodeCounterCreateInput = {
   id?: string
   prefix: string
   lastValue?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
   applicationCycle: Prisma.ApplicationCycleCreateNestedOneWithoutCodeCountersInput
 }
 
@@ -265,12 +290,16 @@ export type CodeCounterUncheckedCreateInput = {
   prefix: string
   applicationCycleId: string
   lastValue?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type CodeCounterUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   prefix?: Prisma.StringFieldUpdateOperationsInput | string
   lastValue?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   applicationCycle?: Prisma.ApplicationCycleUpdateOneRequiredWithoutCodeCountersNestedInput
 }
 
@@ -279,6 +308,8 @@ export type CodeCounterUncheckedUpdateInput = {
   prefix?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCycleId?: Prisma.StringFieldUpdateOperationsInput | string
   lastValue?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CodeCounterCreateManyInput = {
@@ -286,12 +317,16 @@ export type CodeCounterCreateManyInput = {
   prefix: string
   applicationCycleId: string
   lastValue?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type CodeCounterUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   prefix?: Prisma.StringFieldUpdateOperationsInput | string
   lastValue?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CodeCounterUncheckedUpdateManyInput = {
@@ -299,21 +334,13 @@ export type CodeCounterUncheckedUpdateManyInput = {
   prefix?: Prisma.StringFieldUpdateOperationsInput | string
   applicationCycleId?: Prisma.StringFieldUpdateOperationsInput | string
   lastValue?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type CodeCounterListRelationFilter = {
-  every?: Prisma.CodeCounterWhereInput
-  some?: Prisma.CodeCounterWhereInput
-  none?: Prisma.CodeCounterWhereInput
-}
-
-export type CodeCounterOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
-}
-
-export type CodeCounterPrefixApplicationCycleIdCompoundUniqueInput = {
-  prefix: string
-  applicationCycleId: string
+export type CodeCounterNullableScalarRelationFilter = {
+  is?: Prisma.CodeCounterWhereInput | null
+  isNot?: Prisma.CodeCounterWhereInput | null
 }
 
 export type CodeCounterCountOrderByAggregateInput = {
@@ -321,6 +348,8 @@ export type CodeCounterCountOrderByAggregateInput = {
   prefix?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
   lastValue?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type CodeCounterAvgOrderByAggregateInput = {
@@ -332,6 +361,8 @@ export type CodeCounterMaxOrderByAggregateInput = {
   prefix?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
   lastValue?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type CodeCounterMinOrderByAggregateInput = {
@@ -339,64 +370,60 @@ export type CodeCounterMinOrderByAggregateInput = {
   prefix?: Prisma.SortOrder
   applicationCycleId?: Prisma.SortOrder
   lastValue?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type CodeCounterSumOrderByAggregateInput = {
   lastValue?: Prisma.SortOrder
 }
 
-export type CodeCounterCreateNestedManyWithoutApplicationCycleInput = {
-  create?: Prisma.XOR<Prisma.CodeCounterCreateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput> | Prisma.CodeCounterCreateWithoutApplicationCycleInput[] | Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput[]
-  connectOrCreate?: Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput | Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput[]
-  createMany?: Prisma.CodeCounterCreateManyApplicationCycleInputEnvelope
-  connect?: Prisma.CodeCounterWhereUniqueInput | Prisma.CodeCounterWhereUniqueInput[]
+export type CodeCounterCreateNestedOneWithoutApplicationCycleInput = {
+  create?: Prisma.XOR<Prisma.CodeCounterCreateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput>
+  connectOrCreate?: Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput
+  connect?: Prisma.CodeCounterWhereUniqueInput
 }
 
-export type CodeCounterUncheckedCreateNestedManyWithoutApplicationCycleInput = {
-  create?: Prisma.XOR<Prisma.CodeCounterCreateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput> | Prisma.CodeCounterCreateWithoutApplicationCycleInput[] | Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput[]
-  connectOrCreate?: Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput | Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput[]
-  createMany?: Prisma.CodeCounterCreateManyApplicationCycleInputEnvelope
-  connect?: Prisma.CodeCounterWhereUniqueInput | Prisma.CodeCounterWhereUniqueInput[]
+export type CodeCounterUncheckedCreateNestedOneWithoutApplicationCycleInput = {
+  create?: Prisma.XOR<Prisma.CodeCounterCreateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput>
+  connectOrCreate?: Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput
+  connect?: Prisma.CodeCounterWhereUniqueInput
 }
 
-export type CodeCounterUpdateManyWithoutApplicationCycleNestedInput = {
-  create?: Prisma.XOR<Prisma.CodeCounterCreateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput> | Prisma.CodeCounterCreateWithoutApplicationCycleInput[] | Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput[]
-  connectOrCreate?: Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput | Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput[]
-  upsert?: Prisma.CodeCounterUpsertWithWhereUniqueWithoutApplicationCycleInput | Prisma.CodeCounterUpsertWithWhereUniqueWithoutApplicationCycleInput[]
-  createMany?: Prisma.CodeCounterCreateManyApplicationCycleInputEnvelope
-  set?: Prisma.CodeCounterWhereUniqueInput | Prisma.CodeCounterWhereUniqueInput[]
-  disconnect?: Prisma.CodeCounterWhereUniqueInput | Prisma.CodeCounterWhereUniqueInput[]
-  delete?: Prisma.CodeCounterWhereUniqueInput | Prisma.CodeCounterWhereUniqueInput[]
-  connect?: Prisma.CodeCounterWhereUniqueInput | Prisma.CodeCounterWhereUniqueInput[]
-  update?: Prisma.CodeCounterUpdateWithWhereUniqueWithoutApplicationCycleInput | Prisma.CodeCounterUpdateWithWhereUniqueWithoutApplicationCycleInput[]
-  updateMany?: Prisma.CodeCounterUpdateManyWithWhereWithoutApplicationCycleInput | Prisma.CodeCounterUpdateManyWithWhereWithoutApplicationCycleInput[]
-  deleteMany?: Prisma.CodeCounterScalarWhereInput | Prisma.CodeCounterScalarWhereInput[]
+export type CodeCounterUpdateOneWithoutApplicationCycleNestedInput = {
+  create?: Prisma.XOR<Prisma.CodeCounterCreateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput>
+  connectOrCreate?: Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput
+  upsert?: Prisma.CodeCounterUpsertWithoutApplicationCycleInput
+  disconnect?: Prisma.CodeCounterWhereInput | boolean
+  delete?: Prisma.CodeCounterWhereInput | boolean
+  connect?: Prisma.CodeCounterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CodeCounterUpdateToOneWithWhereWithoutApplicationCycleInput, Prisma.CodeCounterUpdateWithoutApplicationCycleInput>, Prisma.CodeCounterUncheckedUpdateWithoutApplicationCycleInput>
 }
 
-export type CodeCounterUncheckedUpdateManyWithoutApplicationCycleNestedInput = {
-  create?: Prisma.XOR<Prisma.CodeCounterCreateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput> | Prisma.CodeCounterCreateWithoutApplicationCycleInput[] | Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput[]
-  connectOrCreate?: Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput | Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput[]
-  upsert?: Prisma.CodeCounterUpsertWithWhereUniqueWithoutApplicationCycleInput | Prisma.CodeCounterUpsertWithWhereUniqueWithoutApplicationCycleInput[]
-  createMany?: Prisma.CodeCounterCreateManyApplicationCycleInputEnvelope
-  set?: Prisma.CodeCounterWhereUniqueInput | Prisma.CodeCounterWhereUniqueInput[]
-  disconnect?: Prisma.CodeCounterWhereUniqueInput | Prisma.CodeCounterWhereUniqueInput[]
-  delete?: Prisma.CodeCounterWhereUniqueInput | Prisma.CodeCounterWhereUniqueInput[]
-  connect?: Prisma.CodeCounterWhereUniqueInput | Prisma.CodeCounterWhereUniqueInput[]
-  update?: Prisma.CodeCounterUpdateWithWhereUniqueWithoutApplicationCycleInput | Prisma.CodeCounterUpdateWithWhereUniqueWithoutApplicationCycleInput[]
-  updateMany?: Prisma.CodeCounterUpdateManyWithWhereWithoutApplicationCycleInput | Prisma.CodeCounterUpdateManyWithWhereWithoutApplicationCycleInput[]
-  deleteMany?: Prisma.CodeCounterScalarWhereInput | Prisma.CodeCounterScalarWhereInput[]
+export type CodeCounterUncheckedUpdateOneWithoutApplicationCycleNestedInput = {
+  create?: Prisma.XOR<Prisma.CodeCounterCreateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput>
+  connectOrCreate?: Prisma.CodeCounterCreateOrConnectWithoutApplicationCycleInput
+  upsert?: Prisma.CodeCounterUpsertWithoutApplicationCycleInput
+  disconnect?: Prisma.CodeCounterWhereInput | boolean
+  delete?: Prisma.CodeCounterWhereInput | boolean
+  connect?: Prisma.CodeCounterWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CodeCounterUpdateToOneWithWhereWithoutApplicationCycleInput, Prisma.CodeCounterUpdateWithoutApplicationCycleInput>, Prisma.CodeCounterUncheckedUpdateWithoutApplicationCycleInput>
 }
 
 export type CodeCounterCreateWithoutApplicationCycleInput = {
   id?: string
   prefix: string
   lastValue?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type CodeCounterUncheckedCreateWithoutApplicationCycleInput = {
   id?: string
   prefix: string
   lastValue?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type CodeCounterCreateOrConnectWithoutApplicationCycleInput = {
@@ -404,59 +431,31 @@ export type CodeCounterCreateOrConnectWithoutApplicationCycleInput = {
   create: Prisma.XOR<Prisma.CodeCounterCreateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput>
 }
 
-export type CodeCounterCreateManyApplicationCycleInputEnvelope = {
-  data: Prisma.CodeCounterCreateManyApplicationCycleInput | Prisma.CodeCounterCreateManyApplicationCycleInput[]
-  skipDuplicates?: boolean
-}
-
-export type CodeCounterUpsertWithWhereUniqueWithoutApplicationCycleInput = {
-  where: Prisma.CodeCounterWhereUniqueInput
+export type CodeCounterUpsertWithoutApplicationCycleInput = {
   update: Prisma.XOR<Prisma.CodeCounterUpdateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedUpdateWithoutApplicationCycleInput>
   create: Prisma.XOR<Prisma.CodeCounterCreateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedCreateWithoutApplicationCycleInput>
+  where?: Prisma.CodeCounterWhereInput
 }
 
-export type CodeCounterUpdateWithWhereUniqueWithoutApplicationCycleInput = {
-  where: Prisma.CodeCounterWhereUniqueInput
+export type CodeCounterUpdateToOneWithWhereWithoutApplicationCycleInput = {
+  where?: Prisma.CodeCounterWhereInput
   data: Prisma.XOR<Prisma.CodeCounterUpdateWithoutApplicationCycleInput, Prisma.CodeCounterUncheckedUpdateWithoutApplicationCycleInput>
-}
-
-export type CodeCounterUpdateManyWithWhereWithoutApplicationCycleInput = {
-  where: Prisma.CodeCounterScalarWhereInput
-  data: Prisma.XOR<Prisma.CodeCounterUpdateManyMutationInput, Prisma.CodeCounterUncheckedUpdateManyWithoutApplicationCycleInput>
-}
-
-export type CodeCounterScalarWhereInput = {
-  AND?: Prisma.CodeCounterScalarWhereInput | Prisma.CodeCounterScalarWhereInput[]
-  OR?: Prisma.CodeCounterScalarWhereInput[]
-  NOT?: Prisma.CodeCounterScalarWhereInput | Prisma.CodeCounterScalarWhereInput[]
-  id?: Prisma.StringFilter<"CodeCounter"> | string
-  prefix?: Prisma.StringFilter<"CodeCounter"> | string
-  applicationCycleId?: Prisma.StringFilter<"CodeCounter"> | string
-  lastValue?: Prisma.IntFilter<"CodeCounter"> | number
-}
-
-export type CodeCounterCreateManyApplicationCycleInput = {
-  id?: string
-  prefix: string
-  lastValue?: number
 }
 
 export type CodeCounterUpdateWithoutApplicationCycleInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   prefix?: Prisma.StringFieldUpdateOperationsInput | string
   lastValue?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type CodeCounterUncheckedUpdateWithoutApplicationCycleInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   prefix?: Prisma.StringFieldUpdateOperationsInput | string
   lastValue?: Prisma.IntFieldUpdateOperationsInput | number
-}
-
-export type CodeCounterUncheckedUpdateManyWithoutApplicationCycleInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  prefix?: Prisma.StringFieldUpdateOperationsInput | string
-  lastValue?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -466,6 +465,8 @@ export type CodeCounterSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   prefix?: boolean
   applicationCycleId?: boolean
   lastValue?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   applicationCycle?: boolean | Prisma.ApplicationCycleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["codeCounter"]>
 
@@ -474,6 +475,8 @@ export type CodeCounterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   prefix?: boolean
   applicationCycleId?: boolean
   lastValue?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   applicationCycle?: boolean | Prisma.ApplicationCycleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["codeCounter"]>
 
@@ -482,6 +485,8 @@ export type CodeCounterSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   prefix?: boolean
   applicationCycleId?: boolean
   lastValue?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   applicationCycle?: boolean | Prisma.ApplicationCycleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["codeCounter"]>
 
@@ -490,9 +495,11 @@ export type CodeCounterSelectScalar = {
   prefix?: boolean
   applicationCycleId?: boolean
   lastValue?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type CodeCounterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "prefix" | "applicationCycleId" | "lastValue", ExtArgs["result"]["codeCounter"]>
+export type CodeCounterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "prefix" | "applicationCycleId" | "lastValue" | "createdAt" | "updatedAt", ExtArgs["result"]["codeCounter"]>
 export type CodeCounterInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   applicationCycle?: boolean | Prisma.ApplicationCycleDefaultArgs<ExtArgs>
 }
@@ -513,6 +520,8 @@ export type $CodeCounterPayload<ExtArgs extends runtime.Types.Extensions.Interna
     prefix: string
     applicationCycleId: string
     lastValue: number
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["codeCounter"]>
   composites: {}
 }
@@ -941,6 +950,8 @@ export interface CodeCounterFieldRefs {
   readonly prefix: Prisma.FieldRef<"CodeCounter", 'String'>
   readonly applicationCycleId: Prisma.FieldRef<"CodeCounter", 'String'>
   readonly lastValue: Prisma.FieldRef<"CodeCounter", 'Int'>
+  readonly createdAt: Prisma.FieldRef<"CodeCounter", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"CodeCounter", 'DateTime'>
 }
     
 

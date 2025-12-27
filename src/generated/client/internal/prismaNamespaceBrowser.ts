@@ -136,7 +136,8 @@ export const ApplicationCycleScalarFieldEnum = {
   isDisabled: 'isDisabled',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt'
+  deletedAt: 'deletedAt',
+  programType: 'programType'
 } as const
 
 export type ApplicationCycleScalarFieldEnum = (typeof ApplicationCycleScalarFieldEnum)[keyof typeof ApplicationCycleScalarFieldEnum]
@@ -184,7 +185,9 @@ export const CodeCounterScalarFieldEnum = {
   id: 'id',
   prefix: 'prefix',
   applicationCycleId: 'applicationCycleId',
-  lastValue: 'lastValue'
+  lastValue: 'lastValue',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type CodeCounterScalarFieldEnum = (typeof CodeCounterScalarFieldEnum)[keyof typeof CodeCounterScalarFieldEnum]

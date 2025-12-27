@@ -1200,10 +1200,6 @@ export type ApplicationUpdateprofessionToBeUpgradedInput = {
   push?: string | string[]
 }
 
-export type EnumPROGRAM_TYPEFieldUpdateOperationsInput = {
-  set?: $Enums.PROGRAM_TYPE
-}
-
 export type IntFieldUpdateOperationsInput = {
   set?: number
   increment?: number
