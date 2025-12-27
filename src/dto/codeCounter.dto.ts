@@ -1,4 +1,11 @@
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
+import {
+  IsEnum,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator'
+import { PROGRAM_TYPE } from '../generated/client/enums'
 
 export class CodeCounterDto {
   @IsNotEmpty()
@@ -12,4 +19,7 @@ export class CodeCounterDto {
   @IsOptional()
   @IsNumber()
   lastValue: number
+
+  @IsEnum(PROGRAM_TYPE)
+  programType: PROGRAM_TYPE
 }

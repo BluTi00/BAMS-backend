@@ -76,7 +76,10 @@ class ApplicationService {
         // Atomically increment the counter
         const counter = await tx.codeCounter.update({
           where: {
-            applicationCycleId: applicationCycleId,
+            programType_applicationCycleId: {
+              applicationCycleId: applicationCycleId,
+              programType: programType,
+            },
           },
           data: { lastValue: { increment: 1 } },
         })

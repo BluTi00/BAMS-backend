@@ -7,13 +7,13 @@ import { IPaginatedRequest } from '../interface/global.interface'
 
 class CodeCounterService {
   async create(data: CodeCounterDto): Promise<string> {
-    const { prefix, applicationCycleId, lastValue } = data
+    const { prefix, applicationCycleId, lastValue, programType } = data
 
     // check if codeCounter already exists
     const isAlreadyExist = await db.codeCounter.findFirst({
       where: {
-        prefix,
         applicationCycleId,
+        programType,
       },
     })
 
@@ -26,6 +26,7 @@ class CodeCounterService {
         prefix,
         applicationCycleId,
         lastValue: lastValue || 0,
+        programType,
       },
     })
 
@@ -65,6 +66,13 @@ class CodeCounterService {
       },
       skip: (page - 1) * perPage,
       take: perPage,
+      include: {
+        applicationCycle: {
+          select: {
+            name: true,
+          },
+        },
+      },
     })
 
     return {
@@ -109,7 +117,7 @@ class CodeCounterService {
     data: CodeCounterDto
     id: string
   }): Promise<string> {
-    const { prefix, applicationCycleId, lastValue } = data
+    const { prefix, applicationCycleId, lastValue, programType } = data
 
     if (!id) {
       throw new BadRequestError('CodeCounter ID is required.')
@@ -129,7 +137,7 @@ class CodeCounterService {
     // check if codeCounter already exists
     const isAlreadyExist = await db.codeCounter.findFirst({
       where: {
-        prefix,
+        programType,
         applicationCycleId,
         NOT: {
           id: codeCounter.id,
@@ -149,6 +157,7 @@ class CodeCounterService {
         prefix,
         applicationCycleId,
         lastValue: lastValue || 0,
+        programType,
       },
     })
 

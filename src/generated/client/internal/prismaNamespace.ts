@@ -1841,8 +1841,7 @@ export const ApplicationCycleScalarFieldEnum = {
   isDisabled: 'isDisabled',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  programType: 'programType'
+  deletedAt: 'deletedAt'
 } as const
 
 export type ApplicationCycleScalarFieldEnum = (typeof ApplicationCycleScalarFieldEnum)[keyof typeof ApplicationCycleScalarFieldEnum]
@@ -1891,6 +1890,7 @@ export const CodeCounterScalarFieldEnum = {
   prefix: 'prefix',
   applicationCycleId: 'applicationCycleId',
   lastValue: 'lastValue',
+  programType: 'programType',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -2187,20 +2187,6 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
 
 
 /**
- * Reference to a field of type 'PROGRAM_TYPE'
- */
-export type EnumPROGRAM_TYPEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PROGRAM_TYPE'>
-    
-
-
-/**
- * Reference to a field of type 'PROGRAM_TYPE[]'
- */
-export type ListEnumPROGRAM_TYPEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PROGRAM_TYPE[]'>
-    
-
-
-/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -2253,6 +2239,20 @@ export type ListJsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'Json'
  */
 export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'PROGRAM_TYPE'
+ */
+export type EnumPROGRAM_TYPEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PROGRAM_TYPE'>
+    
+
+
+/**
+ * Reference to a field of type 'PROGRAM_TYPE[]'
+ */
+export type ListEnumPROGRAM_TYPEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PROGRAM_TYPE[]'>
     
 
 

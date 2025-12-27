@@ -120,11 +120,12 @@ model CodeCounter {
   prefix             String
   applicationCycleId String
   lastValue          Int              @default(0)
+  programType        PROGRAM_TYPE     @default(ENTREPRENEURSHIP_DEVELOPMENT)
   applicationCycle   ApplicationCycle @relation(fields: [applicationCycleId], references: [id], onDelete: Cascade)
   createdAt          DateTime         @default(now())
   updatedAt          DateTime         @updatedAt
 
-  @@unique([prefix, applicationCycleId])
+  @@unique([programType, applicationCycleId])
 }
 
 model StatusHistory {

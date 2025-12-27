@@ -1,4 +1,4 @@
-import { APPLICATION_STATUS, ROLE } from '../generated/client/client'
+import { PROGRAM_TYPE, ROLE } from '../generated/client/client'
 import { db } from '../db/db.server'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -61,15 +61,16 @@ export const getDashboardStatSummary = async (
     },
   })
 
-  // total application
-  const totalApplications = await db.application.count({
+  // total applications for program type: entrepreneurship development
+  const totalEDApplications = await db.application.count({
     where: {
       applicationCycleId: applicationCycle ? applicationCycle.id : undefined,
       deletedAt: null,
+      programType: PROGRAM_TYPE.ENTREPRENEURSHIP_DEVELOPMENT,
     },
   })
 
-  const todayApplications = await db.application.count({
+  const todayEDApplications = await db.application.count({
     where: {
       applicationCycleId: applicationCycle ? applicationCycle.id : undefined,
       createdAt: {
@@ -77,6 +78,27 @@ export const getDashboardStatSummary = async (
         lt: endOfTodayNepal,
       },
       deletedAt: null,
+      programType: PROGRAM_TYPE.ENTREPRENEURSHIP_DEVELOPMENT,
+    },
+  })
+  // total applications for program type: technology upgradation
+  const totalTUApplications = await db.application.count({
+    where: {
+      applicationCycleId: applicationCycle ? applicationCycle.id : undefined,
+      deletedAt: null,
+      programType: PROGRAM_TYPE.TECHNOLOGY_UPGRADATION,
+    },
+  })
+
+  const todayTUApplications = await db.application.count({
+    where: {
+      applicationCycleId: applicationCycle ? applicationCycle.id : undefined,
+      createdAt: {
+        gte: startOfTodayNepal,
+        lt: endOfTodayNepal,
+      },
+      deletedAt: null,
+      programType: PROGRAM_TYPE.TECHNOLOGY_UPGRADATION,
     },
   })
 
@@ -85,9 +107,13 @@ export const getDashboardStatSummary = async (
       total: totalUsers,
       today: usersToday,
     },
-    application: {
-      total: totalApplications,
-      today: todayApplications,
+    applicationED: {
+      total: totalEDApplications,
+      today: todayEDApplications,
+    },
+    applicationTU: {
+      total: totalTUApplications,
+      today: todayTUApplications,
     },
   }
 }
@@ -163,9 +189,10 @@ const getDailyData = async (applicationCycleId: string): Promise<any> => {
         },
       })
 
-      const totalApplications = await db.application.count({
+      const totalEDApplications = await db.application.count({
         where: {
           applicationCycleId: applicationCycle?.id,
+          programType: PROGRAM_TYPE.ENTREPRENEURSHIP_DEVELOPMENT,
           createdAt: {
             gte: startOfDayNepal,
             lt: endOfDayNepal,
@@ -174,10 +201,10 @@ const getDailyData = async (applicationCycleId: string): Promise<any> => {
         },
       })
 
-      const totalCompleted = await db.application.count({
+      const totalTUApplications = await db.application.count({
         where: {
           applicationCycleId: applicationCycle?.id,
-          status: APPLICATION_STATUS.REGISTERED,
+          programType: PROGRAM_TYPE.TECHNOLOGY_UPGRADATION,
           createdAt: {
             gte: startOfDayNepal,
             lt: endOfDayNepal,
@@ -192,8 +219,8 @@ const getDailyData = async (applicationCycleId: string): Promise<any> => {
         name: dateInBs,
         nameNp: convertText(dateInBs, 'ne'),
         totalUsers,
-        totalApplications,
-        totalCompleted,
+        totalEDApplications,
+        totalTUApplications,
       })
     }
   }
@@ -254,9 +281,10 @@ const getHourlyData = async (
     })
 
     // Fetch applications created within this hour
-    const totalApplications = await db.application.count({
+    const totalEDApplications = await db.application.count({
       where: {
         applicationCycleId: applicationCycle?.id,
+        programType: PROGRAM_TYPE.ENTREPRENEURSHIP_DEVELOPMENT,
         createdAt: {
           gte: startHour,
           lt: endHour,
@@ -266,10 +294,10 @@ const getHourlyData = async (
     })
 
     // Fetch applications under review within this hour
-    const totalCompleted = await db.application.count({
+    const totalTUApplications = await db.application.count({
       where: {
         applicationCycleId: applicationCycle?.id,
-        status: APPLICATION_STATUS.REGISTERED,
+        programType: PROGRAM_TYPE.TECHNOLOGY_UPGRADATION,
         createdAt: {
           gte: startHour,
           lt: endHour,
@@ -285,8 +313,8 @@ const getHourlyData = async (
       name: timeLabel,
       nameNp: convertText(timeLabel, 'ne'),
       totalUsers,
-      totalApplications,
-      totalCompleted,
+      totalEDApplications,
+      totalTUApplications,
     })
   }
 
