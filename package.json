@@ -16,9 +16,9 @@
     "seed:district": "ts-node-dev ./src/seed/address.seed.ts -district",
     "seed:municipality": "ts-node-dev ./src/seed/address.seed.ts -municipality",
     "seed:ward": "ts-node-dev ./src/seed/address.seed.ts -ward",
-    "seed": "yarn seed:province && yarn seed:district && yarn seed:municipality && yarn seed:ward && yarn seed:admin && yarn seed:misc",
-    "prisma:generate": "pnpm ts-node ./types/generate-types.ts && cp -r ./types/prisma-types.ts ../BAMS-frontend/src/types/prisma.types.ts",
     "seed:address": "yarn seed:province && yarn seed:district && yarn seed:municipality && yarn seed:ward",
+    "seed": "yarn seed:address && yarn seed:admin && yarn seed:misc",
+    "prisma:generate": "pnpm ts-node ./types/generate-types.ts && cp -r ./types/prisma-types.ts ../BAMS-frontend/src/types/prisma.types.ts",
     "db:push": "npx prisma db push"
   },
   "keywords": [],

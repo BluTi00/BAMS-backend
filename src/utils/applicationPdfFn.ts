@@ -71,7 +71,7 @@ export const generateApplicationPdf = async (
 
   const applicationFormData: any[] = [
     {
-      title: '(क) आवेदकको विवरण',
+      title: '(क) आवेदकको विवरण:',
       isBulletPoint: true,
       sectionData: [
         {
@@ -90,7 +90,11 @@ export const generateApplicationPdf = async (
               label: 'जिल्ला',
               value: district,
             },
-
+          ],
+        },
+        {
+          label: '',
+          group: [
             {
               label: ' गा.पा./न.पा./उ.म.न.पा./म.न.पा.',
               value: municipality,
@@ -276,10 +280,10 @@ export const generateApplicationPdf = async (
     data: [
       {
         title: '(ग) आवेदनको साथमा संलग्न गर्नुपर्ने कागजात:',
+        isNpNumbering: true,
         sectionData: [
           {
-            label:
-              '१. आवेदकको नेपाली नागरिकताको प्रमाणपत्रको प्रतिलिपि (अगाडि)',
+            label: 'आवेदकको नेपाली नागरिकताको प्रमाणपत्रको प्रतिलिपि (अगाडि)',
             radioOptions: [
               {
                 label: '',
@@ -288,8 +292,7 @@ export const generateApplicationPdf = async (
             ],
           },
           {
-            label:
-              '२. आवेदकको नेपाली नागरिकताको प्रमाणपत्रको प्रतिलिपि (पछाडि)',
+            label: 'आवेदकको नेपाली नागरिकताको प्रमाणपत्रको प्रतिलिपि (पछाडि)',
             radioOptions: [
               {
                 label: '',
@@ -300,7 +303,7 @@ export const generateApplicationPdf = async (
 
           {
             label:
-              '३. राष्ट्रिय दलित आयोग वा सम्बन्धित जिल्ला प्रशासन कार्यालयबाट दलित प्रमाणित कागजातको प्रतिलिपि (यदि थर/जात नखुलेमा)',
+              'राष्ट्रिय दलित आयोग वा सम्बन्धित जिल्ला प्रशासन कार्यालयबाट दलित प्रमाणित कागजातको प्रतिलिपि (यदि थर/जात नखुलेमा)',
             radioOptions: [
               {
                 label: '',
@@ -308,18 +311,26 @@ export const generateApplicationPdf = async (
               },
             ],
           },
+
+          ...(application.programType === PROGRAM_TYPE.TECHNOLOGY_UPGRADATION
+            ? [
+                {
+                  label:
+                    'उद्यमशीलता विकास वा सीपमुलक तालिमको प्रमाणपत्रको प्रतिलिपि (यदि भएमा)',
+                  radioOptions: [
+                    {
+                      label: '',
+                      checked: documentList.includes(
+                        MediaType.TRAINING_CERTIFICATE
+                      ),
+                    },
+                  ],
+                },
+              ]
+            : []),
+
           {
-            label:
-              '४. उद्यमशीलता विकास वा सीपमुलक तालिमको प्रमाणपत्रको प्रतिलिपि (यदि भएमा)',
-            radioOptions: [
-              {
-                label: '',
-                checked: documentList.includes(MediaType.TRAINING_CERTIFICATE),
-              },
-            ],
-          },
-          {
-            label: '५. शैक्षिक योग्यताको प्रमाण-पत्रको प्रतिलिपि (यदि भएमा)',
+            label: 'शैक्षिक योग्यताको प्रमाण-पत्रको प्रतिलिपि (यदि भएमा)',
             radioOptions: [
               {
                 label: '',
@@ -331,7 +342,7 @@ export const generateApplicationPdf = async (
           },
           {
             label:
-              '६. परम्परागत पेसामा आबद्ध रही प्रविधि स्तरोन्नति आवश्यक रहेको ब्यहोरा खुल्ने सम्बन्धित वडाको सिफारिस',
+              'परम्परागत पेसामा आबद्ध रहेको व्यहोरा खुल्ने सम्बन्धित वडा कार्यालयको सिफारिस पत्र',
             radioOptions: [
               {
                 label: '',
@@ -355,8 +366,8 @@ export const generateApplicationPdf = async (
 
   const formTitle =
     application.programType === PROGRAM_TYPE.ENTREPRENEURSHIP_DEVELOPMENT
-      ? 'उद्यमशीलता सम्बन्धी तालिम (दफा ७ सँग सम्बन्धित)'
-      : 'प्रविधि स्तरोन्नतिको आवेदन फारम (दफा ८ सँग सम्बन्धित)'
+      ? 'उद्यमशीलता सम्बन्धी तालिमका लागि आवेदन फारम'
+      : 'प्रविधि स्तरोन्नतिका लागि आवेदन फारम'
 
   // Replace placeholders with actual data
   const filledTemplate = template
