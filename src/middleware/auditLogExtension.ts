@@ -30,9 +30,9 @@ export const auditLogExtension = Prisma.defineExtension({
         }
 
         const userId = getUserId()
-        if (!userId) {
-          return query(args)
-        }
+        // if (!userId) {
+        //   return query(args)
+        // }
 
         const start = Date.now()
 
@@ -52,7 +52,7 @@ export const auditLogExtension = Prisma.defineExtension({
         }
 
         // 3️⃣ Execute the actual query
-        const result = await query(args)
+        const result: any = await query(args)
         const duration = Date.now() - start
 
         // 4️⃣ Build audit payload
@@ -60,7 +60,15 @@ export const auditLogExtension = Prisma.defineExtension({
 
         // CREATE
         if (operation === 'create') {
-          changes = result
+          changes = {}
+
+          for (const key in result) {
+            if (sensitiveKeys.includes(key)) {
+              changes[key] = { before: null, after: '****' }
+            } else {
+              changes[key] = { before: null, after: result[key] }
+            }
+          }
         }
 
         // UPDATE
@@ -96,7 +104,16 @@ export const auditLogExtension = Prisma.defineExtension({
 
         // DELETE
         else if (operation === 'delete' && oldRecord) {
-          changes = oldRecord
+          // changes = oldRecord
+          changes = {}
+
+          for (const key in oldRecord) {
+            if (sensitiveKeys.includes(key)) {
+              changes[key] = { before: '****', after: null }
+            } else {
+              changes[key] = { before: oldRecord[key], after: null }
+            }
+          }
         }
 
         // 5️⃣ Persist audit log (BASE client)
@@ -106,7 +123,7 @@ export const auditLogExtension = Prisma.defineExtension({
               model,
               recordId: String((result as any)?.id ?? oldRecord?.id),
               action: operation,
-              userId,
+              userId: userId ? userId : null,
               changes,
               duration,
             },
